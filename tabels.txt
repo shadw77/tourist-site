@@ -1,0 +1,52 @@
+Hotel
+1- rating
+2- name
+3- street 
+4- city
+5- phone
+6- email
+7- reviews
+8- images
+9- amenities
+------------------------------------------------
+Restaurent
+1- rating
+2- name
+3- street 
+4- city
+5- phone
+6- email
+7- reviews
+8- images
+------------------------------------------------
+Trips
+1- name
+2- city
+3- rating
+4- description
+5- visit_date
+6- duration
+7- cost 
+8- images
+------------------------------------------------
+Destination
+1- name
+2- images
+3- description
+4- reviews
+------------------------------------------------
+TripOrder
+1- name
+2- total price
+3- time
+------------------------------------------------
+HotelOrder
+1- name
+2- street
+3- city
+4- check in
+5- check out
+6- rooms
+7- # people
+8- total price
+------------------------------------------------
