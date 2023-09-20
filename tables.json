@@ -546,7 +546,509 @@
     }
     ],
     "Trips": [
-
+      {
+        "id": 1,
+        "name": "Desert: Super Safari By Jeep",
+        "city": "Hurghada",
+        "rating": 5,
+        "description": "Start an exhilarating desert journey that promises a day filled with adventure and cultural immersion. Your full-day escapade commences with a hotel pickup in Hurghada, setting the stage for an unforgettable experience. Prepare for an action-packed 45-minute quad biking adventure, followed by an exhilarating 15-minute ride on a spider car. The desert landscape unfolds before you, inviting exploration and excitement.",
+        "duration": 2,
+        "cost": 840,
+        "thumbnail": "https://vivaegypttravel.com/wp-content/uploads/2023/08/large_6X0A2306.JPG.webp",
+        "images": [
+          "https://vivaegypttravel.com/wp-content/uploads/2023/08/large_6X0A2306.JPG.webp",
+          "https://vivaegypttravel.com/wp-content/uploads/2023/08/1691239566_large_a2%20-%20Copy.jpg.webp",
+          "https://vivaegypttravel.com/wp-content/uploads/2023/08/1691239567_large_57%20-%20Copy.jpg.webp",
+          "https://vivaegypttravel.com/wp-content/uploads/2023/08/large_6X0A1919.JPG.webp",
+          "https://vivaegypttravel.com/wp-content/uploads/2023/08/large_IMG_7635.JPG.webp"
+        ]
+      },
+      {
+        "id": 2,
+        "name": "4-Day 3-Night Nile Cruise from Aswan to Luxor&Abu Simbel+Balloon",
+        "city": "Aswan and Luxor",
+        "rating": 5,
+        "description": "Savor the timeless experience that is a Nile cruise as you sail from Aswan to Luxor on an indulgent ship with onboard swimming pool. Feast on breakfast, lunch, dinner—and even afternoon tea—as you discover ancient Egypt’s highlights. Professional Egyptologists are on hand as you visit the temples of Philae, Kom Ombo, Edfu, Luxor, and Karnak.",
+        "duration": 4,
+        "cost": 11550,
+        "thumbnail": "https://media.tacdn.com/media/attractions-splice-spp-674x446/06/6a/ab/1b.jpg",
+        "images": [
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/06/6a/ab/1b.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/09/8f/34/dc.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/0f/d9/53/91.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/0f/db/f4/8b.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/0e/32/e9/72.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/0f/db/f5/4e.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/0e/f9/2e/df.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/0f/e7/99/0d.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/0f/fa/23/e5.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/0f/fa/23/ef.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/0f/fa/23/f1.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/0f/fa/24/db.jpg"
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Siwa Oasis",
+        "city": "Marsa Matruh",
+        "rating": 5,
+        "description": "The Siwa oasis is one of the Western Desert’s most magical areas, but it’s more than an 8-hour drive from Cairo. Say no to hellish bus journeys and yes to the comfort of your own private vehicle with rest stops, snack breaks, and a guide. Explore the Great Sand Sea by 4WD, with dune bashing, sandboarding, and a desert sunset; see salt lakes, ancient ruins, Fatnis Island, and more.",
+        "duration": 7,
+        "cost": 8100,
+        "thumbnail": "https://media.tacdn.com/media/attractions-splice-spp-674x446/0b/f7/1f/68.jpg",
+        "images": [
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/0b/f7/1f/68.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/0f/54/d9/d5.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/0b/f4/ea/55.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/0f/93/46/e9.jpg",
+          "https://www.winningparadise.com/wp-content/uploads/2023/03/Exploring-the-Hidden-Beauty-of-Siwa-Oasis-in-Egypt.jpg",
+          "https://lirp.cdn-website.com/cf150c9f/dms3rep/multi/opt/Siwa+Salt+Lake-1920w.jpg"
+        ],
+        "reviews": [
+          {
+            "user": "keanu_B",
+            "date": "Aug 2023",
+            "title": "The best Tour in Egypt!!!",
+            "comment": "One of the best experiences ever!! Highly recommend for anyone wanting to go to Siwa! You cannot miss this when you come to Egypt! We want to say big thank you to Mohammed our guide and Samir our Driver! They made the experience sooo amazing!"
+          },
+          {
+            "user": "Seungho_R",
+            "date": "Jul 2023",
+            "title": "Siwa is one of the best...",
+            "comment": "Siwa is one of the best destinations. Especially, you have to go to the salt lake Thanks to driver Ahmad, I was able to travel safely and comfortably with him."
+          },
+          {
+            "user": "Nemanja_P",
+            "date": "Jun 2023",
+            "title": "A once in a lifetime experience",
+            "comment": "We enjoyed the whole experience because that’s what this was. It wasn’t an ordinary tour. People who drove and guided us were the soul of the tour. Siwa is a gorgeous place very different to the rest of Egypt. We’ve learned a lot along the way. Ahmed was an amazing driver and both Mohammed and Abu were superb. It was such an adventure. What we did not like were some of the meals - especially breakfasts at the accommodations (the one on the first day in Cairo was soo delicious)."
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Day Tour to Giza Pyramids Memphis city Dahshur and Saqqara Pyramids",
+        "city": "Giza",
+        "rating": 5,
+        "description": "Giza Pyramids 9 Hours Tour Start at 7:30 Am, 8:00 Am, or 9:00 Am, Private Tour Includes All Pick-Up & Drop Off from Customer Location in Cairo, Entry Fees, Expert Tour Guide, Lunch at Local Restaurant, All Taxes Services, Bottle of Water And All Transfers by Private A/C Vehicles Newest Model, Tour Excludes Personal Items, Tipping, Any Optional Tours. There is the possibility of entering any of the pyramids from inside, riding a camel around of Giza pyramids or ridding the quad bike in the wide desert, or Felucca ride sailing on the Nile but all those activities can be added on in the middle of the booking process as it requires additional fees ",
+        "duration": 1,
+        "cost": 1350,
+        "thumbnail": "https://d3rr2gvhjw0wwy.cloudfront.net/uploads/activity_galleries/40287/900x600-1-50-abfa90153df72a0ae9f39b3db27de1a8.jpg",
+        "images": [
+          "https://d3rr2gvhjw0wwy.cloudfront.net/uploads/activity_galleries/40287/900x600-1-50-abfa90153df72a0ae9f39b3db27de1a8.jpg"
+        ]
+      },
+      {
+        "id": 5,
+        "name": "Alexandria Day Trip From Cairo",
+        "city": "Alexandria",
+        "rating": 5,
+        "description": "Alexandria is at least 11-12 hours round trip from Cairo so it pays to use your time effectively. Make the absolute most of those precious hours on this door-to-door tour that covers the library, the Roman Amphitheater, the corniche and harbor, the site of the lighthouse, the Citadel of Qaitbay, the Montazah Palace Gardens, Stanley Bridge, the Mosque of Abu al-Abbas al-Mursi, El Nabi Daniel Mosque and many other stops.",
+        "duration": 1,
+        "cost": 1170,
+        "thumbnail": "https://media.tacdn.com/media/attractions-splice-spp-674x446/0d/08/8a/a0.jpg",
+        "images": [
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/11/5d/5b/3b.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/0b/8f/04/70.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/0b/8f/04/71.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/0d/08/8a/6e.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/0d/08/8a/70.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/0d/08/8a/71.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/0d/08/8a/6f.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/0d/08/8a/75.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/0d/08/8a/79.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/0d/08/8a/a2.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/11/5c/c0/22.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/11/5d/5b/44.jpg"
+        ],
+        "reviews": [
+          {
+            "user": "Mariah_H",
+            "date": "Sep 2023",
+            "title": "It was a very nice trip",
+            "comment": "It was a very nice trip. The trip started 2 hours later than the start time but besides that, everything was very nice."
+          },
+          {
+            "user": "Gianni_G",
+            "date": "Sep 2023",
+            "title": "Amazing",
+            "comment": "This was an amazing trip with our even more amazing guide Karim. We saw all that Alexandria had to offer and Karim was very helpful and insightful. We highly recommend!"
+          },
+          {
+            "user": "Lissa_F",
+            "date": "Aug 2023",
+            "title": "Great time!",
+            "comment": "We had a great time with our tour guide Mohammed. Sayed. Really recommend Viator for your excursions. All guides are knowledgeable."
+          },
+          {
+            "user": "Ken_W",
+            "date": "Aug 2023",
+            "title": "Long ride",
+            "comment": "The guide Kareem was excellent and spoke extremely good english. The only down side of this tour was spending 3 hours each way in a very small van. The driver Ali was however very good indeed."
+          },
+          {
+            "user": "Nshan_K",
+            "date": "Jul 2023",
+            "title": "Amazing experience!!",
+            "comment": "It was an amazing experience. Loved every part of the trip. Our tour guide Sayyed was very knowledgeable and friendly. The drive was very smooth all throughout the way. There are so many hidden secrets and information that I discovered and couldn't have gotten it without the guide. Amazing places to visit. 10/10."
+          },
+          {
+            "user": "Andrius_P",
+            "date": "Jun 2023",
+            "title": "Great experience! Thank you!",
+            "comment": "Great time! Company went even more beyond! My wife disabled in wheelchair and so much support from pick up and during a tour! Thank you!"
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "name": "Private Day Tour To El Fayoum Oasis and Waterfalls from Cairo",
+        "city": "Fayoum",
+        "rating": 5,
+        "description": "With lush greenery, desert, and waterfalls, the Al-Fayoum (Faiyum) oasis is a fascinating area. Hit the highlights with your own Egyptologist on this private door-to-door tour that includes sandboarding, a boat trip, and a restaurant lunch, but excludes entrance fees. You’ll have the option of visiting the Valley of the Whales, then view Lake Qarun, Magic Lake, Mt. Mudarawa, and Wadi El-Rayan, home to Egypt’s only waterfalls.",
+        "duration": 1,
+        "cost": 5130,
+        "thumbnail": "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0c/0b/b5/43.jpg",
+        "images": [
+          "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0c/0b/b5/43.jpg",
+          "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0c/0b/b5/44.jpg",
+          "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0c/0b/b5/45.jpg",
+          "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0c/0b/b5/46.jpg",
+          "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0c/0b/b5/47.jpg",
+          "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0c/0b/b5/48.jpg",
+          "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0c/0b/b5/68.jpg",
+          "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0c/0b/b5/69.jpg"
+        ],
+        "reviews": [
+          {
+            "user": "Michael",
+            "date": "Aug 2023",
+            "title": "Great Day Trip!",
+            "comment": "This excursion was amazing! We went sand surfing, rode the camels, and then took a ride on the lake in a rowboat! We had Mahmoud and Mido as our driver and tour guide and they made the trip so much fun. They answered all of our questions and made sure everything was taken care of for our day."
+          },
+          {
+            "user": "Kaitlyn Bennett",
+            "date": "Aug 2023",
+            "title": "Wonderful day!",
+            "comment": "We had a wonderful day and the guide, Mido, and our driver mahmoud, were incredible! We felt very taken care of and safe. We also had great conversation about daily life in Egypt and learned so much. Can’t recommend more! If you’d go sandsurfing (so fun!) I would recommend bringing an extra pair of socks or sandals for after. The rocks are also very wet at the waterfall so a change of clothes is nice (or just be careful) "
+          },
+          {
+            "user": "Adriana S",
+            "date": "Aug 2023",
+            "title": "Great trip!",
+            "comment": "The waterfalls trip was amazing! We enjoyed Mido as our guide. You must go and see this side of the country!"
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "name": "2 Days Tour from Cairo to The White Desert from Cairo",
+        "city": "Cairo",
+        "rating": 5,
+        "description": "This trip to the white desert it's epic, we will let you to enjoy the movement through the black and white deserts is one of those experiences one never forgets. The experience of sleeping under the stars and the delicious BBQ dinner at night in desert made so far a beautiful and unique experience. ",
+        "duration": 2,
+        "cost": 3600,
+        "thumbnail": "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/b8/19/17.jpg",
+        "images": [
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvM3nB8CW9d5R5iMdg0iS5Xoqd6ed6g1A5md2vtCWibVfrRflWSejiUFX3fC6MYBNkSMw&usqp=CAU",
+          "https://images.squarespace-cdn.com/content/v1/596b2969d2b85786e6892853/1673020587029-FYJLADGCYYM2P64JGGRX/0K3A2439.jpg?format=1500w",
+          "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/10/08/a3/7c.jpg",
+          "https://d3rr2gvhjw0wwy.cloudfront.net/uploads/activity_headers/301136/2000x2000-0-70-f5c7b95c85560519da8605d6553b5959.jpg",
+          "https://www.erikastravels.com/wp-content/uploads/2020/03/White-Desert-Camping.jpg",
+          "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/22/f2/1c/92/caption.jpg?w=300&h=300&s=1"
+        ]
+      },
+      {
+        "id": 8,
+        "name": "Cairo Food Tour",
+        "city": "Cairo",
+        "rating": 5,
+        "description": "Eat your way through Cairo with this private tour, led by a professional guide. Your guide will pick you up at your hotel and take you out to visit spots that locals love. You’ll try out a range of quintessentially Egyptian dishes as you learn about Egyptian history, culture, and culinary traditions.",
+        "duration": 2,
+        "cost": 4020,
+        "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPIeKPeHRUsTvh1_DLf4ysaczgzFKtrXH0Bw&usqp=CAU",
+        "images": [
+          "https://i.pinimg.com/originals/d3/dd/03/d3dd03de2b9f44cc703d2d176c27331e.jpg",
+          "https://www.celebritycruises.com/blog/content/uploads/2022/05/egyptian-food-hero.jpg",
+          "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/83/92/76.jpg",
+          "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/83/91/0a.jpg",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZkze2VqsbHAAZ9LMUq6EpX7YZLrNc5JsPWw&usqp=CAU",
+          "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/56/7f/74/caption.jpg?w=1200&h=-1&s=1",
+          "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/83/8f/e3.jpg"
+        ],
+        "reviews": [
+          {
+            "user": "Timeka S",
+            "date": "September 2023",
+            "title": "Food tour was absolutely awesome!",
+            "comment": "Mido was great. Showed me the different flavors of local eygptian food. He was knowledgeable and had great conversation since I was a solo traveler. Will definitely come back to try new foods. He also took me to spice market. Had a great time. Abraham the driver was great as well friendly and safe driver."
+          },
+          {
+            "user": "Zain W",
+            "date": "Aug 2023",
+            "title": "BEST CAIRO FOOD TOUR",
+            "comment": "Had a great time with sugar queen love the energy entertaining showed us great food, played a game at a cafe and had some amazing authentic Egyptian food I recommend doing this as it might only be a one in a lifetime experience"
+          },
+          {
+            "user": "Sjames",
+            "date": "July 2023",
+            "title": "Amazing Food and Culture Tour!!!",
+            "comment": "Mo really was an amazing guide....very knowledgeable on Egyptian History, culture and food!! We ate at some really delicious restaurants that had local Egyptian breakfast, lunch, hookah and mint tea! Ibrahim the driver was also very good and he watched all the things I bought during the tour in his car. Both Mo and Ibrahim are amazing people and very caring for the tourists. They even played me some local Egyptian dance music in the car for me!! Yalla Habibi!! Sukran!!"
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "name": "One day trip from Cairo to Suez",
+        "city": "Suez",
+        "rating": 5,
+        "description": "Visit the Suez Canal and be back in Cairo by evening during this private, full-day excursion in Egypt. Make the two-hour drive pleasant and comfortable with private transfers in a chauffeured vehicle, with door-to-door hotel pickup and drop-off. See how the canal connects the Red and Mediterranean seas and visit the iconic Port Tewfik Memorial. Lunch and complimentary mineral water are included.",
+        "duration": 1,
+        "cost": 3420,
+        "thumbnail": "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/f8/74/b0.jpg",
+        "images": [
+          "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/f8/74/b0.jpg",
+          "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0a/99/29/3f.jpg",
+          "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0a/99/29/42.jpg"
+        ],
+        "reviews": [
+          {
+            "user": "Martin Bernhart",
+            "date": "August 2023",
+            "title": "Suez Kanal",
+            "comment": "Der Fahrer hat sich sehr um mich bemüht. Wir konnten leider aufgrund einer Militärkontrolle nicht an den Hafen in Port Said fahren, aber der Fahrer hat eine tolle Stelle gefunden, von der man einen wunderbaren Blick auf die Schiffe im Suez Kanal hatte und ganz nahe dran. Alles in allem ein tolles Erlebnis!"
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "name": "Overnight Luxor Tours by train from Cairo with Hot Air Balloon and much more",
+        "city": "Luxor",
+        "rating": 5,
+        "description": "See Luxor without the carbon cost or cash expense of a flight when you book this 2-day tour by first-class seated night train. You’ll glide above ancient monuments in a hot-air balloon, explore the Valley of the Kings and more, and sail the Nile. Your package includes transfers, train tickets, a private guide, a hotel with breakfast, and the balloon and felucca fees: entrance tickets are at your own expense.",
+        "duration": 2,
+        "cost": 10500,
+        "thumbnail": "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/03/ad/a4.jpg",
+        "images": [
+          "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/0f/03/68/cb.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/0e/32/64/91.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/09/ef/a9/3b.jpg"
+        ],
+        "reviews": [
+          {
+            "user": "Ron C",
+            "date": "Aug 2023",
+            "title": "Awesome",
+            "comment": "I had really great experience in this tour especially with our tour guide Hatem who is very knowledgeable and passionate when it comes to Egypt 🇪🇬 ancient civilization. I will recommend this tour with Hatem your going to learn a lot from him. Written August 9, 2023"
+          },
+          {
+            "user": "Nallely X",
+            "date": "Aug 2023",
+            "title": "Amazing unforgettable",
+            "comment": "Our tour with Hatem was a wonderful experience.very friendly helpful and very knowledgeable… he knows his stuff ! Learned a lot about the Egyptian history . I had an amazing time .. will be coming back"
+          }
+        ]
+      },
+      {
+        "id": 11,
+        "name": "Fabulous Private Day-Tour to Cairo’s Museums and Coptic Cairo",
+        "city": "Cairo",
+        "rating": 5,
+        "description": "Take a fabulous day to Cairo’s main museums and explore ancient artifacts and browse the Egyptian Civilization through the ages with an Egyptology guide. Visit Coptic Cairo site and marvel some of the oldest churches in Egyptian and Christian history in one day tour. This tour make you explore the Egyptian Civilization the best way possible with a professional guide. This tour is like a time machine taking you back to the different eras of the Egyptian history and you will get to see the change in culture every step of the way.",
+        "duration": 1,
+        "cost": 600,
+        "thumbnail": "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0c/0b/4c/d3.jpg",
+        "images": [
+          "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0c/0b/4c/d3.jpg",
+          "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/0e/85/c4.jpg",
+          "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/0e/2e/2b.jpg",
+          "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0c/0b/4c/d8.jpg",
+          "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0c/0b/4c/e1.jpg",
+          "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/2a/00/16.jpg"
+        ],
+        "reviews": [
+          {
+            "user": "Mark",
+            "date": "May 2023",
+            "title": "Super Cairo Tour",
+            "comment": "Sherif was the best tour guide of all that I used from different companies each day in Cairo. He was really great if you do this tour ask for Sherif he will show you the best time and you will see a beautiful insight and quality safe in-depth and fun excursion of Cairo with him. Highly recommend him. I will use him again when I’m next in Cairo. "
+          },
+          {
+            "user": "juan carlos moises",
+            "date": "Jun 2021",
+            "title": "Great tour guide Dalia Amine",
+            "comment": "A family trip to Cairo Museum and around the city .thanks to Dalia Amine PhD in archeology this trip was a great experience,full of knowledge Dalia was able to give us every detail of the great history in Egypt,highly professional and great interpersonal skills making feel at home "
+          },
+          {
+            "user": "Rami Ranjous",
+            "date": "Oct 2021",
+            "title": "Great experience",
+            "comment": "O experiență remarcabilă, cu un ghid excelent Mo'men Bebawi, am avut o excursie minunată și de neuitat cu Mo'men, am vizitat orașul Coptic din Cairo și marele muzeu național. A fost foarte informativ în ceea ce privește istoria Egiptului. Îl recomandat cu încredere dacă sunteți interesați de istorie și cultură"
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "name": "Day-Tour to the Red Sea from Cairo",
+        "city": "",
+        "rating": 5,
+        "description": "Say goodbye to the hustle and dust of Cairo and hello to the Red Sea’s golden sands on this door-to-door day trip to Ain Sukhna, a beach resort. Leave the city’s toxic traffic to your private driver and unwind. Your package includes a room for the day at a waterfront hotel, lunch in the restaurant (or on the beach), bottled water, and private round-trip hotel transfers.",
+        "duration": 2,
+        "cost": 770,
+        "thumbnail": "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/6a/d4/9b.jpg",
+        "images": [
+          "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/7c/90/fe.jpg",
+          "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/7c/91/26.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/06/75/71/d0.jpg",
+          "https://www.goway.com/media/cache/ec/0e/ec0e2d8ea12384cfb14d971e4b5575cc.jpg",
+          "https://www.travelishtours.com/uploads/images/1236816_650966741701669_3152016548232430279_n.jpg",
+          "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/25/14/93/3c/caption.jpg?w=500&h=400&s=1"
+        ],
+        "reviews": [
+          {
+            "user": "Leira C",
+            "date": "September 2023",
+            "title": "Amazing clear water in the Red Sea!",
+            "comment": "The Red Sea is amazing. We had a great experience and our guide Hakiem made it easier. He spent time with us and took nice pictures. We had a relaxing day and delicious lunch. "
+          },
+          {
+            "user": "Simon G",
+            "date": "June 2023",
+            "title": "Escape to the Sea",
+            "comment": "Great day on this trip to red sea. Our guide Hakiem was great, very helpful and we were very grateful the effort he put in so we got the most out of the day. , Be prepared it is bit of drive from Cairo, though I enjoyed seeing landscape along the way. Our driver was polite, always on time and made us feel safe."
+          }
+        ]
+      },
+      {
+        "id": 13,
+        "name": "Private Half Day in Dendera Temple",
+        "city": "Luxor",
+        "rating": 5,
+        "description": "Get off the beaten path with a private, half-day tour to Dendera to see the Temple of Hathor and its famous ceiling depiction of the zodiac with this day tour. Your Egyptologist guide will pick you up at your hotel and take you out to the temple complex at a time of your choosing, where you’ll have plenty of time to explore before returning to Luxor.",
+        "duration": 1,
+        "cost": 200,
+        "thumbnail": "https://media.tacdn.com/media/attractions-splice-spp-674x446/11/e7/04/af.jpg",
+        "images": [
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/10/7e/69/a0.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/11/e7/04/b0.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/11/e7/04/d3.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/11/c7/6f/63.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/11/e7/04/d8.jpg"
+        ]
+      },
+      {
+        "id": 14,
+        "name": "Private Tour Abu Simbel Temple",
+        "city": "Aswan",
+        "rating": 5,
+        "description": "Embark on an exclusive private tour from Aswan to the magnificent Abu Simbel Temple, a UNESCO World Heritage site, and an enduring testament to ancient Egypt's grandeur. Journey in comfort and style as our expert guide leads you to these iconic temples, originally carved into the mountainside by Pharaoh Ramses II. Marvel at the colossal statues guarding the entrance, each a symbol of his might and authority.",
+        "duration": 2,
+        "cost": 840,
+        "thumbnail": "https://media.tacdn.com/media/attractions-splice-spp-674x446/11/6f/12/3b.jpg",
+        "images": [
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/11/e7/2e/96.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/11/e7/09/5a.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/11/c9/0f/65.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/11/c7/5f/2e.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/11/c8/d4/a4.jpg"
+        ]
+      },
+      {
+        "id": 15,
+        "name": "Hot Air Balloon & Breakfast & Felucca Nile boat private",
+        "city": "Luxor",
+        "rating": 4.5,
+        "description": "Experience the pinnacle of Luxor's beauty with our exclusive Hot Air Balloon & Breakfast & Felucca Nile Boat Private tour. This extraordinary journey promises a day filled with indelible memories and awe-inspiring vistas. Start your day by ascending high above Luxor's ancient wonders in a hot air balloon. Witness the sunrise casting a golden embrace over the temples, monuments, and the lush Nile River below. This tranquil and breathtaking experience will offer you a unique perspective of Luxor's historical treasures. Following your exhilarating balloon ride, relish a delectable breakfast at a charming locale, allowing you to rejuvenate and savor the moments.",
+        "duration": 1,
+        "cost": 900,
+        "thumbnail": "https://media.tacdn.com/media/attractions-splice-spp-674x446/11/a1/65/11.jpg",
+        "images": [
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/11/c7/6c/10.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/11/f5/78/87.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/11/c7/6c/16.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/11/ab/3b/c1.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/11/c7/6c/15.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/11/f5/78/89.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/11/a1/65/21.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/11/a1/65/36.jpg"
+        ]
+      },
+      {
+        "id": 16,
+        "name": "Day Tour to Petra",
+        "city": "Sharm El Sheikh",
+        "rating": 4,
+        "description": "Experience one of the New Seven Wonders of the World in just a day and cross the Red Sea too when you book this door-to-door tour to Petra, the rock-carved city of the Nabateans. Transfer to Taba, catch the boat to Aqaba, then you will take boat to Jordan,then drive through the desert to Petra to tour the Siq, the Treasury, the Royal Tombs, and more with a guide. After lunch, repeat the journey in reverse.",
+        "duration": 1,
+        "cost": 400,
+        "thumbnail": "https://www.twowanderingsoles.com/wp-content/uploads/2022/09/IMG_3324.jpg",
+        "images": [
+          "https://i.natgeofe.com/n/69e2cf60-ad59-4d20-bdd1-dc96f40ab4e8/petra-world-heritage-jordan.jpg",
+          "https://www.colemanconcierge.com/wp-content/uploads/2023/02/Petra-the-Treasury-via-Canva.jpg"
+        ]
+      },
+      {
+        "id": 17,
+        "name": "Day Tour to Manial Palace, Nilometer and Cairo Tower",
+        "city": "Cairo",
+        "rating": 4.5,
+        "description": "Sun Pyramids Tours representative will pick you up from your hotel, to enjoy an excursion to Menial Palace where you will visit Mohamed Ali Home, Rooms, the unique Planet garden, Mummified Animal Museum, Treasury and Meeting Rooms. Then proceed to visit the Nilometer at Al Roda Island. Then visit Cairo Tower where you can take photos for the beautiful panoramic view. The Cairo Tower or El Gezira tower or (Borg Al Qahari) in Arabic language is considered one of the most prominent features of the Egyptian capital. Its partially open lattice-work design is intended to evoke a lotus plant. You will be transferred back to your hotel.",
+        "duration": 1,
+        "cost": 500,
+        "thumbnail": "https://media.tacdn.com/media/attractions-splice-spp-674x446/0a/9a/f3/82.jpg",
+        "images": [
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/0a/9a/f3/84.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/0a/9a/f3/7e.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/0e/5a/b5/d8.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/0e/5a/b6/11.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/0e/4c/c3/43.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/0e/14/7b/ff.jpg"
+        ]
+      },
+      {
+        "id": 18,
+        "name": "Snorkeling and Dolphin Watching in a Private Speedboat",
+        "city": "Hurghada",
+        "rating": 5,
+        "description": "Discover the incredible underwater world and stunning scenery of the Red Sea. Choose the private speed boat excursion to observe dolphins in their natural habitat while you sunbathe and snorkel. most travelers will have more than 80% chance to see the dolphins at the open sea!",
+        "duration": 2,
+        "cost": 700,
+        "thumbnail": "https://media.tacdn.com/media/attractions-splice-spp-674x446/10/7b/92/75.jpg",
+        "images": [
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/10/7b/93/d0.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/10/7b/92/77.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/11/58/c9/89.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/10/7b/92/7e.jpg"
+        ]
+      },
+      {
+        "id": 19,
+        "name": "Cleopatra Peeling Spa",
+        "city": "Hurghada",
+        "rating": 5,
+        "description": "Indulge in the ultimate self-care experience with our Cleopatra Peeling Plus treatment in Hurghada. This luxurious spa experience is designed to rejuvenate and pamper you, leaving you feeling refreshed and revitalized. Cleopatra Peeling Plus: Our signature Cleopatra Peeling Plus treatment is inspired by the legendary beauty rituals of the iconic Queen Cleopatra herself. This spa experience combines traditional and modern techniques to exfoliate, cleanse, and nourish your skin, promoting a radiant and youthful complexion. Benefits: This treatment is known for its skin-renewing properties, helping to reduce the appearance of blemishes, fine lines, and uneven skin tone. It leaves your skin feeling smoother, softer, and more radiant. Relaxation: As you undergo this rejuvenating experience, you'll also enjoy a sense of relaxation and well-being, making it a perfect way to unwind during your time in Hurghada.",
+        "duration": 5,
+        "cost": 16000,
+        "thumbnail": "https://media.tacdn.com/media/attractions-splice-spp-674x446/11/f5/74/80.jpg",
+        "images": [
+          "https://hare-media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/77/c5/0c.jpg"
+        ]
+      },
+      {
+        "id": 20,
+        "name": "Quad Bike Desert Safari",
+        "city": "Luxor",
+        "rating": 5,
+        "description": "Watch the sun set in the Western Desert as you ride a quad bike past desert villages, ancient sites, and gorgeous Egyptian scenery. You'll go way beyond the top tourist sites as you explore, an ideal way to get off the Luxor tourist trail and into desert during the cooler evening hours. This quad bike tour includes pickup and drop-off at hotels in Luxor, with a local guide to lead the way.",
+        "duration": 2,
+        "cost": 440,
+        "thumbnail": "https://reflectionstravel.net/images/tour/large/17-Desert-Safari-Trip-by-Quad-Bike-in-Hurghada-1051487279614.jpeg",
+        "images": [
+          "https://egypttimetravel.com/wp-content/uploads/2023/05/A-wonderful-view-of-tourists-riding-a-desert-bike-in-Egypt-safari.jpg",
+          "https://saladinotoursegypt.com/files/xlarge/1304725889-Sunset-Safari-by-Quad-Bike.jpg",
+          "https://d3rr2gvhjw0wwy.cloudfront.net/uploads/activity_headers/280564/900x600-1-50-8d5df903cab7719643a9f68ac0b5982e.jpg"
+        ]
+      }
     ],
     "Destination": [
         {
