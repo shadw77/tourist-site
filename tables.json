@@ -1,5 +1,645 @@
 {
-  "Hotel": [],
+  "Hotel": [
+    {
+       "id":1,
+       "rating":5,
+       "name" :"Egyptian Nile Cairo", 
+       "description":"All rooms at the hotel come with air conditioning, a seating area, a flat-screen TV with satellite channels, a safety deposit box and a private bathroom with a shower, a hairdryer and slippers. Rooms are equipped with a kettle, while some rooms have a kitchen with a fridge, a microwave and a toaster. At Egyptian Nile Cairo rooms are fitted with bed linen and towels",
+       "street" :"69 abdelasis street",
+       "city":"Cairo",
+       "cost":3059,
+       "stock": 20,
+       "thumbnail":"https://cf.bstatic.com/xdata/images/hotel/max1024x768/490885947.jpg?k=6fb85209dfed63ce8057c617256febc423780de858cd94919e684ed49e17bcff&o=&hp=1",
+       "reviews" :[
+               {
+               "id": 1,
+               "name": "Mahmoud",
+               "comment": "Everything is great the hotel is amazing stuff so friendly they are serving the breakfast is delicious"
+              },
+              {
+                "id": 2,
+                "name": "Mohamed",
+                "comment": "I recommend this place is anyone looking for relaxing they also offer daily tours it's was perfect high service"
+               },
+               {
+                "id": 3,
+                "name": "John",
+                "comment": "Thanks guys for every moment you maked our stay nicely and happy See you next time soon"
+               }
+            ],
+       "images":["https://cf.bstatic.com/xdata/images/hotel/max1024x768/490168687.jpg?k=c911d1e004ce4ecdb8e22a75476e36b6df232714c275aad1281c3ebb11a43d76&o=&hp=1",
+                   "https://rb.gy/72wxo","https://rb.gy/gu442",
+                 "https://cf.bstatic.com/xdata/images/hotel/max1024x768/490887357.jpg?k=b4dbdfa33791a8fca74d465d6492440f6d31bc45a50ceaf5304fd7dee36596eb&o=&hp=1"]
+    },
+    {
+      "id":2,
+      "rating":4,
+      "name" :"Hilton Cairo Heliopolis Hotel", 
+      "description":"Hilton Cairo Heliopolis Hotel features a Casino, and a hot tub. It has 3 swimming pools surrounded by a landscaped garden. WiFi is available in all rooms with charge and free in the Lobby and Restaurant",
+      "street" :"Uruba Street, Heliopolis, Heliopolis, Cairo, Egypt",
+      "city":"Cairo",
+      "cost":5716,
+      "stock": 15,
+      "thumbnail":"https://cf.bstatic.com/xdata/images/hotel/max1024x768/483730770.jpg?k=6caeb04a6f06558cb01ac205617f6b382c5dea79f7e656c41a3ea175512ee968&o=&hp=1",
+      "reviews" :[
+              {
+              "id": 1,
+              "name": "Mahmoud",
+              "comment": "Fast reactions when ask for something Super friendly staff Nice food"
+             },
+             {
+               "id": 2,
+               "name": "Jone",
+               "comment": "I recommend this place is anyone looking for relaxing they also offer daily tours it's was perfect high service"
+              },
+              {
+               "id": 3,
+               "name": "Dareen ",
+               "comment": "Breakfast provided a good variety of breakfast items to choose from. The Leonardo Restaurant was fabulous"
+              }
+           ],
+      "images":["https://cf.bstatic.com/xdata/images/hotel/max1024x768/491975454.jpg?k=1f1e63b5a1af08250ef8815a7c6ae61188bdfa4110976741ba2ba607a43eb973&o=&hp=1",
+                  "https://cf.bstatic.com/xdata/images/hotel/max1024x768/491882675.jpg?k=78e0318ade1e2e224337507f4869bdba837c09cffe5811f1ec83065cb706b547&o=&hp=1",
+                "https://cf.bstatic.com/xdata/images/hotel/max1024x768/491882641.jpg?k=daf4f017519936b122ddc2c2bf95de0ff3c34f1a1c047a88c8ebaa6a369f5ba7&o=&hp=1",
+              "https://cf.bstatic.com/xdata/images/hotel/max1024x768/491882685.jpg?k=3604f88ad4b399064b21fa74e29013fdd91b0856cb487e7a4df6c77825451f65&o=&hp=1"]
+   },
+   {
+    "id":3,
+    "rating":4.5,
+    "name" :"Novotel Cairo Airport", 
+    "description":"Guests can enjoy a workout at the on-site fitness center or a game of tennis on the court nearby. Novotel Cairo Airport also offers a business center, a 24-hour front desk and car rental.", 
+    "street" :" Cairo Airport Road, Heliopolis, 11776",
+    "city":"Cairo",
+    "cost":2100,
+    "stock": 10,
+    "thumbnail":"https://cf.bstatic.com/xdata/images/hotel/max1024x768/277751146.jpg?k=5b2c42a62e1af4ae237137c34b3e943fbade397eb61310b561c75901552abd75&o=&hp=1",
+    "reviews" :[
+            {
+            "id": 1,
+            "name": "Mahmoud",
+            "comment": "Fast reactions when ask for something Super friendly staff Nice food"
+           },
+           {
+             "id": 2,
+             "name": "Jone",
+             "comment": "I recommend this place is anyone looking for relaxing they also offer daily tours it's was perfect high service"
+            },
+            {
+             "id": 3,
+             "name": "Dareen ",
+             "comment": "Breakfast provided a good variety of breakfast items to choose from. The Leonardo Restaurant was fabulous"
+            }
+         ],
+    "images":["https://cf.bstatic.com/xdata/images/hotel/max1024x768/479953632.jpg?k=ac0564b2af4c8c3c33151d9c4299b1a8f634aa64896c93217d76b707ab660c9b&o=&hp=1",
+             "https://cf.bstatic.com/xdata/images/hotel/max1024x768/25187086.jpg?k=fd1627cecdcf9e815b122189ba11c6f7a9a3b4f8152ad6f32876753f95ec82d7&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/278183282.jpg?k=47d14989bb37d99d8ddbba48198b5d765a7294157496e4602a3c981609f792f3&o=&hp=1",
+          "https://cf.bstatic.com/xdata/images/hotel/max1024x768/278181522.jpg?k=49625c71918356c8441dc8ce4cfc779d84519db8de5f1d2bc6bf6f4329a78442&o=&hp=1"]
+   },
+   {
+    "id":4,
+    "rating":4,
+    "name" :"Iberotel Luxor", 
+    "description":"A heated pool floating on the Nile is one of the most unique features of this 4-star hotel. Overlooking the Theben Hills, Iberotel Luxor also offers a restaurant boat and rooms with private balconies",
+    "street" :"Khaled Ibn El Waleed Street, East Bank, 99999 ",
+    "city":"Luxor",
+    "cost":1355,
+    "stock": 30,
+    "thumbnail":"https://cf.bstatic.com/xdata/images/hotel/max1024x768/277751146.jpg?k=5b2c42a62e1af4ae237137c34b3e943fbade397eb61310b561c75901552abd75&o=&hp=1",
+    "reviews" :[
+            {
+            "id": 1,
+            "name": "Alice",
+            "comment": "Fast reactions when ask for something Super friendly staff Nice food"
+           },
+           {
+             "id": 2,
+             "name": "Jone",
+             "comment": "I recommend this place is anyone looking for relaxing they also offer daily tours it's was perfect high service"
+            },
+            {
+             "id": 3,
+             "name": "Dareen ",
+             "comment": "Breakfast provided a good variety of breakfast items to choose from. The Leonardo Restaurant was fabulous"
+            }
+         ],
+    "images":["https://cf.bstatic.com/xdata/images/hotel/max1024x768/333394176.jpg?k=165261c95532c4185e23f72132918ef5cac1b0f50f0de97d43c7e39e5496fd63&o=&hp=1",
+             "https://cf.bstatic.com/xdata/images/hotel/max1024x768/333397071.jpg?k=b9614839b82bbde252e32b6db1e8b122947e31de7dca3f9af61168d77e6c684e&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/333397081.jpg?k=014e1d44c48ab303677be583dee3805383162e305781deac77d72be4958e91e8&o=&hp=1",
+          "https://cf.bstatic.com/xdata/images/hotel/max1024x768/333394393.jpg?k=5b6347326fc42e8883843e65128fa15261c6b1fce8003058bc609828c81e4ed3&o=&hp=1"]
+   },
+   {
+    "id":5,
+    "rating":5,
+    "name" :"Pyramisa Hotel Luxor", 
+    "description":"A heated pool floating on the Nile is one of the most unique features of this 4-star hotel. Overlooking the Theben Hills, Iberotel Luxor also offers a restaurant boat and rooms with private balconies",
+    "street" :" Khaled Ibn El Walid Street",
+    "city":"Luxor",
+    "cost":1791,
+    "stock": 30,
+    "thumbnail":"https://cf.bstatic.com/xdata/images/hotel/max1024x768/476581584.jpg?k=f58890637be490f3c2ac308b6477fcfd39318c1645aa8955965c46e37dfe0cd6&o=&hp=1",
+    "reviews" :[
+            {
+            "id": 1,
+            "name": "Alice",
+            "comment": "Fast reactions when ask for something Super friendly staff Nice food"
+           },
+           {
+             "id": 2,
+             "name": "Jone",
+             "comment": "I recommend this place is anyone looking for relaxing they also offer daily tours it's was perfect high service"
+            },
+            {
+             "id": 3,
+             "name": "Minesh",
+             "comment": "Breakfast provided a good variety of breakfast items to choose from. The Leonardo Restaurant was fabulous"
+            }
+         ],
+    "images":["https://cf.bstatic.com/xdata/images/hotel/max1024x768/333394176.jpg?k=165261c95532c4185e23f72132918ef5cac1b0f50f0de97d43c7e39e5496fd63&o=&hp=1",
+             "https://cf.bstatic.com/xdata/images/hotel/max1024x768/333397071.jpg?k=b9614839b82bbde252e32b6db1e8b122947e31de7dca3f9af61168d77e6c684e&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/333397081.jpg?k=014e1d44c48ab303677be583dee3805383162e305781deac77d72be4958e91e8&o=&hp=1",
+          "https://cf.bstatic.com/xdata/images/hotel/max1024x768/476581729.jpg?k=fc2f87b861a378d5993106bcfbcf20dca7ef36d268d50ea4211f6d67e1dcfa21&o=&hp=1"]
+   },
+   {
+    "id":6,
+    "rating":5,
+    "name" :"Aracan Eatabe Luxor Hotel", 
+    "description":"Aracan Eatabe Luxor Hotel provides rooms that are comfortably furnished, include LCD TVs and offer views of the hotel’s garden or the Nile.",
+    "street" :" Khaled Ibn El Walid Street",
+    "city":"Luxor",
+    "cost":1891,
+    "stock": 40,
+    "thumbnail":"https://cf.bstatic.com/xdata/images/hotel/max1024x768/412030502.jpg?k=74c0f29f55de51e6fa343bb563e6dd93da5ce353e49b57ee2e743f12f41cc282&o=&hp=1",
+    "reviews" :[
+            {
+            "id": 1,
+            "name": "Alice",
+            "comment": "Fast reactions when ask for something Super friendly staff Nice food"
+           },
+           {
+             "id": 2,
+             "name": "Jone",
+             "comment": "I recommend this place is anyone looking for relaxing they also offer daily tours it's was perfect high service"
+            },
+            {
+             "id": 3,
+             "name": "Minesh",
+             "comment": "Breakfast provided a good variety of breakfast items to choose from. The Leonardo Restaurant was fabulous"
+            }
+         ],
+    "images":["https://cf.bstatic.com/xdata/images/hotel/max1024x768/333394176.jpg?k=165261c95532c4185e23f72132918ef5cac1b0f50f0de97d43c7e39e5496fd63&o=&hp=1",
+             "https://cf.bstatic.com/xdata/images/hotel/max1024x768/333397071.jpg?k=b9614839b82bbde252e32b6db1e8b122947e31de7dca3f9af61168d77e6c684e&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/333397081.jpg?k=014e1d44c48ab303677be583dee3805383162e305781deac77d72be4958e91e8&o=&hp=1",
+         "https://cf.bstatic.com/xdata/images/hotel/max1024x768/246662215.jpg?k=bd3112b0d349e6f996197dcf4861205ba4392a75cd2173b837e25d18329e9068&o=&hp=1"]
+   },
+   {
+    "id":7,
+    "rating":3.5,
+    "name" :"Dive Inn Resort", 
+    "description":"Aracan Eatabe Luxor Hotel provides rooms that are comfortably furnished, include LCD TVs and offer views of the hotel’s garden or the Nile.",
+    "street" :"34 Alferouseya Street, 46619 Sharm El Sheikh",
+    "city":"Sharm El Sheikh",
+    "cost":851,
+    "stock": 25,
+    "thumbnail":"https://cf.bstatic.com/xdata/images/hotel/max1024x768/124209271.jpg?k=f848ec75ab2f9bd1dec41d98b42e81d9afac1a5bafa2c20e991b75de95f55c60&o=&hp=1",
+    "reviews" :[
+            {
+            "id": 1,
+            "name": "Monique",
+            "comment": "A clean and friendly hotel. Very helpful staff"
+           },
+           {
+             "id": 2,
+             "name": "Jone",
+             "comment": "I recommend this place is anyone looking for relaxing they also offer daily tours it's was perfect high service"
+            },
+            {
+             "id": 3,
+             "name": "Hassan",
+             "comment": "Room was clean and cleaned daily and a bottle of water daily was a nice touch. Reception was nice on arrival"
+            }
+         ],
+    "images":["https://cf.bstatic.com/xdata/images/hotel/max1024x768/124209271.jpg?k=f848ec75ab2f9bd1dec41d98b42e81d9afac1a5bafa2c20e991b75de95f55c60&o=&hp=1",
+             "https://cf.bstatic.com/xdata/images/hotel/max1024x768/20043109.jpg?k=dc307fbe2e221d7cec79825acec16dfa2ef14a7327257a236d84936c3f45eee2&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/124209254.jpg?k=7f8da7500f45204eb7cfb49d90d048ffe0ee7bd448868d89b63892825d69f317&o=&hp=1",
+         "https://cf.bstatic.com/xdata/images/hotel/max1024x768/407254613.jpg?k=50ad78f89601e8a0d17e09dfdac0f181b5ee6aeb5a60907c31e065918fa57feb&o=&hp=1"]
+   },
+   {
+    "id":8,
+    "rating":4,
+    "name" :"Parrotel Lagoon Waterpark ResortOpens in new window", 
+    "description":"Aracan Eatabe Luxor Hotel provides rooms that are comfortably furnished, include LCD TVs and offer views of the hotel’s garden or the Nile.",
+    "street" :"NABQ BAY, approx. 8 km from the airport in Sharm El Sheikh. NABQ BAY, 46619",
+    "city":"Sharm El Sheikh",
+    "cost":2560,
+    "stock": 25,
+    "thumbnail":"https://cf.bstatic.com/xdata/images/hotel/max1024x768/439012879.jpg?k=2afb8e88a9cb8d36b2bf475be4a05346c8d78c148afc93637c144fe64b8a6553&o=&hp=1",
+    "reviews" :[
+            {
+            "id": 1,
+            "name": "Monique",
+            "comment": "A clean and friendly hotel. Very helpful staff"
+           },
+           {
+             "id": 2,
+             "name": "Jone",
+             "comment": "I recommend this place is anyone looking for relaxing they also offer daily tours it's was perfect high service"
+            },
+            {
+             "id": 3,
+             "name": "Hassan",
+             "comment": "Room was clean and cleaned daily and a bottle of water daily was a nice touch. Reception was nice on arrival"
+            }
+         ],
+    "images":["https://cf.bstatic.com/xdata/images/hotel/max1024x768/240197562.jpg?k=ce89155e1b2067c9178e4c1323be566d2aa68b86e39ae3fda0fe4808f588d38d&o=&hp=1",
+             "https://cf.bstatic.com/xdata/images/hotel/max1024x768/240198744.jpg?k=427fc99b04371de9baed49af385ffdb7aa72521f0557c1014ad1a0a8420a224f&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/439162370.jpg?k=cea69b15577b1d44bd1de7b3a4b3c168c174c2d815769203052e06c409c2f97f&o=&hp=1",
+         "https://cf.bstatic.com/xdata/images/hotel/max1024x768/419345407.jpg?k=b9932ea731a8effef174068b4499bb8a66171d66979e6f2493c9f8bae1195fb3&o=&hp=1"]
+   },
+   {
+    "id":9,
+    "rating":5,
+    "name" :"Xperience Kiroseiz ParklandOpens in new window", 
+    "description":"The hotel features 2 buffet and 1 à-la-carte restaurant, and 4 bars serving alcoholic beverages and snacks. For nighttime entertainment it offers a night club.",
+    "street" :"Peace Road, Naama Bay, 99999 Sharm El Sheikh",
+    "city":"Sharm El Sheikh",
+    "cost":2490,
+    "stock": 25,
+    "thumbnail":"https://cf.bstatic.com/xdata/images/hotel/max1024x768/174876453.jpg?k=4f84a647a3e6aee6460bbfac306405ad551ca2c5f9cb79c3728ba5ff41b17eef&o=&hp=1",
+    "reviews" :[
+            {
+            "id": 1,
+            "name": "Monique",
+            "comment": "A clean and friendly hotel. Very helpful staff"
+           },
+           {
+             "id": 2,
+             "name": "Jone",
+             "comment": "I recommend this place is anyone looking for relaxing they also offer daily tours it's was perfect high service"
+            },
+            {
+             "id": 3,
+             "name": "Hassan",
+             "comment": "Room was clean and cleaned daily and a bottle of water daily was a nice touch. Reception was nice on arrival"
+            }
+         ],
+    "images":["https://cf.bstatic.com/xdata/images/hotel/max1024x768/171080533.jpg?k=3cff382ebcbef70837f5a456397f24037115d92dae33349dc46b00f59d591513&o=&hp=1",
+             "https://cf.bstatic.com/xdata/images/hotel/max1024x768/171080451.jpg?k=a13c9ed23ae773f48f514bb0dcbadfc2c1197713e274805c517147fba0a418c5&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/174876447.jpg?k=2904d5af55fb347be39337ce98ba7fd4d544d502b8930c63481da60d7a50821e&o=&hp=1",
+         "https://cf.bstatic.com/xdata/images/hotel/max1024x768/419345407.jpg?k=b9932ea731a8effef174068b4499bb8a66171d66979e6f2493c9f8bae1195fb3&o=&hp=1"]
+   },
+   {
+    "id":10,
+    "rating":4.5,
+    "name" :"Coral Hills Resort Sharm El-SheikhOpens in new window", 
+    "description":"Guests at Coral Hills Resort Sharm El-Sheikh can sunbathe on the lounge chairs by the pool, or enjoy a relaxing afternoon under the shade of an umbrella. A hot tub, spa and fitness center are also on site.",
+    "street" :" El-Forosia Street, Sharm El Sheikh, Egypt ",
+    "city":"Sharm El Sheikh",
+    "cost":2560,
+    "stock": 25,
+    "thumbnail":"https://cf.bstatic.com/xdata/images/hotel/max1024x768/18024842.jpg?k=6e3bb6313a6b1837552571f7f266851d4a02674ab66ebff1c01d336b711a484e&o=&hp=1",
+    "reviews" :[
+            {
+            "id": 1,
+            "name": "Monique",
+            "comment": "A clean and friendly hotel. Very helpful staff"
+           },
+           {
+             "id": 2,
+             "name": "Karen",
+             "comment": "The staff were all super helpful and friendly, especially the night manager, sheriffe. The location s brilliant, we much preferred it to naama bay and in general the facilities were excellent."
+            },
+            {
+             "id": 3,
+             "name": "Hassan",
+             "comment": "Room was clean and cleaned daily and a bottle of water daily was a nice touch. Reception was nice on arrival"
+            }
+         ],
+    "images":["https://cf.bstatic.com/xdata/images/hotel/max1024x768/230246579.jpg?k=6ea56ef75745c196db5b30945d4720cf4fcacc8c35153f03b6fe07a099a90038&o=&hp=1",
+             "https://cf.bstatic.com/xdata/images/hotel/max1024x768/189281420.jpg?k=a297a4277a3b7d7a9025948ae24c90b1f53ed84a933f1e787f795c7e734339dd&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/201460321.jpg?k=1742325b2d5a71abfa13e82a47d32b1b2de026c267d86049e04d15004ba67d05&o=&hp=1",
+         "https://cf.bstatic.com/xdata/images/hotel/max1024x768/11206118.jpg?k=de3e21053eb1fbcdf1ffbb3f5027b19ad3c06449e5cf5a6ad1ef6192bff31005&o=&hp=1"]
+   },
+   {
+    "id":11,
+    "rating":5,
+    "name" :"Palma Resort Beach Suites Hurghada - Kite surf Club", 
+    "description":"Situated 500 metres from Hawaii Beach, Palma Resort Beach Suites Hurghada - Kite surf Club offers a private beach area, a rooftop pool and accommodation with a patio and free WiFi. The accommodation has a hot tub.",
+    "street" :"Hurgada, Hurghada",
+    "city":"Hurghada",
+    "cost":1112,
+    "stock": 0,
+    "thumbnail":"https://cf.bstatic.com/xdata/images/hotel/max1024x768/424495832.jpg?k=fc219a04560eaf81a39929044e54814071aa01e4bdc95fe1d38e3d29b71c470c&o=&hp=1",
+    "reviews" :[
+            {
+            "id": 1,
+            "name": "Monique",
+            "comment": "A clean and friendly hotel. Very helpful staff"
+           },
+           {
+             "id": 2,
+             "name": "Karen",
+             "comment": "The staff were all super helpful and friendly, especially the night manager, sheriffe. The location s brilliant, we much preferred it to naama bay and in general the facilities were excellent."
+            },
+            {
+             "id": 3,
+             "name": "Hassan",
+             "comment": "Room was clean and cleaned daily and a bottle of water daily was a nice touch. Reception was nice on arrival"
+            }
+         ],
+    "images":["https://cf.bstatic.com/xdata/images/hotel/max1024x768/424492134.jpg?k=1c698ad03a3a3caa4656ec695981031b73a4afd8b129ef296424ab4762c3bb10&o=&hp=1",
+             "https://cf.bstatic.com/xdata/images/hotel/max1024x768/424492138.jpg?k=964b7dbd09a7ab9766e564e42b69b2c93c004c08f794dfa212f8c1ed5ddf0714&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/424492147.jpg?k=4be7d4c0b781aedf2a04d567d34a28cf223134fb187eec6719eba8d07c5bb93f&o=&hp=1",
+         "https://cf.bstatic.com/xdata/images/hotel/max1024x768/424863671.jpg?k=2fb9a1733f060f61fccae1ca4904a2808f456b60d211a5727359d07c2c806916&o=&hp=1"]
+   },
+   {
+    "id":12,
+    "rating":5,
+    "name" :"Solymar Ivory Suites", 
+    "description":"Situated 500 metres from Hawaii Beach, Palma Resort Beach Suites Hurghada - Kite surf Club offers a private beach area, a rooftop pool and accommodation with a patio and free WiFi. The accommodation has a hot tub.",
+    "street" :" El Kawsar District, 99999 Hurghada",
+    "city":"Hurghada",
+    "cost":750,
+    "stock": 10,
+    "thumbnail":"https://cf.bstatic.com/xdata/images/hotel/max1024x768/273570603.jpg?k=2aac88951e608417ffb5a477a729c2f7dd78ba8844f37f07fcf7788f2abadc2b&o=&hp=1",
+    "reviews" :[
+            {
+            "id": 1,
+            "name": "Monique",
+            "comment": "A clean and friendly hotel. Very helpful staff"
+           },
+           {
+             "id": 2,
+             "name": "Karen",
+             "comment": "The staff were all super helpful and friendly, especially the night manager, sheriffe. The location s brilliant, we much preferred it to naama bay and in general the facilities were excellent."
+            },
+            {
+             "id": 3,
+             "name": "Hassan",
+             "comment": "Room was clean and cleaned daily and a bottle of water daily was a nice touch. Reception was nice on arrival"
+            }
+         ],
+    "images":["https://cf.bstatic.com/xdata/images/hotel/max1024x768/273575564.jpg?k=5f6fb7e7fa591e36bd6cabd3462375b396c42c78b73a2dc5e2be98babc40b298&o=&hp=1",
+             "https://cf.bstatic.com/xdata/images/hotel/max1024x768/273575984.jpg?k=372373a228218203d30cb69aecc1622fcb65126c2d13eec8009a5387f4f9acec&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/273570603.jpg?k=2aac88951e608417ffb5a477a729c2f7dd78ba8844f37f07fcf7788f2abadc2b&o=&hp=1",
+         "https://cf.bstatic.com/xdata/images/hotel/max1024x768/39468657.jpg?k=35677bba57d124b2d7d882f4c2c99f5d634c12c9a8902339530f80315b5f9247&o=&hp=1"]
+   },
+   {
+    "id":13,
+    "rating":5,
+    "name" :"Bel Air Azur Resort", 
+    "description":"Situated 500 metres from Hawaii Beach, Palma Resort Beach Suites Hurghada - Kite surf Club offers a private beach area, a rooftop pool and accommodation with a patio and free WiFi. The accommodation has a hot tub.",
+    "street" :" El Cornich Road, Sekala, Hurghada, Egypt",
+    "city":"Hurghada",
+    "cost":3300,
+    "stock": 30,
+    "thumbnail":"https://cf.bstatic.com/xdata/images/hotel/max1024x768/155448741.jpg?k=4e2962355cfad62459cc2b8511babcd10d2f4f85a996ebca451cd21dc7365f41&o=&hp=1",
+    "reviews" :[
+            {
+            "id": 1,
+            "name": "Monique",
+            "comment": "A clean and friendly hotel. Very helpful staff"
+           },
+           {
+             "id": 2,
+             "name": "Cristina ",
+             "comment": "Everything was very clean, and the staff was very friendly, professional, welcoming, and helpful. The facilities were good, beautiful swimming pool. They have entertainment and delicious food"
+            },
+            {
+             "id": 3,
+             "name": "Donna ",
+             "comment": "I would highly recommend this property. From the minute I arrived to the minute I left was wonderful, we only had a three night stay could have stayed longer"
+            }
+         ],
+    "images":["https://cf.bstatic.com/xdata/images/hotel/max1024x768/155448741.jpg?k=4e2962355cfad62459cc2b8511babcd10d2f4f85a996ebca451cd21dc7365f41&o=&hp=1",
+             "https://cf.bstatic.com/xdata/images/hotel/max1024x768/159836945.jpg?k=33f7f0f9a24e9222e8b1242f032ee848bd6ae1f3bef1ab8fd87d10fe95afad92&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/159832926.jpg?k=74aa1f15961de164c36705cc1df0f6263b3c633271cc24d8d15f0fc44330fa93&o=&hp=1",
+         "https://cf.bstatic.com/xdata/images/hotel/max1024x768/436344687.jpg?k=5a6648db55535763ed88060dd0db741c74e3f71f743cee62a2caae671c073d5d&o=&hp=1"]
+   },
+   {
+    "id":14,
+    "rating":4.5,
+    "name" :"Golden Heights Aqua Park Dahab", 
+    "description":"Situated 500 metres from Hawaii Beach, Palma Resort Beach Suites Hurghada - Kite surf Club offers a private beach area, a rooftop pool and accommodation with a patio and free WiFi. The accommodation has a hot tub.",
+    "street" :"Blue Hole Road, 46617 Dahab",
+    "city":"Dahab",
+    "cost":1669,
+    "stock": 40,
+    "thumbnail":"https://cf.bstatic.com/xdata/images/hotel/max1024x768/302807346.jpg?k=486261898328f83848e6755856e8813ae9d129d68f677b06745f025af48fbd34&o=&hp=1",
+    "reviews" :[
+            {
+            "id": 1,
+            "name": "Monique",
+            "comment": "A clean and friendly hotel. Very helpful staff"
+           },
+           {
+             "id": 2,
+             "name": "Cristina ",
+             "comment": "Everything was very clean, and the staff was very friendly, professional, welcoming, and helpful. The facilities were good, beautiful swimming pool. They have entertainment and delicious food"
+            },
+            {
+             "id": 3,
+             "name": "Donna ",
+             "comment": "I would highly recommend this property. From the minute I arrived to the minute I left was wonderful, we only had a three night stay could have stayed longer"
+            }
+         ],
+    "images":["https://cf.bstatic.com/xdata/images/hotel/max1024x768/302807346.jpg?k=486261898328f83848e6755856e8813ae9d129d68f677b06745f025af48fbd34&o=&hp=1",
+             "https://cf.bstatic.com/xdata/images/hotel/max1024x768/361326451.jpg?k=8ec06f080622840416fff9eee07cb2ccd6a74baf4bb03a2a4f92b35877a6114e&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/261561227.jpg?k=32780a9ec937bede933613056b8c1aea7110241d0288c6b694a49ce674745e55&o=&hp=1",
+         "https://cf.bstatic.com/xdata/images/hotel/max1024x768/264757778.jpg?k=375bf3257a1d0ab7aefc0e439647fa5dd01e9ca7b1c255ff2964d0d0a1c43465&o=&hp=1"]
+   },
+   {
+    "id":15,
+    "rating":5,
+    "name" :"Tropitel Dahab Oasis", 
+    "description":"The 4-star Tropitel Dahab Oasis is located on the coast of Aqaba Gulf. The hotel has its own private beach, an outdoor swimming pool heated during winter and a diving centre overlooking the Blue Hole diving spot.",
+    "street" :"Blue Hole Road, Dahab,",
+    "city":"Dahab",
+    "cost":2209,
+    "stock": 5,
+    "thumbnail":"https://cf.bstatic.com/xdata/images/hotel/max1024x768/39245097.jpg?k=57c50022d4743b43ea68a1ce6e19bc43ab7fb30c3e9b5724928a83807a7267b9&o=&hp=1",
+    "reviews" :[
+            {
+            "id": 1,
+            "name": "Monique",
+            "comment": "A clean and friendly hotel. Very helpful staff"
+           },
+           {
+             "id": 2,
+             "name": "Cristina ",
+             "comment": "Everything was very clean, and the staff was very friendly, professional, welcoming, and helpful. The facilities were good, beautiful swimming pool. They have entertainment and delicious food"
+            },
+            {
+             "id": 3,
+             "name": "Donna ",
+             "comment": "I would highly recommend this property. From the minute I arrived to the minute I left was wonderful, we only had a three night stay could have stayed longer"
+            }
+         ],
+    "images":["https://cf.bstatic.com/xdata/images/hotel/max1024x768/39245097.jpg?k=57c50022d4743b43ea68a1ce6e19bc43ab7fb30c3e9b5724928a83807a7267b9&o=&hp=1",
+             "https://cf.bstatic.com/xdata/images/hotel/max1024x768/39245986.jpg?k=12cd111c74258548febf227fdc76713df23ce63bf6971b436b32c48d27dc56f7&o=&hp=1",
+             "https://cf.bstatic.com/xdata/images/hotel/max1024x768/39246508.jpg?k=42ba62db3039f8c608f32295341fff15db7576524f0b76758e03d1790c9700e3&o=&hp=1",
+         "https://cf.bstatic.com/xdata/images/hotel/max1024x768/40342593.jpg?k=bb27c63a1e1447718975b5a02697b017ac4bfeadf06b00a3708482268aa37b88&o=&hp=1"]
+   },
+   {
+    "id":16,
+    "rating":5,
+    "name" :"Blue Beach Club", 
+    "description":"The air-conditioned rooms at Blue Beach Club feature Oriental décor and a modern private bathroom. Each unit is elegantly decorated and has a private balcony or a terrace.",
+    "street" :"El Melal Street, 99999 Dahab",
+    "city":"Dahab",
+    "cost":1800,
+    "stock": 18,
+    "thumbnail":"https://cf.bstatic.com/xdata/images/hotel/max1024x768/6874499.jpg?k=f2dcbb9e2255cf02e1d1c9c1699a70a6d49c3808cc111ae32d929d46a47c54b3&o=&hp=1",
+    "reviews" :[
+            {
+            "id": 1,
+            "name": "Monique",
+            "comment": "Nice location near the beach and city center. Friendly staff"
+           },
+           {
+             "id": 2,
+             "name": "Cristina ",
+             "comment": "Everything was very clean, and the staff was very friendly, professional, welcoming, and helpful. The facilities were good, beautiful swimming pool. They have entertainment and delicious food"
+            },
+            {
+             "id": 3,
+             "name": "Donna ",
+             "comment": "I would highly recommend this property. From the minute I arrived to the minute I left was wonderful, we only had a three night stay could have stayed longer"
+            }
+         ],
+    "images":["https://cf.bstatic.com/xdata/images/hotel/max1024x768/252879798.jpg?k=f4775d7ae0ddaf9d06b3230819232077ca34ad73c90aadc3cc0762f9238c63ba&o=&hp=1",
+             "https://cf.bstatic.com/xdata/images/hotel/max1024x768/39245986.jpg?k=12cd111c74258548febf227fdc76713df23ce63bf6971b436b32c48d27dc56f7&o=&hp=1",
+             "https://cf.bstatic.com/xdata/images/hotel/max1024x768/39246508.jpg?k=42ba62db3039f8c608f32295341fff15db7576524f0b76758e03d1790c9700e3&o=&hp=1",
+         "https://cf.bstatic.com/xdata/images/hotel/max1024x768/40342593.jpg?k=bb27c63a1e1447718975b5a02697b017ac4bfeadf06b00a3708482268aa37b88&o=&hp=1"]
+   },
+   {
+    "id":17,
+    "rating":5,
+    "name" :"Golden Hoster Hotel, Alex", 
+    "description":"Guest rooms are equipped with air conditioning, a flat-screen TV with satellite channels, a microwave, a kettle, a shower, free toiletries and a desk. With a private bathroom, rooms at the hotel also offer a city view. At HI Alexandria Apartments, each room comes with a seating area.",
+    "street" :"123 Hole Road, Alex,",
+    "city":"Alex",
+    "cost":2209,
+    "stock": 5,
+    "thumbnail":"https://cf.bstatic.com/xdata/images/hotel/max1024x768/39245097.jpg?k=57c50022d4743b43ea68a1ce6e19bc43ab7fb30c3e9b5724928a83807a7267b9&o=&hp=1",
+    "reviews" :[
+            {
+            "id": 1,
+            "name": "Monique",
+            "comment": "A clean and friendly hotel. Very helpful staff"
+           },
+           {
+             "id": 2,
+             "name": "Cristina ",
+             "comment": "Everything was very clean, and the staff was very friendly, professional, welcoming, and helpful. The facilities were good, beautiful swimming pool. They have entertainment and delicious food"
+            },
+            {
+             "id": 3,
+             "name": "Donna ",
+             "comment": "I would highly recommend this property. From the minute I arrived to the minute I left was wonderful, we only had a three night stay could have stayed longer"
+            }
+         ],
+    "images":["https://cf.bstatic.com/xdata/images/hotel/max1024x768/39245097.jpg?k=57c50022d4743b43ea68a1ce6e19bc43ab7fb30c3e9b5724928a83807a7267b9&o=&hp=1",
+             "https://cf.bstatic.com/xdata/images/hotel/max1024x768/39245986.jpg?k=12cd111c74258548febf227fdc76713df23ce63bf6971b436b32c48d27dc56f7&o=&hp=1",
+             "https://cf.bstatic.com/xdata/images/hotel/max1024x768/479010562.jpg?k=014aa3551d11eaf2637e608bdb0b2a708869b008e0559a2d79c4c0390c00dd92&o=&hp=1",
+         "https://cf.bstatic.com/xdata/images/hotel/max1024x768/478882921.jpg?k=3f1f940a9b00c750fdba652b04a23a920a99e7d3fd69aaaeb29aafc991bf56be&o=&hp=1"]
+   },
+   {
+    "id":18,
+    "rating":4,
+    "name" :"Tanoak Resort", 
+    "description":"The 4-star Tropitel Dahab Oasis is located on the coast of Aqaba Gulf. The hotel has its own private beach, an outdoor swimming pool heated during winter and a diving centre overlooking the Blue Hole diving spot.",
+    "street" :"Azha Resort, Ain Sokhna 34 Km – Suez-Hurghada Road – Red Sea",
+    "city":"Ain Sokhna",
+    "cost":2809,
+    "stock": 5,
+    "thumbnail":"https://cf.bstatic.com/xdata/images/hotel/max1024x768/308549500.jpg?k=0bb76d22e8aa698ce8552157a2a88427b2d23e40df3fd1fbafed4bffd1016f13&o=&hp=1",
+    "reviews" :[
+            {
+            "id": 1,
+            "name": "Monique",
+            "comment": "A clean and friendly hotel. Very helpful staff"
+           },
+           {
+             "id": 2,
+             "name": "Cristina ",
+             "comment": "Everything was very clean, and the staff was very friendly, professional, welcoming, and helpful. The facilities were good, beautiful swimming pool. They have entertainment and delicious food"
+            },
+            {
+             "id": 3,
+             "name": "Donna ",
+             "comment": "I would highly recommend this property. From the minute I arrived to the minute I left was wonderful, we only had a three night stay could have stayed longer"
+            }
+         ],
+    "images":["https://cf.bstatic.com/xdata/images/hotel/max1024x768/308549179.jpg?k=0c3f18bef1d8c2358b3569f266febbcbb4a97216795dc635b0615ed381eecaa6&o=&hp=1",
+             "https://cf.bstatic.com/xdata/images/hotel/max1024x768/308546697.jpg?k=65d5acad04bb8b92eac953ad5bcb93044e0152de1d5e5fb3f4aa96aa69279c79&o=&hp=1",
+             "https://cf.bstatic.com/xdata/images/hotel/max1024x768/323463737.jpg?k=ed7484a6819b589414572d8f2aba5ab0013e86ad48d6d29a245a31607d7edda5&o=&hp=1",
+         "https://cf.bstatic.com/xdata/images/hotel/max1024x768/308540956.jpg?k=8388aed6cf946156001ed8523953179e4a91ba036206e1ad9c6454acf74986de&o=&hp=1"]
+   },
+   {
+    "id":19,
+    "rating":4,
+    "name" :"Swiss Inn Teda Hotel & Aqua Park", 
+    "description":"The Teda Swiss Inn Plaza Hotel is set amidst lush gardens at the entrance of Chinese- Egyptian Economic Zone. Guests can make use of the free WiFi in the entire hotel, the pool and the 24-hour room service.",
+    "street" :"North West Gulf of Suez, Economic Sector ,",
+    "city":"Ain Sokhna",
+    "cost":1900,
+    "stock": 2,
+    "thumbnail":"https://cf.bstatic.com/xdata/images/hotel/max1024x768/49182302.jpg?k=6f7f60da2e66b3dfe8ce65b15239bd16b397346f5d900de6969ca91923381c22&o=&hp=1",
+    "reviews" :[
+            {
+            "id": 1,
+            "name": "Monique",
+            "comment": "A clean and friendly hotel. Very helpful staff"
+           },
+           {
+             "id": 2,
+             "name": "Cristina ",
+             "comment": "Everything was very clean, and the staff was very friendly, professional, welcoming, and helpful. The facilities were good, beautiful swimming pool. They have entertainment and delicious food"
+            },
+            {
+             "id": 3,
+             "name": "Donna ",
+             "comment": "I would highly recommend this property. From the minute I arrived to the minute I left was wonderful, we only had a three night stay could have stayed longer"
+            }
+         ],
+    "images":["https://cf.bstatic.com/xdata/images/hotel/max1024x768/49182302.jpg?k=6f7f60da2e66b3dfe8ce65b15239bd16b397346f5d900de6969ca91923381c22&o=&hp=1",
+             "https://cf.bstatic.com/xdata/images/hotel/max1024x768/49181312.jpg?k=173882fd3f0581d37226bd86e1273d3d209ffd2f1e0e14b9a9b598c597b209a3&o=&hp=1",
+             "https://cf.bstatic.com/xdata/images/hotel/max1024x768/49181253.jpg?k=4f4b5bf44d9ad3312a84521a7838f8cee715c1af8afd60f53bb6d8d8f8c232ff&o=&hp=1",
+         "https://cf.bstatic.com/xdata/images/hotel/max1024x768/49181744.jpg?k=e50c0fe540e67cf25a82b3b7129e114a40c8b5825c60a940c23981b48dce295b&o=&hp=1"]
+   },
+   {
+    "id":20,
+    "rating":5,
+    "name" :"Porto El Jabal Hotel", 
+    "description":"At the hotel the rooms come with air conditioning, a desk, a flat-screen TV, a private bathroom, bed linen, towels and a terrace with a sea view. All guest rooms will provide guests with a wardrobe and a kettle.",
+    "street" :"Porto El Sokhna, 43514 Ain Sokhna",
+    "city":"Ain Sokhna",
+    "cost":2209,
+    "stock": 5,
+    "thumbnail":"https://cf.bstatic.com/xdata/images/hotel/max1024x768/95693035.jpg?k=6e04bc35f72b05fb9ddaca632f72c6743a6969b57021d695751d0810e67ea0df&o=&hp=1",
+    "reviews" :[
+            {
+            "id": 1,
+            "name": "Monique",
+            "comment": "A clean and friendly hotel. Very helpful staff"
+           },
+           {
+             "id": 2,
+             "name": "Cristina ",
+             "comment": "Everything was very clean, and the staff was very friendly, professional, welcoming, and helpful. The facilities were good, beautiful swimming pool. They have entertainment and delicious food"
+            },
+            {
+             "id": 3,
+             "name": "Donna ",
+             "comment": "I would highly recommend this property. From the minute I arrived to the minute I left was wonderful, we only had a three night stay could have stayed longer"
+            }
+         ],
+    "images":["https://cf.bstatic.com/xdata/images/hotel/max1024x768/95684997.jpg?k=3d1997010cef9e45c30d072dae59a29da314252dd20c02556f251c8baa91b0fc&o=&hp=1",
+             "https://cf.bstatic.com/xdata/images/hotel/max1024x768/95682456.jpg?k=56e346ea9800502c11c85e3c5ee685ced518037a02d2ddb6109161db129ea349&o=&hp=1",
+             "https://cf.bstatic.com/xdata/images/hotel/max1024x768/319433891.jpg?k=a899c57fae0fbcfd2da9848f5bffe8cad1a4b681cf3fc18c538366c219cdf304&o=&hp=1",
+         "https://cf.bstatic.com/xdata/images/hotel/max1024x768/95687809.jpg?k=0d057a2fe2fe774c1ab3709f69044422e4907120555ec72a24b22d77f5a1c849&o=&hp=1"]
+   }
+  ],
   "Restaurent": [
     {
       "id": 1,
