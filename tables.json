@@ -1956,7 +1956,191 @@
           "name": "yehia",
           "comment": "nice Destination"
         }
-      ]
+      ],
+
+      "hotels":[
+        {
+            "id":4,
+            "rating":4,
+            "name" :"Iberotel Luxor", 
+            "description":"A heated pool floating on the Nile is one of the most unique features of this 4-star hotel. Overlooking the Theben Hills, Iberotel Luxor also offers a restaurant boat and rooms with private balconies",
+            "street" :"Khaled Ibn El Waleed Street, East Bank, 99999 ",
+            "city":"Luxor",
+            "cost":1355,
+            "stock": 30,
+            "thumbnail":"https://cf.bstatic.com/xdata/images/hotel/max1024x768/277751146.jpg?k=5b2c42a62e1af4ae237137c34b3e943fbade397eb61310b561c75901552abd75&o=&hp=1",
+            "reviews" :[
+                    {
+                    "id": 1,
+                    "name": "Alice",
+                    "comment": "Fast reactions when ask for something Super friendly staff Nice food"
+                   },
+                   {
+                     "id": 2,
+                     "name": "Jone",
+                     "comment": "I recommend this place is anyone looking for relaxing they also offer daily tours it's was perfect high service"
+                    },
+                    {
+                     "id": 3,
+                     "name": "Dareen ",
+                     "comment": "Breakfast provided a good variety of breakfast items to choose from. The Leonardo Restaurant was fabulous"
+                    }
+                 ],
+            "images":["https://cf.bstatic.com/xdata/images/hotel/max1024x768/333394176.jpg?k=165261c95532c4185e23f72132918ef5cac1b0f50f0de97d43c7e39e5496fd63&o=&hp=1",
+                     "https://cf.bstatic.com/xdata/images/hotel/max1024x768/333397071.jpg?k=b9614839b82bbde252e32b6db1e8b122947e31de7dca3f9af61168d77e6c684e&o=&hp=1",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/333397081.jpg?k=014e1d44c48ab303677be583dee3805383162e305781deac77d72be4958e91e8&o=&hp=1",
+                  "https://cf.bstatic.com/xdata/images/hotel/max1024x768/333394393.jpg?k=5b6347326fc42e8883843e65128fa15261c6b1fce8003058bc609828c81e4ed3&o=&hp=1"]
+           },
+           {
+            "id":6,
+            "rating":5,
+            "name" :"Aracan Eatabe Luxor Hotel", 
+            "description":"Aracan Eatabe Luxor Hotel provides rooms that are comfortably furnished, include LCD TVs and offer views of the hotel’s garden or the Nile.",
+            "street" :" Khaled Ibn El Walid Street",
+            "city":"Luxor",
+            "cost":1891,
+            "stock": 40,
+            "thumbnail":"https://cf.bstatic.com/xdata/images/hotel/max1024x768/412030502.jpg?k=74c0f29f55de51e6fa343bb563e6dd93da5ce353e49b57ee2e743f12f41cc282&o=&hp=1",
+            "reviews" :[
+                    {
+                    "id": 1,
+                    "name": "Alice",
+                    "comment": "Fast reactions when ask for something Super friendly staff Nice food"
+                   },
+                   {
+                     "id": 2,
+                     "name": "Jone",
+                     "comment": "I recommend this place is anyone looking for relaxing they also offer daily tours it's was perfect high service"
+                    },
+                    {
+                     "id": 3,
+                     "name": "Minesh",
+                     "comment": "Breakfast provided a good variety of breakfast items to choose from. The Leonardo Restaurant was fabulous"
+                    }
+                 ],
+            "images":["https://cf.bstatic.com/xdata/images/hotel/max1024x768/333394176.jpg?k=165261c95532c4185e23f72132918ef5cac1b0f50f0de97d43c7e39e5496fd63&o=&hp=1",
+                     "https://cf.bstatic.com/xdata/images/hotel/max1024x768/333397071.jpg?k=b9614839b82bbde252e32b6db1e8b122947e31de7dca3f9af61168d77e6c684e&o=&hp=1",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/333397081.jpg?k=014e1d44c48ab303677be583dee3805383162e305781deac77d72be4958e91e8&o=&hp=1",
+                 "https://cf.bstatic.com/xdata/images/hotel/max1024x768/246662215.jpg?k=bd3112b0d349e6f996197dcf4861205ba4392a75cd2173b837e25d18329e9068&o=&hp=1"]
+           }
+        ],
+        "restaurants":[
+           {
+              "id": 3,
+              "rating": 4.0,
+              "name": "Luxor Eats",
+              "street": "88 Luxor Avenue",
+              "city": "Luxor",
+              "phone": "+20 111 222 333",
+              "email": "luxoreats@example.com",
+              "thumbnail": "https://vegasfoodandfun.b-cdn.net/wp-content/uploads/2022/07/TENDER-Steakhouse-Lounge-2.jpg",
+              "reviews": [
+                {
+                  "user": "Samir Ali",
+                  "comment": "Authentic Egyptian flavors!",
+                  "rating": 4
+                },
+                {
+                  "user": "Sara Kamal",
+                  "comment": "Historical atmosphere!",
+                  "rating": 5
+                }
+              ],
+              "images": [
+                "https://vegasfoodandfun.b-cdn.net/wp-content/uploads/2022/07/TENDER-Steakhouse-Lounge-2.jpg",
+                "https://www.thelasvegasreport.com/wp-content/uploads/2023/01/luxor-restaurants-las-vegas-2.jpg",
+                "https://media.istockphoto.com/id/1428412216/photo/a-male-chef-pouring-sauce-on-meal.jpg?s=612x612&w=0&k=20&c=8U3mrgWsuB7pB8axtGj89MXRkHDKodEli9F6wKgPT4A="
+              ]
+            },
+            {
+              "id": 16,
+              "rating": 4.1,
+              "name": "el-kababgy",
+              "street": "7 Nile Cruise Avenue",
+              "city": "Luxor",
+              "phone": "+20 333 222 111",
+              "email": "nilecruise@example.com",
+              "thumbnail": "https://media-cdn.tripadvisor.com/media/photo-s/25/39/e8/6d/el-kababgy-luxor.jpg",
+              "reviews": [
+                {
+                  "user": "Hassan Salah",
+                  "comment": "Delightful Nile cruise dining!",
+                  "rating": 4
+                },
+                {
+                  "user": "Maha Ahmed",
+                  "comment": "A taste of Egypt on the river!",
+                  "rating": 4
+                }
+              ],
+              "images": [
+                "https://media-cdn.tripadvisor.com/media/photo-s/25/39/e8/6d/el-kababgy-luxor.jpg",
+                "https://10619-2.s.cdn12.com/rests/original/106_507077348.jpg",
+                "https://cdn.vox-cdn.com/thumbor/hv5Pp4gAfCq_4SDvni0Slgze4Lk=/0x0:538x538/1200x900/filters:focal(226x226:312x312):no_upscale()/cdn.vox-cdn.com/uploads/chorus_image/image/62573567/18486414_1357322671018649_5197753448517419126_n.0.0.jpg"
+              ]
+            }
+        ],
+        "trips":[
+            {
+              "id": 2,
+              "name": "4-Day 3-Night Nile Cruise from Aswan to Luxor&Abu Simbel+Balloon",
+              "city": "Aswan and Luxor",
+              "rating": 5,
+              "description": "Savor the timeless experience that is a Nile cruise as you sail from Aswan to Luxor on an indulgent ship with onboard swimming pool. Feast on breakfast, lunch, dinner—and even afternoon tea—as you discover ancient Egypt’s highlights. Professional Egyptologists are on hand as you visit the temples of Philae, Kom Ombo, Edfu, Luxor, and Karnak.",
+              "duration": 4,
+              "cost": 11550,
+              "thumbnail": "https://media.tacdn.com/media/attractions-splice-spp-674x446/06/6a/ab/1b.jpg",
+              "images": [
+                "https://media.tacdn.com/media/attractions-splice-spp-674x446/06/6a/ab/1b.jpg",
+                "https://media.tacdn.com/media/attractions-splice-spp-674x446/09/8f/34/dc.jpg",
+                "https://media.tacdn.com/media/attractions-splice-spp-674x446/0f/d9/53/91.jpg",
+                "https://media.tacdn.com/media/attractions-splice-spp-674x446/0f/db/f4/8b.jpg",
+                "https://media.tacdn.com/media/attractions-splice-spp-674x446/0e/32/e9/72.jpg",
+                "https://media.tacdn.com/media/attractions-splice-spp-674x446/0f/db/f5/4e.jpg",
+                "https://media.tacdn.com/media/attractions-splice-spp-674x446/0e/f9/2e/df.jpg",
+                "https://media.tacdn.com/media/attractions-splice-spp-674x446/0f/e7/99/0d.jpg",
+                "https://media.tacdn.com/media/attractions-splice-spp-674x446/0f/fa/23/e5.jpg",
+                "https://media.tacdn.com/media/attractions-splice-spp-674x446/0f/fa/23/ef.jpg",
+                "https://media.tacdn.com/media/attractions-splice-spp-674x446/0f/fa/23/f1.jpg",
+                "https://media.tacdn.com/media/attractions-splice-spp-674x446/0f/fa/24/db.jpg"
+              ]
+            },
+            {
+              "id": 10,
+              "name": "Overnight Luxor Tours by train from Cairo with Hot Air Balloon and much more",
+              "city": "Luxor",
+              "rating": 5,
+              "description": "See Luxor without the carbon cost or cash expense of a flight when you book this 2-day tour by first-class seated night train. You’ll glide above ancient monuments in a hot-air balloon, explore the Valley of the Kings and more, and sail the Nile. Your package includes transfers, train tickets, a private guide, a hotel with breakfast, and the balloon and felucca fees: entrance tickets are at your own expense.",
+              "duration": 2,
+              "cost": 10500,
+              "thumbnail": "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/03/ad/a4.jpg",
+              "images": [
+                "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/0f/03/68/cb.jpg",
+                "https://media.tacdn.com/media/attractions-splice-spp-674x446/0e/32/64/91.jpg",
+                "https://media.tacdn.com/media/attractions-splice-spp-674x446/09/ef/a9/3b.jpg"
+              ],
+              "reviews": [
+                {
+                  "user": "Ron C",
+                  "date": "Aug 2023",
+                  "title": "Awesome",
+                  "comment": "I had really great experience in this tour especially with our tour guide Hatem who is very knowledgeable and passionate when it comes to Egypt 🇪🇬 ancient civilization. I will recommend this tour with Hatem your going to learn a lot from him. Written August 9, 2023"
+                },
+                {
+                  "user": "Nallely X",
+                  "date": "Aug 2023",
+                  "title": "Amazing unforgettable",
+                  "comment": "Our tour with Hatem was a wonderful experience.very friendly helpful and very knowledgeable… he knows his stuff ! Learned a lot about the Egyptian history . I had an amazing time .. will be coming back"
+                }
+              ]
+            }
+        ]
+
+
+
+
+
+
     },
     {
       "id": 10,
