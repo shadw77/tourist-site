@@ -18,6 +18,7 @@ Restaurent
 6- email
 7- reviews
 8- images
+9- description
 ------------------------------------------------
 Trips
 1- name

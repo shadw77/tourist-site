@@ -1,0 +1,73 @@
+<!-- 
+<div class="row row-cols-lg-3 text-center">
+
+  <ngb-carousel class="text-center" [wrap]="false" [keyboard]="false" [showNavigationArrows]="true" 
+  [showNavigationIndicators]="false"  >
+	<ng-template  ngbSlide *ngFor="let trip of data['Trips'] ; let i = index" id="slide-{{ i }}">
+        <div class="col">		
+            <div class="picsum-img-wrapper">
+
+            <app-desc-card [trip]="trip"></app-desc-card>
+
+        </div>
+        <ng-template [ngIf]="(i+1) %3 ===0">
+            <div class="d-none d-lg-block">
+
+            </div>
+        </ng-template>
+    </div>
+	</ng-template>
+</ngb-carousel>
+</div> -->
+
+<!-- 
+<div class="row row-cols-lg-3">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" *ngFor="let trip of data['Trips']">
+          <app-desc-card [trip]="trip"></app-desc-card>
+        </div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </div> -->
+<div class="container mt-5">
+  <h1 class="fw-bold fs-3">Top Destination</h1>
+
+  <div class="row">
+    <ngb-carousel class="w-50" [showNavigationArrows]="true" [showNavigationIndicators]="false">
+      <ng-template ngbSlide *ngFor="let trip of data['Trips']">
+        <div class="col ">
+          <app-desc-card [trip]="trip"></app-desc-card>
+        </div>
+        <div class="col">
+            <p>{{trip.name}}</p>
+            <!-- <img src="trip.images[0]" class="img-fluid" alt=""> -->
+        </div>
+      </ng-template>
+    </ngb-carousel>
+  </div>
+</div>
+
+
+<div class="container">
+    <img src="https://media.worldnomads.com/Explore/north-africa/egypt-5-things-social.jpg" class="img-fluid" alt="...">
+
+<div class="container subscribe w-50 ">
+    <h2>Get special offers, and more from Traveler</h2>
+    <h4>Subscribe to see secret deals prices drop the moment you sign up!</h4>
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Email Address" >
+        <span class="input-group-text" >Subscribe</span>
+      </div>
+</div>
+  
+      
+</div>
+
+
+
+
+
+

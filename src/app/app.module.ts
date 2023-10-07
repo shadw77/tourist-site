@@ -1,22 +1,32 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { FooterComponent } from './footer/footer.component';
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { SharedModule } from "./shared/shared.module";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MainSearchComponent } from './main-search/main-search.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { TopDestinationComponent } from './top-destination/top-destination.component';
+import { ImgCardComponent } from './img-card/img-card.component';
+import { HomeComponent } from './home/home.component';
+import { ExploreComponent } from './explore/explore.component';
+import { DescCardComponent } from './desc-card/desc-card.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    FooterComponent
-  ],
+  declarations: [AppComponent, MainSearchComponent, TopDestinationComponent, ImgCardComponent, HomeComponent, ExploreComponent, DescCardComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    SharedModule,
+    NgbModule,
+    FontAwesomeModule,
+    
+    
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
