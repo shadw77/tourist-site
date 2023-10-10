@@ -1,8 +1,5 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
-.angular/cache/16.2.5/angular-webpack/d2884273f2ea7b58b6c953f07e437ed97bca560e/11.pack
-.angular/cache/16.2.5/angular-webpack/3534e4925379d80b7c07b8f53deb82868e4ee065/8.pack
-.angular/cache/16.2.5/angular-webpack/d2884273f2ea7b58b6c953f07e437ed97bca560e/9.pack
-.angular/cache/16.2.5/angular-webpack/3534e4925379d80b7c07b8f53deb82868e4ee065/10.pack
+.angular/cache/16.2.5/angular-webpack/
 # Compiled output
 /dist
 /tmp
