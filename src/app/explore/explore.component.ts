@@ -8,9 +8,12 @@ import Swiper from 'swiper';
 })
 export class ExploreComponent implements AfterViewInit {
   @Input() data : any;
+  constructor(){
+        this.data = datajson;
+
+  }
 
   ngOnInit():void{
-    this.data = datajson;
   }
   
   ngAfterViewInit() {

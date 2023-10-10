@@ -32,42 +32,69 @@
       <div class="swiper-button-prev"></div>
     </div>
   </div> -->
-<div class="container mt-5">
-  <h1 class="fw-bold fs-3">Top Destination</h1>
-
-  <div class="row">
-    <ngb-carousel class="w-50" [showNavigationArrows]="true" [showNavigationIndicators]="false">
-      <ng-template ngbSlide *ngFor="let trip of data['Trips']">
-        <div class="col ">
-          <app-desc-card [trip]="trip"></app-desc-card>
+<div class="container  mt-5">
+  <h1 class="fw-bold fs-3">Explore More</h1>
+<div class="container text-center c">
+    <ngb-carousel class="w-100 " [showNavigationArrows]="true" [showNavigationIndicators]="false">
+      <ng-template ngbSlide *ngFor="let trip of data['Trips'] ;let i=index">
+       <div class="row justify-content-center mb-5">
+   <div class="col-lg-3 mx-2">
+          <app-desc-card [trip]="data['Trips'][i]"></app-desc-card>
         </div>
-        <div class="col">
-            <p>{{trip.name}}</p>
-            <!-- <img src="trip.images[0]" class="img-fluid" alt=""> -->
+        <div class="col-lg-3 mx-2">
+          <app-desc-card [trip]="data['Trips'][i+4]"></app-desc-card>
         </div>
+        <div class="col-lg-3 mx-2">
+          <app-desc-card [trip]="data['Trips'][i+7]"></app-desc-card>
+        </div> 
+      </div>
       </ng-template>
-    </ngb-carousel>
+    </ngb-carousel></div>
+</div>
+
+
+<!-- <div class="container">
+    <img src="" class="" alt="..."> -->
+
+<!-- <div class="container subscribe w-50 ">
+    <h2>Get special offers, and more from Traveler</h2>
+    <h4></h4>
+    
+</div> -->
+  
+      
+<!-- </div> -->
+
+
+<div class="card align-items-center" style="width: 60rem;">
+  <img src="https://media.worldnomads.com/Explore/north-africa/egypt-5-things-social.jpg" class="card-img-top" alt="...">
+  <div class="card-body text-light">
+    <p class="card-text fs-5 ">Get special offers, and more from Traveler</p>
+    <p class="card-text fs-5 ">Subscribe to see secret deals prices drop the moment you sign up!</p>
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Email Address" >
+      <span class="input-group-text" >Subscribe</span>
+    </div>
   </div>
 </div>
 
 
-<div class="container">
-    <img src="https://media.worldnomads.com/Explore/north-africa/egypt-5-things-social.jpg" class="img-fluid" alt="...">
 
-<div class="container subscribe w-50 ">
-    <h2>Get special offers, and more from Traveler</h2>
-    <h4>Subscribe to see secret deals prices drop the moment you sign up!</h4>
-    <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Email Address" >
-        <span class="input-group-text" >Subscribe</span>
-      </div>
-</div>
-  
-      
-</div>
+<!-- 
+    <ngb-carousel class="w-50" [showNavigationArrows]="true" [showNavigationIndicators]="false">
+      <ng-template ngbSlide *ngFor="let trip of data['Trips']">
+       <div class="row ">
+   <div class="col-lg-3 ">
+          <app-desc-card [trip]="trip"></app-desc-card>
+        </div>
+        <div class="col-lg-3 ">
+          <app-desc-card [trip]="trip"></app-desc-card>
+        </div>  </div>
 
-
-
-
-
-
+        <div class="col">
+            <p>{{trip.name}}</p>
+\          </div>
+        </ng-template>
+      </ngb-carousel>
+  </div>
+ -->

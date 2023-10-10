@@ -13,9 +13,12 @@ import { ImgCardComponent } from './img-card/img-card.component';
 import { HomeComponent } from './home/home.component';
 import { ExploreComponent } from './explore/explore.component';
 import { DescCardComponent } from './desc-card/desc-card.component';
+import { ItemComponent } from './item/item.component';
+import { DisplayRestaurantComponent } from './display-restaurant/display-restaurant.component';
+import { DisplayHotelsComponent } from './display-hotels/display-hotels.component';
 
 @NgModule({
-  declarations: [AppComponent, MainSearchComponent, TopDestinationComponent, ImgCardComponent, HomeComponent, ExploreComponent, DescCardComponent],
+  declarations: [AppComponent, MainSearchComponent, TopDestinationComponent, ImgCardComponent, HomeComponent, ExploreComponent, DescCardComponent, ItemComponent, DisplayRestaurantComponent, DisplayHotelsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
