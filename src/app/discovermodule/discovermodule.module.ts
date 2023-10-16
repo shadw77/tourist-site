@@ -2,9 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { DiscoverComponent } from './discover/discover.component';
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatTabGroup } from '@angular/material/tabs';
 import { CaraouselComponent } from './caraousel/caraousel.component';
+import { MediaComponent } from './media/media.component';
+import { CuttextPipe } from '../Pipes/cuttext.pipe';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbcommentComponent } from './ngbcomment/ngbcomment.component';
 
 const routes: Routes = [
   
@@ -14,13 +16,12 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [  
-    DiscoverComponent, CaraouselComponent
+    DiscoverComponent, CaraouselComponent, MediaComponent,CuttextPipe, NgbcommentComponent
   ],
   imports: [
     CommonModule,
-    MatTabsModule,
-    RouterModule.forChild(routes)
-
+    NgbModule,
+    RouterModule.forChild(routes),
   ]
 })
 export class DiscovermoduleModule { }

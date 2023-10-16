@@ -6,10 +6,10 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./caraousel.component.css']
 })
 export class CaraouselComponent implements OnInit{
-  @Input() city:any;
+  @Input() carouselimages:any;
 
 
   ngOnInit(){
-    console.log(this.city);
+    //console.log(this.carouselimages);
   }
 }

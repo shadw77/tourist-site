@@ -1968,6 +1968,16 @@
           "id": 3,
           "name": "yehia",
           "comment": "nice Destination"
+        },
+        {
+          "id": 4,
+          "name": "mansour",
+          "comment": "nice dest"
+        },
+        {
+          "id": 5,
+          "name": "hossm",
+          "comment": "great hoppy"
         }
       ],
 
@@ -2042,6 +2052,7 @@
               "id": 3,
               "rating": 4.0,
               "name": "Luxor Eats",
+              "description" : "Sofra remains our favorite restaurant in Luxor. away from all the tourist,",
               "street": "88 Luxor Avenue",
               "city": "Luxor",
               "phone": "+20 111 222 333",
@@ -2069,6 +2080,8 @@
               "id": 16,
               "rating": 4.1,
               "name": "el-kababgy",
+              "description" : "Sofra remains our favorite restaurant in Luxor. away from all the tourist,",
+
               "street": "7 Nile Cruise Avenue",
               "city": "Luxor",
               "phone": "+20 333 222 111",
