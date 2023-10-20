@@ -1,0 +1,100 @@
+<div class="container">
+  <div *ngIf="cartProducts.length != 0; then thenBlock; else elseBlock"></div>
+  <ng-template #thenBlock>
+    <h2 class="fw-bold fs-1">Cart</h2>
+    <h4 (click)="goBack()">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="25"
+        height="30"
+        fill="currentColor"
+        class="bi bi-arrow-left"
+        viewBox="0 0 16 16"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
+        />
+      </svg>
+      <a class="fs-5 link-dark ms-2">See all things to do </a>
+    </h4>
+    <div class="row mt-4">
+      <div class="col-md-8 mt-2">
+        <div
+          class="card mb-3 rounded-0 border-bottom border-0 d-flex justify-content-center"
+          style="height: 250px"
+          *ngFor="let cart of cartProducts"
+        >
+          <div class="row g-2">
+            <div class="col-md-4 col-6">
+              <img
+                src="{{ cart.item.thumbnail }}"
+                class="img-fluid rounded"
+                alt="..."
+              />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{ cart.item.name }}</h5>
+                <small class="text-body-secondary"
+                  >{{ cart.item.street }} {{ cart.item.city }}</small
+                >
+                <app-rating [rating]="cart.item.rating"></app-rating>
+                <p class="card-text">{{ cart.item.description | subtext }}.</p>
+
+                <p class="card-text">
+                  <span class="text-body-secondary fw-bold"
+                    >{{ cart.item.cost }}$</span
+                  >
+                </p>
+                <p class="fs-5 text-body-secondary">{{ cart.quantity }}</p>
+                <p><a href="">Remove</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 position-relative">
+        <div class="card p-3 position-sticky top-0" style="height: 250px">
+          <div class="card-body">
+            <h3 class="card-title mb-4">Review Order Details</h3>
+            <p class="card-subtitle mb-2">Booking Fee</p>
+            <p class="text-body-secondary mb-2 d-flex justify-content-between">
+              <span>Subtotal</span>
+              <span> {{ subtotal }}</span>
+            </p>
+            <p
+              class="card-text text-body-secondary d-flex justify-content-between"
+            >
+              <span>Total ({{ cartProducts.length }})</span>
+              <span> {{ totalPrice }}</span>
+            </p>
+          </div>
+          <button class="btn btn-warning rounded-pill">Checkout</button>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #elseBlock>
+    <div class="text-center">
+      <h1>Your Cart Is Empty</h1>
+      <h4 (click)="goBack()">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="25"
+          height="30"
+          fill="currentColor"
+          class="bi bi-arrow-left"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
+          />
+        </svg>
+        <a class="fs-5 link-dark ms-2">See all things to do </a>
+      </h4>
+    </div>
+  </ng-template>
+</div>
