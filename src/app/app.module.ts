@@ -24,7 +24,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 
 
 @NgModule({
-  declarations: [AppComponent, MainSearchComponent, TopDestinationComponent, ImgCardComponent, HomeComponent, ExploreComponent, DescCardComponent, ItemComponent, DisplayRestaurantComponent, DisplayHotelsComponent    AboutUsComponent,
+  declarations: [AppComponent, MainSearchComponent, TopDestinationComponent, ImgCardComponent, HomeComponent, ExploreComponent, DescCardComponent, ItemComponent, DisplayRestaurantComponent, DisplayHotelsComponent  ,  AboutUsComponent,
     ContactUsComponent],
   imports: [
     BrowserModule,
@@ -33,7 +33,6 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     SharedModule,
     NgbModule,
     FontAwesomeModule,
-    MatTabsModule,
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
