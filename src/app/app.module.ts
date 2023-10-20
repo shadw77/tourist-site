@@ -1,9 +1,10 @@
+
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
-
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { FormGroup, FormsModule } from '@angular/forms';
 import { SharedModule } from "./shared/shared.module";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MainSearchComponent } from './main-search/main-search.component';
@@ -16,9 +17,15 @@ import { DescCardComponent } from './desc-card/desc-card.component';
 import { ItemComponent } from './item/item.component';
 import { DisplayRestaurantComponent } from './display-restaurant/display-restaurant.component';
 import { DisplayHotelsComponent } from './display-hotels/display-hotels.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import{ ReactiveFormsModule} from'@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+
 
 @NgModule({
-  declarations: [AppComponent, MainSearchComponent, TopDestinationComponent, ImgCardComponent, HomeComponent, ExploreComponent, DescCardComponent, ItemComponent, DisplayRestaurantComponent, DisplayHotelsComponent],
+  declarations: [AppComponent, MainSearchComponent, TopDestinationComponent, ImgCardComponent, HomeComponent, ExploreComponent, DescCardComponent, ItemComponent, DisplayRestaurantComponent, DisplayHotelsComponent    AboutUsComponent,
+    ContactUsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -26,8 +33,10 @@ import { DisplayHotelsComponent } from './display-hotels/display-hotels.componen
     SharedModule,
     NgbModule,
     FontAwesomeModule,
-    
-    
+    MatTabsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

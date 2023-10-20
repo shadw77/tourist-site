@@ -1,0 +1,168 @@
+
+<header class="header">
+    <div class="header-image">
+        <img [src]="imageUrl" alt="Header Image">
+    </div>
+    <div class="header-content">
+        <h1 class="bold">{{ title }}</h1>
+    </div>
+  </header>
+  
+  <!-- Choosing Section -->
+  <div class="choosing container">
+    <div class="choosing_title text-center">
+      <h1 class="mt-3 mb-4 ">{{ content.title }}</h1>
+      <!-- <p>{{ content.description }}</p> -->
+    </div>
+    <section class="social_channels p-5">
+      <div class="row mx-0">
+        <div class="col-sm-12 col-md-6 col-xl-4">
+          <div class="card p-4 my-5">
+            <img src="https://safer.travel/website_assets/images/contact/location.webp" class="card-img-top" alt="location pin">
+            <div class="card-body text-center">
+              <h5 class="card-title">Our Location</h5>
+              <p class="card-text text-center">Sixth floor, Giza - Egypt</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-xl-4">
+          <div class="card p-4 my-5">
+            <img src="https://safer.travel/website_assets/images/contact/call center.webp" class="card-img-top" alt="call center logo">
+            <div class="card-body text-center">
+              <h5 class="card-title">Phone Number</h5>
+             
+              <p class="card-text">
+                <a href="tel:015521501111" class="text-decoration-none">015521501111</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-xl-4">
+          <div class="card p-4 my-5">
+            <img src="https://safer.travel/website_assets/images/contact/message.webp" class="card-img-top " alt="messages logo">
+            <div class="card-body text-center">
+              <h5 class="card-title">E-mail</h5>
+              <p class="card-text">
+                <a href="mailto:Info@Safer.Travel" class="text-decoration-none">Info@Safer.Travel</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+  <div class="container">
+    <form (ngSubmit)="submitForm()" [formGroup]="contactForm" class="mt-4">
+      <div class="row ">
+        <div class="col-md-6 col-sm-12">
+          <div class="mb-3">
+            <input type="text" formControlName="name" class="form-control" id="name" placeholder="User name" required>
+          </div>
+          <div class="mb-3">
+            <input type="email" formControlName="email" class="form-control" id="email" placeholder="E-mail" required>
+          </div>
+          <div class="mb-3">
+            <input type="number" formControlName="phone" class="form-control" id="phone" placeholder="Mobile Phone Number" required>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <div class="mb-3">
+            <textarea formControlName="message" class="form-control" id="message" rows="6" placeholder="Send message" required></textarea>
+          </div>
+          <div class="form-group mb-3">
+            <div class="captcha">
+              <span><img src="https://safer.travel/captcha/default?ro7vobRF"></span>
+              <button type="button" class="btn btn-danger" id="reload" (click)="reloadCaptcha()">
+                ↻
+              </button>
+            </div>
+          </div>
+          <div class="form-group ">
+            <input id="captcha" formControlName="captcha" type="text" class="form-control form-control-sm" style="width: 150px;" required>
+         
+            <div class="col-md-6">
+              <div class="mb-3 mt-3 ">
+                <button type="submit" class="btn btn-primary">Send message</button>
+              </div>
+            </div>
+          </div>
+          
+          
+        </div>
+    
+        
+      </div>
+    </form>
+  </div>
+  
+  
+  
+  <div class="row mx-0 mb-3">
+    <div class="col-sm-12 col-md-6">
+      <div class="offices_info">
+        <div class="help_info">
+          <h1 class="bold">Egyptian Ministry Of Tourism</h1>
+          <p class="lead text-muted">Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as</p>
+          
+          <p class="lead text-muted">Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-12">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3010.450333498525!2d28.9410204!3d41.0154026!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caba3057cea11b%3A0xb7da064d6e154638!2zU2FmZXIgQ29tcGFueSAtINi02LHZg9ipINiz2KfZgdix!5e0!3m2!1sar!2seg!4v1677668546509!5m2!1sar!2seg" style="border:0; width: 600px; height: 250px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+  
+  
+  <!-- Objectives Section -->
+  <section class="objectives container">
+    <div class="row">
+      <div class="col-md-6 col-sm-12">
+        <div class="card left  border-0">
+          <div class="card-body">
+            <div class="obj_title">
+              <img  [src]="mission.image" alt="campaign icon">
+              <h6>{{ mission.title }}</h6>
+            </div>
+            <p class="card-text my-3">{{ mission.description }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12 ">
+        <div class="card right border-0">
+          <div class="card-body">
+            <div class="obj_title">
+              <img class="vission_img" [src]="vision.image" alt="target icon">
+              <h6>{{ vision.title }}</h6>
+            </div>
+            <p class="card-text my-3">{{ vision.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </div>
+  <!-- Newsletter Section -->
+  <section class=" bg-primary " style="width: 100%;">
+    <div class=" newsletter p-4 ">
+      <div class="row">
+        <div class="col">
+          <h3 >Prepare yourself</h3>
+          <h3>to explore the beauty of the world</h3>
+    </div>
+    <div class="col mt-2">
+          <form>
+            <div class="input-group mb-3 p-4">
+              <input type="text" class="form-control" placeholder="Enter your name" aria-label="Name" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-secondary btn-custom" type="button" id="button-addon2">subscribeToNewsletter</button>
+              </div>
+            </div>
+            
+          </form>
+      </div>
+        </div>
+      </div>
+
+  </section>
