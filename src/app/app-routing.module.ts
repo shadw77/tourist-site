@@ -25,6 +25,8 @@ const routes: Routes = [
     path:'restaurents',
     component:DisplayRestaurantComponent,
   },
+  { path: 'carts', component: ListCardsComponent },
+  { path: 'cart', component: CartComponent },
    {
     path:'discover',loadChildren: () => import('src/app/discovermodule/discovermodule.module')
     .then(m=>m.DiscovermoduleModule)
