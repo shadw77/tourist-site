@@ -7,6 +7,8 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { HomeComponent } from './home/home.component';
 import { DisplayHotelsComponent } from './display-hotels/display-hotels.component';
 import { DisplayRestaurantComponent } from './display-restaurant/display-restaurant.component';
+import { CartItemService } from './Services/cart-item.service';
+import { ModuleCartModule } from './module-cart/module-cart.module';
 
 const routes: Routes = [
   {
@@ -24,6 +26,14 @@ const routes: Routes = [
   {
     path:'restaurents',
     component:DisplayRestaurantComponent,
+  },
+  {
+    path:'restaurents',
+    component:DisplayRestaurantComponent,
+  },
+  {
+    path:'cart',
+    component:CartComponent,
   },
    {
     path:'discover',loadChildren: () => import('src/app/discovermodule/discovermodule.module')
