@@ -650,6 +650,8 @@
       "phone": "+20 123 456 789",
       "email": "info@egyptiandelights.com",
       "thumbnail": "https://media-cdn.tripadvisor.com/media/photo-s/12/9e/5e/b3/rustic-and-contemporary.jpg",
+      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dicta esse quo, aliquam quaerat autem provident eveniet? Nihil, enim accusantium?",
+
       "reviews": [
         {
           "user": "Ali Ahmed",
@@ -675,6 +677,8 @@
       "street": "45 Corniche Avenue",
       "city": "Alexandria",
       "phone": "+20 987 654 321",
+      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dicta esse quo, aliquam quaerat autem provident eveniet? Nihil, enim accusantium?",
+
       "email": "nileview@example.com",
       "thumbnail": "https://sceneeats.com/Content/Admin/Uploads/Articles/ArticlesMainPhoto/3303/7097cfb3-e464-4468-b241-7df76c298647.jpg",
       "reviews": [
@@ -703,6 +707,8 @@
       "city": "Luxor",
       "phone": "+20 111 222 333",
       "email": "luxoreats@example.com",
+      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dicta esse quo, aliquam quaerat autem provident eveniet? Nihil, enim accusantium?",
+
       "thumbnail": "https://vegasfoodandfun.b-cdn.net/wp-content/uploads/2022/07/TENDER-Steakhouse-Lounge-2.jpg",
       "reviews": [
         {
@@ -728,6 +734,7 @@
       "name": "Aswan Oasis",
       "street": "10 Nile Road",
       "city": "Aswan",
+      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dicta esse quo, aliquam quaerat autem provident eveniet? Nihil, enim accusantium?",
       "phone": "+20 555 666 777",
       "email": "aswanoasis@example.com",
       "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ52uoOZmq7PZ3uUtxpgSVQYFgDDjGDs1fMsPXXr9mW2iKxRNG9tRlrpHPbPsRYL9EGz28&usqp=CAU",
@@ -755,6 +762,7 @@
       "name": "Salama cafe",
       "street": "20 Sahara Avenue",
       "city": "Siwa Oasis",
+      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dicta esse quo, aliquam quaerat autem provident eveniet? Nihil, enim accusantium?",
       "phone": "+20 999 888 777",
       "email": "siwagrill@example.com",
       "thumbnail": "https://media-cdn.tripadvisor.com/media/photo-s/13/2b/9d/6b/img-20180601-110905-largejpg.jpg",
@@ -782,6 +790,7 @@
       "name": "Granda",
       "street": "5 Red Sea Road",
       "city": "Hurghada",
+      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dicta esse quo, aliquam quaerat autem provident eveniet? Nihil, enim accusantium?",
       "phone": "+20 777 666 555",
       "email": "redseabreeze@example.com",
       "thumbnail": "https://images.happycow.net/venues/1024/89/86/hcmp89862_245122.jpeg",
@@ -809,6 +818,7 @@
       "name": "Delta Diner",
       "street": "30 Delta Avenue",
       "city": "Tanta",
+      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dicta esse quo, aliquam quaerat autem provident eveniet? Nihil, enim accusantium?",
       "phone": "+20 333 222 111",
       "email": "deltadiner@example.com",
       "thumbnail": "https://www.gayot.com/images/reviews/tanta.jpg",
@@ -836,6 +846,7 @@
       "name": "Marsa Matrouh Seafood",
       "street": "55 Beachfront Avenue",
       "city": "Marsa Matrouh",
+      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dicta esse quo, aliquam quaerat autem provident eveniet? Nihil, enim accusantium?",
       "phone": "+20 555 444 333",
       "email": "marsaseafood@example.com",
       "thumbnail": "https://media-cdn.tripadvisor.com/media/photo-s/19/c8/00/9a/getlstd-property-photo.jpg",
@@ -864,6 +875,7 @@
       "street": "mashaya Street",
       "city": "mansoura",
       "phone": "+20 666 777 888",
+      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dicta esse quo, aliquam quaerat autem provident eveniet? Nihil, enim accusantium?",
       "email": "stereo@example.com",
       "thumbnail": "https://s3-eu-west-1.amazonaws.com/elmenusv5-stg/Normal/65353682-b966-4480-9313-76aeccf20f3b.jpg",
       "reviews": [
@@ -890,6 +902,7 @@
       "name": "Nubian Delights",
       "street": "15 Nubia Street",
       "city": "Aswan",
+      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dicta esse quo, aliquam quaerat autem provident eveniet? Nihil, enim accusantium?",
       "phone": "+20 555 444 333",
       "email": "nubiandelights@example.com",
       "thumbnail": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/327898951.jpg?k=d6407d0c3b993d7cd3aa7e1f616b2800243b0b2fe42d339166a1b0a4ef63efb8&o=&hp=1",
@@ -917,6 +930,7 @@
       "name": "Sahara Sweets",
       "street": "25 Desert Avenue",
       "city": "Siwa Oasis",
+      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dicta esse quo, aliquam quaerat autem provident eveniet? Nihil, enim accusantium?",
       "phone": "+20 999 777 888",
       "email": "saharasweets@example.com",
       "thumbnail": "https://www.adrereamellal.com/adrere/wp-content/uploads/2019/09/pool-lunch-adrere-amellal.jpg",
@@ -945,6 +959,7 @@
       "street": "2 Blue Hole Road",
       "city": "Dahab",
       "phone": "+20 123 456 789",
+      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dicta esse quo, aliquam quaerat autem provident eveniet? Nihil, enim accusantium?",
       "email": "bluehole@example.com",
       "thumbnail": "https://media-cdn.tripadvisor.com/media/photo-s/0d/56/f5/d8/bedouin-style-sitting.jpg",
       "reviews": [
@@ -971,6 +986,7 @@
       "name": "Elgendy seafood",
       "street": "17 Med Avenue",
       "city": "Port Said",
+      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dicta esse quo, aliquam quaerat autem provident eveniet? Nihil, enim accusantium?",
       "phone": "+20 987 654 321",
       "email": "medflavors@example.com",
       "thumbnail": "https://media-cdn.tripadvisor.com/media/photo-s/0c/9b/7c/48/el-gendy-for-seafood.jpg",
@@ -998,6 +1014,7 @@
       "name": "Desert Mirage",
       "street": "30 Sahara Street",
       "city": "Bahariya Oasis",
+      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dicta esse quo, aliquam quaerat autem provident eveniet? Nihil, enim accusantium?",
       "phone": "+20 888 777 666",
       "email": "desertmirage@example.com",
       "thumbnail": "https://myownwaytotravel.com/wp-content/uploads/2021/01/Local-restaurant-in-the-oasis-of-Bahariya.jpg",
@@ -1026,6 +1043,7 @@
       "street": "8 Dive Center Road",
       "city": "beni suef",
       "phone": "+20 777 888 999",
+      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dicta esse quo, aliquam quaerat autem provident eveniet? Nihil, enim accusantium?",
       "email": "redseadivers@example.com",
       "thumbnail": "https://lh5.googleusercontent.com/p/AF1QipNf-Q16OlHB1qcCQYr39tdL23NSofZzVU8pPsXx=w500-h500-k-no",
       "reviews": [
@@ -1053,6 +1071,7 @@
       "street": "7 Nile Cruise Avenue",
       "city": "Luxor",
       "phone": "+20 333 222 111",
+      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dicta esse quo, aliquam quaerat autem provident eveniet? Nihil, enim accusantium?",
       "email": "nilecruise@example.com",
       "thumbnail": "https://media-cdn.tripadvisor.com/media/photo-s/25/39/e8/6d/el-kababgy-luxor.jpg",
       "reviews": [
@@ -1079,6 +1098,7 @@
       "name": "Rangoli Paradise",
       "street": "12 Paradise Road",
       "city": "Sharm El Sheikh",
+      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dicta esse quo, aliquam quaerat autem provident eveniet? Nihil, enim accusantium?",
       "phone": "+20 111 222 333",
       "email": "redseaparadise@example.com",
       "thumbnail": "https://media-cdn.tripadvisor.com/media/photo-s/03/08/30/4a/rangoli.jpg",
@@ -1105,6 +1125,7 @@
       "rating": 4.0,
       "name": "Fayoum Fisherman's Grill",
       "street": "20 Fayoum Beach Road",
+      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dicta esse quo, aliquam quaerat autem provident eveniet? Nihil, enim accusantium?",
       "city": "Fayoum",
       "phone": "+20 666 777 888",
       "email": "fayoumfisherman@example.com",
@@ -1133,6 +1154,7 @@
       "name": "Pyramid View Restaurant",
       "street": "2 Giza Pyramid Road",
       "city": "Giza",
+      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dicta esse quo, aliquam quaerat autem provident eveniet? Nihil, enim accusantium?",
       "phone": "+20 123 456 789",
       "email": "pyramidview@example.com",
       "thumbnail": "https://static.wixstatic.com/media/5eff48_30669344f0d54ad7a2342ecbabff00a1~mv2.jpg/v1/fill/w_640,h_426,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/5eff48_30669344f0d54ad7a2342ecbabff00a1~mv2.jpg",
@@ -1160,6 +1182,7 @@
       "name": "Nile Felucca Cafe",
       "street": "10 Felucca Street",
       "city": "Asyut",
+      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dicta esse quo, aliquam quaerat autem provident eveniet? Nihil, enim accusantium?",
       "phone": "+20 987 654 321",
       "email": "feluccacafe@example.com",
       "thumbnail": "https://media-cdn.tripadvisor.com/media/photo-m/1280/1b/24/5b/2c/restaurant-in-ms-florence.jpg",
@@ -1546,7 +1569,7 @@
           "user": "Leira C",
           "date": "September 2023",
           "title": "Amazing clear water in the Red Sea!",
-          "comment": "The Red Sea is amazing. We had a great experience and our guide Hakiem made it easier. He spent time with us and took nice pictures. We had a relaxing day and delicious lunch. "
+          "comment": "The Red Sea is amazing. We had a great experience and our guide Hakiem made it easier. He spent time with us and took nice thumbnails. We had a relaxing day and delicious lunch. "
         },
         {
           "user": "Simon G",
@@ -1691,12 +1714,8 @@
     {
       "id": 1,
       "name": "Sharm El Sheikh",
-      "picture": "assets/images/sharm/ras-mohammed-park.jpg",
-      "images": [
-        "assets/images/sharm/dolphina-park.jpg", 
-        "assets/images/sharm/sharm-el-sheikh.jpg",
-        "assets/images/sharm/tiran.jpg"
-      ],
+      "thumbnail": "assets/images/sharm/ras-mohammed-park.jpg",
+      "images": ["assets/images/sharm/dolphina-park.jpg", "assets/images/sharm/sharm-el-sheikh.jpg", "assets/images/sharm/tiran.jpg"],
       "description": "Diverse marine life and hundreds of Red Sea coral reef sites make Sharm El Sheikh a magnet for divers and eco-tourists. The tourist economy of this Sinai Peninsula city has grown quite rapidly over the last few decades, resulting in an upcrop of first-class resorts and posh nightlife. The waters of Ras Mohamed National Park are abundant with schools of fish and, oddly, toilets – thanks to the bathroom fixtures being transported by a cargo ship that sank during a 1981 storm",
       "reviews": [
         {
@@ -1719,7 +1738,7 @@
     {
       "id": 2,
       "name": "Hurghada",
-      "picture": "assets/images/hurghada/giftun-islands-red-sea.jpg",
+      "thumbnail": "assets/images/hurghada/giftun-islands-red-sea.jpg",
       "images": [
         "assets/images/hurghada/interno-ed-esterno.jpg",
         "assets/images/hurghada/makadi-water-world.jpg",
@@ -1747,7 +1766,7 @@
     {
       "id": 3,
       "name": "Cairo",
-      "picture": "assets/images/cairo/cairo.jpg",
+      "thumbnail": "assets/images/cairo/cairo.jpg",
       "images": [
         "assets/images/cairo/cairo.jpg",
         "assets/images/cairo/photo0jpg.jpg",
@@ -1776,7 +1795,7 @@
     {
       "id": 4,
       "name": "Ain Sukhna",
-      "picture": "assets/images/ain sukhna/ain-sukhna.jpg",
+      "thumbnail": "assets/images/ain sukhna/ain-sukhna.jpg",
       "images": [
         "assets/images/ain sukhna/cancun-visit-august-2015.jpg",
         "assets/images/ain sukhna/porto-sokhna-beach-resort.jpg",
@@ -1804,7 +1823,7 @@
     {
       "id": 5,
       "name": "Mersa Matruh",
-      "picture": "assets/images/marsa matroh/beach-area.jpg",
+      "thumbnail": "assets/images/marsa matroh/beach-area.jpg",
       "images": [
         "assets/images/marsa matroh/ageeba-beach.jpg",
         "assets/images/marsa matroh/dsc-0229-largejpg.jpg",
@@ -1832,7 +1851,7 @@
     {
       "id": 6,
       "name": "Alexandria",
-      "picture": "alexandria.jpg",
+      "thumbnail": "https://images.memphistours.com/large/19994985_marsa%20matrouh%207.jpg",
       "images": [
         "an-outside-entrance-to.jpg",
         "pompey-s-pillar-and-sphinx.jpg",
@@ -1861,7 +1880,7 @@
     {
       "id": 7,
       "name": "Marsa Alam",
-      "picture": "assets/images/marsa alam/bigphotoformarsa-alam.jpg",
+      "thumbnail": "assets/images/marsa alam/bigphotoformarsa-alam.jpg",
       "images": [
         "assets/images/marsa alam/marsa-alam.jpg", 
         "assets/images/marsa alam/sataya-dei-delfini.jpg",
@@ -1889,7 +1908,7 @@
     {
       "id": 8,
       "name": "El Alamein",
-      "picture": "assets/images/el alamin/the-marina--v9514476.jpg",
+      "thumbnail": "assets/images/el alamin/the-marina--v9514476.jpg",
       "images": [
         "assets/images/el alamin/el-alamein.jpg",
         "assets/images/el alamin/etap-resort.jpg",
@@ -1917,7 +1936,7 @@
     {
       "id": 9,
       "name": "Dahab",
-      "picture": "assets/images/dahab/a-view-from-the-mountain.jpg",
+      "thumbnail": "assets/images/dahab/a-view-from-the-mountain.jpg",
       "images": [
         "assets/images/dahab/caption.jpg",
         "assets/images/dahab/dahab.jpg",
@@ -1946,7 +1965,7 @@
     {
       "id": 10,
       "name": "Luxor",
-      "picture": "assets/images/luxor/b145de4d72cd7da8b329e85ddcb33a10.jpg",
+      "thumbnail": "assets/images/luxor/b145de4d72cd7da8b329e85ddcb33a10.jpg",
       "images": [
         "assets/images/luxor/c6262dfcddaf7c465a831411d9effd03.jpg",
         "assets/images/luxor/f0260b474d24d165223557affcdfc302.jpg",
@@ -1969,6 +1988,16 @@
           "name": "yehia",
           "comment": "nice Destination"
         }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Aswan",
+      "thumbnail": "https://images.memphistours.com/large/19994985_marsa%20matrouh%207.jpg",
+      "images": [
+        "3b2dcf5f4f76f7d462e7d8f4ba6b99a2.jpg",
+        "da60c4e01554a3306a7b9b01cdce259d.jpg",
+        "f20135dd159bf4f54efa2f814e5254b4.jpg"
       ],
 
       "hotels":[
