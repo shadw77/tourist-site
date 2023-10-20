@@ -21,11 +21,16 @@ const routes: Routes = [
     path:'restaurents',
     component:DisplayRestaurantComponent,
   },
+   {
+    path:'discover',loadChildren: () => import('src/app/discovermodule/discovermodule.module')
+    .then(m=>m.DiscovermoduleModule)
+  },
   
   {
     path: '**',
     redirectTo: '',
   }
+
 ];
 
 @NgModule({

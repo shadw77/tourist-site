@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import datajson from '../assets/tables.json';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,4 +16,5 @@ export class AppComponent {
   ngOnInit():void{
     this.data = datajson;
   }
+
 }

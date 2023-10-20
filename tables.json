@@ -650,8 +650,6 @@
       "phone": "+20 123 456 789",
       "email": "info@egyptiandelights.com",
       "thumbnail": "https://media-cdn.tripadvisor.com/media/photo-s/12/9e/5e/b3/rustic-and-contemporary.jpg",
-      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dicta esse quo, aliquam quaerat autem provident eveniet? Nihil, enim accusantium?",
-
       "reviews": [
         {
           "user": "Ali Ahmed",
@@ -677,8 +675,6 @@
       "street": "45 Corniche Avenue",
       "city": "Alexandria",
       "phone": "+20 987 654 321",
-      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dicta esse quo, aliquam quaerat autem provident eveniet? Nihil, enim accusantium?",
-
       "email": "nileview@example.com",
       "thumbnail": "https://sceneeats.com/Content/Admin/Uploads/Articles/ArticlesMainPhoto/3303/7097cfb3-e464-4468-b241-7df76c298647.jpg",
       "reviews": [
@@ -707,8 +703,6 @@
       "city": "Luxor",
       "phone": "+20 111 222 333",
       "email": "luxoreats@example.com",
-      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dicta esse quo, aliquam quaerat autem provident eveniet? Nihil, enim accusantium?",
-
       "thumbnail": "https://vegasfoodandfun.b-cdn.net/wp-content/uploads/2022/07/TENDER-Steakhouse-Lounge-2.jpg",
       "reviews": [
         {
@@ -734,7 +728,6 @@
       "name": "Aswan Oasis",
       "street": "10 Nile Road",
       "city": "Aswan",
-      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dicta esse quo, aliquam quaerat autem provident eveniet? Nihil, enim accusantium?",
       "phone": "+20 555 666 777",
       "email": "aswanoasis@example.com",
       "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ52uoOZmq7PZ3uUtxpgSVQYFgDDjGDs1fMsPXXr9mW2iKxRNG9tRlrpHPbPsRYL9EGz28&usqp=CAU",
@@ -762,7 +755,6 @@
       "name": "Salama cafe",
       "street": "20 Sahara Avenue",
       "city": "Siwa Oasis",
-      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dicta esse quo, aliquam quaerat autem provident eveniet? Nihil, enim accusantium?",
       "phone": "+20 999 888 777",
       "email": "siwagrill@example.com",
       "thumbnail": "https://media-cdn.tripadvisor.com/media/photo-s/13/2b/9d/6b/img-20180601-110905-largejpg.jpg",
@@ -790,7 +782,6 @@
       "name": "Granda",
       "street": "5 Red Sea Road",
       "city": "Hurghada",
-      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dicta esse quo, aliquam quaerat autem provident eveniet? Nihil, enim accusantium?",
       "phone": "+20 777 666 555",
       "email": "redseabreeze@example.com",
       "thumbnail": "https://images.happycow.net/venues/1024/89/86/hcmp89862_245122.jpeg",
@@ -818,7 +809,6 @@
       "name": "Delta Diner",
       "street": "30 Delta Avenue",
       "city": "Tanta",
-      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dicta esse quo, aliquam quaerat autem provident eveniet? Nihil, enim accusantium?",
       "phone": "+20 333 222 111",
       "email": "deltadiner@example.com",
       "thumbnail": "https://www.gayot.com/images/reviews/tanta.jpg",
@@ -846,7 +836,6 @@
       "name": "Marsa Matrouh Seafood",
       "street": "55 Beachfront Avenue",
       "city": "Marsa Matrouh",
-      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dicta esse quo, aliquam quaerat autem provident eveniet? Nihil, enim accusantium?",
       "phone": "+20 555 444 333",
       "email": "marsaseafood@example.com",
       "thumbnail": "https://media-cdn.tripadvisor.com/media/photo-s/19/c8/00/9a/getlstd-property-photo.jpg",
@@ -875,7 +864,6 @@
       "street": "mashaya Street",
       "city": "mansoura",
       "phone": "+20 666 777 888",
-      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dicta esse quo, aliquam quaerat autem provident eveniet? Nihil, enim accusantium?",
       "email": "stereo@example.com",
       "thumbnail": "https://s3-eu-west-1.amazonaws.com/elmenusv5-stg/Normal/65353682-b966-4480-9313-76aeccf20f3b.jpg",
       "reviews": [
@@ -902,7 +890,6 @@
       "name": "Nubian Delights",
       "street": "15 Nubia Street",
       "city": "Aswan",
-      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dicta esse quo, aliquam quaerat autem provident eveniet? Nihil, enim accusantium?",
       "phone": "+20 555 444 333",
       "email": "nubiandelights@example.com",
       "thumbnail": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/327898951.jpg?k=d6407d0c3b993d7cd3aa7e1f616b2800243b0b2fe42d339166a1b0a4ef63efb8&o=&hp=1",
@@ -930,7 +917,6 @@
       "name": "Sahara Sweets",
       "street": "25 Desert Avenue",
       "city": "Siwa Oasis",
-      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dicta esse quo, aliquam quaerat autem provident eveniet? Nihil, enim accusantium?",
       "phone": "+20 999 777 888",
       "email": "saharasweets@example.com",
       "thumbnail": "https://www.adrereamellal.com/adrere/wp-content/uploads/2019/09/pool-lunch-adrere-amellal.jpg",
@@ -959,7 +945,6 @@
       "street": "2 Blue Hole Road",
       "city": "Dahab",
       "phone": "+20 123 456 789",
-      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dicta esse quo, aliquam quaerat autem provident eveniet? Nihil, enim accusantium?",
       "email": "bluehole@example.com",
       "thumbnail": "https://media-cdn.tripadvisor.com/media/photo-s/0d/56/f5/d8/bedouin-style-sitting.jpg",
       "reviews": [
@@ -986,7 +971,6 @@
       "name": "Elgendy seafood",
       "street": "17 Med Avenue",
       "city": "Port Said",
-      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dicta esse quo, aliquam quaerat autem provident eveniet? Nihil, enim accusantium?",
       "phone": "+20 987 654 321",
       "email": "medflavors@example.com",
       "thumbnail": "https://media-cdn.tripadvisor.com/media/photo-s/0c/9b/7c/48/el-gendy-for-seafood.jpg",
@@ -1014,7 +998,6 @@
       "name": "Desert Mirage",
       "street": "30 Sahara Street",
       "city": "Bahariya Oasis",
-      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dicta esse quo, aliquam quaerat autem provident eveniet? Nihil, enim accusantium?",
       "phone": "+20 888 777 666",
       "email": "desertmirage@example.com",
       "thumbnail": "https://myownwaytotravel.com/wp-content/uploads/2021/01/Local-restaurant-in-the-oasis-of-Bahariya.jpg",
@@ -1043,7 +1026,6 @@
       "street": "8 Dive Center Road",
       "city": "beni suef",
       "phone": "+20 777 888 999",
-      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dicta esse quo, aliquam quaerat autem provident eveniet? Nihil, enim accusantium?",
       "email": "redseadivers@example.com",
       "thumbnail": "https://lh5.googleusercontent.com/p/AF1QipNf-Q16OlHB1qcCQYr39tdL23NSofZzVU8pPsXx=w500-h500-k-no",
       "reviews": [
@@ -1071,7 +1053,6 @@
       "street": "7 Nile Cruise Avenue",
       "city": "Luxor",
       "phone": "+20 333 222 111",
-      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dicta esse quo, aliquam quaerat autem provident eveniet? Nihil, enim accusantium?",
       "email": "nilecruise@example.com",
       "thumbnail": "https://media-cdn.tripadvisor.com/media/photo-s/25/39/e8/6d/el-kababgy-luxor.jpg",
       "reviews": [
@@ -1098,7 +1079,6 @@
       "name": "Rangoli Paradise",
       "street": "12 Paradise Road",
       "city": "Sharm El Sheikh",
-      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dicta esse quo, aliquam quaerat autem provident eveniet? Nihil, enim accusantium?",
       "phone": "+20 111 222 333",
       "email": "redseaparadise@example.com",
       "thumbnail": "https://media-cdn.tripadvisor.com/media/photo-s/03/08/30/4a/rangoli.jpg",
@@ -1125,7 +1105,6 @@
       "rating": 4.0,
       "name": "Fayoum Fisherman's Grill",
       "street": "20 Fayoum Beach Road",
-      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dicta esse quo, aliquam quaerat autem provident eveniet? Nihil, enim accusantium?",
       "city": "Fayoum",
       "phone": "+20 666 777 888",
       "email": "fayoumfisherman@example.com",
@@ -1154,7 +1133,6 @@
       "name": "Pyramid View Restaurant",
       "street": "2 Giza Pyramid Road",
       "city": "Giza",
-      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dicta esse quo, aliquam quaerat autem provident eveniet? Nihil, enim accusantium?",
       "phone": "+20 123 456 789",
       "email": "pyramidview@example.com",
       "thumbnail": "https://static.wixstatic.com/media/5eff48_30669344f0d54ad7a2342ecbabff00a1~mv2.jpg/v1/fill/w_640,h_426,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/5eff48_30669344f0d54ad7a2342ecbabff00a1~mv2.jpg",
@@ -1182,7 +1160,6 @@
       "name": "Nile Felucca Cafe",
       "street": "10 Felucca Street",
       "city": "Asyut",
-      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dicta esse quo, aliquam quaerat autem provident eveniet? Nihil, enim accusantium?",
       "phone": "+20 987 654 321",
       "email": "feluccacafe@example.com",
       "thumbnail": "https://media-cdn.tripadvisor.com/media/photo-m/1280/1b/24/5b/2c/restaurant-in-ms-florence.jpg",
@@ -1569,7 +1546,7 @@
           "user": "Leira C",
           "date": "September 2023",
           "title": "Amazing clear water in the Red Sea!",
-          "comment": "The Red Sea is amazing. We had a great experience and our guide Hakiem made it easier. He spent time with us and took nice thumbnails. We had a relaxing day and delicious lunch. "
+          "comment": "The Red Sea is amazing. We had a great experience and our guide Hakiem made it easier. He spent time with us and took nice pictures. We had a relaxing day and delicious lunch. "
         },
         {
           "user": "Simon G",
@@ -1714,8 +1691,8 @@
     {
       "id": 1,
       "name": "Sharm El Sheikh",
-      "thumbnail": "assets/images/sharm/ras-mohammed-park.jpg",
-      "images": ["assets/images/sharm/dolphina-park.jpg", "assets/images/sharm/sharm-el-sheikh.jpg", "assets/images/sharm/tiran.jpg"],
+      "picture": "ras-mohammed-park.jpg",
+      "images": ["dolphina-park.jpg", "sharm-el-sheikh", "tiran.jpg"],
       "description": "Diverse marine life and hundreds of Red Sea coral reef sites make Sharm El Sheikh a magnet for divers and eco-tourists. The tourist economy of this Sinai Peninsula city has grown quite rapidly over the last few decades, resulting in an upcrop of first-class resorts and posh nightlife. The waters of Ras Mohamed National Park are abundant with schools of fish and, oddly, toilets – thanks to the bathroom fixtures being transported by a cargo ship that sank during a 1981 storm",
       "reviews": [
         {
@@ -1738,11 +1715,11 @@
     {
       "id": 2,
       "name": "Hurghada",
-      "thumbnail": "assets/images/hurghada/giftun-islands-red-sea.jpg",
+      "picture": "giftun-islands-red-sea.jpg",
       "images": [
-        "assets/images/hurghada/interno-ed-esterno.jpg",
-        "assets/images/hurghada/makadi-water-world.jpg",
-        "assets/images/hurghada/makadi-water-world.jpg"
+        "interno-ed-esterno.jpg",
+        "makadi-water-world.jpg",
+        "makadi-water-world.jpg"
       ],
       "description": "Stunning coral reefs and turquoise waters perfect for windsurfing have made Hurghada, on Egypt's Red Sea Coast, a busy resort town. Within easy reach of the stunning Giftun Islands and the Eastern Arabian Desert, Hurghada has seen enormous amounts of development in the past decade—and yes, it does seem overrun with tourists at times. But it’s a relatively easy beach escape for Europeans, and some of the world's best diving and snorkeling sites are just offshore. Walk or catch a cab to explore the old quarter, El Dahar.",
       "reviews": [
@@ -1766,12 +1743,11 @@
     {
       "id": 3,
       "name": "Cairo",
-      "thumbnail": "assets/images/cairo/cairo.jpg",
+      "picture": "cairo.jpg",
       "images": [
-        "assets/images/cairo/cairo.jpg",
-        "assets/images/cairo/photo0jpg.jpg",
-        "assets/images/cairo/view-on-the-islamic-cairo.jpg",
-        "assets/images/cairo/wadi-el-rayn.jpg"
+        "photo0jpg.jpg",
+        "view-on-the-islamic-cairo.jpg",
+        "wadi-el-rayn.jpg"
       ],
       "description": "Cairo’s an ancient city that also happens to be a modern metropolis—it’s one of the biggest cities in the Middle East and has the traffic and noise issues to prove it. But as long as you’re not looking for solitude, Cairo—the City of the Thousand Minarets—is a splendid place to explore Egyptian history and culture. (Editor's note: Our list was compiled before political unrest prompted many countries to issue travel warnings for Egypt. If you're currently planning a trip to Egypt, please consider the risks and monitor your government's travel alerts.",
       "reviews": [
@@ -1795,11 +1771,11 @@
     {
       "id": 4,
       "name": "Ain Sukhna",
-      "thumbnail": "assets/images/ain sukhna/ain-sukhna.jpg",
+      "picture": "ain-sukhna.jpg",
       "images": [
-        "assets/images/ain sukhna/cancun-visit-august-2015.jpg",
-        "assets/images/ain sukhna/porto-sokhna-beach-resort.jpg",
-        "assets/images/ain sukhna/img-20181028-115828-largejpg.jpg"
+        "cancun-visit-august-2015.jpg",
+        "porto-sokhna-beach-resort.jpg",
+        "img-20181028-115828-largejpg.jpg"
       ],
       "description": "El Ain El Sokhna is one of the most beautiful destinations to visit while in Egypt. This coastal village has been developed as a beach getaway for Cairo, accessible by a trip of less than two hours from the city. To cruise passengers, El Ain El Sukhna provides easy access to all of the sights of Cairo from the Giza Pyramids and Egyptian Museum to the Islamic Cairo",
       "reviews": [
@@ -1823,12 +1799,8 @@
     {
       "id": 5,
       "name": "Mersa Matruh",
-      "thumbnail": "assets/images/marsa matroh/beach-area.jpg",
-      "images": [
-        "assets/images/marsa matroh/ageeba-beach.jpg",
-        "assets/images/marsa matroh/dsc-0229-largejpg.jpg",
-        "assets/images/marsa matroh/photo1jpg.jpg"
-      ],
+      "picture": "beach-area.jpg",
+      "images": ["ageeba-beach.jpg", "dsc-0229-largejpg.jpg", "photo1jpg.jpg"],
       "description": "Mersa Matruh is protected by a ring of natural rocks some seven kilometres long which acts as a breakwater; the sea, therefore, as well as being spectacular due to its intense turquoise colour, is always calm. Many of the beaches have evocative names: Cleopatra beach, in honour of the beautiful queen who loved to bathe in this sea, ",
       "reviews": [
         {
@@ -1851,7 +1823,7 @@
     {
       "id": 6,
       "name": "Alexandria",
-      "thumbnail": "https://images.memphistours.com/large/19994985_marsa%20matrouh%207.jpg",
+      "picture": "alexandria.jpg",
       "images": [
         "an-outside-entrance-to.jpg",
         "pompey-s-pillar-and-sphinx.jpg",
@@ -1880,12 +1852,8 @@
     {
       "id": 7,
       "name": "Marsa Alam",
-      "thumbnail": "assets/images/marsa alam/bigphotoformarsa-alam.jpg",
-      "images": [
-        "assets/images/marsa alam/marsa-alam.jpg", 
-        "assets/images/marsa alam/sataya-dei-delfini.jpg",
-        "assets/images/marsa alam/sataya.jpg"
-      ],
+      "picture": "bigphotoformarsa-alam.jpg",
+      "images": ["marsa-alam.jpg", "sataya-dei-delfini.jpg", "sataya.jpg"],
       "description": "Thanks to the addition of an international airport in 2001, Marsa Alam is fast becoming a premium tourist destination, especially for scuba divers. The waters here are brimming with marine life and pristine dive sites. Landlubbers, don’t miss the Emerald Mines and the Temple of Seti I at Khanais.",
       "reviews": [
         {
@@ -1908,11 +1876,11 @@
     {
       "id": 8,
       "name": "El Alamein",
-      "thumbnail": "assets/images/el alamin/the-marina--v9514476.jpg",
+      "picture": "the-marina--v9514476.jpg",
       "images": [
-        "assets/images/el alamin/el-alamein.jpg",
-        "assets/images/el alamin/etap-resort.jpg",
-        "assets/images/el alamin/porto-marina-resort-spa.jpg"
+        "el-alamein.jpg",
+        "etap-resort.jpg",
+        "porto-marina-resort-spa.jpg"
       ],
       "description": "The Battle of El Alamein was the largest conflict to take place in Africa during World War II and a significant turning point in the war. Before General Bernard Montgomery and the British 8th Army defeated Field Marshall Erwin Rommel and his German tank divisions, the Allies had not experienced a significant success on any front during the war. Montgomery’s army stopped the German advance toward Alexandria and Cairo, ensuring the safety of Egypt. The battle signaled the beginning of the end of Germany’s campaign in North Africa, guaranteeing the Allies control of the Suez Canal and the Middle East’s oil fields and significantly shifting the momentum of the war in favor of the Allies.",
       "reviews": [
@@ -1936,11 +1904,11 @@
     {
       "id": 9,
       "name": "Dahab",
-      "thumbnail": "assets/images/dahab/a-view-from-the-mountain.jpg",
+      "picture": "a-view-from-the-mountain.jpg",
       "images": [
-        "assets/images/dahab/caption.jpg",
-        "assets/images/dahab/dahab.jpg",
-        "assets/images/dahab/the-famous-blue-hole_rotated_90.jpg"
+        "caption.jpg",
+        "dahab.jpg",
+        "the-famous-blue-hole_rotated_90.jpg"
       ],
       "description": "This former Bedouin fishing village is now a popular tourist destination—especially for serious windsurfers,who'll find some of the best conditions in the world off Dahab's beaches. Long known as a laid-back,backpacker-friendly town, Dahab is becoming more developed, yet retains a casual vibe. Finally,Dahab is also home to the Blue Hole, the world's most dangerous dive site.",
 
@@ -1963,13 +1931,13 @@
       ]
     },
     {
-      "id": 10,
+      "id": 9,
       "name": "Luxor",
-      "thumbnail": "assets/images/luxor/b145de4d72cd7da8b329e85ddcb33a10.jpg",
+      "picture": "b145de4d72cd7da8b329e85ddcb33a10.jpg",
       "images": [
-        "assets/images/luxor/c6262dfcddaf7c465a831411d9effd03.jpg",
-        "assets/images/luxor/f0260b474d24d165223557affcdfc302.jpg",
-        "assets/images/luxor/f0f7b84d7f11337a98325b23e5307aea.jpg"
+        "c6262dfcddaf7c465a831411d9effd03.jpg",
+        "f0260b474d24d165223557affcdfc302.jpg",
+        "f0f7b84d7f11337a98325b23e5307aea.jpg"
       ],
       "description": "At the height of the Ancient Egyptian New Kingdom (1549—1069 BC) its capital, Thebes (Luxor), was a city of over a million people. The pharaohs that ruled over this kingdom were made wealthy by military successes that expanded their influence south into Nubia, west along the Mediterranean, and east into modern-day Syria",
       "reviews": [
@@ -1988,16 +1956,6 @@
           "name": "yehia",
           "comment": "nice Destination"
         }
-      ]
-    },
-    {
-      "id": 10,
-      "name": "Aswan",
-      "thumbnail": "https://images.memphistours.com/large/19994985_marsa%20matrouh%207.jpg",
-      "images": [
-        "3b2dcf5f4f76f7d462e7d8f4ba6b99a2.jpg",
-        "da60c4e01554a3306a7b9b01cdce259d.jpg",
-        "f20135dd159bf4f54efa2f814e5254b4.jpg"
       ],
 
       "hotels":[
@@ -2185,13 +2143,13 @@
 
     },
     {
-      "id": 11,
+      "id": 10,
       "name": "Aswan",
-      "picture": "assets/images/aswan/download.jpg",
+      "picture": "download.jpg",
       "images": [
-        "assets/images/aswan/3b2dcf5f4f76f7d462e7d8f4ba6b99a2.jpg",
-        "assets/images/aswan/da60c4e01554a3306a7b9b01cdce259d.jpg",
-        "assets/images/aswan/f20135dd159bf4f54efa2f814e5254b4.jpg"
+        "3b2dcf5f4f76f7d462e7d8f4ba6b99a2.jpg",
+        "da60c4e01554a3306a7b9b01cdce259d.jpg",
+        "f20135dd159bf4f54efa2f814e5254b4.jpg"
       ],
       "description": "Aswan provides a much more relaxed experience. It is the smallest of Egypt’s major touristic cities, but it also bears the distinctive mark of the more relaxed Nubian culture. Those interested in Pharaonic history cannot pass up Aswan because of the impressive Philae Temple nearby, located on an island behind the old Aswan Dam, and the famous Abu Simbel Temples several hours south along the banks of Lake Nasser.",
       "reviews": [
