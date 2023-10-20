@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>{{ counter }}</h1>
+  <div class="row">
+    <div class="col-3 my-4" *ngFor="let item of products['Hotel']">
+      <div class="card">
+        <img src="{{ item.thumbnail }}" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">
+            {{ item.id }}
+          </p>
+        </div>
+        <div class="card-body">
+          <button class="btn btn-primary" (click)="redirectTo(item, 1)">
+            add to cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

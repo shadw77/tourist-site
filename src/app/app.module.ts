@@ -21,6 +21,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import{ ReactiveFormsModule} from'@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import {ModuleCartModule} from 'src/app/module-cart/module-cart.module';
 
 
 @NgModule({
@@ -36,6 +37,8 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+    ModuleCartModule
+
   ],
   providers: [],
   bootstrap: [AppComponent],

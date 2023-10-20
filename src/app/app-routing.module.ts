@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CartComponent } from 'src/app/module-cart/cart/cart.component';
+import { ListCardsComponent } from 'src/app/module-cart/list-cards/list-cards.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { HomeComponent } from './home/home.component';
@@ -27,6 +29,7 @@ const routes: Routes = [
     path:'discover',loadChildren: () => import('src/app/discovermodule/discovermodule.module')
     .then(m=>m.DiscovermoduleModule)
   },
+
   {path:'about', component:AboutUsComponent
 },
   {
@@ -37,6 +40,7 @@ const routes: Routes = [
     path: '**',
     redirectTo: '',
   }
+
 ];
 
 @NgModule({
