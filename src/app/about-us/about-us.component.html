@@ -1,0 +1,114 @@
+<!-- Header Section -->
+<header class="header">
+    <div class="header-image">
+      <img [src]="imageUrl" alt="Header Image" class="img-fluid">
+    </div>
+    <!-- <div class="header-content text-center">
+      <h1>{{ title }}</h1>
+      <h4>{{ description }}</h4>
+    </div> -->
+  </header>
+  
+  <!-- Choosing Section -->
+  <div class="choosing container p-5">
+    <div class="choosing_title text-center">
+      <h4>{{ content.title }}</h4>
+      <p>{{ content.description }}</p>
+    </div>
+    <div class="row">
+      <div *ngFor="let benefit of content.benefits" class="col-md-4 col-sm-12">
+        <div class="card benefits_info">
+          <img [src]="benefit.image" alt="{{ benefit.title }}" class="card-img-top">
+          <div class="card-body">
+            <h6 class="card-title">{{ benefit.title }}</h6>
+            <p class="card-text">{{ benefit.details | slice:0:150 }}..</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Adventure Section -->
+  <section class="adventure container">
+    <div class="row">
+      <div class="col-md-4 col-sm-12">
+        <div class="card adventure-image-card">
+          <img src="https://safer.travel/website_assets/images/homePage/why-us.webp" alt="why us image" class="card-img-top" style="cursor: pointer;">
+        </div>
+      </div>
+      <div class="col-md-8 col-sm-12">
+        <div class="card adventure-info-card">
+          <div class="card-body">
+            <h2>{{ headingText }}</h2>
+            <p *ngFor="let paragraph of paragraphText">{{ paragraph | slice:0:80 }}..</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Statistics Section -->
+  <section class="statistics container">
+    <div class="row">
+      <div *ngFor="let data of statisticsData" class="col-md-3 col-sm-12">
+        <div class="card-info">
+          <img [src]="data.imageSrc" alt="Image" class="card-img-top">
+          <div class="card-body text-center">
+            <span class="card-text">{{ data.number }}</span>
+            <span class="card-text">{{ data.label }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Objectives Section -->
+  <section class="objectives container">
+    <div class="row">
+      <div class="col-md-6 col-sm-12">
+        <div class="card left  border-0">
+          <div class="card-body">
+            <div class="obj_title">
+              <img  [src]="mission.image" alt="campaign icon">
+              <h6>{{ mission.title }}</h6>
+            </div>
+            <p class="card-text">{{ mission.description }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <div class="card right border-0">
+          <div class="card-body">
+            <div class="obj_title">
+              <img class="vission_img" [src]="vision.image" alt="target icon">
+              <h6>{{ vision.title }}</h6>
+            </div>
+            <p class="card-text">{{ vision.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Newsletter Section -->
+  <section class=" bg-primary">
+  <div class="container newsletter p-4 ">
+    <div class="row">
+      <div class="col">
+        <h3 >Prepare yourself</h3>
+        <h3>to explore the beauty of the world</h3>
+  </div>
+  <div class="col mt-2">
+        <form>
+          <div class="input-group mb-3 p-4">
+            <input type="text" class="form-control" placeholder="Enter your name" aria-label="Name" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-secondary btn-custom" type="button" id="button-addon2">subscribeToNewsletter</button>
+            </div>
+          </div>
+          
+        </form>
+    </div>
+      </div>
+    </div>
+  
+</section>
