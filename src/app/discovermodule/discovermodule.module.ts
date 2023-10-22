@@ -7,6 +7,7 @@ import { MediaComponent } from './media/media.component';
 import { CuttextPipe } from '../Pipes/cuttext.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbcommentComponent } from './ngbcomment/ngbcomment.component';
+import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 
 const routes: Routes = [
   
@@ -22,6 +23,8 @@ const routes: Routes = [
     CommonModule,
     NgbModule,
     RouterModule.forChild(routes),
+    NgxSpinnerModule.forRoot()
+
   ]
 })
 export class DiscovermoduleModule { }

@@ -10,9 +10,10 @@ export class HandleapiService {
   data:any;
 
 
-  constructor(){
+  constructor(private httpclient:HttpClient){
     this.data=datajson;
     //console.log(this.data);
+    
   }
 
 
@@ -20,21 +21,13 @@ export class HandleapiService {
     return this.data;
   }
 
-/*
-  getallproduct() :Observable<any>{
-    return this.httpclient.get("https://dummyjson.com/products");
 
+  /*start function to get nearby places from api*/
+  getNearbyPlaces() :Observable<any>{
+    return this.httpclient.get("http://localhost:8000/api/get-nearbyplaces");
   }
+  /*end function to get nearby places from api*/
 
-  getproductdetails(pid:number) :Observable<Productinterface>{
-    return this.httpclient.get<Productinterface>(`https://dummyjson.com/products/${pid}`);
 
-  }
 
-  searchofproduct(keyword:string):Observable<any>{
-    return this.httpclient.get<Productinterface[]>(`https://dummyjson.com/products/search?q=${keyword}`);
-
-  }
-
-  */
 }

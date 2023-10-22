@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HandleapiService } from 'src/app/Services/handleapi.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-discover',
@@ -8,23 +9,50 @@ import { HandleapiService } from 'src/app/Services/handleapi.service';
 })
 export class DiscoverComponent implements OnInit{
   near:any;
-  places:any=[];
+ 
   reviewsplaces:any=[];
   
-  constructor(private data:HandleapiService){
+  getnearbyplaces=[];
+  places:any=[];
 
-  }
+  constructor(private data:HandleapiService,
+            private spinner: NgxSpinnerService){}
 
   ngOnInit(){
+
+    /*start spinner till data get from services*/
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 500);
+    /*end spinner till data get from services*/
+
+    /*start function to get nearby places from services*/
+    this.data.getNearbyPlaces().subscribe({
+      next:(next)=>{
+        this.getnearbyplaces=next.nearbyplaces;
+        //console.log(next);
+        this.places=[].concat(...Object.values(this.getnearbyplaces));
+      },
+      error:(error) => {
+        console.error('Error fetching products:', error);
+      },
+      complete:()=>{
+      }
+    });
+    /*end function to get nearby places from services*/
+
+      
+
     this.near=this.data.getdata();
       //console.log(this.near);
 
     /*start nearby places*/
-    this.places.push(...this.near.Destination[9].hotels)
-    this.places.push(...this.near.Destination[9].restaurants)
-    this.places.push(...this.near.Destination[9].trips);
-
+    //.places.push(...this.near.Destination[9].hotels)
+    //this.places.push(...this.near.Destination[9].restaurants)
+    //this.places.push(...this.near.Destination[9].trips);
     //console.log(this.places);
+
     this.reviewsplaces.push(...this.near.Destination[9].hotels[0].reviews);
     this.reviewsplaces.push(...this.near.Destination[9].hotels[1].reviews);
 
@@ -37,6 +65,7 @@ export class DiscoverComponent implements OnInit{
     //console.log(this.reviewsplaces);
 
     /*end nearby places*/
+
 
 
   }
