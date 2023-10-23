@@ -35,6 +35,10 @@ const routes: Routes = [
     path:'cart',
     component:CartComponent,
   },
+  {
+    path:'carts',
+    component:ListCardsComponent,
+  },
    {
     path:'discover',loadChildren: () => import('src/app/discovermodule/discovermodule.module')
     .then(m=>m.DiscovermoduleModule)
