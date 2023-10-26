@@ -9,15 +9,28 @@ import { DisplayHotelsComponent } from './display-hotels/display-hotels.componen
 import { DisplayRestaurantComponent } from './display-restaurant/display-restaurant.component';
 import { CartItemService } from './Services/cart-item.service';
 import { ModuleCartModule } from './module-cart/module-cart.module';
+import { HomeLayoutComponent } from './home-layout/home-layout.component';
+import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout.component';
+import { AdminComponent } from './dashboard/admin/admin.component';
 
 const routes: Routes = [
+  // {
+  // path:'',
+  // component:HomeComponent,
+  // },
+  // {
+  //   path:'home',
+  //   component:HomeComponent,
+  // },
   {
-  path:'',
-  component:HomeComponent,
+    path: '',
+    component: HomeLayoutComponent,
+    children: [{ path: '', component: HomeComponent }],
   },
   {
-    path:'home',
-    component:HomeComponent,
+    path: 'dashboard',
+    component: DashboardLayoutComponent,
+    children: [{ path: 'admin', component: AdminComponent }],
   },
   {
     path:'hotels',
@@ -48,10 +61,12 @@ const routes: Routes = [
     path:'contact',
     component:ContactUsComponent
   },
-  {
-    path:'admin',loadChildren: () => import('src/app/dashboard/dashboard.module')
-    .then(m=>m.DashboardModule)
-  },
+  // {
+  //   path:'admin',loadChildren: () => import('src/app/dashboard/dashboard.module')
+  //   .then(m=>m.DashboardModule)
+  // },
+
+
   {
     path: '**',
     redirectTo: '',

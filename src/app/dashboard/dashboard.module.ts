@@ -7,8 +7,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   
-  {path:'',redirectTo:'/admin/dashboard',pathMatch:'full'},
-  {path:'dashboard',component:AdminComponent},
+  {path:'dashboard',redirectTo:'dashboard/admin',pathMatch:'full'},
+  {path:'admin',component:AdminComponent},
 ];
 
 @NgModule({
