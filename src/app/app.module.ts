@@ -22,11 +22,17 @@ import{ ReactiveFormsModule} from'@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import {ModuleCartModule} from 'src/app/module-cart/module-cart.module';
+import { DashboardModule } from "./dashboard/dashboard.module";
+import { HomeLayoutComponent } from './home-layout/home-layout.component';
+import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout.component';
 
 
 @NgModule({
   declarations: [AppComponent, MainSearchComponent, TopDestinationComponent, ImgCardComponent, HomeComponent, ExploreComponent, DescCardComponent, ItemComponent, DisplayRestaurantComponent, DisplayHotelsComponent  ,  AboutUsComponent,
-    ContactUsComponent],
+    ContactUsComponent,
+    HomeLayoutComponent,
+    DashboardLayoutComponent,
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -37,7 +43,8 @@ import {ModuleCartModule} from 'src/app/module-cart/module-cart.module';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    ModuleCartModule
+    ModuleCartModule,
+    DashboardModule
 
   ],
   providers: [],

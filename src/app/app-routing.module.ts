@@ -40,11 +40,17 @@ const routes: Routes = [
     .then(m=>m.DiscovermoduleModule)
   },
 
-  {path:'about', component:AboutUsComponent
-},
+  {
+    path:'about', 
+    component:AboutUsComponent
+  },
   {
     path:'contact',
     component:ContactUsComponent
+  },
+  {
+    path:'admin',loadChildren: () => import('src/app/dashboard/dashboard.module')
+    .then(m=>m.DashboardModule)
   },
   {
     path: '**',
