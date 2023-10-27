@@ -25,7 +25,8 @@ import {ModuleCartModule} from 'src/app/module-cart/module-cart.module';
 import { DashboardModule } from "./dashboard/dashboard.module";
 import { HomeLayoutComponent } from './home-layout/home-layout.component';
 import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout.component';
-
+import { DatabaseModule } from "./database/database.module";
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [AppComponent, MainSearchComponent, TopDestinationComponent, ImgCardComponent, HomeComponent, ExploreComponent, DescCardComponent, ItemComponent, DisplayRestaurantComponent, DisplayHotelsComponent  ,  AboutUsComponent,
@@ -44,7 +45,8 @@ import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout.co
     HttpClientModule,
     FormsModule,
     ModuleCartModule,
-    DashboardModule
+    RouterModule
+  
 
   ],
   providers: [],

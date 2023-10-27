@@ -12,6 +12,7 @@ import { ModuleCartModule } from './module-cart/module-cart.module';
 import { HomeLayoutComponent } from './home-layout/home-layout.component';
 import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout.component';
 import { AdminComponent } from './dashboard/admin/admin.component';
+import { UsersComponent } from './database/users/users.component';
 
 const routes: Routes = [
   // {
@@ -25,42 +26,82 @@ const routes: Routes = [
   {
     path: '',
     component: HomeLayoutComponent,
-    children: [{ path: '', component: HomeComponent }],
+    children: [
+    { 
+      path: '', 
+    component: HomeComponent 
   },
-  {
-    path: 'dashboard',
-    component: DashboardLayoutComponent,
-    children: [{ path: 'admin', component: AdminComponent }],
-  },
-  {
-    path:'hotels',
-    component:DisplayHotelsComponent,
-  },
-  {
-    path:'restaurents',
-    component:DisplayRestaurantComponent,
-  },
-  {
-    path:'restaurents',
-    component:DisplayRestaurantComponent,
-  },
-  {
-    path:'cart',
-    component:CartComponent,
-  },
-   {
-    path:'discover',loadChildren: () => import('src/app/discovermodule/discovermodule.module')
-    .then(m=>m.DiscovermoduleModule)
-  },
+    {
+      path:'hotels',
+      component:DisplayHotelsComponent,
+    },
+    {
+      path:'restaurents',
+      component:DisplayRestaurantComponent,
+    },
+    {
+      path:'restaurents',
+      component:DisplayRestaurantComponent,
+    },
+    {
+      path:'cart',
+      component:CartComponent,
+    },
+     {
+      path:'discover',loadChildren: () => import('src/app/discovermodule/discovermodule.module')
+      .then(m=>m.DiscovermoduleModule)
+    },
+  
+    {
+      path:'about', 
+      component:AboutUsComponent
+    },
+    {
+      path:'contact',
+      component:ContactUsComponent
+    },
+  
+  ],
+ 
 
-  {
-    path:'about', 
-    component:AboutUsComponent
-  },
-  {
-    path:'contact',
-    component:ContactUsComponent
-  },
+},
+
+
+{
+  path: 'dashboard',
+  redirectTo: 'dashboard/admin',
+  pathMatch: 'full'
+},
+{
+  path: 'dashboard/admin',
+  component: AdminComponent,
+  children: [
+    { 
+      path: 'users',
+      component: UsersComponent,
+      outlet: 'details'
+    }
+  ]
+},
+
+// {
+    // path: 'dashboard',
+    // component: DashboardLayoutComponent,
+    // children: [
+      // { 
+        // path: 'admin', 
+        // component: AdminComponent 
+      // },
+    
+    // ],
+  // }, 
+  //  {
+  //       path:'admin/users',
+  //       component:UsersComponent,
+  //     },
+   
+
+
   // {
   //   path:'admin',loadChildren: () => import('src/app/dashboard/dashboard.module')
   //   .then(m=>m.DashboardModule)
