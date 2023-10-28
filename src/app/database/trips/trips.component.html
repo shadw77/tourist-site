@@ -1,0 +1,43 @@
+<button type="button" class="btn btn-info" routerLink="add-trip" routerLinkActive="Active">Add New Trip</button>
+<div class="row my-5">
+    <h3 class="fs-4 mb-3">All Trips</h3>
+    <div class="col">
+        <table class="table bg-white rounded shadow-sm  table-hover">
+            <thead>
+                <tr>
+                    <th scope="col" width="50">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Government</th>
+                    <th scope="col">Duration</th>
+                    <th scope="col">Cost</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Rating</th>
+                    <th scope="col">Thumbnail</th>
+                    <th scope="col">Creator Id</th>
+                    <th scope="col">Action</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let trip of Trips['data']; let i = index">
+                    <th scope="row">{{trip.id}}</th>
+                    <td>{{trip.name}}</td>
+                    <td>{{trip.government}}</td>
+                    <td>{{trip.duration}}</td>
+                    <td>{{trip.cost}}</td>
+                    <td>{{trip.description}}</td>
+                    <td>{{trip.rating}}</td>
+                    <td>{{trip.thumbnail}}</td>
+                    <td>{{trip.creator_id}}</td>
+                    <td>
+                        <a [routerLink]="[{ outlets: { details: ['edit-trip/{{trip.id}}'] } }]" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                            <i class="fas fa-project-diagram me-2"></i>Edit</a>
+
+                        <!-- <button type="button" class="btn btn-warning" routerLink="edit-trip/{{trip.id}}">Edit</button> -->
+                        <button type="button" class="btn btn-danger" (click)="delete(trip.id, i)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
