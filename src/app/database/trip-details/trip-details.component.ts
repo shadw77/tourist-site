@@ -22,7 +22,7 @@ export class TripDetailsComponent {
   ){    
     this.getId = this.activatedRoute.snapshot.paramMap.get('id');
     this.tripCrudService.getTrip(this.getId).subscribe(res=>{
-      console.log('dodoooooooooo',res['trip']['id']);
+      console.log(res['trip']['id']);
 
       this.updateForm.setValue({
       id:res['data']['id'],
