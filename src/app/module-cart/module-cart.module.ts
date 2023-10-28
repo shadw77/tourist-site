@@ -5,7 +5,7 @@ import { CartComponent } from './cart/cart.component';
 import { ListCardsComponent } from './list-cards/list-cards.component';
 import { SubtextPipe } from '../pipes/subtext.pipe'
 import {RatingComponent} from '../rating/rating.component'
-
+// import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   

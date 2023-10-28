@@ -27,12 +27,37 @@ const routes: Routes = [
   //   component:HomeComponent,
   // },
   {
-    path: '',
-    component: HomeLayoutComponent,
-    children: [
-    { 
-      path: '', 
-    component: HomeComponent 
+
+  path:'',
+  component:HomeComponent,
+  },
+  {
+    path:'home',
+    component:HomeComponent,
+  },
+  {
+    path:'hotels',
+    component:DisplayHotelsComponent,
+  },
+  {
+    path:'restaurents',
+    component:DisplayRestaurantComponent,
+  },
+  {
+    path:'restaurents',
+    component:DisplayRestaurantComponent,
+  },
+  {
+    path:'cart',
+    component:CartComponent,
+  },
+  {
+    path:'carts',
+    component:ListCardsComponent,
+  },
+   {
+    path:'discover',loadChildren: () => import('src/app/discovermodule/discovermodule.module')
+    .then(m=>m.DiscovermoduleModule)
   },
     {
       path:'hotels',
