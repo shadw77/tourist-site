@@ -13,6 +13,7 @@ import { HomeLayoutComponent } from './home-layout/home-layout.component';
 import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout.component';
 import { AdminComponent } from './dashboard/admin/admin.component';
 import { UsersComponent } from './database/users/users.component';
+import { TripsComponent } from './database/trips/trips.component';
 
 const routes: Routes = [
   // {
@@ -79,6 +80,11 @@ const routes: Routes = [
     { 
       path: 'users',
       component: UsersComponent,
+      outlet: 'details'
+    },
+    { 
+      path: 'trips',
+      component: TripsComponent,
       outlet: 'details'
     }
   ]

@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { DatabaseModule } from '../database/database.module';
 import { UsersComponent } from '../database/users/users.component';
+import { TripsComponent } from '../database/trips/trips.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,11 @@ const routes: Routes = [
       { 
         path: 'users',
         component: UsersComponent,
+        outlet: 'details'
+      },
+      { 
+        path: 'trips',
+        component: TripsComponent,
         outlet: 'details'
       }
     ]

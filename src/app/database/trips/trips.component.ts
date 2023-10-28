@@ -12,9 +12,9 @@ export class TripsComponent {
 
   constructor(private tripCrudService: TripCrudService){}
   ngOnInit():void{
-    this.tripCrudService.getTrips()  .subscribe(res=>{
-        console.log(res);
+    this.tripCrudService.getTrips()  .subscribe(res=>{        
         this.Trips= res;
+        console.log(this.Trips['data']);
     })
   }
 
