@@ -14,6 +14,8 @@ import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout.co
 import { AdminComponent } from './dashboard/admin/admin.component';
 import { UsersComponent } from './database/users/users.component';
 import { TripsComponent } from './database/trips/trips.component';
+import { TripDetailsComponent } from './database/trip-details/trip-details.component';
+import { AddTripComponent } from './database/add-trip/add-trip.component';
 
 const routes: Routes = [
   // {
@@ -86,6 +88,17 @@ const routes: Routes = [
       path: 'trips',
       component: TripsComponent,
       outlet: 'details'
+    },
+    { 
+      path: 'edit-trip/:id',
+      component: TripDetailsComponent,
+      outlet: 'details'
+    },
+    {  
+      path: 'add-trip',
+      component: AddTripComponent,
+      outlet: 'details'
+      
     }
   ]
 },

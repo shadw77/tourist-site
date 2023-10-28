@@ -18,6 +18,7 @@ export class AddTripComponent {
     private tripCrudService: TripCrudService
   ){
     this.tripForm = this.formBuilder.group({
+      id:[''],
       name:[''],
       government:[''],
       duration:[''],

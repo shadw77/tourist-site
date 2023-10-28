@@ -19,12 +19,13 @@ export class TripDetailsComponent {
     private activatedRoute:ActivatedRoute,
     private ngZone:NgZone,
     private tripCrudService: TripCrudService
-  ){
+  ){    
     this.getId = this.activatedRoute.snapshot.paramMap.get('id');
     this.tripCrudService.getTrip(this.getId).subscribe(res=>{
-      console.log(res);
+      console.log('ssssssssssssssssssssssss',res);
 
       this.updateForm.setValue({
+      id:res['id'],
       name:res['name'],
       government:res['government'],
       duration:res['duration'],
@@ -39,6 +40,7 @@ export class TripDetailsComponent {
     });
     });   
     this.updateForm = this.formBuilder.group({
+      id:[''],
       name:[''],
       government:[''],
       duration:[''],
