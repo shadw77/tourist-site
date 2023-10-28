@@ -89,19 +89,23 @@ const routes: Routes = [
       component: TripsComponent,
       outlet: 'details'
     },
+    
+   {  
+      path: 'add-trip',
+      component: AddTripComponent,
+      outlet: 'details'
+      
+    },
     { 
       path: 'edit-trip/:id',
       component: TripDetailsComponent,
       outlet: 'details'
     },
-    {  
-      path: 'add-trip',
-      component: AddTripComponent,
-      outlet: 'details'
-      
-    }
   ]
+
 },
+
+
 
 // {
     // path: 'dashboard',
