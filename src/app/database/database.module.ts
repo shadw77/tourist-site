@@ -6,6 +6,12 @@ import { TripsComponent } from './trips/trips.component';
 import { AddTripComponent } from './add-trip/add-trip.component';
 import { FormGroup, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { TripDetailsComponent } from './trip-details/trip-details.component';
+import { RestaurantsComponent } from './restaurants/restaurants.component';
+import { AddRestaurantComponent } from './add-restaurant/add-restaurant.component';
+import { RestaurantDetailsComponent } from './restaurant-details/restaurant-details.component';
+import { DestinationDetailsComponent } from './destination-details/destination-details.component';
+import { DestinationsComponent } from './destinations/destinations.component';
+import { AddDestinationComponent } from './add-destination/add-destination.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +19,13 @@ import { TripDetailsComponent } from './trip-details/trip-details.component';
   
     TripsComponent,
     AddTripComponent,
-    TripDetailsComponent
+    TripDetailsComponent,
+    RestaurantsComponent,
+    AddRestaurantComponent,
+    RestaurantDetailsComponent,
+    DestinationDetailsComponent,
+    DestinationsComponent,
+    AddDestinationComponent
   ],
   imports: [
     CommonModule    ,
