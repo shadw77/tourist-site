@@ -36,6 +36,12 @@ export class TripCrudService {
     .pipe(catchError(this.handleError));
   }
 
+  deleteTrip(id:any): Observable<any>{
+    let API_URL = `${this.REST_API}/${id}`;
+    return this.httpClient.delete(API_URL, {headers: this.httpHeaders})
+    .pipe(catchError(this.handleError));
+  }
+
   handleError(error: HttpErrorResponse){
     let errorMessage = '';
     if(error.error instanceof ErrorEvent){
