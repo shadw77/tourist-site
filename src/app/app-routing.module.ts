@@ -1,16 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CartComponent } from 'src/app/module-cart/cart/cart.component';
-// import { ListCardsComponent } from 'src/app/module-cart/list-cards/list-cards.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { HomeComponent } from './home/home.component';
 import { DisplayHotelsComponent } from './display-hotels/display-hotels.component';
 import { DisplayRestaurantComponent } from './display-restaurant/display-restaurant.component';
-// import { CartItemService } from './Services/cart-item.service';
-// import { ModuleCartModule } from './module-cart/module-cart.module';
 import { HomeLayoutComponent } from './home-layout/home-layout.component';
-import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout.component';
 import { AdminComponent } from './dashboard/admin/admin.component';
 import { UsersComponent } from './database/users/users.component';
 import { TripsComponent } from './database/trips/trips.component';
@@ -71,13 +67,10 @@ const routes: Routes = [
  
 
 },
-
-
 {
   path: 'dashboard',
   redirectTo: 'dashboard/admin',
   pathMatch: 'full',
-  component:DashboardLayoutComponent
 },
 {
   path: 'dashboard/admin',
