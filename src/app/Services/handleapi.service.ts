@@ -3,6 +3,7 @@ import datajson from '../../assets/tables.json';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -10,12 +11,13 @@ export class HandleapiService {
   data:any;
 
 
-  constructor(){
-    this.data=datajson;
-    //console.log(this.data);
+  constructor(private http: HttpClient){
+    this.data=datajson;}
+
+  getData() {
+      const apiUrl = 'http://localhost:8000/api/hotels';
+      return this.http.get(apiUrl);
   }
-
-
   getdata(){
     return this.data;
   }

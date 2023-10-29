@@ -14,9 +14,16 @@ export class ListCardsComponent {
   products:any;
   counter:number=0;
   ngOnInit() {
-    this.products= this.productsService.getdata()
-            // console.log(this.products);
-        //  return this.products= data;
+   // this.products= this.productsService.getdata();
+   this.productsService.getData().subscribe(
+    (response:any) => {
+      this.products=response.data;
+      console.log(response.data);
+    },
+    (error) => {
+      console.error(error);
+    }
+  );
         this.CounterService.get_Counter().subscribe((val)=>{
             this.counter=val;
         });
