@@ -28,6 +28,11 @@ export class HandleapiService {
   }
   /*end function to get nearby places from api*/
 
+  /*start function that retrieve review that belong to nearbyplaces*/
+  getReviewNearByPlaces() :Observable<any>{
+    return this.httpclient.get("http://localhost:8000/api/get-review-nearbyplaces");
+  }
+  /*end function that retrieve review that belong to nearbyplaces*/
 
 
 }

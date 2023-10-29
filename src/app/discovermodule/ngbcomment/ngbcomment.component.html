@@ -10,16 +10,16 @@
                             <div class="col">
                                 <div class="card h-100">
                                     <div class="card-body">
-                                        <p class="card-text">{{review.comment}}</p>
+                                        <p class="card-text">{{review.review}}</p>
                                     </div>
                                     <div class="card-footer">
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <img src="./../../../assets/images/alexandre-b.jpg" class="rounded-circle" width="30px">
-                                                <span class="text-muted mx-2">{{review.name}} </span>
+                                                <span class="text-muted mx-2">{{review.user.name}} </span>
                                             </div>
                                             <div class="col-md-6">
-                                                <small class="text-muted">Last updated 3 mins ago</small>
+                                                <small class="text-muted">created_at {{review.created_at}}</small>
                                             </div>
                                         </div>
                                     </div>
@@ -38,19 +38,20 @@
                     <ng-container *ngFor="let review of reviews ;let i=index">
                         <ng-container *ngIf="i>=3">
     
+ 
                             <div class="col">
                                 <div class="card h-100">
                                     <div class="card-body">
-                                        <p class="card-text">{{review.comment}}</p>
+                                        <p class="card-text">{{review.review}}</p>
                                     </div>
                                     <div class="card-footer">
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <img src="./../../../assets/images/alexandre-b.jpg" class="rounded-circle" width="30px">
-                                                <span class="text-muted mx-2">{{review.name}} </span>
+                                                <span class="text-muted mx-2">{{review.user.name}} </span>
                                             </div>
                                             <div class="col-md-6">
-                                                <small class="text-muted">Last updated 3 mins ago</small>
+                                                <small class="text-muted">created_at {{review.created_at}}</small>
                                             </div>
                                         </div>
                                     </div>
