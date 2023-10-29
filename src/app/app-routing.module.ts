@@ -67,10 +67,12 @@ const routes: Routes = [
     {
       path:'contact',
       component:ContactUsComponent
-    },
+    }
+  ]
   
+},{
 
-  {
+  
     path: 'dashboard',
     redirectTo: 'dashboard/admin',
     pathMatch: 'full'
@@ -138,45 +140,15 @@ const routes: Routes = [
       path: 'add-destination',
       component:AddDestinationComponent,
       outlet: 'details'
-    }
-  ]
-  
-},
+    },
+    {
 
       path: 'edit-trip/:id',
       component: TripDetailsComponent,
       outlet: 'details'
     },
   ]
-
-},
-
-
-
-// {
-    // path: 'dashboard',
-    // component: DashboardLayoutComponent,
-    // children: [
-      // { 
-        // path: 'admin', 
-        // component: AdminComponent 
-      // },
-    
-    // ],
-  // }, 
-  //  {
-  //       path:'admin/users',
-  //       component:UsersComponent,
-  //     },
-   
-
-
-  // {
-  //   path:'admin',loadChildren: () => import('src/app/dashboard/dashboard.module')
-  //   .then(m=>m.DashboardModule)
-  // },
-
-
+  },
   {
     path: '**',
     redirectTo: '',
