@@ -11,9 +11,10 @@ export class DestinationsComponent {
 
   constructor(private destinationCrudService: DestinationCrudService){}
   ngOnInit():void{
-    this.destinationCrudService.getDestinations()  .subscribe(res=>{        
+    this.destinationCrudService.getDestinations().subscribe(res=>{        
         this.Destinations= res;
-        console.log(this.Destinations['data']);
+        // console.log(this.Destinations['destinations']);
+        console.log(res);
     })
   }
 

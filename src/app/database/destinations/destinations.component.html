@@ -16,11 +16,13 @@
 
             </thead>
             <tbody>
-                <tr *ngFor="let destination of Destinations['data']; let i = index">
+                <tr *ngFor="let destination of Destinations['destinations']; let i = index">
                     <th scope="row">{{destination.id}}</th>
                     <td>{{destination.name}}</td>
                     <td>{{destination.description}}</td>
-                    <td>{{destination.thumbnail}}</td>
+                    <td>
+                        <img [src]="destination.thumbnail" alt="Thumbnail">
+                    </td>
                     <td>{{destination.creator_id}}</td>
                     <td>
                         <button type="button" class="btn btn-info" [routerLink]="['/dashboard/admin', { outlets: { details: 'edit-destination/' + destination.id

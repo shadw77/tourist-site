@@ -10,7 +10,12 @@ export class RestaurantCrudService {
   REST_API: string = "http://localhost:8000/api/restaurants";
   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
 
-
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk4NTkyMTE0LCJleHAiOjE2OTg1OTU3MTQsIm5iZiI6MTY5ODU5MjExNCwianRpIjoibWRIUWE1TGx3UWZUeVFzcSIsInN1YiI6IjIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.AFij4lYlqK83HXQU6auH0FlL3eSpNfkUazlGKnhhk9I'
+    })
+  };
   constructor(private httpClient: HttpClient) { }
 
   addRestaurant(data:Restaurant): Observable<any>{
@@ -19,7 +24,7 @@ export class RestaurantCrudService {
   }
 
   getRestaurants(){
-    return this.httpClient.get(this.REST_API);
+    return this.httpClient.get(this.REST_API,this.httpOptions);
   }
 
   getRestaurant(id:any): Observable<any>{
