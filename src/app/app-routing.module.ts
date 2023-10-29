@@ -140,17 +140,16 @@ const routes: Routes = [
       path: 'add-destination',
       component:AddDestinationComponent,
       outlet: 'details'
-    }
-  ]
-  
-    },{
+    },
+    {
 
       path: 'edit-trip/:id',
       component: TripDetailsComponent,
       outlet: 'details'
-    }
-  ,
-{
+    },
+  ]
+  },
+  {
     path: '**',
     redirectTo: '',
   }
