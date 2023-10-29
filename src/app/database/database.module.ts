@@ -16,7 +16,7 @@ import { AddUserComponent } from './add-user/add-user.component';
     AddTripComponent,
     TripDetailsComponent,
     UserDetailsComponent,
-    AddUserComponent
+    AddUserComponent,
   ],
   imports: [
     CommonModule,
