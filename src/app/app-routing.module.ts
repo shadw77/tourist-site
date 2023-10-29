@@ -16,6 +16,8 @@ import { UsersComponent } from './database/users/users.component';
 import { TripsComponent } from './database/trips/trips.component';
 import { TripDetailsComponent } from './database/trip-details/trip-details.component';
 import { AddTripComponent } from './database/add-trip/add-trip.component';
+import { UserDetailsComponent } from './database/user-details/user-details.component';
+import { AddUserComponent } from './database/add-user/add-user.component';
 
 const routes: Routes = [
   // {
@@ -89,44 +91,55 @@ const routes: Routes = [
       component:ContactUsComponent
     },
   
-  ],
- 
 
-},
-
-
-{
-  path: 'dashboard',
-  redirectTo: 'dashboard/admin',
-  pathMatch: 'full'
-},
-{
-  path: 'dashboard/admin',
-  component: AdminComponent,
-  children: [
+  {
+    path: 'dashboard',
+    redirectTo: 'dashboard/admin',
+    pathMatch: 'full'
+  },
+  {
+    path: 'dashboard/admin',
+    component: AdminComponent,
+    children: [
     { 
       path: 'users',
       component: UsersComponent,
       outlet: 'details'
     },
+    {  
+      path: 'add-user',
+      component: AddUserComponent,
+      outlet: 'details'
+      
+    },
+    { 
+      path: 'edit-user/:id',
+      component: UserDetailsComponent,
+      outlet: 'details'
+    },
+
     { 
       path: 'trips',
       component: TripsComponent,
       outlet: 'details'
+    },
+    
+   {  
+      path: 'add-trip',
+      component: AddTripComponent,
+      outlet: 'details'
+      
     },
     { 
       path: 'edit-trip/:id',
       component: TripDetailsComponent,
       outlet: 'details'
     },
-    {  
-      path: 'add-trip',
-      component: AddTripComponent,
-      outlet: 'details'
-      
-    }
   ]
+
 },
+
+
 
 // {
     // path: 'dashboard',
