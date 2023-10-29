@@ -27,7 +27,7 @@ import { AddUserComponent } from './add-user/add-user.component';
     RestaurantDetailsComponent,
     DestinationDetailsComponent,
     DestinationsComponent,
-    AddDestinationComponent
+    AddDestinationComponent,
     UserDetailsComponent,
     AddUserComponent,
 
