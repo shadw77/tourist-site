@@ -1,15 +1,14 @@
 import { Component ,NgZone} from '@angular/core';
 import { Router , ActivatedRoute} from '@angular/router';
-import { TripCrudService } from 'src/app/Services/trip-crud.service';
+import { DestinationCrudService } from 'src/app/Services/destination-crud.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
-
-
 @Component({
-  selector: 'app-trip-details',
-  templateUrl: './trip-details.component.html',
-  styleUrls: ['./trip-details.component.css']
+  selector: 'app-destination-details',
+  templateUrl: './destination-details.component.html',
+  styleUrls: ['./destination-details.component.css']
 })
-export class TripDetailsComponent {
+export class DestinationDetailsComponent {
+
   getId: any;
   updateForm: FormGroup;
 
@@ -18,20 +17,17 @@ export class TripDetailsComponent {
     private router:Router,
     private activatedRoute:ActivatedRoute,
     private ngZone:NgZone,
-    private tripCrudService: TripCrudService
+    private destinationCrudService: DestinationCrudService
   ){    
     this.getId = this.activatedRoute.snapshot.paramMap.get('id');
-    this.tripCrudService.getTrip(this.getId).subscribe(res=>{
-      console.log(res['trip']['id']);
+    this.destinationCrudService.getDestination(this.getId).subscribe(res=>{
+      console.log(res);
 
       this.updateForm.setValue({
+
       id:res['data']['id'],
       name:res['data']['name'],
-      government:res['data']['government'],
-      duration:res['data']['duration'],
-      cost:res['data']['cost'],
       description:res['data']['description'],
-      rating:res['data']['rating'],
       thumbnail:res['data']['thumbnail'],
       creator_id:res['data']['creator_id'],
       images:res['data']['images'],
@@ -42,28 +38,24 @@ export class TripDetailsComponent {
     this.updateForm = this.formBuilder.group({
       id:[''],
       name:[''],
-      government:[''],
-      duration:[''],
-      cost:[''],
       description:[''],
-      rating:[''],
       thumbnail:[''],
       creator_id:[''],
       images:[''],
       reviews:[''],
+
     });
     
   }
   onUpdate():any{
-    this.tripCrudService.updateTrip(this.getId,this.updateForm.value)
+    this.destinationCrudService.updateDestination(this.getId,this.updateForm.value)
     .subscribe(()=>{
       console.log('Data Updated Successfully');
-      this.ngZone.run(()=>this.router.navigateByUrl('/trips-list')) 
+      this.ngZone.run(()=>this.router.navigateByUrl('/destinations-list')) 
     },(err)=>{
       console.log(err);
       
     })
   }
-
 
 }

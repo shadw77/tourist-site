@@ -1,0 +1,47 @@
+<div>
+    <div> 
+        <form [formGroup]="updateForm" (ngSubmit)="onUpdate()">
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name" formControlName="name" required >
+            </div>
+
+            <div class="mb-3">
+                <label for="government" class="form-label">Government</label>
+                <input type="text" class="form-control" id="government" formControlName="government" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" formControlName="email" required>
+            </div>  
+        
+        
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" formControlName="password" required>
+            </div>
+
+
+            <div class="mb-3">
+                <label for="street" class="form-label">Street</label>
+                <input class="form-control" type="text" id="street" formControlName="street" required/>
+            </div>
+
+
+            <div class="mb-3">
+                <label for="mobile" class="form-label">Mobile</label>
+                <input type="tel" class="form-control" id="mobile" formControlName="mobile" required>
+            </div>
+
+
+            <div class="mb-3">
+                <label for="role" class="form-label">Role</label>
+                <input type="text" class="form-control" id="role" formControlName="role" required>
+            </div>
+
+         
+            <button type="submit" class="btn btn-success">Update</button>
+          </form>
+    </div>
+</div>

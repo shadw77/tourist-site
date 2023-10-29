@@ -1,4 +1,5 @@
-<button type="button" class="btn btn-info" routerLink="add-trip" routerLinkActive="Active">Add New Trip</button>
+<!-- <button type="button" class="btn btn-info" routerLink="add-trip" routerLinkActive="Active">Add New Trip</button> -->
+<button type="button" class="btn btn-info" [routerLink]="['/dashboard/admin', { outlets: { details: ['add-trip'] } }]" routerLinkActive="active-link">Add New Trip</button>
 <div class="row my-5">
     <h3 class="fs-4 mb-3">All Trips</h3>
     <div class="col">
@@ -27,12 +28,15 @@
                     <td>{{trip.cost}}</td>
                     <td>{{trip.description}}</td>
                     <td>{{trip.rating}}</td>
-                    <td>{{trip.thumbnail}}</td>
+                    <td><img [src]="trip.thumbnail"/> </td>
                     <td>{{trip.creator_id}}</td>
                     <td>
-                        <a [routerLink]="[{ outlets: { details: ['edit-trip/{{trip.id}}'] } }]" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                            <i class="fas fa-project-diagram me-2"></i>Edit</a>
 
+                        <button type="button" class="btn btn-info" [routerLink]="['/dashboard/admin', { outlets: { details: 'edit-trip/' + trip.id } }]" routerLinkActive="active-link">Edit</button>
+                        <!-- <button type="button" class="btn btn-info" [routerLink]="['/dashboard/admin', { outlets: { details: 'edit-trip/{{trip.id}}' } }]" routerLinkActive="active-link">Edit</button> -->
+
+                        <!-- <button type="button" class="btn btn-warning" [routerLink]="[{ outlets: { details: ['edit-trip/{{trip.id}}'] } }]" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Edit</button> -->
+                        <!-- <button type="button" class="btn btn-info" [routerLink]="['/dashboard/admin', { outlets: { details: ['edit-trip/{{trip.id}}'] } }]" routerLinkActive="active-link">Edit</button> -->
                         <!-- <button type="button" class="btn btn-warning" routerLink="edit-trip/{{trip.id}}">Edit</button> -->
                         <button type="button" class="btn btn-danger" (click)="delete(trip.id, i)">Delete</button>
                     </td>
