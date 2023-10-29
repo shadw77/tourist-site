@@ -91,21 +91,16 @@ const routes: Routes = [
       component:ContactUsComponent
     },
   
-  ],
- 
 
-},
-
-
-{
-  path: 'dashboard',
-  redirectTo: 'dashboard/admin',
-  pathMatch: 'full'
-},
-{
-  path: 'dashboard/admin',
-  component: AdminComponent,
-  children: [
+  {
+    path: 'dashboard',
+    redirectTo: 'dashboard/admin',
+    pathMatch: 'full'
+  },
+  {
+    path: 'dashboard/admin',
+    component: AdminComponent,
+    children: [
     { 
       path: 'users',
       component: UsersComponent,
