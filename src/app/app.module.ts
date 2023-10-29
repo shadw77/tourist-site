@@ -31,7 +31,7 @@ import { RouterModule } from '@angular/router';
   declarations: [AppComponent, MainSearchComponent, TopDestinationComponent, ImgCardComponent, HomeComponent, ExploreComponent, DescCardComponent, ItemComponent, DisplayRestaurantComponent, DisplayHotelsComponent  ,  AboutUsComponent,
     ContactUsComponent,
     HomeLayoutComponent,
-    DashboardLayoutComponent
+    DashboardLayoutComponent,
     ],
   imports: [
     BrowserModule,

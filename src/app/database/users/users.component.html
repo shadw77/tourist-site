@@ -1,90 +1,40 @@
-<!-- <router-outlet></router-outlet> -->
+<button type="button" class="btn btn-info" [routerLink]="['/dashboard/admin', { outlets: { details: ['add-user'] } }]" routerLinkActive="active-link">Add New User</button>
+
 <div class="row my-5">
-    <h3 class="fs-4 mb-3">Recent Users</h3>
+    <h3 class="fs-4 mb-3">All Users</h3>
     <div class="col">
         <table class="table bg-white rounded shadow-sm  table-hover">
             <thead>
                 <tr>
                     <th scope="col" width="50">#</th>
-                    <th scope="col">New Product</th>
-                    <th scope="col">Customer</th>
-                    <th scope="col">Price</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Government</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Password</th>
+                    <th scope="col">Street</th>
+                    <th scope="col">Mobile</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Television</td>
-                    <td>Jonny</td>
-                    <td>$1200</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Laptop</td>
-                    <td>Kenny</td>
-                    <td>$750</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Cell Phone</td>
-                    <td>Jenny</td>
-                    <td>$600</td>
-                </tr>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>Fridge</td>
-                    <td>Killy</td>
-                    <td>$300</td>
-                </tr>
-                <tr>
-                    <th scope="row">5</th>
-                    <td>Books</td>
-                    <td>Filly</td>
-                    <td>$120</td>
-                </tr>
-                <tr>
-                    <th scope="row">6</th>
-                    <td>Gold</td>
-                    <td>Bumbo</td>
-                    <td>$1800</td>
-                </tr>
-                <tr>
-                    <th scope="row">7</th>
-                    <td>Pen</td>
-                    <td>Bilbo</td>
-                    <td>$75</td>
-                </tr>
-                <tr>
-                    <th scope="row">8</th>
-                    <td>Notebook</td>
-                    <td>Frodo</td>
-                    <td>$36</td>
-                </tr>
-                <tr>
-                    <th scope="row">9</th>
-                    <td>Dress</td>
-                    <td>Kimo</td>
-                    <td>$255</td>
-                </tr>
-                <tr>
-                    <th scope="row">10</th>
-                    <td>Paint</td>
-                    <td>Zico</td>
-                    <td>$434</td>
-                </tr>
-                <tr>
-                    <th scope="row">11</th>
-                    <td>Carpet</td>
-                    <td>Jeco</td>
-                    <td>$1236</td>
-                </tr>
-                <tr>
-                    <th scope="row">12</th>
-                    <td>Food</td>
-                    <td>Haso</td>
-                    <td>$422</td>
+                <tr *ngFor="let user of Users['data']; let i = index">
+                    <ng-container *ngIf="user.role != 'admin'">
+                        <th scope="row">{{ user.id}}</th>
+                        <td>{{ user.name}}</td>
+                        <td>{{ user.government }}</td>
+                        <td>{{ user.email}}</td>
+                        <td>{{ user.password }}</td>
+                        <td>{{ user.street }}</td>
+                        <td>{{ user.mobile}}</td>
+                        <td>{{ user.role }}</td>
+                        <td>
+                            <button type="button" class="btn btn-info" [routerLink]="['/dashboard/admin', { outlets: { details: 'edit-user/' + user.id} }]" routerLinkActive="active-link">Edit</button>
+                            <button type="button" class="btn btn-danger" (click)="delete(user.id, i)">Delete</button>
+                        </td>
+                    </ng-container>
                 </tr>
             </tbody>
         </table>
     </div>
-</div>
+</div> 
