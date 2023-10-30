@@ -1,16 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CartComponent } from 'src/app/module-cart/cart/cart.component';
-import { ListCardsComponent } from 'src/app/module-cart/list-cards/list-cards.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { HomeComponent } from './home/home.component';
 import { DisplayHotelsComponent } from './display-hotels/display-hotels.component';
 import { DisplayRestaurantComponent } from './display-restaurant/display-restaurant.component';
-import { CartItemService } from './Services/cart-item.service';
-import { ModuleCartModule } from './module-cart/module-cart.module';
 import { HomeLayoutComponent } from './home-layout/home-layout.component';
-import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout.component';
 import { AdminComponent } from './dashboard/admin/admin.component';
 import { UsersComponent } from './database/users/users.component';
 import { TripsComponent } from './database/trips/trips.component';
@@ -24,6 +20,7 @@ import { DestinationDetailsComponent } from './database/destination-details/dest
 import { AddDestinationComponent } from './database/add-destination/add-destination.component';
 import { UserDetailsComponent } from './database/user-details/user-details.component';
 import { AddUserComponent } from './database/add-user/add-user.component';
+import { VendorComponent } from './dashboard/vendor/vendor.component';
 
 const routes: Routes = [
   // {
@@ -149,6 +146,87 @@ const routes: Routes = [
     },
   ]
   },
+
+
+  {
+
+  
+    path: 'dashboard',
+    redirectTo: 'dashboard/vendor',
+    pathMatch: 'full'
+  },
+  {
+    path: 'dashboard/vendor',
+    component: VendorComponent,
+    children: [
+      { 
+        path: 'users',
+        component: UsersComponent,
+        outlet: 'details'
+      },
+      {  
+        path: 'add-user',
+        component: AddUserComponent,
+        outlet: 'details'
+        
+      },
+      { 
+        path: 'edit-user/:id',
+        component: UserDetailsComponent,
+        outlet: 'details'
+      },
+  
+      { 
+        path: 'trips',
+        component: TripsComponent,
+        outlet: 'details'
+      },
+      
+     {  
+        path: 'add-trip',
+        component: AddTripComponent,
+        outlet: 'details'
+        
+      },
+      { 
+  
+        path: 'restaurants',
+        component: RestaurantsComponent,
+        outlet: 'details'
+      },
+      { 
+        path: 'edit-restaurant/:id',
+        component: RestaurantDetailsComponent,
+        outlet: 'details'
+      },
+      {  
+        path: 'add-restaurant',
+        component: AddRestaurantComponent,
+        outlet: 'details'
+      },
+      { 
+        path: 'destinations',
+        component: DestinationsComponent,
+        outlet: 'details'
+      },
+      { 
+        path: 'edit-destination/:id',
+        component: DestinationDetailsComponent,
+        outlet: 'details'
+      },
+      {  
+        path: 'add-destination',
+        component:AddDestinationComponent,
+        outlet: 'details'
+      },
+      {
+  
+        path: 'edit-trip/:id',
+        component: TripDetailsComponent,
+        outlet: 'details'
+      },
+    ]
+  },
   {
     path: '**',
     redirectTo: '',
@@ -160,4 +238,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { } 
+export class AppRoutingModule { }

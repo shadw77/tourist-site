@@ -45,6 +45,8 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     ModuleCartModule,
     RouterModule,
+    DatabaseModule,
+    DashboardModule
   
 
   ],
