@@ -4,8 +4,8 @@
     <div class="modal-header"> 
         <h4 class="modal-title w-100 text-center" 
             id="modal-basic-title"> 
-           <button  (click)="showform()" class="btn btn-primary">Sign In </button> | 
-           <button  (click)="showform()" class="btn btn-success">Sign Up</button>
+           <button   class="btn btn-primary">Sign In </button> | 
+           <button   class="btn btn-success">Sign Up</button>
         </h4> 
         <button type="button" class="close btn btn-warning"
                 aria-label="Close" (click)= 
@@ -19,7 +19,7 @@
     <div class="modal-body"> 
 
         <!--start login form-->
-        <form [formGroup]="userlogin" [hidden]="!isUserLogin" (ngSubmit)="submitteddata(userlogin)" class=" p-5 border border-primary">
+        <form [formGroup]="userlogin" [hidden]="isUserLogin"  (ngSubmit)="submitteddata(userlogin)" class=" p-5 border border-primary">
             
             <!--start email input-->
             <div class="mb-3">
@@ -51,7 +51,7 @@
         <!--end login form-->
 
         <!--start register form-->
-        <form [formGroup]="userregister" [hidden]="isUserLogin" (ngSubmit)="submitteddata(userregister)" class=" p-5 border border-success">
+        <form [formGroup]="userregister" [hidden]="!isUserLogin" (ngSubmit)="submitteddata(userregister)" class=" p-5 border border-success">
             
             <!--start email input-->
             <div class="mb-3">

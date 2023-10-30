@@ -72,14 +72,13 @@
                 <!--start top attractions-->
                 <div class="tab-pane fade" id="pills-profile" role="tabpanel" 
                     aria-labelledby="pills-profile-tab">
-                    <app-caraousel [carouselimages]="places"></app-caraousel>
-
+                    <app-caraousel [carouselimages]="topplaces"></app-caraousel>
                     <br>
                     <br>
-                    <app-ngbcomment [reviews]="reviewsplaces"></app-ngbcomment>
+                    <app-ngbcomment [reviews]="commentsoftopplaces"></app-ngbcomment>
                     <br>
                     <br>
-                    <app-media [city]="places"></app-media>
+                    <app-media [city]="topplaces"></app-media>
 
                 </div>
                 <!--end top attractions-->
