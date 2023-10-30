@@ -1,5 +1,8 @@
 import { Component , ViewChild   } from '@angular/core';
 import { LoginComponent } from './login/login.component';
+import {HttpClient} from '@angular/common/http';
+import datajson from '../assets/tables.json';
+
 
 @Component({
   selector: 'app-root',
@@ -15,4 +18,14 @@ export class AppComponent {
     this.LoginComponent?.open();
   }
 
+  data:any;
+
+
+  ngOnInit():void{
+    this.data = datajson;
+  }
+
 }
+
+
+  
