@@ -20,6 +20,7 @@ import { DestinationDetailsComponent } from './database/destination-details/dest
 import { AddDestinationComponent } from './database/add-destination/add-destination.component';
 import { UserDetailsComponent } from './database/user-details/user-details.component';
 import { AddUserComponent } from './database/add-user/add-user.component';
+import { VendorComponent } from './dashboard/vendor/vendor.component';
 
 const routes: Routes = [
   // {
@@ -144,6 +145,87 @@ const routes: Routes = [
       outlet: 'details'
     },
   ]
+  },
+
+
+  {
+
+  
+    path: 'dashboard',
+    redirectTo: 'dashboard/vendor',
+    pathMatch: 'full'
+  },
+  {
+    path: 'dashboard/vendor',
+    component: VendorComponent,
+    children: [
+      { 
+        path: 'users',
+        component: UsersComponent,
+        outlet: 'details'
+      },
+      {  
+        path: 'add-user',
+        component: AddUserComponent,
+        outlet: 'details'
+        
+      },
+      { 
+        path: 'edit-user/:id',
+        component: UserDetailsComponent,
+        outlet: 'details'
+      },
+  
+      { 
+        path: 'trips',
+        component: TripsComponent,
+        outlet: 'details'
+      },
+      
+     {  
+        path: 'add-trip',
+        component: AddTripComponent,
+        outlet: 'details'
+        
+      },
+      { 
+  
+        path: 'restaurants',
+        component: RestaurantsComponent,
+        outlet: 'details'
+      },
+      { 
+        path: 'edit-restaurant/:id',
+        component: RestaurantDetailsComponent,
+        outlet: 'details'
+      },
+      {  
+        path: 'add-restaurant',
+        component: AddRestaurantComponent,
+        outlet: 'details'
+      },
+      { 
+        path: 'destinations',
+        component: DestinationsComponent,
+        outlet: 'details'
+      },
+      { 
+        path: 'edit-destination/:id',
+        component: DestinationDetailsComponent,
+        outlet: 'details'
+      },
+      {  
+        path: 'add-destination',
+        component:AddDestinationComponent,
+        outlet: 'details'
+      },
+      {
+  
+        path: 'edit-trip/:id',
+        component: TripDetailsComponent,
+        outlet: 'details'
+      },
+    ]
   },
   {
     path: '**',
