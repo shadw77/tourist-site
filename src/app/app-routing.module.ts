@@ -25,6 +25,7 @@ import { AddDestinationComponent } from './database/add-destination/add-destinat
 import { UserDetailsComponent } from './database/user-details/user-details.component';
 import { AddUserComponent } from './database/add-user/add-user.component';
 import { UserOrdersComponent } from './database/user-orders/user-orders.component';
+import { AddUserOrderComponent } from './database/add-user-order/add-user-order.component';
 
 const routes: Routes = [
   // {
@@ -152,6 +153,12 @@ const routes: Routes = [
 
       path: 'user-orders',
       component: UserOrdersComponent,
+      outlet: 'details'
+    },
+    {
+
+      path: 'add-order',
+      component: AddUserOrderComponent,
       outlet: 'details'
     },
   ]

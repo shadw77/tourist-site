@@ -10,6 +10,7 @@ import { TripsComponent } from '../database/trips/trips.component';
 import { TripDetailsComponent } from '../database/trip-details/trip-details.component';
 import { AddTripComponent } from '../database/add-trip/add-trip.component';
 import { UserOrdersComponent } from '../database/user-orders/user-orders.component';
+import { AddUserOrderComponent } from '../database/add-user-order/add-user-order.component';
 
 
 const routes: Routes = [
@@ -49,6 +50,12 @@ const routes: Routes = [
 
         path: 'user-orders',
         component: UserOrdersComponent,
+        outlet: 'details'
+      },
+      {
+
+        path: 'add-order',
+        component: AddUserOrderComponent,
         outlet: 'details'
       },
      

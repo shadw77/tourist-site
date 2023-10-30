@@ -15,6 +15,8 @@ import { AddDestinationComponent } from './add-destination/add-destination.compo
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { UserOrdersComponent } from './user-orders/user-orders.component';
+import { AddUserOrderComponent } from './add-user-order/add-user-order.component';
+import { UserOrderDetailsComponent } from './user-order-details/user-order-details.component';
 
 
 @NgModule({
@@ -32,6 +34,8 @@ import { UserOrdersComponent } from './user-orders/user-orders.component';
     UserDetailsComponent,
     AddUserComponent,
     UserOrdersComponent,
+    AddUserOrderComponent,
+    UserOrderDetailsComponent,
 
   ],
   imports: [
