@@ -26,6 +26,7 @@ import { UserDetailsComponent } from './database/user-details/user-details.compo
 import { AddUserComponent } from './database/add-user/add-user.component';
 import { UserOrdersComponent } from './database/user-orders/user-orders.component';
 import { AddUserOrderComponent } from './database/add-user-order/add-user-order.component';
+import { UserOrderDetailsComponent } from './database/user-order-details/user-order-details.component';
 
 const routes: Routes = [
   // {
@@ -159,6 +160,12 @@ const routes: Routes = [
 
       path: 'add-order',
       component: AddUserOrderComponent,
+      outlet: 'details'
+    },
+    {
+
+      path: 'edit-order/:id',
+      component: UserOrderDetailsComponent,
       outlet: 'details'
     },
   ]

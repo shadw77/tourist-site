@@ -1,1 +1,23 @@
-<p>user-order-details works!</p>
+<div>
+    <div> 
+        <form [formGroup]="updateForm" (ngSubmit)="onUpdate()">
+            <div class="mb-3">
+              <label for="user_id" class="form-label">User ID</label>
+              <input type="text" class="form-control" id="user_id" formControlName="user_id" required >
+            </div>
+
+            <div class="mb-3">
+                <label for="service_id" class="form-label">Service ID</label>
+                <input type="text" class="form-control" id="service_id" formControlName="service_id" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="service_type" class="form-label">Service Type</label>
+                <input type="service_type" class="form-control" id="service_type" formControlName="service_type" required>
+            </div>  
+        
+        
+            <button type="submit" class="btn btn-success">Update</button>
+          </form>
+    </div>
+</div>
