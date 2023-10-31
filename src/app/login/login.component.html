@@ -4,8 +4,8 @@
     <div class="modal-header"> 
         <h4 class="modal-title w-100 text-center" 
             id="modal-basic-title"> 
-           <button   class="btn btn-primary">Sign In </button> | 
-           <button   class="btn btn-success">Sign Up</button>
+           <button  (click)="showform()" class="btn btn-primary">Sign In </button> | 
+           <button  (click)="showform()" class="btn btn-success">Sign Up</button>
         </h4> 
         <button type="button" class="close btn btn-warning"
                 aria-label="Close" (click)= 
@@ -53,14 +53,21 @@
         <!--start register form-->
         <form [formGroup]="userregister" [hidden]="!isUserLogin" (ngSubmit)="submitteddata(userregister)" class=" p-5 border border-success">
             
+            <div *ngIf="successMessage!.length >0 "  class="alert alert-success">
+                <small >{{successMessage}}</small><br>
+            </div>
             <!--start email input-->
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" name="email" formControlName="email" required >
                 <div class="alert alert-danger" [hidden]="registeremail?.valid || registeremail?.untouched">
-                <small *ngIf="registeremail?.errors?.['required']">email is required</small>
-                <small *ngIf="registeremail?.errors?.['email']">email is Not Valid</small>
-
+                    <small *ngIf="registeremail?.errors?.['required']">email is required</small>
+                    <small *ngIf="registeremail?.errors?.['email']">email is Not Valid</small>
+                </div>
+                <div *ngIf="ErrorEmailBackend?.length >0 "  class="alert alert-danger">
+                    <ng-container *ngFor="let error of ErrorEmailBackend;let i=index">
+                        <small >{{error}}</small><br>
+                    </ng-container>
                 </div>
             </div>
             <!--end email input-->
@@ -69,8 +76,14 @@
             <div class="mb-3">
                 <label for="exampleInputusername" class="form-label">username</label>
                 <input type="text" class="form-control" id="exampleInputusername" name="name" formControlName="name" required>
+                
                 <div class="alert alert-danger" [hidden]="registername?.valid || registername?.untouched">
                   <small *ngIf="registername?.errors?.['required']">username is required</small>
+                </div>
+                <div *ngIf="ErrorNameBackend?.length >0 "  class="alert alert-danger">
+                    <ng-container *ngFor="let error of ErrorNameBackend;let i=index">
+                        <small >{{error}}</small><br>
+                    </ng-container>
                 </div>
               </div>
             <!--end username input-->
@@ -82,6 +95,11 @@
                 <div class="alert alert-danger" [hidden]="registerpassword?.valid || registerpassword?.untouched">
                     <small *ngIf="registerpassword?.errors?.['required']">password is required</small> <br>
                     <small *ngIf="registerpassword?.errors?.['maxlength']">password max lenght  is 9 characters</small> <br>
+                </div>
+                <div *ngIf="ErrorPasswordBackend?.length >0 "  class="alert alert-danger">
+                    <ng-container *ngFor="let error of ErrorPasswordBackend;let i=index">
+                        <small >{{error}}</small><br>
+                    </ng-container>
                 </div>
             </div>
             <!--end password input-->
@@ -102,25 +120,31 @@
             <!--end confirm password input-->
 
 
-            <!--start city input-->
+            <!--start government input-->
             <div class="mb-3">
-                <label for="city" class="form-label">City</label>
-                <select class="form-select" id="city" name="city" formControlName="city" aria-label="Default select example">
+                <label for="government" class="form-label">Government</label>
+                <select class="form-select" id="government" name="government" formControlName="government" aria-label="Default select example">
                     <option value="1">One</option>
                     <option value="2">Two</option>
                     <option value="3">Three</option>
                 </select>
-                <div class="alert alert-danger" [hidden]="registercity?.valid || registercity?.untouched">
-                    <small *ngIf="registercity?.errors?.['required']">city is required</small>
+                <div class="alert alert-danger" [hidden]="registergovernment?.valid || registergovernment?.untouched">
+                    <small *ngIf="registergovernment?.errors?.['required']">Government is required</small>
                 </div>
             </div>
-
-            <!--start city input-->
+            <!--end government input-->
 
             <button type="submit" [disabled]="userregister.invalid" class="btn btn-success">Sign Up</button>            
                 <div>{{userregister.value | json}}</div>
                 <div>{{userregister.errors | json}}</div>
-        </form>
+                <div>Error from Backend: {{ErrorFromBackend | json}}</div>
+                 <!--<div *ngIf="ErrorFromBackend" class="alert alert-danger">
+                    <ng-container *ngFor="let errors of ErrorFromBackend;let i=index">
+                        <small>{{errors}}</small><br>
+                    </ng-container>
+                </div>
+                -->
+           </form>
         <!--end register form-->
 
     </div> 

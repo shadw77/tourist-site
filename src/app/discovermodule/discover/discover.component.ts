@@ -61,6 +61,7 @@ export class DiscoverComponent implements OnInit{
         },
         complete:()=>{
           //console.log(this.comments);
+
         }
       });
       /*end function to get review of nearby places from services*/
@@ -78,7 +79,7 @@ export class DiscoverComponent implements OnInit{
           console.error('Error fetching places:', error);
         },
         complete:()=>{
-          console.log(this.topplaces);
+          //console.log(this.topplaces);
         }
       });
       /*end function to get nearby places from services*/
@@ -95,7 +96,7 @@ export class DiscoverComponent implements OnInit{
           console.error('Error fetching reviews:', error);
         },
         complete:()=>{
-          console.log(this.commentsoftopplaces);
+          //console.log(this.commentsoftopplaces);
         }
       });  
       /*end function to get review of nearby places from services*/
@@ -103,4 +104,16 @@ export class DiscoverComponent implements OnInit{
   }//end ngoninit
 
 
+  calltestapi(){
+    this.data.getTestData().subscribe({
+      next:(next)=>{
+        console.log(next);
+      },
+      error:(error) => {
+        console.error('Error fetching places:', error);
+      },
+      complete:()=>{
+      }
+    });
+  }
 }

@@ -9,10 +9,11 @@ import {CounterService} from 'src/app/Services/counter.service'
 export class NavbarComponent {
   constructor(private CounterService:CounterService){}
   counter: number = 0;
+  @Output() loginClicked = new EventEmitter<void>();
+
   ngOnInit(){
     this.CounterService.get_Counter().subscribe((val)=>this.counter=val)
   }
-  @Output() loginClicked = new EventEmitter<void>();
 
   handleLogin() {
     console.log('ssss');

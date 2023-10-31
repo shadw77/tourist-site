@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import {NgbModal, ModalDismissReasons}  from '@ng-bootstrap/ng-bootstrap'; 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { passwordidentical } from "src/app/customsvalidations/passwordidentical";
+import { AuthService } from '../Services/auth.service';
 
 
 @Component({
@@ -16,8 +17,17 @@ export class LoginComponent implements OnInit{
   userlogin!:FormGroup;
   userregister!:FormGroup;
   isUserLogin: boolean = true;
+  userData:any;
+  ErrorFromBackend:any;
+  successMessage:string='';
+  ErrorNameBackend:any;
+  ErrorEmailBackend:any;
+  ErrorPasswordBackend:any;
 
-  constructor(private modalService: NgbModal,private Fb:FormBuilder) {} 
+  constructor(private modalService: NgbModal,
+              private Fb:FormBuilder,
+              private authservice:AuthService) {} 
+    
   ngOnInit(): void {
 
 
@@ -34,7 +44,7 @@ export class LoginComponent implements OnInit{
       name:['',Validators.required],
       password:['',[Validators.required, Validators.maxLength(9)]],
       confirmpassword:['',[Validators.required, Validators.maxLength(9)]],
-      city:['',Validators.required],
+      government:['',Validators.required],
 
     },{validators:passwordidentical});
     /*end initialize signup inputs*/
@@ -97,13 +107,42 @@ export class LoginComponent implements OnInit{
   get registerconfirmpassword(){
     return this.userregister.get('confirmpassword');
   }
-  get registercity(){
-    return this.userregister.get('city');
+  get registergovernment(){
+    return this.userregister.get('government');
   }
   /*end register inputs*/
 
   submitteddata(userform:any){
-    console.log(userform);
+    this.ErrorFromBackend="";
+    this.ErrorNameBackend="";
+    this.ErrorEmailBackend="";
+    this.ErrorPasswordBackend="";
+    //console.log(userform);
+    this.authservice.register(userform.value).subscribe({
+      next:(next)=>{
+        if(next.status == 400){
+          this.ErrorFromBackend=Object.values(next.mssg).flat();
+          //console.log(this.ErrorFromBackend);
+          var {name,email,password}=next.mssg;
+          this.ErrorNameBackend=name;
+          this.ErrorEmailBackend=email;
+          this.ErrorPasswordBackend=password;
+        }
+        else{
+          this.successMessage=next.mssg;
+
+
+        }
+        //console.log(next);
+      },
+      error:(error) => {
+        console.error('Error fetching reviews:', error);
+      },
+      complete:()=>{
+
+      }
+    });
+    
   }
 
 }

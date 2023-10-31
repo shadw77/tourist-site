@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./ngbcomment.component.css']
 })
 export class NgbcommentComponent implements OnInit{
-  @Input() reviews:any;
+  @Input() reviews:any[]=[];
 
 
   ngOnInit(){

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import datajson from '../../assets/tables.json';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -8,6 +8,13 @@ import { Observable } from 'rxjs';
 })
 export class HandleapiService {
   data:any;
+  //apiToken = localStorage.getItem("api_token");
+   httpOptions={
+    headers:new HttpHeaders({
+      'Content-Type':'application/json',
+      'Authorization': `Bearer ${localStorage.getItem('api_token')}`
+    })
+  };
 
 
   constructor(private httpclient:HttpClient){
@@ -46,5 +53,12 @@ export class HandleapiService {
   }
   /*end function that retrieve review that belong to top attractions*/
 
+  /*start function that test retrieve data under jwt token*/
+  getTestData():Observable<any>{
+    return this.httpclient.get(`http://localhost:8000/api/get-test-data`, this.httpOptions )
+  }
+  /*end function that test retrieve data under jwt token*/
+  
+  
 
 }
