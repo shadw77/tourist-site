@@ -23,14 +23,14 @@ export class HandleapiService {
 
 
   /*start function to get nearby places from api*/
-  getNearbyPlaces() :Observable<any>{
-    return this.httpclient.get("http://localhost:8000/api/get-nearbyplaces");
+  getNearbyPlaces(city:string) :Observable<any>{
+    return this.httpclient.get(`http://localhost:8000/api/get-nearbyplaces/${city}`);
   }
   /*end function to get nearby places from api*/
 
   /*start function that retrieve review that belong to nearbyplaces*/
-  getReviewNearByPlaces() :Observable<any>{
-    return this.httpclient.get("http://localhost:8000/api/get-review-nearbyplaces");
+  getReviewNearByPlaces(city:string) :Observable<any>{
+    return this.httpclient.get(`http://localhost:8000/api/get-review-nearbyplaces/${city}`);
   }
   /*end function that retrieve review that belong to nearbyplaces*/
 
@@ -45,5 +45,6 @@ export class HandleapiService {
     return this.httpclient.get(`http://localhost:8000/api/get-review-topattractions-places`)
   }
   /*end function that retrieve review that belong to top attractions*/
+
 
 }

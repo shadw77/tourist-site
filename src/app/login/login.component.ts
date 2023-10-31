@@ -17,7 +17,6 @@ export class LoginComponent implements OnInit{
   userregister!:FormGroup;
   isUserLogin: boolean = true;
 
-
   constructor(private modalService: NgbModal,private Fb:FormBuilder) {} 
   ngOnInit(): void {
 
@@ -45,7 +44,7 @@ export class LoginComponent implements OnInit{
 
   /*start function that open popup window*/
   open() { 
-    console.log(this.content);
+    //console.log(this.content);
     this.modalService.open(this.content, 
    {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => { 
       this.closeResult = `Closed with: ${result}`; 
