@@ -32,6 +32,8 @@ import { RouterModule } from '@angular/router';
     ContactUsComponent,
     HomeLayoutComponent,
     DashboardLayoutComponent,
+    
+   
     ],
   imports: [
     BrowserModule,
@@ -46,7 +48,8 @@ import { RouterModule } from '@angular/router';
     ModuleCartModule,
     RouterModule,
     DatabaseModule,
-    DashboardModule
+    DashboardModule,
+    
   
 
   ],

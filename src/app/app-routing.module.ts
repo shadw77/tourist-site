@@ -21,6 +21,9 @@ import { AddDestinationComponent } from './database/add-destination/add-destinat
 import { UserDetailsComponent } from './database/user-details/user-details.component';
 import { AddUserComponent } from './database/add-user/add-user.component';
 import { VendorComponent } from './dashboard/vendor/vendor.component';
+import { AddHotelComponent } from './dashboard/add-hotel/add-hotel.component';
+import { HotelsVendorComponent } from './dashboard/hotels-vendor/hotels-vendor.component';
+import { UpdatehotelVendorComponent } from './dashboard/updatehotel-vendor/updatehotel-vendor.component';
 
 const routes: Routes = [
   // {
@@ -160,19 +163,19 @@ const routes: Routes = [
     component: VendorComponent,
     children: [
       { 
-        path: 'users',
-        component: UsersComponent,
+        path: 'hotels',
+        component: HotelsVendorComponent,
         outlet: 'details'
       },
       {  
-        path: 'add-user',
-        component: AddUserComponent,
+        path: 'add-hotel',
+        component: AddHotelComponent,
         outlet: 'details'
         
       },
       { 
-        path: 'edit-user/:id',
-        component: UserDetailsComponent,
+        path: 'edit-hotel/:id',
+        component: UpdatehotelVendorComponent,
         outlet: 'details'
       },
   

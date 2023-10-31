@@ -9,6 +9,12 @@ import { UsersComponent } from '../database/users/users.component';
 import { TripsComponent } from '../database/trips/trips.component';
 import { TripDetailsComponent } from '../database/trip-details/trip-details.component';
 import { AddTripComponent } from '../database/add-trip/add-trip.component';
+import { AddHotelComponent } from './add-hotel/add-hotel.component';
+import { DisplayHotelComponent } from './display-hotel/display-hotel.component';
+import { VendorSidbarComponent } from './vendor-sidbar/vendor-sidbar.component';
+import { FormGroup, FormBuilder, ReactiveFormsModule ,FormsModule} from '@angular/forms';
+import { HotelsVendorComponent } from './hotels-vendor/hotels-vendor.component';
+import { UpdatehotelVendorComponent } from './updatehotel-vendor/updatehotel-vendor.component';
 
 
 const routes: Routes = [
@@ -56,10 +62,18 @@ const routes: Routes = [
     AdminComponent,
     VendorComponent,
     SidebarComponent,
+    AddHotelComponent,
+    DisplayHotelComponent,
+    VendorSidbarComponent,
+    HotelsVendorComponent,
+    UpdatehotelVendorComponent,
+   
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule
     // RouterModule.forChild(routes)
 
   ],
