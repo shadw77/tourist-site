@@ -5,8 +5,8 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FormGroup, FormsModule } from '@angular/forms';
-import { SharedModule } from "./shared/shared.module";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SharedModule } from "./shared/shared.module";
 import { MainSearchComponent } from './main-search/main-search.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TopDestinationComponent } from './top-destination/top-destination.component';
@@ -27,19 +27,12 @@ import { HomeLayoutComponent } from './home-layout/home-layout.component';
 import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout.component';
 import { DatabaseModule } from "./database/database.module";
 import { RouterModule } from '@angular/router';
-import { FooterComponent } from './footer/footer.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CuttextPipe } from './Pipes/cuttext.pipe';
 
 import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule , ReactiveFormsModule } from '@angular/forms';
 
-import { HttpClientModule } from '@angular/common/http';
 import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
@@ -47,16 +40,14 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     ContactUsComponent,
     HomeLayoutComponent,
     DashboardLayoutComponent,
-    NavbarComponent,
-    FooterComponent,
     LoginComponent,
     ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    SharedModule,
     NgbModule,
+    SharedModule,
     FontAwesomeModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -67,7 +58,6 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     DashboardModule,
     NgxSpinnerModule.forRoot()
 
-  
 
   ],
   providers: [],

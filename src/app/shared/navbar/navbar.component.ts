@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component , EventEmitter, Output} from '@angular/core';
 import { RouterModule } from '@angular/router';
 import {CounterService} from 'src/app/Services/counter.service'
 @Component({
@@ -11,5 +11,11 @@ export class NavbarComponent {
   counter: number = 0;
   ngOnInit(){
     this.CounterService.get_Counter().subscribe((val)=>this.counter=val)
+  }
+  @Output() loginClicked = new EventEmitter<void>();
+
+  handleLogin() {
+    console.log('ssss');
+    this.loginClicked.emit();
   }
 }

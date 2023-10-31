@@ -11,12 +11,6 @@ import datajson from '../assets/tables.json';
 })
 export class AppComponent {
   title = 'tourism-site';
-  @ViewChild(LoginComponent) LoginComponent?: LoginComponent;//took instance of logincomponent
-
-  handleLogin(){
-    //console.log(this.LoginComponent);
-    this.LoginComponent?.open();
-  }
 
   data:any;
 
