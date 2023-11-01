@@ -5,8 +5,8 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FormGroup, FormsModule } from '@angular/forms';
-import { SharedModule } from "./shared/shared.module";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SharedModule } from "./shared/shared.module";
 import { MainSearchComponent } from './main-search/main-search.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TopDestinationComponent } from './top-destination/top-destination.component';
@@ -27,20 +27,32 @@ import { HomeLayoutComponent } from './home-layout/home-layout.component';
 import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout.component';
 import { DatabaseModule } from "./database/database.module";
 import { RouterModule } from '@angular/router';
+import { DisplayTripsComponent } from './display-trips/display-trips.component';
+import { DisplayDestinationsComponent } from './display-destinations/display-destinations.component';
+import { CuttextPipe } from './Pipes/cuttext.pipe';
+
+import { Component, ViewChild } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { LoginComponent } from './login/login.component';
+
+import { NgxSpinnerModule } from 'ngx-spinner';
+
 @NgModule({
   declarations: [AppComponent, MainSearchComponent, TopDestinationComponent, ImgCardComponent, HomeComponent, ExploreComponent, DescCardComponent, ItemComponent, DisplayRestaurantComponent, DisplayHotelsComponent  ,  AboutUsComponent,
     ContactUsComponent,
     HomeLayoutComponent,
     DashboardLayoutComponent,
-    
-   
+
+    DisplayTripsComponent,
+    DisplayDestinationsComponent,
+    LoginComponent,
     ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    SharedModule,
     NgbModule,
+    SharedModule,
     FontAwesomeModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -49,9 +61,7 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     DatabaseModule,
     DashboardModule,
-    
-  
-
+    NgxSpinnerModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,107 +1,53 @@
 <div>
-  <div>
-    <form [formGroup]="tripForm" (ngSubmit)="onSubmit()">
-      <div class="mb-3">
-        <label for="name" class="form-label">Name</label>
-        <input
-          type="text"
-          class="form-control"
-          id="name"
-          formControlName="name"
-          required
-        />
-      </div>
+    <div> 
+        <form [formGroup]="tripForm" (ngSubmit)="onSubmit()" >
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name" formControlName="name" required >
+            </div>
 
-      <div class="mb-3">
-        <label for="government" class="form-label">Government</label>
-        <input
-          type="text"
-          class="form-control"
-          id="government"
-          formControlName="government"
-          required
-        />
-      </div>
+            <div class="mb-3">
+                <label for="government" class="form-label">Government</label>
+                <input type="text" class="form-control" id="government" formControlName="government" required>
+            </div>
 
-      <div class="mb-3">
-        <label for="duration" class="form-label">Duration</label>
-        <input
-          type="text"
-          class="form-control"
-          id="duration"
-          formControlName="duration"
-          required
-        />
-      </div>
+            <div class="mb-3">
+                <label for="duration" class="form-label">Duration</label>
+                <input type="text" class="form-control" id="duration" formControlName="duration" required>
+            </div>  
+        
+        
+            <div class="mb-3">
+                <label for="cost" class="form-label">Cost</label>
+                <input type="text" class="form-control" id="cost" formControlName="cost" required>
+            </div>
 
-      <div class="mb-3">
-        <label for="cost" class="form-label">Cost</label>
-        <input
-          type="text"
-          class="form-control"
-          id="cost"
-          formControlName="cost"
-          required
-        />
-      </div>
 
-      <div class="mb-3">
-        <label for="description" class="form-label">Description</label>
-        <textarea
-          class="form-control"
-          rows="3"
-          id="description"
-          formControlName="description"
-          required
-        >
-        </textarea>
-      </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" rows="3" id="description" formControlName="description" required>
+                </textarea>
+            </div>
 
-      <div class="mb-3">
-        <label for="rating" class="form-label">Rating</label>
-        <input
-          type="text"
-          class="form-control"
-          id="rating"
-          formControlName="rating"
-          required
-        />
-      </div>
 
-      <div class="mb-3">
-        <label for="thumbnail" class="form-label">Thumbnail</label>
-        <input
-          type="file"
-          class="form-control"
-          id="thumbnail"
-          formControlName="thumbnail"
-          required
-        />
-      </div>
-      <div class="mb-3">
-        <label for="images" class="form-label">images</label>
-        <input
-          type="file"
-          class="form-control"
-          id="images"
-          formControlName="images"
-          required
-          multiple
-        />
-      </div>
+            <div class="mb-3">
+                <label for="rating" class="form-label">Rating</label>
+                <input type="text" class="form-control" id="rating" formControlName="rating" required>
+            </div>
 
-      <div class="mb-3">
-        <label for="creator_id" class="form-label">Creator Id</label>
-        <input
-          type="text"
-          class="form-control"
-          id="creator_id"
-          formControlName="creator_id"
-          required
-        />
-      </div>
 
-      <button type="submit" class="btn btn-primary">Add</button>
-    </form>
-  </div>
+            <div class="mb-3">
+                <label for="thumbnail" class="form-label">Thumbnail</label>
+                <input type="file" class="form-control" id="thumbnail" (change)="imageUpload($event)" formControlName="thumbnail" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="creator_id" class="form-label">Creator Id</label>
+                <input type="text" class="form-control" id="creator_id" formControlName="creator_id" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Add</button>
+          </form>
+    </div>
 </div>
+

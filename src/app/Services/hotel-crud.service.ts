@@ -1,11 +1,14 @@
+
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaderResponse, HttpHeaders } from '@angular/common/http';
 import { Hotel } from '../interface/hotel';
 import { Observable, catchError, map, throwError } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
 export class HotelCrudService {
+
 
   constructor(private httpClient: HttpClient) { }
   REST_API: string = "http://localhost:8000/api/hotels";
@@ -49,5 +52,5 @@ export class HotelCrudService {
     }
     return throwError(errorMessage);
     
-  }
+}
 }
