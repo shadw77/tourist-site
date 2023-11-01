@@ -154,7 +154,7 @@ const routes: Routes = [
     {  
       path: 'add-hotel',
       component:AddHotelComponent,
-
+    },
     {
 
       path: 'edit-trip/:id',
