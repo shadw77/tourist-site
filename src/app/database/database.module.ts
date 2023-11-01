@@ -17,6 +17,9 @@ import { AddHotelComponent } from './add-hotel/add-hotel.component';
 import { HotelDetailsComponent } from './hotel-details/hotel-details.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { AddUserComponent } from './add-user/add-user.component';
+import { UserOrdersComponent } from './user-orders/user-orders.component';
+import { AddUserOrderComponent } from './add-user-order/add-user-order.component';
+import { UserOrderDetailsComponent } from './user-order-details/user-order-details.component';
 
 
 @NgModule({
@@ -33,9 +36,12 @@ import { AddUserComponent } from './add-user/add-user.component';
     AddDestinationComponent,
     HotelsComponent,
     AddHotelComponent,
-    HotelDetailsComponent
+    HotelDetailsComponent,
     UserDetailsComponent,
     AddUserComponent,
+    UserOrdersComponent,
+    AddUserOrderComponent,
+    UserOrderDetailsComponent,
 
   ],
   imports: [
