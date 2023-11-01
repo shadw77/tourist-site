@@ -24,6 +24,7 @@ import { VendorComponent } from './dashboard/vendor/vendor.component';
 import { AddHotelComponent } from './dashboard/add-hotel/add-hotel.component';
 import { HotelsVendorComponent } from './dashboard/hotels-vendor/hotels-vendor.component';
 import { UpdatehotelVendorComponent } from './dashboard/updatehotel-vendor/updatehotel-vendor.component';
+import { ShowHotelComponent } from './dashboard/show-hotel/show-hotel.component';
 
 const routes: Routes = [
   // {
@@ -176,6 +177,11 @@ const routes: Routes = [
       { 
         path: 'edit-hotel/:id',
         component: UpdatehotelVendorComponent,
+        outlet: 'details'
+      },
+      { 
+        path: 'show-hotel/:id',
+        component: ShowHotelComponent,
         outlet: 'details'
       },
   

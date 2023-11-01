@@ -11,8 +11,8 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class AddHotelComponent {
   hotelForm: FormGroup;
-  selectedImage: File | any = null; ;
-  selectedImages: File[] | any = null;;
+  selectedImage: File | any = null; 
+  selectedImages: File[] | any = null;
   
   constructor(
     public formBuilder:FormBuilder,

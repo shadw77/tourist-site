@@ -6,53 +6,67 @@
 >
   Add New Hotel
 </button>
-<div class="row my-5">
-  <h3 class="fs-4 mb-3">All Hotels</h3>
-  <div class="col">
-    <table class="table bg-white rounded shadow-sm table-hover">
-      <thead>
-        <tr>
-          <th scope="col" width="50">#</th>
-          <th scope="col">Name</th>
-          <th scope="col">Street</th>
-          <th scope="col">Government</th>
-          <th scope="col">Description</th>
-          <th scope="col">Thumbnail</th>
-          <th scope="col">Creator Id</th>
-          <th scope="col">Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let hotel of Hotels['data']; let i = index">
-          <th scope="row">{{ hotel.id }}</th>
-          <td>{{ hotel.name }}</td>
-          <td>{{ hotel.street }}</td>
-          <td>{{ hotel.description }}</td>
-          <td>{{ hotel.government }}</td>
-          <td><img [src]="hotel.thumbnail" alt="{{ hotel.thumbnail }}" /></td>
-          <td>{{ hotel.creator_id }}</td>
-          <td>
-            <button
-              type="button"
-              class="btn btn-info"
-              [routerLink]="[
-                '/dashboard/vendor',
-                { outlets: { details: 'edit-hotel/' + hotel.id } }
-              ]"
-              routerLinkActive="active-link"
-            >
-              Edit
-            </button>
-            <button
-              type="button"
-              class="btn btn-danger"
-              (click)="delete(hotel.id, i)"
-            >
-              Delete
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+<div class="container">
+  <div class="row">
+    <h3 class="fs-4 mb-3">All Hotels</h3>
+    <div class="col-md-12 col-8">
+      <table class="table bg-white rounded shadow-sm table-hover">
+        <thead>
+          <tr>
+            <th scope="col" width="50">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Street</th>
+            <th scope="col">Government</th>
+            <th scope="col">Description</th>
+            <th scope="col">Thumbnail</th>
+            <th scope="col">Creator Id</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let hotel of Hotels['data']; let i = index">
+            <th scope="row">{{ hotel.id }}</th>
+            <td>{{ hotel.name }}</td>
+            <td>{{ hotel.street }}</td>
+            <td>{{ hotel.description }}</td>
+            <td>{{ hotel.government }}</td>
+            <td>
+              <img
+                src="{{ imagePath }}{{ hotel.thumbnail }}"
+                alt="{{ hotel.thumbnail }}"
+              />
+            </td>
+            <td>{{ hotel.creator_id }}</td>
+            <td>
+              <button
+                type="button"
+                class="btn btn-info"
+                [routerLink]="[
+                  '/dashboard/vendor',
+                  { outlets: { details: 'edit-hotel/' + hotel.id } }
+                ]"
+                routerLinkActive="active-link"
+              >
+                Edit
+              </button>
+              <form (ngSubmit)="delete(hotel.id)">
+                <button type="submit" class="btn btn-danger">Delete</button>
+              </form>
+              <button
+                type="button"
+                class="btn btn-info"
+                [routerLink]="[
+                  '/dashboard/vendor',
+                  { outlets: { details: 'show-hotel/' + hotel.id } }
+                ]"
+                routerLinkActive="active-link"
+              >
+                Show
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

@@ -15,6 +15,7 @@ import { VendorSidbarComponent } from './vendor-sidbar/vendor-sidbar.component';
 import { FormGroup, FormBuilder, ReactiveFormsModule ,FormsModule} from '@angular/forms';
 import { HotelsVendorComponent } from './hotels-vendor/hotels-vendor.component';
 import { UpdatehotelVendorComponent } from './updatehotel-vendor/updatehotel-vendor.component';
+import { ShowHotelComponent } from './show-hotel/show-hotel.component';
 
 
 const routes: Routes = [
@@ -67,6 +68,7 @@ const routes: Routes = [
     VendorSidbarComponent,
     HotelsVendorComponent,
     UpdatehotelVendorComponent,
+    ShowHotelComponent,
    
   ],
   imports: [

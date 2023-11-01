@@ -1,10 +1,6 @@
 <div class="container">
   <div class="">
-    <form
-      [formGroup]="hotelForm"
-      (ngSubmit)="onSubmit()"
-      enctype="multipart/form-data"
-    >
+    <form [formGroup]="hotelForm" (ngSubmit)="onSubmit()">
       <div class="mb-3">
         <label for="name" class="form-label">Name</label>
         <input
@@ -61,7 +57,7 @@
           required
         />
       </div>
-      <div class="mb-3">
+      <!-- <div class="mb-3">
         <label for="images" class="form-label">images</label>
         <input
           type="file"
@@ -73,9 +69,9 @@
           multiple
           (change)="onImagesChange($event)"
         />
-      </div>
+      </div> -->
 
-      <div class="mb-3">
+      <!-- <div class="mb-3">
         <label for="creator_id" class="form-label">Creator Id</label>
         <input
           type="text"
@@ -84,7 +80,7 @@
           formControlName="creator_id"
           required
         />
-      </div>
+      </div> -->
 
       <button type="submit" class="btn btn-primary">Update Hotel</button>
     </form>

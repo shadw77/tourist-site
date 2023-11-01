@@ -28,7 +28,7 @@ export class UpdatehotelVendorComponent {
       government:[''],
       description:[''],
       thumbnail:[''],
-      creator_id:[''],
+      // creator_id:[''],
       images:[''],
       reviews:[''],
 
@@ -38,41 +38,32 @@ export class UpdatehotelVendorComponent {
   ngOnInit() {
     this.getId = this.activatedRoute.snapshot.paramMap.get('id');
   }
-  // onSubmit(){
-  //   // this.hotelCrudService.addHotel(this.hotelForm.value)
-  //   // .subscribe(()=>{
-  //   //   console.log('Data Added Successfully');
-  //   //   this.ngZone.run(()=>this.router.navigateByUrl('/hotel-list')) 
-  //   // },(err)=>{
-  //   //   console.log(err);
-      
-  //   // })
-  // }
+
   onSubmit() {
     console.log(this.getId);
     const nameControl = this.hotelForm.get('name');
     const streetControl = this.hotelForm.get('street');
     const governmentControl = this.hotelForm.get('government');
     const descriptionControl = this.hotelForm.get('description');
-    const creator_idControl = this.hotelForm.get('creator_id');
+    // const creator_idControl = this.hotelForm.get('creator_id');
     const name = nameControl ? nameControl.value : '';
     const street = streetControl ? streetControl.value : '';
     const government = governmentControl ? governmentControl.value : '';
     const description = descriptionControl ? descriptionControl.value : '';
-    const creator_id = creator_idControl ? creator_idControl.value : '';
+    // const creator_id = creator_idControl ? creator_idControl.value : '';
 
     const formData = new FormData();
     formData.append('name', name);
     formData.append('street', street);
     formData.append('government', government);
     formData.append('description', description);
-    formData.append('creator_id', creator_id);
+    // formData.append('creator_id', creator_id);
     if (this.selectedImage) {
       formData.append('thumbnail', this.selectedImage);
     }
-    for (let i = 0; i < this.selectedImages.length; i++) {
-      formData.append('images[]', this.selectedImages[i]);
-    }
+    // for (let i = 0; i < this.selectedImages.length; i++) {
+    //   formData.append('images[]', this.selectedImages[i]);
+    // }
      
     console.log(this.selectedImages);
     this.hotelCrudService.updateHotel(this.getId,formData).subscribe(
@@ -81,9 +72,11 @@ export class UpdatehotelVendorComponent {
         this.hotelForm.reset();
         this.selectedImage = null;
         this.selectedImages = null;
+        console.log(response);
       },
       (error) => {
         console.error('Error saving data and images:', error);
+       
       }
     );
   }
