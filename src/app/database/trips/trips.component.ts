@@ -9,6 +9,7 @@ import { TripCrudService } from 'src/app/Services/trip-crud.service';
 export class TripsComponent {
 
   Trips: any = [];
+  // image ='https://localhost:8000/public/images/trips';
 
   constructor(private tripCrudService: TripCrudService){}
   ngOnInit():void{
@@ -27,4 +28,16 @@ export class TripsComponent {
    
   }
 
+  getImageUrl(imagePath: string): string {
+
+    // console.log('https://localhost:8000/storage/app/public/images/trips/' + imagePath);
+    // console.log('https://localhost:8000/storage/images/trips/' + imagePath);
+    
+
+    // console.log('https://localhost:8000/storage/images/trips/' + encodeURIComponent(imagePath));
+    
+    // return 'https://localhost:8000/api/trips/' + encodeURIComponent(imagePath);
+    return 'https://localhost:8000/api/images/trips/' + imagePath;
+
+}
 }
