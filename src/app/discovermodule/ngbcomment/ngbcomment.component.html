@@ -1,0 +1,79 @@
+<section class="ngbcarousel">
+    <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false">
+        <div class="carousel-inner">
+
+            <div class="carousel-item active">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <ng-container *ngFor="let review of reviews ;let i=index">
+                        <ng-container *ngIf="i<3">
+
+                            <div class="col">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <p class="card-text">{{review.review}}</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <img src="./../../../assets/images/alexandre-b.jpg" class="rounded-circle" width="30px">
+                                                <span class="text-muted mx-2">{{review.user.name}} </span>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <small class="text-muted">created_at {{review.created_at}}</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+    
+                        </ng-container>
+
+                    </ng-container>
+                </div>
+            </div>
+    
+            <div class="carousel-item">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <ng-container *ngFor="let review of reviews ;let i=index">
+                        <ng-container *ngIf="i>=3">
+    
+ 
+                            <div class="col">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <p class="card-text">{{review.review}}</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <img src="./../../../assets/images/alexandre-b.jpg" class="rounded-circle" width="30px">
+                                                <span class="text-muted mx-2">{{review.user.name}} </span>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <small class="text-muted">created_at {{review.created_at}}</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+    
+                        </ng-container>
+    
+                    </ng-container>
+                </div>
+            </div>
+    
+        </div>
+
+        <button class="carousel-control-prev " type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+</section>

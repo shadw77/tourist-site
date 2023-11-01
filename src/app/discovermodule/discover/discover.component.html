@@ -2,7 +2,7 @@
 <!--start discover-->
 <section class="discover">
     <div class="container">
-        
+        <ngx-spinner type="line-spin-clockwise"></ngx-spinner>
         <!--start header-->
         <div class="headerdiscov d-flex align-items-end">
             <div class="info"> 
@@ -13,21 +13,112 @@
         </div> 
         <!--end header-->
 
-        <!--end tabs-->
+        <button (click)="calltestapi()">test api token</button>
+        <button (click)="testuserlogged()">test User is Logged</button>
+        <button (click)="testlogout()">test logout</button>
+
+        <!--start tabs-->
         <div class="tabs my-5">
-            <mat-tab-group>
-                <mat-tab label="Nearby Places"> 
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+
+                <!--start near places-->    
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" 
+                    data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" 
+                    aria-selected="true">Nearby Places</button>
+                </li>
+                <!--end near places-->
+
+                <!--start top attractions-->
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" 
+                    data-bs-target="#pills-profile" type="button" role="tab" 
+                    aria-controls="pills-profile" aria-selected="false">Top Attractions</button>
+                </li>
+                <!--end top attractions-->
+
+                <!--start offers-->
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" 
+                    data-bs-target="#pills-contact" type="button" role="tab" 
+                    aria-controls="pills-contact" aria-selected="false">Offers</button>
+                </li>
+                <!--end offers-->
+
+                <!--start special occassion-->
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-Special-tab" data-bs-toggle="pill" 
+                      data-bs-target="#pills-Special" type="button" role="tab" 
+                      aria-controls="pills-Special" aria-selected="false">Special occasions </button>
+                  </li>
+                <!--end special occassion-->
+
+            </ul>
+
+            <div class="tab-content" id="pills-tabContent">
 
 
-                    <app-caraousel [city]="near.Destination[9]"></app-caraousel>
+                <!--start near places-->
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" 
+                    aria-labelledby="pills-home-tab">
+                    <app-caraousel [carouselimages]="places"></app-caraousel>
 
+                    <br>
+                    <br>
+                    <app-ngbcomment [reviews]="comments"></app-ngbcomment>
+                    <br>
+                    <br>
+                    <app-media [city]="places"></app-media>
 
+                </div>
+                <!--end near places-->
 
-                </mat-tab>
-                <mat-tab label="Top Attractions"> Content 2 </mat-tab>
-                <mat-tab label="Offers"> Content 3 </mat-tab>
-                <mat-tab label="Special occasions"> Content 4 </mat-tab>
-            </mat-tab-group>
+                <!--start top attractions-->
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" 
+                    aria-labelledby="pills-profile-tab">
+                    <app-caraousel [carouselimages]="topplaces"></app-caraousel>
+                    <br>
+                    <br>
+                    <app-ngbcomment [reviews]="commentsoftopplaces"></app-ngbcomment>
+                    <br>
+                    <br>
+                    <app-media [city]="topplaces"></app-media>
+
+                </div>
+                <!--end top attractions-->
+
+                <!--start offers-->
+                <div class="tab-pane fade" id="pills-contact" role="tabpanel" 
+                    aria-labelledby="pills-contact-tab">
+
+                    <app-caraousel [carouselimages]="places"></app-caraousel>
+
+                    <br>
+                    <br>
+                    <app-ngbcomment [reviews]="reviewsplaces"></app-ngbcomment>
+                    <br>
+                    <br>
+                    <app-media [city]="places"></app-media>
+                </div>
+                <!--end offers-->
+
+                <!--start special occassion-->
+                <div class="tab-pane fade" id="pills-Special" role="tabpanel" 
+                    aria-labelledby="pills-Special-tab">
+                    <app-caraousel [carouselimages]="places"></app-caraousel>
+
+                    <br>
+                    <br>
+                    <app-ngbcomment [reviews]="reviewsplaces"></app-ngbcomment>
+                    <br>
+                    <br>
+                    <app-media [city]="places"></app-media>
+
+                </div>
+                <!--end special occassion-->      
+                
+            </div>
+        
         </div>
         <!--end tabs-->
 

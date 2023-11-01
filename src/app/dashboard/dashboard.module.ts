@@ -20,11 +20,6 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: '',
-    redirectTo: 'add-trip',
-    pathMatch: 'full'
-  },
-  {
     path: 'dashboard/admin',
     component: AdminComponent,
     children: [
@@ -38,19 +33,22 @@ const routes: Routes = [
         component: TripsComponent,
         outlet: 'details'
       },
+      {
+        path: 'add-trip',
+        component: AddTripComponent,
+        outlet: 'details'
+      },
       { 
         path: 'edit-trip/:id',
         component: TripDetailsComponent,
         outlet: 'details'
       
       },
-      {
-        path: 'add-trip',
-        component: AddTripComponent,
-        outlet: 'details'
-      }
+     
     ]
   },
+ 
+ 
 ];
 
 @NgModule({

@@ -22,20 +22,20 @@ export class TripDetailsComponent {
   ){    
     this.getId = this.activatedRoute.snapshot.paramMap.get('id');
     this.tripCrudService.getTrip(this.getId).subscribe(res=>{
-      console.log('ssssssssssssssssssssssss',res);
+      console.log(res['trip']['id']);
 
       this.updateForm.setValue({
-      id:res['id'],
-      name:res['name'],
-      government:res['government'],
-      duration:res['duration'],
-      cost:res['cost'],
-      description:res['description'],
-      rating:res['rating'],
-      thumbnail:res['thumbnail'],
-      creator_id:res['creator_id'],
-      images:res['images'],
-      reviews:res['reviews'],
+      id:res['data']['id'],
+      name:res['data']['name'],
+      government:res['data']['government'],
+      duration:res['data']['duration'],
+      cost:res['data']['cost'],
+      description:res['data']['description'],
+      rating:res['data']['rating'],
+      thumbnail:res['data']['thumbnail'],
+      creator_id:res['data']['creator_id'],
+      images:res['data']['images'],
+      reviews:res['data']['reviews'],
 
     });
     });   
