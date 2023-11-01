@@ -1,0 +1,19 @@
+<section class="media">
+
+      <ng-container *ngFor="let near of city ;let i=index">
+          <div class="media d-flex">
+              <img src="{{near.thumbnail}}"  width="40%" class="img-thumbnail img-fluid" alt="...">
+              <div class="media-body ms-5">
+                <h5 class="mt-0 mb-1">{{near.name}}</h5>
+                <p [attr.data-content]="near.description" #description >
+                  {{near.description | cuttext:near.displayLength || lineofdescription}}.
+                </p>
+                <span *ngIf="!near.buttonstatus" (click)="change(description,near,$event)" class="text-decoration-underline">Read More <i class="fa-solid fa-arrow-down"></i></span>
+                <span *ngIf="near.buttonstatus" (click)="change(description,near,$event)" class="text-decoration-underline">Read Less <i class="fa-solid fa-arrow-up"></i></span>
+
+              </div>
+            </div>
+      </ng-container>
+      
+
+</section>

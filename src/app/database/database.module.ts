@@ -12,6 +12,9 @@ import { RestaurantDetailsComponent } from './restaurant-details/restaurant-deta
 import { DestinationDetailsComponent } from './destination-details/destination-details.component';
 import { DestinationsComponent } from './destinations/destinations.component';
 import { AddDestinationComponent } from './add-destination/add-destination.component';
+import { HotelsComponent } from './hotels/hotels.component';
+import { AddHotelComponent } from './add-hotel/add-hotel.component';
+import { HotelDetailsComponent } from './hotel-details/hotel-details.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { UserOrdersComponent } from './user-orders/user-orders.component';
@@ -31,6 +34,9 @@ import { UserOrderDetailsComponent } from './user-order-details/user-order-detai
     DestinationDetailsComponent,
     DestinationsComponent,
     AddDestinationComponent,
+    HotelsComponent,
+    AddHotelComponent,
+    HotelDetailsComponent
     UserDetailsComponent,
     AddUserComponent,
     UserOrdersComponent,

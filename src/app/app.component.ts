@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component , ViewChild   } from '@angular/core';
+import { LoginComponent } from './login/login.component';
 import {HttpClient} from '@angular/common/http';
 import datajson from '../assets/tables.json';
 
@@ -10,6 +11,7 @@ import datajson from '../assets/tables.json';
 })
 export class AppComponent {
   title = 'tourism-site';
+
   data:any;
 
 
