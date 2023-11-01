@@ -56,7 +56,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
   declarations: [AppComponent, MainSearchComponent, TopDestinationComponent, ImgCardComponent, HomeComponent, ExploreComponent, DescCardComponent, ItemComponent, DisplayRestaurantComponent, DisplayHotelsComponent  ,  AboutUsComponent,
     ContactUsComponent,TripsComponent,TripDetailsComponent,AddTripComponent,RestaurantsComponent,RestaurantDetailsComponent,AddRestaurantComponent,DestinationsComponent,DestinationDetailsComponent,
     HomeLayoutComponent,AddDestinationComponent,HotelsComponent,HotelDetailsComponent,AddHotelComponent,UserDetailsComponent,AddUserComponent,VendorComponent,
-    DashboardLayoutComponent,AdminComponent,UsersComponent,CuttextPipe,
+    DashboardLayoutComponent,AdminComponent,UsersComponent,
     LoginComponent,
     ],
   imports: [
