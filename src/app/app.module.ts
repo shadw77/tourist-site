@@ -42,6 +42,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     ContactUsComponent,
     HomeLayoutComponent,
     DashboardLayoutComponent,
+
     DisplayTripsComponent,
     DisplayDestinationsComponent,
     LoginComponent,
@@ -61,8 +62,6 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     DatabaseModule,
     DashboardModule,
     NgxSpinnerModule.forRoot()
-
-
   ],
   providers: [],
   bootstrap: [AppComponent],

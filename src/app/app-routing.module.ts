@@ -29,6 +29,10 @@ import { UserOrderDetailsComponent } from './database/user-order-details/user-or
 import { DisplayTripsComponent } from './display-trips/display-trips.component';
 import { DisplayDestinationsComponent } from './display-destinations/display-destinations.component';
 import { VendorComponent } from './dashboard/vendor/vendor.component';
+import { AddHotelComponent } from './dashboard/add-hotel/add-hotel.component';
+import { HotelsVendorComponent } from './dashboard/hotels-vendor/hotels-vendor.component';
+import { UpdatehotelVendorComponent } from './dashboard/updatehotel-vendor/updatehotel-vendor.component';
+import { ShowHotelComponent } from './dashboard/show-hotel/show-hotel.component';
 
 const routes: Routes = [
   {
@@ -200,19 +204,24 @@ const routes: Routes = [
     component: VendorComponent,
     children: [
       { 
-        path: 'users',
-        component: UsersComponent,
+        path: 'hotels',
+        component: HotelsVendorComponent,
         outlet: 'details'
       },
       {  
-        path: 'add-user',
-        component: AddUserComponent,
+        path: 'add-hotel',
+        component: AddHotelComponent,
         outlet: 'details'
         
       },
       { 
-        path: 'edit-user/:id',
-        component: UserDetailsComponent,
+        path: 'edit-hotel/:id',
+        component: UpdatehotelVendorComponent,
+        outlet: 'details'
+      },
+      { 
+        path: 'show-hotel/:id',
+        component: ShowHotelComponent,
         outlet: 'details'
       },
   
