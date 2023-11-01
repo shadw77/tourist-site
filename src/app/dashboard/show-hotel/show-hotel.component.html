@@ -3,9 +3,9 @@
     <div class="col-3" *ngFor="let image of images">
       <div class="card">
         <img
-          src="{{ imagePath }}{{ image.path }}"
+          src="{{ imagePath }}{{ image.image }}"
           class="card-img-top"
-          alt="{{ image.path }}"
+          alt="{{ image.image }}"
         />
         <div class="card-body">
           <!-- <a
@@ -45,9 +45,9 @@
                 </div>
                 <div class="modal-body">
                   <img
-                    src="{{ imagePath }}{{ image.path }}"
+                    src="{{ imagePath }}{{ image.image }}"
                     class="card-img-top"
-                    alt="{{ image.path }}"
+                    alt="{{ image.image }}"
                   />
                   <div class="mb-3">
                     <label for="image" class="form-label">New Image</label>

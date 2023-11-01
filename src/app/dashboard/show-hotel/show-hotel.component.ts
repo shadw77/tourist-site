@@ -46,7 +46,7 @@ export class ShowHotelComponent {
     console.log(this.imageId);
     console.log(this.selectedImage);
     const formData = new FormData();
-    formData.append('path', this.selectedImage);
+    formData.append('image', this.selectedImage);
     this.ImageCrudService.updateImage(this.imageId,formData).subscribe(
       (response) => {
         console.log('Data and images saved successfully');
