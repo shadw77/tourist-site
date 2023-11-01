@@ -1,0 +1,43 @@
+<div>
+    <div> 
+        <form [formGroup]="updateForm" (ngSubmit)="onUpdate()" enctype="multipart/form-data">
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name" formControlName="name" required >
+            </div>
+    
+            
+                <div class="mb-3">
+                    <label for="street" class="form-label">Street</label>
+                    <input type="text" class="form-control" id="street" formControlName="street" required>
+                </div>
+    
+    
+            <div class="mb-3">
+                <label for="government" class="form-label">Government</label>
+                <input type="text" class="form-control" id="government" formControlName="government" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" rows="3" id="description" formControlName="description" required>
+                </textarea>
+            </div>
+
+
+          
+            <div class="mb-3">
+                <label for="thumbnail" class="form-label">Thumbnail</label>
+                <input type="file" class="form-control" id="thumbnail" formControlName="thumbnail" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="creator_id" class="form-label">Creator Id</label>
+                <input type="text" class="form-control" id="creator_id" formControlName="creator_id" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">update</button>
+          </form>
+    </div>
+</div>
+
