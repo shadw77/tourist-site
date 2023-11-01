@@ -10,12 +10,12 @@ export class DestinationCrudService {
 
   REST_API: string = "http://localhost:8000/api/destinations";
    httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
-   httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk4NTg3MzIyLCJleHAiOjE2OTg1OTA5MjIsIm5iZiI6MTY5ODU4NzMyMiwianRpIjoiSnluRlhmT1RvME1DaExVSCIsInN1YiI6IjIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.hUydZowyIPbV9_ZRzha4Ids3yTDPjoMLLS6sAx3hyMA'
-    })
-  }; 
+  //  httpOptions = {
+  //   headers: new HttpHeaders({
+  //     'Content-Type': 'application/json',
+  //     'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk4NTg3MzIyLCJleHAiOjE2OTg1OTA5MjIsIm5iZiI6MTY5ODU4NzMyMiwianRpIjoiSnluRlhmT1RvME1DaExVSCIsInN1YiI6IjIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.hUydZowyIPbV9_ZRzha4Ids3yTDPjoMLLS6sAx3hyMA'
+  //   })
+  // }; 
 
   constructor(private httpClient: HttpClient) { }
 
@@ -25,7 +25,7 @@ export class DestinationCrudService {
   }
 
   getDestinations(){
-    return this.httpClient.get(this.REST_API,this.httpOptions);
+    return this.httpClient.get(this.REST_API);
   }
 
   getDestination(id:any): Observable<any>{
@@ -59,4 +59,12 @@ export class DestinationCrudService {
     return throwError(errorMessage);
     
   }
+
+  getTopDestinations(): Observable<Destination[]> {
+    const params = {
+      sort: 'rating'
+    };
+    return this.httpClient.get<Destination[]>(this.REST_API, { params });
+  }
+
 }

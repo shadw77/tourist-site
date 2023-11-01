@@ -23,17 +23,14 @@ import { HotelDetailsComponent } from './database/hotel-details/hotel-details.co
 import { AddHotelComponent } from './database/add-hotel/add-hotel.component';
 import { UserDetailsComponent } from './database/user-details/user-details.component';
 import { AddUserComponent } from './database/add-user/add-user.component';
+import { UserOrdersComponent } from './database/user-orders/user-orders.component';
+import { AddUserOrderComponent } from './database/add-user-order/add-user-order.component';
+import { UserOrderDetailsComponent } from './database/user-order-details/user-order-details.component';
+import { DisplayTripsComponent } from './display-trips/display-trips.component';
+import { DisplayDestinationsComponent } from './display-destinations/display-destinations.component';
 import { VendorComponent } from './dashboard/vendor/vendor.component';
 
 const routes: Routes = [
-  // {
-  // path:'',
-  // component:HomeComponent,
-  // },
-  // {
-  //   path:'home',
-  //   component:HomeComponent,
-  // },
   {
     path: '',
     component: HomeLayoutComponent,
@@ -49,6 +46,14 @@ const routes: Routes = [
     {
       path:'restaurents',
       component:DisplayRestaurantComponent,
+    },
+    {
+      path:'trips',
+      component:DisplayTripsComponent,
+    },
+    {
+      path:'destinations',
+      component:DisplayDestinationsComponent,
     },
    
     {
@@ -159,6 +164,24 @@ const routes: Routes = [
 
       path: 'edit-trip/:id',
       component: TripDetailsComponent,
+      outlet: 'details'
+    },
+    {
+
+      path: 'user-orders',
+      component: UserOrdersComponent,
+      outlet: 'details'
+    },
+    {
+
+      path: 'add-order',
+      component: AddUserOrderComponent,
+      outlet: 'details'
+    },
+    {
+
+      path: 'edit-order/:id',
+      component: UserOrderDetailsComponent,
       outlet: 'details'
     },
   ]

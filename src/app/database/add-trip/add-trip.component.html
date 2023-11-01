@@ -1,6 +1,6 @@
 <div>
     <div> 
-        <form [formGroup]="tripForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="tripForm" (ngSubmit)="onSubmit()" >
             <div class="mb-3">
               <label for="name" class="form-label">Name</label>
               <input type="text" class="form-control" id="name" formControlName="name" required >
@@ -38,7 +38,7 @@
 
             <div class="mb-3">
                 <label for="thumbnail" class="form-label">Thumbnail</label>
-                <input type="file" class="form-control" id="thumbnail" formControlName="thumbnail" required>
+                <input type="file" class="form-control" id="thumbnail" (change)="imageUpload($event)" formControlName="thumbnail" required>
             </div>
 
             <div class="mb-3">

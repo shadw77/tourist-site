@@ -9,6 +9,9 @@ import { UsersComponent } from '../database/users/users.component';
 import { TripsComponent } from '../database/trips/trips.component';
 import { TripDetailsComponent } from '../database/trip-details/trip-details.component';
 import { AddTripComponent } from '../database/add-trip/add-trip.component';
+import { UserOrdersComponent } from '../database/user-orders/user-orders.component';
+import { AddUserOrderComponent } from '../database/add-user-order/add-user-order.component';
+import { UserOrderDetailsComponent } from '../database/user-order-details/user-order-details.component';
 
 
 const routes: Routes = [
@@ -43,6 +46,24 @@ const routes: Routes = [
         component: TripDetailsComponent,
         outlet: 'details'
       
+      },
+      {
+
+        path: 'user-orders',
+        component: UserOrdersComponent,
+        outlet: 'details'
+      },
+      {
+
+        path: 'add-order',
+        component: AddUserOrderComponent,
+        outlet: 'details'
+      },
+      {
+
+        path: 'edit-order/:id',
+        component: UserOrderDetailsComponent,
+        outlet: 'details'
       },
      
     ]

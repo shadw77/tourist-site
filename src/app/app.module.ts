@@ -27,6 +27,8 @@ import { HomeLayoutComponent } from './home-layout/home-layout.component';
 import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout.component';
 import { DatabaseModule } from "./database/database.module";
 import { RouterModule } from '@angular/router';
+import { DisplayTripsComponent } from './display-trips/display-trips.component';
+import { DisplayDestinationsComponent } from './display-destinations/display-destinations.component';
 import { CuttextPipe } from './Pipes/cuttext.pipe';
 
 import { Component, ViewChild } from '@angular/core';
@@ -40,6 +42,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     ContactUsComponent,
     HomeLayoutComponent,
     DashboardLayoutComponent,
+    DisplayTripsComponent,
+    DisplayDestinationsComponent,
     LoginComponent,
     ],
   imports: [

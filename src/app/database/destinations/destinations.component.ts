@@ -14,7 +14,7 @@ export class DestinationsComponent {
     this.destinationCrudService.getDestinations().subscribe(res=>{        
         this.Destinations= res;
         // console.log(this.Destinations['destinations']);
-        console.log(res);
+        console.log(this.Destinations);
     })
   }
 
