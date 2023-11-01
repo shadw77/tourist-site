@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import datajson from '../../assets/tables.json';
+import { TripCrudService } from '../Services/trip-crud.service';
 
 @Component({
   selector: 'app-display-trips',
@@ -7,8 +8,18 @@ import datajson from '../../assets/tables.json';
   styleUrls: ['./display-trips.component.css']
 })
 export class DisplayTripsComponent {
-  data : any;
+  // data : any;
+  // ngOnInit():void{
+  //   this.data = datajson;
+  // }
+  
+  Trips: any = [];
+
+  constructor(private tripCrudService: TripCrudService){}
   ngOnInit():void{
-    this.data = datajson;
+    this.tripCrudService.getTrips()  .subscribe(res=>{        
+        this.Trips= res;
+        console.log(this.Trips['data']);
+    })
   }
 }
