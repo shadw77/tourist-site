@@ -18,6 +18,9 @@ import { AddRestaurantComponent } from './database/add-restaurant/add-restaurant
 import { DestinationsComponent } from './database/destinations/destinations.component';
 import { DestinationDetailsComponent } from './database/destination-details/destination-details.component';
 import { AddDestinationComponent } from './database/add-destination/add-destination.component';
+import { HotelsComponent } from './database/hotels/hotels.component';
+import { HotelDetailsComponent } from './database/hotel-details/hotel-details.component';
+import { AddHotelComponent } from './database/add-hotel/add-hotel.component';
 import { UserDetailsComponent } from './database/user-details/user-details.component';
 import { AddUserComponent } from './database/add-user/add-user.component';
 import { VendorComponent } from './dashboard/vendor/vendor.component';
@@ -138,6 +141,20 @@ const routes: Routes = [
       component:AddDestinationComponent,
       outlet: 'details'
     },
+    { 
+      path: 'hotels',
+      component: HotelsComponent,
+      outlet: 'details'
+    },
+    { 
+      path: 'edit-hotel/:id',
+      component: HotelDetailsComponent,
+      outlet: 'details'
+    },
+    {  
+      path: 'add-hotel',
+      component:AddHotelComponent,
+
     {
 
       path: 'edit-trip/:id',

@@ -17,8 +17,8 @@
                 <i class="fas fa-project-diagram me-2"></i>Trips</a>
                 <a [routerLink]="[{ outlets: { details: ['restaurants'] } }]" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                         <i class="fas fa-project-diagram me-2"></i>Restaurants</a>
-        <a routerLink="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
-                class="fas fa-comment-dots me-2"></i>Hotels</a>
+                        <a [routerLink]="[{ outlets: { details: ['hotels'] } }]" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                                <i class="fas fa-project-diagram me-2"></i>Hotels</a>
         <a routerLink="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
                 class="fas fa-map-marker-alt me-2"></i>Orders</a>
         <a routerLink="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
