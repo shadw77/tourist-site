@@ -19,8 +19,13 @@
     <div class="modal-body"> 
 
         <!--start login form-->
-        <form [formGroup]="userlogin" [hidden]="isUserLogin"  (ngSubmit)="submitteddata(userlogin)" class=" p-5 border border-primary">
-            
+        <form [formGroup]="userlogin" [hidden]="isUserLogin"  (ngSubmit)="submitUserLogin(userlogin)" class=" p-5 border border-primary">
+            <div *ngIf="successMessage!.length >0 "  class="alert alert-success">
+                <small >{{successMessage}}</small><br>
+            </div>
+            <div *ngIf="ErrorMessage!.length >0 "  class="alert alert-danger">
+                <small >{{ErrorMessage}}</small><br>
+            </div>
             <!--start email input-->
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Email address</label>
@@ -29,6 +34,11 @@
                 <small *ngIf="loginemail?.errors?.['required']">email is required</small>
                 <small *ngIf="loginemail?.errors?.['email']">email is Not Valid</small>
               </div>
+              <div *ngIf="ErrorEmailBackend?.length >0 "  class="alert alert-danger">
+                <ng-container *ngFor="let error of ErrorEmailBackend;let i=index">
+                    <small >{{error}}</small><br>
+                </ng-container>
+            </div>
             </div>
             <!--end email input-->
 
@@ -40,6 +50,11 @@
                 <small *ngIf="loginpassword?.errors?.['required']">password is required</small>
                 <small *ngIf="loginpassword?.errors?.['maxlength']">password max length is 9 Characters</small>
               </div>
+              <div *ngIf="ErrorPasswordBackend?.length >0 "  class="alert alert-danger">
+                <ng-container *ngFor="let error of ErrorPasswordBackend;let i=index">
+                    <small >{{error}}</small><br>
+                </ng-container>
+            </div>
             </div>
             <!--end password input-->
 
@@ -124,9 +139,9 @@
             <div class="mb-3">
                 <label for="government" class="form-label">Government</label>
                 <select class="form-select" id="government" name="government" formControlName="government" aria-label="Default select example">
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <ng-container *ngFor="let government of governments;let i=index">
+                        <option value="{{government}}">{{government}}</option>
+                    </ng-container>
                 </select>
                 <div class="alert alert-danger" [hidden]="registergovernment?.valid || registergovernment?.untouched">
                     <small *ngIf="registergovernment?.errors?.['required']">Government is required</small>

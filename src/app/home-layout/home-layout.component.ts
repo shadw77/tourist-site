@@ -10,8 +10,8 @@ export class HomeLayoutComponent {
   @ViewChild(LoginComponent) LoginComponent?: LoginComponent;//took instance of logincomponent
 
   handleLogin(){
-    console.log(this.LoginComponent);
-    console.log('aaaa');
+    //console.log(this.LoginComponent);
+    //console.log('aaaa');
     this.LoginComponent?.open();
   }
 }

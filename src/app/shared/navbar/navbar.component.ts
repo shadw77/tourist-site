@@ -16,7 +16,7 @@ export class NavbarComponent {
   }
 
   handleLogin() {
-    console.log('ssss');
+    //console.log('ssss');
     this.loginClicked.emit();
   }
 }

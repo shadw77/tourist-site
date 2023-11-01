@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HandleapiService } from 'src/app/Services/handleapi.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { AuthService } from 'src/app/Services/auth.service';
 
 @Component({
   selector: 'app-discover',
@@ -8,7 +9,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./discover.component.css']
 })
 export class DiscoverComponent implements OnInit{
-
+  government:string|null=localStorage.getItem('government')??null;
   getnearbyplaces=[];
   places:any=[];
   reviewsplaces=[];
@@ -21,6 +22,7 @@ export class DiscoverComponent implements OnInit{
 
 
   constructor(private data:HandleapiService,
+    private auth:AuthService,
             private spinner: NgxSpinnerService){}
 
   ngOnInit(){//start ngoninit
@@ -33,7 +35,7 @@ export class DiscoverComponent implements OnInit{
       /*end spinner till data get from services*/
 
       /*start function to get nearby places from services*/
-      this.data.getNearbyPlaces("luxor").subscribe({
+      this.data.getNearbyPlaces(this.government!).subscribe({
         next:(next)=>{
           this.getnearbyplaces=next.nearbyplaces;
           //console.log(next);
@@ -49,7 +51,7 @@ export class DiscoverComponent implements OnInit{
       /*end function to get nearby places from services*/
 
       /*start function to get review of nearby places from services*/
-      this.data.getReviewNearByPlaces("luxor").subscribe({
+      this.data.getReviewNearByPlaces(this.government!).subscribe({
         next:(next)=>{
           this.reviewsplaces=next.reviews;
           //console.log(this.reviewsplaces);
@@ -104,16 +106,44 @@ export class DiscoverComponent implements OnInit{
   }//end ngoninit
 
 
+  /*start testing function that test retrieve data under jwt token*/
   calltestapi(){
     this.data.getTestData().subscribe({
       next:(next)=>{
-        console.log(next);
+        //console.log(next);
       },
       error:(error) => {
-        console.error('Error fetching places:', error);
+        //console.error('Error fetching places:', error);
       },
       complete:()=>{
       }
     });
   }
+  /*end testing function that test retrieve data under jwt token*/
+
+
+  /*start testing function*/
+  testuserlogged(){
+    console.log(this.auth.isAuthenticated());
+  }
+  /*end testing function*/
+
+  /*start testing function*/
+  testlogout(){
+    
+    this.auth.logout().subscribe({
+      next:(next)=>{
+        //console.log(next);
+      },
+      error:(error) => {
+        //console.error('Error fetching places:', error);
+      },
+      complete:()=>{
+      }
+    });
+  }
+  /*end testing function*/
+
+
+
 }

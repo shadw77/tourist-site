@@ -17,9 +17,11 @@ export class LoginComponent implements OnInit{
   userlogin!:FormGroup;
   userregister!:FormGroup;
   isUserLogin: boolean = true;
-  userData:any;
+  governments=['Sharm El Sheikh','Hurghada','Cairo','Ain Sukhna','Mersa Matruh','Alexandria','Marsa Alam',
+  'El Alamein','Dahab','Luxor','Aswan'];
   ErrorFromBackend:any;
   successMessage:string='';
+  ErrorMessage:string='';
   ErrorNameBackend:any;
   ErrorEmailBackend:any;
   ErrorPasswordBackend:any;
@@ -112,6 +114,7 @@ export class LoginComponent implements OnInit{
   }
   /*end register inputs*/
 
+  /*start register function*/
   submitteddata(userform:any){
     this.ErrorFromBackend="";
     this.ErrorNameBackend="";
@@ -123,27 +126,57 @@ export class LoginComponent implements OnInit{
         if(next.status == 400){
           this.ErrorFromBackend=Object.values(next.mssg).flat();
           //console.log(this.ErrorFromBackend);
-          var {name,email,password}=next.mssg;
+          var {name,email,password}=next.mssg ;
           this.ErrorNameBackend=name;
           this.ErrorEmailBackend=email;
           this.ErrorPasswordBackend=password;
         }
         else{
           this.successMessage=next.mssg;
+        }
+        console.log(next);
+      },
+      error:(error) => {
+        console.error('Error fetching reviews:', error);
+      },
+      complete:()=>{}
+    });
+    
+  }
+  /*end register function*/
 
-
+  /*start login function*/
+  submitUserLogin(userform:any){
+    this.ErrorMessage="";
+    this.successMessage="";
+    this.ErrorEmailBackend="";
+    this.ErrorPasswordBackend="";
+    //console.log(userform);
+    this.authservice.login(userform.value).subscribe({
+      next:(next)=>{
+        if(next.status == 400){
+          this.ErrorFromBackend=Object.values(next.mssg).flat();
+          //console.log(this.ErrorFromBackend);
+          var {email,password}=next.mssg;
+          this.ErrorEmailBackend=email;
+          this.ErrorPasswordBackend=password;
+        }
+        else if(next.status == 401){
+          this.ErrorMessage=next.mssg;
+        }
+        else{
+          this.successMessage=next.mssg;
         }
         //console.log(next);
       },
       error:(error) => {
         console.error('Error fetching reviews:', error);
       },
-      complete:()=>{
-
-      }
+      complete:()=>{}
     });
     
   }
+  /*end login function*/
 
 }
 
