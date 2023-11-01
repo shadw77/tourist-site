@@ -1,0 +1,87 @@
+<div class="container">
+  <div class="row">
+    <div class="col-3" *ngFor="let image of images">
+      <div class="card">
+        <img
+          src="{{ imagePath }}{{ image.image }}"
+          class="card-img-top"
+          alt="{{ image.image }}"
+        />
+        <div class="card-body">
+          <!-- <a
+            href="#"
+            class="btn btn-warning mx-2"
+            [routerLink]="[
+              '/dashboard/vendor',
+              { outlets: { details: 'edit-image/' + image.id } }
+            ]"
+            >Edit</a
+          > -->
+          <p>image:{{ image.id }}</p>
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            [attr.data-bs-target]="'#exampleModal-' + image.id"
+          >
+            edit
+          </button>
+          <div
+            class="modal fade"
+            [id]="'exampleModal-' + image.id"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <img
+                    src="{{ imagePath }}{{ image.image }}"
+                    class="card-img-top"
+                    alt="{{ image.image }}"
+                  />
+                  <div class="mb-3">
+                    <label for="image" class="form-label">New Image</label>
+                    <input
+                      type="file"
+                      class="form-control"
+                      formControlName="image"
+                      name="image"
+                      id="image-{{ image.id }}"
+                      (change)="onImageChange($event, image.id)"
+                      required
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    class="btn btn-warning"
+                    (click)="onUpdate()"
+                  >
+                    Upload
+                  </button>
+                </div>
+                <div class="modal-footer"></div>
+              </div>
+            </div>
+          </div>
+          <button
+            type="submit"
+            class="btn btn-danger"
+            (click)="delete(image.id)"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
