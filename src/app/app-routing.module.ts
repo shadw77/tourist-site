@@ -21,6 +21,10 @@ import { AddDestinationComponent } from './database/add-destination/add-destinat
 import { UserDetailsComponent } from './database/user-details/user-details.component';
 import { AddUserComponent } from './database/add-user/add-user.component';
 import { VendorComponent } from './dashboard/vendor/vendor.component';
+import { authGuard } from './Guard/auth.guard';
+import { adminguard } from './Guard/admin.guard';
+import { adminOrVendorGuard } from './Guard/admin-or-vendor.guard';
+
 
 const routes: Routes = [
   // {
@@ -54,9 +58,10 @@ const routes: Routes = [
     },
      {
       path:'discover',loadChildren: () => import('src/app/discovermodule/discovermodule.module')
-      .then(m=>m.DiscovermoduleModule)
+      .then(m=>m.DiscovermoduleModule),
+      canActivate:[authGuard,adminOrVendorGuard]
     },
-  
+    
     {
       path:'about', 
       component:AboutUsComponent

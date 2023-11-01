@@ -45,16 +45,11 @@
             >Cart</a
           >
         </li>
-        <li class="nav-item">
-          <button
+        <li  *ngIf="!authService.isAuthenticated()"class="nav-item">
+          <button 
             class="btn btn-primary"
             (click)="handleLogin()"
-            >Sign in</button
-          >
-
-          <a class="nav-link" routerLink="about" routerLinkActive="active-link"
-            >About us</a
-          >
+            >Sign in</button>  
         </li>
       </ul>
       <div class="d-flex justify-content-end">
