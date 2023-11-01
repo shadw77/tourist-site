@@ -172,7 +172,8 @@ export class LoginComponent implements OnInit{
       error:(error) => {
         console.error('Error fetching reviews:', error);
       },
-      complete:()=>{}
+      complete:()=>{
+      }
     });
     
   }
