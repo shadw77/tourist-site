@@ -154,12 +154,12 @@ const routes: Routes = [
     { 
       path: 'edit-hotel/:id',
       component: HotelDetailsComponent,
-      outlet: 'details'
+      outlet: 'details',
     },
     {  
       path: 'add-hotel',
       component:AddHotelComponent,
-
+    },
     {
 
       path: 'edit-trip/:id',

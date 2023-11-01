@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterModule,Routes  } from '@angular/router';
 import { CartComponent } from './cart/cart.component';
 import { ListCardsComponent } from './list-cards/list-cards.component';
-import { SubtextPipe } from '../Pipes/subtext.pipe'
-import {RatingComponent} from '../rating/rating.component'
+import {RatingComponent} from '../rating/rating.component';
+import { SubtextPipe } from '../pipes/subtext.pipe';
 // import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [

@@ -36,7 +36,7 @@ import { UserOrderDetailsComponent } from './user-order-details/user-order-detai
     AddDestinationComponent,
     HotelsComponent,
     AddHotelComponent,
-    HotelDetailsComponent
+    HotelDetailsComponent,
     UserDetailsComponent,
     AddUserComponent,
     UserOrdersComponent,
