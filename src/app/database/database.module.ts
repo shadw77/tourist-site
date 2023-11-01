@@ -12,6 +12,9 @@ import { RestaurantDetailsComponent } from './restaurant-details/restaurant-deta
 import { DestinationDetailsComponent } from './destination-details/destination-details.component';
 import { DestinationsComponent } from './destinations/destinations.component';
 import { AddDestinationComponent } from './add-destination/add-destination.component';
+import { HotelsComponent } from './hotels/hotels.component';
+import { AddHotelComponent } from './add-hotel/add-hotel.component';
+import { HotelDetailsComponent } from './hotel-details/hotel-details.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { AddDestinationComponent } from './add-destination/add-destination.compo
     RestaurantDetailsComponent,
     DestinationDetailsComponent,
     DestinationsComponent,
-    AddDestinationComponent
+    AddDestinationComponent,
+    HotelsComponent,
+    AddHotelComponent,
+    HotelDetailsComponent
   ],
   imports: [
     CommonModule    ,
