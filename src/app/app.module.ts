@@ -1,4 +1,3 @@
-
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { AppRoutingModule } from "./app-routing.module";
@@ -42,6 +41,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     ContactUsComponent,
     HomeLayoutComponent,
     DashboardLayoutComponent,
+
     DisplayTripsComponent,
     DisplayDestinationsComponent,
     LoginComponent,
@@ -61,10 +61,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     DatabaseModule,
     DashboardModule,
     NgxSpinnerModule.forRoot()
-
-
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {} 

@@ -1,3 +1,4 @@
+
 import { Component, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { HotelCrudService } from 'src/app/Services/hotel-crud.service';
@@ -10,55 +11,88 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class AddHotelComponent {
   hotelForm: FormGroup;
-  images: File[] = [];
-
+  selectedImage: File | any = null; 
+  selectedImages: File[] | any = null;
+  
   constructor(
-    public formBuilder: FormBuilder,
-    private router: Router,
-    private ngZone: NgZone,
+    public formBuilder:FormBuilder,
+    private router:Router,
+    private ngZone:NgZone,
     private hotelCrudService: HotelCrudService
-  ) {
+  ){
     this.hotelForm = this.formBuilder.group({
-      id: [''],
-      name: [''],
-      street: [''],
-      government: [''],
-      description: [''],
-      thumbnail: [''],
-      creator_id: [''],
-      images: [''], // Use this property to store image file(s)
-      reviews: [''],
-    });
-  }
+      id:[''],
+      name:[''],
+      cost:[''],
+       discount:[''],
+      street:[''],
+      government:[''],
+      description:[''],
+      thumbnail:[''],
+      creator_id:[''],
+      images:[''],
+      reviews:[''],
 
-  onFileChange(event: Event): void {
-    const inputElement = event.target as HTMLInputElement;
-    if (inputElement.files) {
-      this.images = Array.from(inputElement.files);
-    }
+    })
+    
   }
+  onSubmit() {
+    const nameControl = this.hotelForm.get('name');
+    const streetControl = this.hotelForm.get('street');
+    const governmentControl = this.hotelForm.get('government');
+    const descriptionControl = this.hotelForm.get('description');
+    const creator_idControl = this.hotelForm.get('creator_id');
+    const cost_Control = this.hotelForm.get('cost');
+    const discount_Control = this.hotelForm.get('discount');
+    const name = nameControl ? nameControl.value : '';
+    const street = streetControl ? streetControl.value : '';
+    const government = governmentControl ? governmentControl.value : '';
+    const description = descriptionControl ? descriptionControl.value : '';
+    const creator_id = creator_idControl ? creator_idControl.value : '';
+    const cost = cost_Control ? cost_Control.value : '';
+    const discount = discount_Control ? discount_Control.value : '';
 
-  onSubmit(): any {
     const formData = new FormData();
-  
-    // Append image files to the form data
-    for (const image of this.images) {
-      formData.append('images[]', image);
+    formData.append('name', name);
+    formData.append('street', street);
+    formData.append('government', government);
+    formData.append('description', description);
+    formData.append('creator_id', creator_id);
+    formData.append('cost', cost);
+    formData.append('discount', discount);
+    
+
+    formData.append('thumbnail', this.selectedImage);
+    for (let i = 0; i < this.selectedImages.length; i++) {
+      formData.append('images[]', this.selectedImages[i]);
     }
-  
-    // Append other form fields
-    for (const key in this.hotelForm.value) {
-      formData.append(key, this.hotelForm.value[key]);
-    }
-  
+    console.log(this.selectedImages);
     this.hotelCrudService.addHotel(formData).subscribe(
-      () => {
-        console.log('Data Added Successfully');
-        this.ngZone.run(() => this.router.navigateByUrl('/hotel-list'));
+      (response) => {
+        console.log('Data and images saved successfully');
+        this.hotelForm.reset();
+        this.selectedImage = null;
+        this.selectedImages = null;
+        this.ngZone.run(()=>this.router.navigateByUrl('dashboard/vendor/(details:hotels)')) 
       },
-      (err) => {
-        console.log(err);
+      (error) => {
+        console.error('Error saving data and images:', error);
       }
     );
   }
-}  
+
+  onImageChange(event: Event) {
+    const inputElement = event.target as HTMLInputElement;
+    if (inputElement.files && inputElement.files.length > 0) {
+      this.selectedImage = inputElement.files[0];
+    }
+  }
+
+  onImagesChange(event: Event) {
+    const inputElement = event.target as HTMLInputElement;
+    if (inputElement.files && inputElement.files.length > 0) {
+      this.selectedImages = Array.from(inputElement.files);
+    }
+  }
+
+}

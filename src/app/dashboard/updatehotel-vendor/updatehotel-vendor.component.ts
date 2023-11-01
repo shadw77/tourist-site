@@ -1,16 +1,15 @@
-import { Component ,NgZone} from '@angular/core';
-import { Router , ActivatedRoute} from '@angular/router';
+
+import { Component, NgZone } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { HotelCrudService } from 'src/app/Services/hotel-crud.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
-
 @Component({
-  selector: 'app-hotel-details',
-  templateUrl: './hotel-details.component.html',
-  styleUrls: ['./hotel-details.component.css']
+  selector: 'app-updatehotel-vendor',
+  templateUrl: './updatehotel-vendor.component.html',
+  styleUrls: ['./updatehotel-vendor.component.css']
 })
-export class HotelDetailsComponent {
-
+export class UpdatehotelVendorComponent {
   hotelForm: FormGroup;
   selectedImage: File | any = null; ;
   selectedImages: File[] | any = null;;
@@ -74,7 +73,6 @@ export class HotelDetailsComponent {
         this.selectedImage = null;
         this.selectedImages = null;
         console.log(response);
-        this.ngZone.run(()=>this.router.navigateByUrl('dashboard/admin/(details:hotels)')) 
       },
       (error) => {
         console.error('Error saving data and images:', error);
@@ -96,7 +94,5 @@ export class HotelDetailsComponent {
       this.selectedImages = Array.from(inputElement.files);
     }
   }
-
-
 
 }

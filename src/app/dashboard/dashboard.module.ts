@@ -9,10 +9,18 @@ import { UsersComponent } from '../database/users/users.component';
 import { TripsComponent } from '../database/trips/trips.component';
 import { TripDetailsComponent } from '../database/trip-details/trip-details.component';
 import { AddTripComponent } from '../database/add-trip/add-trip.component';
+
+import { AddHotelComponent } from './add-hotel/add-hotel.component';
+import { DisplayHotelComponent } from './display-hotel/display-hotel.component';
+import { VendorSidbarComponent } from './vendor-sidbar/vendor-sidbar.component';
+import { FormGroup, FormBuilder, ReactiveFormsModule ,FormsModule} from '@angular/forms';
+import { HotelsVendorComponent } from './hotels-vendor/hotels-vendor.component';
+import { UpdatehotelVendorComponent } from './updatehotel-vendor/updatehotel-vendor.component';
+import { ShowHotelComponent } from './show-hotel/show-hotel.component';
+
 import { UserOrdersComponent } from '../database/user-orders/user-orders.component';
 import { AddUserOrderComponent } from '../database/add-user-order/add-user-order.component';
 import { UserOrderDetailsComponent } from '../database/user-order-details/user-order-details.component';
-
 
 const routes: Routes = [
   
@@ -77,10 +85,19 @@ const routes: Routes = [
     AdminComponent,
     VendorComponent,
     SidebarComponent,
+    AddHotelComponent,
+    DisplayHotelComponent,
+    VendorSidbarComponent,
+    HotelsVendorComponent,
+    UpdatehotelVendorComponent,
+    ShowHotelComponent,
+   
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule
     // RouterModule.forChild(routes)
 
   ],

@@ -1,7 +1,7 @@
 <button
   type="button"
   class="btn btn-info"
-  [routerLink]="['/dashboard/admin', { outlets: { details: ['add-hotel'] } }]"
+  [routerLink]="['/dashboard/vendor', { outlets: { details: ['add-hotel'] } }]"
   routerLinkActive="active-link"
 >
   Add New Hotel
@@ -42,18 +42,16 @@
                 type="button"
                 class="btn btn-info"
                 [routerLink]="[
-                  '/dashboard/admin',
+                  '/dashboard/vendor',
                   { outlets: { details: 'edit-hotel/' + hotel.id } }
                 ]"
                 routerLinkActive="active-link"
               >
                 Edit
               </button>
-
-              <button class="btn btn-danger" (click)="delete(hotel.id)">
-                Delete
-              </button>
-
+              <form (ngSubmit)="delete(hotel.id)">
+                <button type="submit" class="btn btn-danger">Delete</button>
+              </form>
               <button
                 type="button"
                 class="btn btn-info"
