@@ -27,6 +27,8 @@ import { AddUserComponent } from './database/add-user/add-user.component';
 import { UserOrdersComponent } from './database/user-orders/user-orders.component';
 import { AddUserOrderComponent } from './database/add-user-order/add-user-order.component';
 import { UserOrderDetailsComponent } from './database/user-order-details/user-order-details.component';
+import { DisplayTripsComponent } from './display-trips/display-trips.component';
+import { DisplayDestinationsComponent } from './display-destinations/display-destinations.component';
 
 const routes: Routes = [
   // {
@@ -52,6 +54,14 @@ const routes: Routes = [
     {
       path:'restaurents',
       component:DisplayRestaurantComponent,
+    },
+    {
+      path:'trips',
+      component:DisplayTripsComponent,
+    },
+    {
+      path:'destinations',
+      component:DisplayDestinationsComponent,
     },
    
     {

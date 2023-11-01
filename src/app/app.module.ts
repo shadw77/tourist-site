@@ -27,11 +27,15 @@ import { HomeLayoutComponent } from './home-layout/home-layout.component';
 import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout.component';
 import { DatabaseModule } from "./database/database.module";
 import { RouterModule } from '@angular/router';
+import { DisplayTripsComponent } from './display-trips/display-trips.component';
+import { DisplayDestinationsComponent } from './display-destinations/display-destinations.component';
 @NgModule({
   declarations: [AppComponent, MainSearchComponent, TopDestinationComponent, ImgCardComponent, HomeComponent, ExploreComponent, DescCardComponent, ItemComponent, DisplayRestaurantComponent, DisplayHotelsComponent  ,  AboutUsComponent,
     ContactUsComponent,
     HomeLayoutComponent,
     DashboardLayoutComponent,
+    DisplayTripsComponent,
+    DisplayDestinationsComponent,
     ],
   imports: [
     BrowserModule,
