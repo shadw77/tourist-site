@@ -33,6 +33,7 @@ import { VendorComponent } from './dashboard/vendor/vendor.component';
 import { HotelsVendorComponent } from './dashboard/hotels-vendor/hotels-vendor.component';
 import { UpdatehotelVendorComponent } from './dashboard/updatehotel-vendor/updatehotel-vendor.component';
 import { ShowHotelComponent } from './dashboard/show-hotel/show-hotel.component';
+import { ShowRestaurantComponent } from './database/show-restaurant/show-restaurant.component';
 
 const routes: Routes = [
   {
@@ -133,6 +134,11 @@ const routes: Routes = [
     {  
       path: 'add-restaurant',
       component: AddRestaurantComponent,
+      outlet: 'details'
+    },
+    { 
+      path: 'show-restaurant/:id',
+      component: ShowRestaurantComponent,
       outlet: 'details'
     },
     { 

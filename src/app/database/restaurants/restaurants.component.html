@@ -46,17 +46,17 @@
  } }]" routerLinkActive="active-link">Edit</button> 
                         <button type="button" class="btn btn-danger" (click)="delete(restaurant.id, i)">Delete</button>
                  
-                    <!-- <button
+                    <button
                     type="button"
                     class="btn btn-info"
                     [routerLink]="[
-                      '/dashboard/vendor',
-                      { outlets: { details: 'show-hotel/' + hotel.id } }
+                      '/dashboard/admin',
+                      { outlets: { details: 'show-restaurant/' + restaurant.id } }
                     ]"
                     routerLinkActive="active-link"
                   >
                     Show
-                  </button> -->
+                  </button>
                   </td>
                 </tr>
             </tbody>

@@ -20,6 +20,7 @@ import { AddUserComponent } from './add-user/add-user.component';
 import { UserOrdersComponent } from './user-orders/user-orders.component';
 import { AddUserOrderComponent } from './add-user-order/add-user-order.component';
 import { UserOrderDetailsComponent } from './user-order-details/user-order-details.component';
+import { ShowRestaurantComponent } from './show-restaurant/show-restaurant.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { UserOrderDetailsComponent } from './user-order-details/user-order-detai
     UserOrdersComponent,
     AddUserOrderComponent,
     UserOrderDetailsComponent,
+    ShowRestaurantComponent,
 
   ],
   imports: [
