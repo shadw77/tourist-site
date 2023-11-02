@@ -33,6 +33,7 @@ import { VendorComponent } from './dashboard/vendor/vendor.component';
 import { HotelsVendorComponent } from './dashboard/hotels-vendor/hotels-vendor.component';
 import { UpdatehotelVendorComponent } from './dashboard/updatehotel-vendor/updatehotel-vendor.component';
 import { ShowHotelComponent } from './dashboard/show-hotel/show-hotel.component';
+import { ShowTripComponent } from './database/show-trip/show-trip.component';
 
 const routes: Routes = [
   {
@@ -171,6 +172,11 @@ const routes: Routes = [
 
       path: 'edit-trip/:id',
       component: TripDetailsComponent,
+      outlet: 'details'
+    },
+    { 
+      path: 'show-trip/:id',
+      component: ShowTripComponent,
       outlet: 'details'
     },
     {

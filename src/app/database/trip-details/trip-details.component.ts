@@ -12,7 +12,8 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 export class TripDetailsComponent {
   getId: any;
   updateForm: FormGroup;
-
+  selectedImage: File | any = null; 
+  selectedImages: File[] | any = null;
   constructor(
     public formBuilder:FormBuilder,
     private router:Router,
@@ -20,25 +21,6 @@ export class TripDetailsComponent {
     private ngZone:NgZone,
     private tripCrudService: TripCrudService
   ){    
-    this.getId = this.activatedRoute.snapshot.paramMap.get('id');
-    this.tripCrudService.getTrip(this.getId).subscribe(res=>{
-      console.log(res['trip']['id']);
-
-      this.updateForm.setValue({
-      id:res['data']['id'],
-      name:res['data']['name'],
-      government:res['data']['government'],
-      duration:res['data']['duration'],
-      cost:res['data']['cost'],
-      description:res['data']['description'],
-      rating:res['data']['rating'],
-      thumbnail:res['data']['thumbnail'],
-      creator_id:res['data']['creator_id'],
-      images:res['data']['images'],
-      reviews:res['data']['reviews'],
-
-    });
-    });   
     this.updateForm = this.formBuilder.group({
       id:[''],
       name:[''],
@@ -54,16 +36,60 @@ export class TripDetailsComponent {
     });
     
   }
-  onUpdate():any{
-    this.tripCrudService.updateTrip(this.getId,this.updateForm.value)
-    .subscribe(()=>{
-      console.log('Data Updated Successfully');
-      this.ngZone.run(()=>this.router.navigateByUrl('/trips-list')) 
-    },(err)=>{
-      console.log(err);
-      
-    })
+  ngOnInit() {
+    this.getId = this.activatedRoute.snapshot.paramMap.get('id');
+    // this.tripCrudService.getTrip(this.getId).subscribe(res=>{
+    //   this.updateForm.setValue({
+    //   id:res['data']['id'],
+    //   name:res['data']['name'],
+    //   government:res['data']['government'],
+    //   duration:res['data']['duration'],
+    //   cost:res['data']['cost'],
+    //   description:res['data']['description'],
+    //   rating:res['data']['rating'],
+    //   thumbnail:res['data']['thumbnail'],
+    //   // creator_id:res['data']['creator_id'],
+    //   // images:res['data']['images'],
+    //   // reviews:res['data']['reviews'],
+    // });
+
+    // });   
+  }
+ 
+  onUpdate(){
+   console.log(this.getId);
+   console.log(this.selectedImage);
+    const formData = new FormData();
+    formData.append('name', this.updateForm.value.name);
+    formData.append('government', this.updateForm.value.government);
+    formData.append('duration', this.updateForm.value.duration);
+    formData.append('cost', this.updateForm.value.cost);
+    formData.append('description', this.updateForm.value.description);
+    formData.append('rating', this.updateForm.value.rating);
+    formData.append('creator_id', this.updateForm.value.creator_id);
+
+    formData.append('thumbnail', this.selectedImage);
+    this.tripCrudService.updateTrip(this.getId,formData).subscribe(
+      (response) => {
+        console.log(response);
+        console.log('Data and images saved successfully');
+        this.updateForm.reset();
+        this.selectedImage = null;
+        // this.ngZone.run(()=>this.router.navigateByUrl('dashboard/admin/(details:trips)')) 
+      },
+      (error) => {
+        console.error('Error saving data and images:', error);
+      }
+    );
   }
 
+  onImageChange(event: Event) {
+    const inputElement = event.target as HTMLInputElement;
+    if (inputElement.files && inputElement.files.length > 0) {
+      this.selectedImage = inputElement.files[0];
+    }
+  }
+
+  
 
 }
