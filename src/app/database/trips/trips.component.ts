@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { TripCrudService } from 'src/app/Services/trip-crud.service';
 
 @Component({
