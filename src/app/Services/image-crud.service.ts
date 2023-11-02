@@ -12,12 +12,10 @@ export class ImageCrudService {
   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
   
 
-  // updateImage(imageId: number, image: File): Observable<any> {
-  //   const formData = new FormData();
-  //   formData.append('image', image, image.name);
-  //   let API_URL = `${this.REST_API}/${imageId}`;
-  //   return this.httpClient.post<any>( API_URL, formData);
-  // }
+  addImage(  data: FormData): Observable<any> {
+    let API_URL = `${this.REST_API}`;
+    return this.httpClient.post<any>( API_URL, data);
+  }
   updateImage(id:any, data: FormData): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;  
     return this.httpClient.post<any>(API_URL , data)
