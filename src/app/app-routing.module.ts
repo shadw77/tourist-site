@@ -34,6 +34,8 @@ import { HotelsVendorComponent } from './dashboard/hotels-vendor/hotels-vendor.c
 import { UpdatehotelVendorComponent } from './dashboard/updatehotel-vendor/updatehotel-vendor.component';
 import { ShowHotelComponent } from './dashboard/show-hotel/show-hotel.component';
 import { ShowRestaurantComponent } from './database/show-restaurant/show-restaurant.component';
+import { DisplayServicesComponent } from './display-services/display-services.component';
+
 
 const routes: Routes = [
   {
@@ -49,13 +51,40 @@ const routes: Routes = [
       component:DisplayHotelsComponent,
     },
     {
+      path:'hotels/:data',
+      component:DisplayHotelsComponent,
+    }, 
+    {
+      path:'restaurents/:data',
+      component:DisplayRestaurantComponent,
+    }, 
+    {
       path:'restaurents',
       component:DisplayRestaurantComponent,
+    }, 
+ 
+     
+    {
+      path: 'trips/:data',
+      component: DisplayTripsComponent
     },
     {
       path:'trips',
       component:DisplayTripsComponent,
     },
+    {
+      path:'destinations/:data',
+      component:DisplayDestinationsComponent,
+    },
+    {
+      path:'search-all/:data',
+      component:DisplayServicesComponent,
+    },
+    {
+      path:'search-all',
+      component:DisplayServicesComponent,
+    },
+    
     {
       path:'destinations',
       component:DisplayDestinationsComponent,
