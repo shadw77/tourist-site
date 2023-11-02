@@ -47,8 +47,6 @@ export class MainSearchComponent {
   }
 
   search() {    
-    console.log("hiiiiiiiiii", this.selectedNavItem);
-
     const keyword = this.searchWord;
     let searchService: Observable<any>;
 
@@ -57,11 +55,15 @@ export class MainSearchComponent {
     switch (this.selectedNavItem) {
       
       case 'destinations':
-        searchService = this.searchDataService.searchDestinations(keyword);
+        this.searchDataService.searchDestinations(keyword).then(response=>{
+          this.data = response;
+          console.log('dodoo',this.data);
+        
+        });
         break;
       case 'trips':
 
-        const search = this.searchDataService.searchTrips(keyword).then(response=>{
+       this.searchDataService.searchTrips(keyword).then(response=>{
           this.data = response;
           console.log('dodoo',this.data);
         
@@ -69,14 +71,21 @@ export class MainSearchComponent {
       
         break;
       case 'restaurants':
-        searchService = this.searchDataService.searchRestaurants(keyword);
+        this.searchDataService.searchRestaurants(keyword).then(response=>{
+          this.data = response;
+          console.log('dodoo',this.data);
+        
+        });
         break;
       case 'hotels':
-        searchService = this.searchDataService.searchHotels(keyword);
+        this.searchDataService.searchHotels(keyword).then(response=>{
+          this.data = response;
+          console.log('dodoo',this.data);
+        
+        });
         break;
       default:      
       console.log("kkkkkkkkkk",keyword);
-
         // searchService = this.searchDataService.searchAll(keyword);
         break;
     }
