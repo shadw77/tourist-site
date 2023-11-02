@@ -9,12 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './display-trips.component.html',
   styleUrls: ['./display-trips.component.css']
 })
-export class DisplayTripsComponent {
-  // data : any;
-  // ngOnInit():void{
-  //   this.data = datajson;
-  // }
-  
+export class DisplayTripsComponent {  
   Trips: any = [];
   data : any;
   constructor(private activatedRoute: ActivatedRoute,private route: ActivatedRoute,private tripCrudService: TripCrudService, private searchDataService: SearchDataService){}

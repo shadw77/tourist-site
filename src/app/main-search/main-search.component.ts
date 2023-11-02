@@ -11,28 +11,7 @@ import { Router } from '@angular/router';
   templateUrl: './main-search.component.html',
   styleUrls: ['./main-search.component.css']
 })
-// export class MainSearchComponent {
-//   faSearch = faSearch;
-//   searchWord: any;
-//   data: any;
-
-//   constructor(private http: HttpClient, private searchDataService: SearchDataService) { }
-
-//
-    
-
-//   }
-
-//   search() {
-//     // Send the searchWord to the backend
-//     this.http.post('https://localhost:8000/api/search', { keyword: this.searchWord })
-//       .subscribe(response => {
-//         // Handle the response from the backend
-//         console.log(response);
-//       });
-//   }
-
-// }
+ 
 
 export class MainSearchComponent {
   faSearch = faSearch;
@@ -63,6 +42,7 @@ export class MainSearchComponent {
           console.log('dodoo',this.data);
         
         });
+        this.router.navigate(['/destinations', keyword]);
         break;
       case 'trips':
 
@@ -81,6 +61,7 @@ export class MainSearchComponent {
           console.log('dodoo',this.data);
         
         });
+        this.router.navigate(['/restaurents', keyword]);
         break;
       case 'hotels':
         this.searchDataService.searchHotels(keyword).then(response=>{
@@ -88,9 +69,10 @@ export class MainSearchComponent {
           console.log('dodoo',this.data);
         
         });
+        this.router.navigate(['/hotels', keyword]);
         break;
       default:      
-      console.log("kkkkkkkkkk",keyword);
+        // console.log(keyword);
         // searchService = this.searchDataService.searchAll(keyword);
         break;
     }

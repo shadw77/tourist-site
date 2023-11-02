@@ -44,9 +44,19 @@ const routes: Routes = [
       component:DisplayHotelsComponent,
     },
     {
+      path:'hotels/:data',
+      component:DisplayHotelsComponent,
+    }, 
+    {
+      path:'restaurents/:data',
+      component:DisplayRestaurantComponent,
+    }, 
+    {
       path:'restaurents',
       component:DisplayRestaurantComponent,
-    },   
+    }, 
+ 
+     
     {
       path: 'trips/:data',
       component: DisplayTripsComponent
@@ -54,6 +64,10 @@ const routes: Routes = [
     {
       path:'trips',
       component:DisplayTripsComponent,
+    },
+    {
+      path:'destinations/:data',
+      component:DisplayDestinationsComponent,
     },
  
     {
