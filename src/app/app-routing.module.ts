@@ -101,7 +101,7 @@ const routes: Routes = [
      {
       path:'discover',loadChildren: () => import('src/app/discovermodule/discovermodule.module')
       .then(m=>m.DiscovermoduleModule),
-      canActivate:[authGuard,adminOrVendorGuard]
+      //canActivate:[authGuard,adminOrVendorGuard]
     },
     
     {
