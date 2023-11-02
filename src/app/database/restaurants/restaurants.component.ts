@@ -12,7 +12,7 @@ export class RestaurantsComponent {
   imagePath: string = 'http://127.0.0.1:8000/images/Restaurant_images/thumbnails/';
   constructor(private restaurantCrudService: RestaurantCrudService){}
   ngOnInit():void{
-    this.restaurantCrudService.getRestaurants()  .subscribe(res=>{        
+    this.restaurantCrudService.getRestaurants().subscribe(res=>{        
         this.Restaurants= res;
         console.log(this.Restaurants['data']);
     })

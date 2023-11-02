@@ -37,7 +37,7 @@ export class RestaurantCrudService {
 
   updateRestaurant(id:any, data: FormData): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;
-    return this.httpClient.post<any>(API_URL, data, {headers: this.httpHeaders})
+    return this.httpClient.post<any>(API_URL, data)
     .pipe(catchError(this.handleError));
   }
 
