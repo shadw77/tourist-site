@@ -20,7 +20,7 @@ import { DestinationDetailsComponent } from './database/destination-details/dest
 import { AddDestinationComponent } from './database/add-destination/add-destination.component';
 import { HotelsComponent } from './database/hotels/hotels.component';
 import { HotelDetailsComponent } from './database/hotel-details/hotel-details.component';
-import { AddHotelComponent } from './database/add-hotel/add-hotel.component';
+  import { AddHotelComponent } from './database/add-hotel/add-hotel.component';
 import { UserDetailsComponent } from './database/user-details/user-details.component';
 import { AddUserComponent } from './database/add-user/add-user.component';
 import { UserOrdersComponent } from './database/user-orders/user-orders.component';
@@ -29,6 +29,10 @@ import { UserOrderDetailsComponent } from './database/user-order-details/user-or
 import { DisplayTripsComponent } from './display-trips/display-trips.component';
 import { DisplayDestinationsComponent } from './display-destinations/display-destinations.component';
 import { VendorComponent } from './dashboard/vendor/vendor.component';
+//  import { AddHotelComponent } from './dashboard/add-hotel/add-hotel.component';
+import { HotelsVendorComponent } from './dashboard/hotels-vendor/hotels-vendor.component';
+import { UpdatehotelVendorComponent } from './dashboard/updatehotel-vendor/updatehotel-vendor.component';
+import { ShowHotelComponent } from './dashboard/show-hotel/show-hotel.component';
 import { DisplayServicesComponent } from './display-services/display-services.component';
 
 const routes: Routes = [
@@ -179,15 +183,18 @@ const routes: Routes = [
       component: HotelsComponent,
       outlet: 'details'
     },
+    {  
+      path: 'add-hotel',
+      component: AddHotelComponent,
+      outlet: 'details'
+      
+    },
     { 
       path: 'edit-hotel/:id',
       component: HotelDetailsComponent,
       outlet: 'details',
     },
-    {  
-      path: 'add-hotel',
-      component:AddHotelComponent,
-    },
+    
     {
 
       path: 'edit-trip/:id',
@@ -228,19 +235,24 @@ const routes: Routes = [
     component: VendorComponent,
     children: [
       { 
-        path: 'users',
-        component: UsersComponent,
+        path: 'hotels',
+        component: HotelsComponent,
         outlet: 'details'
       },
       {  
-        path: 'add-user',
-        component: AddUserComponent,
+        path: 'add-hotel',
+        component: AddHotelComponent,
         outlet: 'details'
         
       },
       { 
-        path: 'edit-user/:id',
-        component: UserDetailsComponent,
+        path: 'edit-hotel/:id',
+        component: HotelDetailsComponent,
+        outlet: 'details'
+      },
+      { 
+        path: 'show-hotel/:id',
+        component: ShowHotelComponent,
         outlet: 'details'
       },
   
