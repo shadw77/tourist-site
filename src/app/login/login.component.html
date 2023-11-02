@@ -2,7 +2,7 @@
 <ng-template #content  let-modal> 
     <!--start modal header-->
     <div class="modal-header"> 
-        <h4 class="modal-title w-100 text-center" 
+        <h4  class="modal-title w-100 text-center" 
             id="modal-basic-title"> 
            <button  (click)="showform()" class="btn btn-primary">Sign In </button> | 
            <button  (click)="showform()" class="btn btn-success">Sign Up</button>
@@ -20,11 +20,11 @@
 
         <!--start login form-->
         <form [formGroup]="userlogin" [hidden]="isUserLogin"  (ngSubmit)="submitUserLogin(userlogin)" class=" p-5 border border-primary">
-            <div *ngIf="successMessage!.length >0 "  class="alert alert-success">
-                <small >{{successMessage}}</small><br>
+            <div *ngIf="successsLoginReference!.length >0 " class="alert alert-success">
+                <small >{{successsLoginReference}}</small>   
             </div>
-            <div *ngIf="ErrorMessage!.length >0 "  class="alert alert-danger">
-                <small >{{ErrorMessage}}</small><br>
+            <div *ngIf="errorLoginReference!.length >0 "  class="alert alert-danger">
+                <small >{{errorLoginReference}}</small>
             </div>
             <!--start email input-->
             <div class="mb-3">
