@@ -1,13 +1,17 @@
 <div class="container text-center">
   <ul class="nav nav-tabs justify-content-center">
     <li class="nav-item">
-      <a class="nav-link text-black active" routerLink="#" (click)="setSelectedItem('all')">Search All</a>
+      <a class="nav-link text-black active" routerLink="#" >Search All</a>
     </li>
     <li class="nav-item">
       <a class="nav-link text-black" routerLink="/destinations" routerLinkActive="active" (click)="setSelectedItem('destinations')"> Destination</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link text-black" routerLink="/trips" routerLinkActive="active"  (click)="setSelectedItem('trips')">Trips</a>
+    <li class="nav-item" *ngIf="data">
+
+      <a class="nav-link text-black" [routerLink]="'/trips/'+data" routerLinkActive="active"  (click)="setSelectedItem('trips')">Trips</a>
+    </li>
+    <li class="nav-item" *ngIf="!data">
+      <a class="nav-link text-black" [routerLink]="'/trips'" routerLinkActive="active"  (click)="setSelectedItem('trips')">Trips</a>
     </li>
     <li class="nav-item">                        
       <a class="nav-link text-black" routerLink="/restaurents" routerLinkActive="active"  (click)="setSelectedItem('restaurants')">Restaurents</a>

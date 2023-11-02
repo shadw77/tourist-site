@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { SearchDataService } from '../Services/search-data.service';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-search',
@@ -38,20 +39,22 @@ export class MainSearchComponent {
   searchWord: any;
   data: any;
   selectedNavItem: any; 
+  @Output() keywordChanged: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor(private http: HttpClient, private searchDataService: SearchDataService) { }
+  constructor(private router: Router, private http: HttpClient, private searchDataService: SearchDataService) { }
   setSelectedItem(navItem: string) {
     this.selectedNavItem = navItem;
     console.log(this.selectedNavItem);
+    
     
   }
 
   search() {    
     const keyword = this.searchWord;
+    this.keywordChanged.emit(keyword);
     let searchService: Observable<any>;
 
     
-    // Determine the appropriate search service based on the selected navigation item
     switch (this.selectedNavItem) {
       
       case 'destinations':
@@ -68,6 +71,8 @@ export class MainSearchComponent {
           console.log('dodoo',this.data);
         
         });
+        
+        this.router.navigate(['/trips', keyword]);
       
         break;
       case 'restaurants':
@@ -90,10 +95,6 @@ export class MainSearchComponent {
         break;
     }
 
-    // searchService.subscribe(data => {
-    //   this.data = data;
-    //   console.log(this.data);
-    // });
   }
 
 
@@ -101,12 +102,5 @@ export class MainSearchComponent {
   getProductSearch(event: any, name:any){
     this.searchWord = event.target.value;
     this.selectedNavItem = name;
-
-        // const keyword = name.target.value;
-        // const search = this.searchDataService.getSearchServiceName(keyword).then(response=>{
-        //   this.data = response;
-        //   console.log(this.data);
-          
-        // });
       }
 }

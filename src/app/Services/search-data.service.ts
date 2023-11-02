@@ -8,6 +8,7 @@ import { Observable, catchError, map, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class SearchDataService {
+  data: any;
 
   constructor(private http: HttpClient) { }
 

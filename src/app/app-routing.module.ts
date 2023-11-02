@@ -46,11 +46,16 @@ const routes: Routes = [
     {
       path:'restaurents',
       component:DisplayRestaurantComponent,
+    },   
+    {
+      path: 'trips/:data',
+      component: DisplayTripsComponent
     },
     {
       path:'trips',
       component:DisplayTripsComponent,
     },
+ 
     {
       path:'destinations',
       component:DisplayDestinationsComponent,
