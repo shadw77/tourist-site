@@ -14,6 +14,7 @@
                     <th scope="col">Description</th>
                     <th scope="col">Rating</th>
                     <th scope="col">Thumbnail</th>
+                    <th scope="col">Discount</th>
                     <th scope="col">Creator Id</th>
                     <th scope="col">Action</th>
 
@@ -25,20 +26,44 @@
                     <th scope="row">{{restaurant.id}}</th>
                     <td>{{restaurant.name}}</td>
                     <td>{{restaurant.email}}</td>
-                    <td>{{restaurant.rating}}</td>
                     <td>{{restaurant.street}}</td>
+                    <td>{{restaurant.government}}</td>
                     <td>{{restaurant.phone}}</td>
                     <td>{{restaurant.description}}</td>
-                    <td>{{restaurant.government}}</td>
-                    <td>{{restaurant.thumbnail}}</td>
-                    <td>{{restaurant.creator_id}}</td>
+                    <td>{{restaurant.rating}}</td>
                     <td>
-                        <button type="button" class="btn btn-info" [routerLink]="['/dashboard/admin', { outlets: { details: 'edit-restaurant/' + restaurant.id
+                        <img
+                          src="{{ imagePath }}{{ restaurant.thumbnail }}"
+                          alt="{{ restaurant.thumbnail }}"
+                        />
+                      </td>
+                    
+                    <td>{{restaurant.discount}}</td>
+                    <td>{{restaurant.creator_id}}</td>
+                  
+                    <td>
+             <button type="button" class="btn btn-info" [routerLink]="['/dashboard/admin', { outlets: { details: 'edit-restaurant/' + restaurant.id
  } }]" routerLinkActive="active-link">Edit</button> 
                         <button type="button" class="btn btn-danger" (click)="delete(restaurant.id, i)">Delete</button>
-                    </td>
+                 
+                    <!-- <button
+                    type="button"
+                    class="btn btn-info"
+                    [routerLink]="[
+                      '/dashboard/vendor',
+                      { outlets: { details: 'show-hotel/' + hotel.id } }
+                    ]"
+                    routerLinkActive="active-link"
+                  >
+                    Show
+                  </button> -->
+                  </td>
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
+
+
+
+
