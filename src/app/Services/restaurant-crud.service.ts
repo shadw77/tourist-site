@@ -18,10 +18,11 @@ export class RestaurantCrudService {
   };
   constructor(private httpClient: HttpClient) { }
 
-  addRestaurant(data:Restaurant): Observable<any>{
+  addRestaurant(data: FormData): Observable<any>{
     let API_URL = this.REST_API;
-    return this.httpClient.post(API_URL, data).pipe(catchError(this.handleError));
+    return this.httpClient.post<any>(API_URL, data).pipe(catchError(this.handleError));
   }
+
 
   getRestaurants(){
     return this.httpClient.get(this.REST_API,this.httpOptions);
@@ -34,17 +35,19 @@ export class RestaurantCrudService {
       catchError(this.handleError));
   }
 
-  updateRestaurant(id:any, data:Restaurant): Observable<any>{
+  updateRestaurant(id:any, data: FormData): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;
-    return this.httpClient.put(API_URL, data, {headers: this.httpHeaders})
+    return this.httpClient.post<any>(API_URL, data)
     .pipe(catchError(this.handleError));
   }
 
+      
   deleteRestaurant(id:any): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;
     return this.httpClient.delete(API_URL, {headers: this.httpHeaders})
     .pipe(catchError(this.handleError));
   }
+
 
   handleError(error: HttpErrorResponse){
     let errorMessage = '';
@@ -59,3 +62,7 @@ export class RestaurantCrudService {
     
   }
 }
+
+
+
+

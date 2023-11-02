@@ -18,23 +18,30 @@ import { AddRestaurantComponent } from './database/add-restaurant/add-restaurant
 import { DestinationsComponent } from './database/destinations/destinations.component';
 import { DestinationDetailsComponent } from './database/destination-details/destination-details.component';
 import { AddDestinationComponent } from './database/add-destination/add-destination.component';
+import { HotelsComponent } from './database/hotels/hotels.component';
+import { HotelDetailsComponent } from './database/hotel-details/hotel-details.component';
+  import { AddHotelComponent } from './database/add-hotel/add-hotel.component';
 import { UserDetailsComponent } from './database/user-details/user-details.component';
 import { AddUserComponent } from './database/add-user/add-user.component';
+import { UserOrdersComponent } from './database/user-orders/user-orders.component';
+import { AddUserOrderComponent } from './database/add-user-order/add-user-order.component';
+import { UserOrderDetailsComponent } from './database/user-order-details/user-order-details.component';
+import { DisplayTripsComponent } from './display-trips/display-trips.component';
+import { DisplayDestinationsComponent } from './display-destinations/display-destinations.component';
 import { VendorComponent } from './dashboard/vendor/vendor.component';
+//  import { AddHotelComponent } from './dashboard/add-hotel/add-hotel.component';
+import { HotelsVendorComponent } from './dashboard/hotels-vendor/hotels-vendor.component';
+import { UpdatehotelVendorComponent } from './dashboard/updatehotel-vendor/updatehotel-vendor.component';
+import { ShowHotelComponent } from './dashboard/show-hotel/show-hotel.component';
+import { ShowRestaurantComponent } from './database/show-restaurant/show-restaurant.component';
+import { DisplayServicesComponent } from './display-services/display-services.component';
+
 import { authGuard } from './Guard/auth.guard';
 import { adminguard } from './Guard/admin.guard';
 import { adminOrVendorGuard } from './Guard/admin-or-vendor.guard';
 
 
 const routes: Routes = [
-  // {
-  // path:'',
-  // component:HomeComponent,
-  // },
-  // {
-  //   path:'home',
-  //   component:HomeComponent,
-  // },
   {
     path: '',
     component: HomeLayoutComponent,
@@ -48,8 +55,43 @@ const routes: Routes = [
       component:DisplayHotelsComponent,
     },
     {
+      path:'hotels/:data',
+      component:DisplayHotelsComponent,
+    }, 
+    {
+      path:'restaurents/:data',
+      component:DisplayRestaurantComponent,
+    }, 
+    {
       path:'restaurents',
       component:DisplayRestaurantComponent,
+    }, 
+ 
+     
+    {
+      path: 'trips/:data',
+      component: DisplayTripsComponent
+    },
+    {
+      path:'trips',
+      component:DisplayTripsComponent,
+    },
+    {
+      path:'destinations/:data',
+      component:DisplayDestinationsComponent,
+    },
+    {
+      path:'search-all/:data',
+      component:DisplayServicesComponent,
+    },
+    {
+      path:'search-all',
+      component:DisplayServicesComponent,
+    },
+    
+    {
+      path:'destinations',
+      component:DisplayDestinationsComponent,
     },
    
     {
@@ -129,6 +171,11 @@ const routes: Routes = [
       outlet: 'details'
     },
     { 
+      path: 'show-restaurant/:id',
+      component: ShowRestaurantComponent,
+      outlet: 'details'
+    },
+    { 
       path: 'destinations',
       component: DestinationsComponent,
       outlet: 'details'
@@ -143,10 +190,45 @@ const routes: Routes = [
       component:AddDestinationComponent,
       outlet: 'details'
     },
+    { 
+      path: 'hotels',
+      component: HotelsComponent,
+      outlet: 'details'
+    },
+    {  
+      path: 'add-hotel',
+      component: AddHotelComponent,
+      outlet: 'details'
+      
+    },
+    { 
+      path: 'edit-hotel/:id',
+      component: HotelDetailsComponent,
+      outlet: 'details',
+    },
+    
     {
 
       path: 'edit-trip/:id',
       component: TripDetailsComponent,
+      outlet: 'details'
+    },
+    {
+
+      path: 'user-orders',
+      component: UserOrdersComponent,
+      outlet: 'details'
+    },
+    {
+
+      path: 'add-order',
+      component: AddUserOrderComponent,
+      outlet: 'details'
+    },
+    {
+
+      path: 'edit-order/:id',
+      component: UserOrderDetailsComponent,
       outlet: 'details'
     },
   ]
@@ -165,19 +247,24 @@ const routes: Routes = [
     component: VendorComponent,
     children: [
       { 
-        path: 'users',
-        component: UsersComponent,
+        path: 'hotels',
+        component: HotelsComponent,
         outlet: 'details'
       },
       {  
-        path: 'add-user',
-        component: AddUserComponent,
+        path: 'add-hotel',
+        component: AddHotelComponent,
         outlet: 'details'
         
       },
       { 
-        path: 'edit-user/:id',
-        component: UserDetailsComponent,
+        path: 'edit-hotel/:id',
+        component: HotelDetailsComponent,
+        outlet: 'details'
+      },
+      { 
+        path: 'show-hotel/:id',
+        component: ShowHotelComponent,
         outlet: 'details'
       },
   

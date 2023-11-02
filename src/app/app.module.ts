@@ -1,4 +1,3 @@
-
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { AppRoutingModule } from "./app-routing.module";
@@ -27,6 +26,8 @@ import { HomeLayoutComponent } from './home-layout/home-layout.component';
 import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout.component';
 import { DatabaseModule } from "./database/database.module";
 import { RouterModule } from '@angular/router';
+import { DisplayTripsComponent } from './display-trips/display-trips.component';
+import { DisplayDestinationsComponent } from './display-destinations/display-destinations.component';
 import { CuttextPipe } from './Pipes/cuttext.pipe';
 
 import { Component, ViewChild } from '@angular/core';
@@ -34,13 +35,18 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { DisplayServicesComponent } from './display-services/display-services.component';
 
 @NgModule({
   declarations: [AppComponent, MainSearchComponent, TopDestinationComponent, ImgCardComponent, HomeComponent, ExploreComponent, DescCardComponent, ItemComponent, DisplayRestaurantComponent, DisplayHotelsComponent  ,  AboutUsComponent,
     ContactUsComponent,
     HomeLayoutComponent,
     DashboardLayoutComponent,
+
+    DisplayTripsComponent,
+    DisplayDestinationsComponent,
     LoginComponent,
+    DisplayServicesComponent,
     ],
   imports: [
     BrowserModule,
@@ -57,10 +63,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     DatabaseModule,
     DashboardModule,
     NgxSpinnerModule.forRoot()
-
-
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {} 

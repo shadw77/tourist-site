@@ -16,7 +16,7 @@
 
             </thead>
             <tbody>
-                <tr *ngFor="let destination of Destinations['destinations']; let i = index">
+                <tr *ngFor="let destination of Destinations; let i = index">
                     <th scope="row">{{destination.id}}</th>
                     <td>{{destination.name}}</td>
                     <td>{{destination.description}}</td>
