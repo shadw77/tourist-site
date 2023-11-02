@@ -12,6 +12,8 @@ import { ActivatedRoute } from '@angular/router';
 export class DisplayHotelsComponent {
   Hotels: any = [];
   data : any;
+  imagePath: string = 'http://127.0.0.1:8000/images/Hotel_images/thumbnails/';
+
   constructor(private activatedRoute: ActivatedRoute,private route: ActivatedRoute,private hotelCrudService: HotelCrudService, private searchDataService: SearchDataService){}
   ngOnInit():void{
 
