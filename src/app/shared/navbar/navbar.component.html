@@ -46,12 +46,9 @@
           >
         </li>
         <li class="nav-item">
-          <button
-            class="btn btn-primary"
-            (click)="handleLogin()"
-            >Sign in</button
-          >
-
+          <a class="nav-link" routerLink="sign-in" routerLinkActive="active-link"  (click)="handleLogin()">Sign in</a>
+        </li>
+        <li>
           <a class="nav-link" routerLink="about" routerLinkActive="active-link"
             >About us</a
           >

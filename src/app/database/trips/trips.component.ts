@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { TripCrudService } from 'src/app/Services/trip-crud.service';
 
 @Component({
@@ -9,6 +9,7 @@ import { TripCrudService } from 'src/app/Services/trip-crud.service';
 export class TripsComponent {
 
   Trips: any = [];
+  // image ='https://localhost:8000/public/images/trips';
 
   constructor(private tripCrudService: TripCrudService){}
   ngOnInit():void{
@@ -25,6 +26,10 @@ export class TripsComponent {
   })
     
    
+  }
+
+  getImageUrl(imagePath: string): string {
+    return 'https://localhost:8000/api/images/trips/' + imagePath;
   }
 
 }

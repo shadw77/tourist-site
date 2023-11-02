@@ -13,6 +13,7 @@ interface logoutResponse {
 })
 export class HandleapiService {
   data:any;
+  // ServiceData:any;
   private apiUrl:string="http://localhost:8000/api";   
 
 

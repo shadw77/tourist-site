@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable,of,BehaviorSubject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
@@ -32,6 +32,8 @@ interface logoutResponse {
 
 export class AuthService {
   private apiuUrl:string="http://localhost:8000/api";
+  private usertoken=new BehaviorSubject<boolean>(false);
+
   httpOptions={
     headers:new HttpHeaders({
       'Content-Type':'application/json',
@@ -82,10 +84,25 @@ export class AuthService {
 
   /*end function that store coming user data in localstorage*/
 
+  /*start function taht check if user is logged*/
   isAuthenticated(): boolean {
     const token = localStorage.getItem('api_token');
     return !!token; // Return true if the token is present, false otherwise
   }
+  /*end function taht check if user is logged*/
+
+  isUserAuthenticated():Observable<boolean>{
+    const token =localStorage.getItem('api_token');
+     this.usertoken.next(!!token);
+     return this.usertoken.asObservable();
+  }
+  /*start function that get user role*/
+  getUserRole():string {
+    const role = localStorage.getItem('role') as string ;
+    return role ;
+  }
+  /*end function that get user role*/
+
 
   logout():Observable<any>{
     return this.httpClient.get<logoutResponse>(`${this.apiuUrl}/logout`,this.httpOptions).pipe(

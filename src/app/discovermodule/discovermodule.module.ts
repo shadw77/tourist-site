@@ -8,16 +8,20 @@ import { CuttextPipe } from '../Pipes/cuttext.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbcommentComponent } from './ngbcomment/ngbcomment.component';
 import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
+import { ReviewStarsComponent } from './media/review-stars/review-stars.component';
+import { DetailsComponent } from './Details/details.component';
 
 const routes: Routes = [
   
   {path:'',redirectTo:'/discover/home',pathMatch:'full'},
   {path:'home',component:DiscoverComponent},
+
+  {path:':name-details',component:DetailsComponent},
 ];
 
 @NgModule({
   declarations: [  
-    DiscoverComponent, CaraouselComponent, MediaComponent,CuttextPipe, NgbcommentComponent
+    DiscoverComponent, CaraouselComponent, MediaComponent,CuttextPipe, NgbcommentComponent, ReviewStarsComponent, DetailsComponent
   ],
   imports: [
     CommonModule,

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component,Renderer2, ElementRef, OnInit, ViewChild } from '@angular/core';
 import {NgbModal, ModalDismissReasons}  from '@ng-bootstrap/ng-bootstrap'; 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { passwordidentical } from "src/app/customsvalidations/passwordidentical";
@@ -25,10 +25,14 @@ export class LoginComponent implements OnInit{
   ErrorNameBackend:any;
   ErrorEmailBackend:any;
   ErrorPasswordBackend:any;
+  successsLoginReference:string="";
+  errorLoginReference:string="";
 
   constructor(private modalService: NgbModal,
               private Fb:FormBuilder,
-              private authservice:AuthService) {} 
+              protected authservice:AuthService,
+
+              ) {} 
     
   ngOnInit(): void {
 
@@ -63,6 +67,9 @@ export class LoginComponent implements OnInit{
     }, (reason) => { 
       this.closeResult =  
          `Dismissed ${this.getDismissReason(reason)}`; 
+         this.errorLoginReference="";
+         this.successsLoginReference="";
+         this.successMessage="";
     }); 
   } 
 
@@ -74,6 +81,7 @@ export class LoginComponent implements OnInit{
     } else { 
       return `with: ${reason}`; 
     } 
+
   }
   /*end function that open popup window*/
 
@@ -81,6 +89,7 @@ export class LoginComponent implements OnInit{
   /*start function to toggle between signin and signup form*/
   showform(){
     this.isUserLogin = !this.isUserLogin;
+
     console.log(this.isUserLogin);
   }
   /*end function to toggle between signin and signup form*/
@@ -116,10 +125,7 @@ export class LoginComponent implements OnInit{
 
   /*start register function*/
   submitteddata(userform:any){
-    this.ErrorFromBackend="";
-    this.ErrorNameBackend="";
-    this.ErrorEmailBackend="";
-    this.ErrorPasswordBackend="";
+
     //console.log(userform);
     this.authservice.register(userform.value).subscribe({
       next:(next)=>{
@@ -162,10 +168,11 @@ export class LoginComponent implements OnInit{
           this.ErrorPasswordBackend=password;
         }
         else if(next.status == 401){
-          this.ErrorMessage=next.mssg;
+          this.errorLoginReference=next.mssg;
+
         }
         else{
-          this.successMessage=next.mssg;
+          this.successsLoginReference=next.mssg;
         }
         //console.log(next);
       },
@@ -173,6 +180,7 @@ export class LoginComponent implements OnInit{
         console.error('Error fetching reviews:', error);
       },
       complete:()=>{
+
       }
     });
     

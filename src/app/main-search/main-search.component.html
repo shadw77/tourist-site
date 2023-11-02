@@ -1,22 +1,22 @@
 <div class="container text-center">
   <ul class="nav nav-tabs justify-content-center">
     <li class="nav-item">
-      <a class="nav-link text-black active" routerLink="#">Search All</a>
+      <a class="nav-link text-black" [routerLink]="data ? '/search-all/'+data : '/search-all'" routerLinkActive="active" (click)="setSelectedItem('all')">Search All</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-black" routerLink="">Destination</a>
+      <a class="nav-link text-black" [routerLink]="data ? '/destinations/' + data : '/destinations'" routerLinkActive="active" (click)="setSelectedItem('destinations')">Destination</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-black" routerLink="#">Trips</a>
+      <a class="nav-link text-black" [routerLink]="data ? '/trips/' + data : '/trips'" routerLinkActive="active" (click)="setSelectedItem('trips')">Trips</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-black" routerLink="restaurents">Restaurents</a>
+      <a class="nav-link text-black" [routerLink]="data ? '/restaurents/' + data : '/restaurents'" routerLinkActive="active" (click)="setSelectedItem('restaurants')">Restaurants</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-black" routerLink="hotels">Hotels</a>
+      <a class="nav-link text-black" [routerLink]="data ? '/hotels/' + data : '/hotels'" routerLinkActive="active" (click)="setSelectedItem('hotels')">Hotels</a>
     </li>
   </ul>
-  <form class="d-flex justify-content-center" role="search">
+  <form class="d-flex justify-content-center" role="search" enctype="multipart/form-data" (ngSubmit)="search()">
     <div class="input-group mb-3 w-50 ">
       <span class="input-group-text" id="basic-addon1">
         <fa-icon [icon]="faSearch"></fa-icon>
@@ -25,8 +25,7 @@
         type="text"
         class="form-control py-3"
         placeholder="Search"
-        aria-label="Username"
-        aria-describedby="basic-addon1"
+        (input)="getProductSearch($event,selectedNavItem)"
       />
     </div>
   </form>
