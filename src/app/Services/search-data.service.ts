@@ -12,8 +12,18 @@ export class SearchDataService {
 
   constructor(private http: HttpClient) { }
 
-  searchAll(keyword: string): Observable<any> {
-    return this.http.get('http://localhost:8000/api/searchAll', { params: { keyword } });
+  searchAll(keyword: string) {
+    const response  = new Promise(resolve => {
+      this.http.get('http://localhost:8000/api' + `/searchAll?search_service=${keyword}`)
+      .subscribe(data=>{
+        resolve(data);
+      }, err=>{
+        console.log(err);
+        
+      });
+    });
+    
+    return response;  
   }
 
   searchDestinations(keyword: string) {

@@ -39,7 +39,6 @@ export class MainSearchComponent {
       case 'destinations':
         this.searchDataService.searchDestinations(keyword).then(response=>{
           this.data = response;
-          console.log('dodoo',this.data);
         
         });
         this.router.navigate(['/destinations', keyword]);
@@ -48,7 +47,6 @@ export class MainSearchComponent {
 
        this.searchDataService.searchTrips(keyword).then(response=>{
           this.data = response;
-          console.log('dodoo',this.data);
         
         });
         
@@ -58,7 +56,6 @@ export class MainSearchComponent {
       case 'restaurants':
         this.searchDataService.searchRestaurants(keyword).then(response=>{
           this.data = response;
-          console.log('dodoo',this.data);
         
         });
         this.router.navigate(['/restaurents', keyword]);
@@ -66,14 +63,44 @@ export class MainSearchComponent {
       case 'hotels':
         this.searchDataService.searchHotels(keyword).then(response=>{
           this.data = response;
-          console.log('dodoo',this.data);
         
         });
         this.router.navigate(['/hotels', keyword]);
         break;
       default:      
-        // console.log(keyword);
-        // searchService = this.searchDataService.searchAll(keyword);
+     
+      this.searchDataService.searchDestinations(keyword).then(response=>{
+        this.data = response;
+      });
+      this.searchDataService.searchHotels(keyword).then(response=>{
+        if (this.data) {
+          this.data = this.data.concat(response);
+        } else {
+          this.data = response;
+        }
+      });
+      
+      this.searchDataService.searchTrips(keyword).then(response=>{
+        if (this.data) {
+          this.data = this.data.concat(response);
+        } else {
+          this.data = response;
+        }
+      });
+      
+      this.searchDataService.searchRestaurants(keyword).then(response=>{
+        if (this.data) {
+          this.data = this.data.concat(response);
+        } else {
+          this.data = response;
+        }
+      });
+      
+      console.log(this.data);      
+      this.router.navigate(['/search-all', keyword]);
+
+
+
         break;
     }
 

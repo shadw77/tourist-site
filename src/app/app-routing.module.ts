@@ -29,6 +29,7 @@ import { UserOrderDetailsComponent } from './database/user-order-details/user-or
 import { DisplayTripsComponent } from './display-trips/display-trips.component';
 import { DisplayDestinationsComponent } from './display-destinations/display-destinations.component';
 import { VendorComponent } from './dashboard/vendor/vendor.component';
+import { DisplayServicesComponent } from './display-services/display-services.component';
 
 const routes: Routes = [
   {
@@ -69,7 +70,15 @@ const routes: Routes = [
       path:'destinations/:data',
       component:DisplayDestinationsComponent,
     },
- 
+    {
+      path:'search-all/:data',
+      component:DisplayServicesComponent,
+    },
+    {
+      path:'search-all',
+      component:DisplayServicesComponent,
+    },
+    
     {
       path:'destinations',
       component:DisplayDestinationsComponent,
