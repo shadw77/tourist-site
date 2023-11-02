@@ -47,7 +47,8 @@ export class MediaComponent {
   /*start function that navigate to route with data details*/
   viewDetails(data: any,name:string) {
     console.log(data);
-    this.router.navigate([`discover/${name}-details`], { state: { data: data } });
+    this.router.navigate(  [`discover/${name}-details` ,  data ]);
+
   }
   /*end function that navigate to route with data details*/
 

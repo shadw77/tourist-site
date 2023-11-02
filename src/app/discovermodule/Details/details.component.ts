@@ -16,12 +16,21 @@ export class DetailsComponent {
 
   ngOnInit() {
 
-    this.route.data.subscribe(data => {
+    this.route.paramMap.subscribe((params) => {
+      console.log(params);
+
+      this.detailsdata= params;
+            
+      console.log(this.detailsdata);
+
+    }); 
+
+   /* this.route.data.subscribe(data => {
       console.log(data);
 
       this.detailsdata = data;
       console.log(this.details);
-    });
+    });*/
   }
   
 }
