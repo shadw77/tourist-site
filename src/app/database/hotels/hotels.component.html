@@ -1,15 +1,25 @@
 <button
+  *ngIf="isAdmin()"
   type="button"
-  class="btn btn-info"
+  class="btn btn-primary my-3"
   [routerLink]="['/dashboard/admin', { outlets: { details: ['add-hotel'] } }]"
   routerLinkActive="active-link"
 >
   Add New Hotel
 </button>
-<div class="container">
+<button
+  *ngIf="isVendor()"
+  type="button"
+  class="btn btn-primary my-3"
+  [routerLink]="['/dashboard/vendor', { outlets: { details: ['add-hotel'] } }]"
+  routerLinkActive="active-link"
+>
+  Add New Hotel
+</button>
+<div class="">
   <div class="row">
     <h3 class="fs-4 mb-3">All Hotels</h3>
-    <div class="col-md-12 col-8">
+    <div class="table-responsive">
       <table class="table bg-white rounded shadow-sm table-hover">
         <thead>
           <tr>
@@ -39,8 +49,9 @@
             <td>{{ hotel.creator_id }}</td>
             <td>
               <button
+                *ngIf="isAdmin()"
                 type="button"
-                class="btn btn-info"
+                class="btn btn-outline-warning btn-sm mx-1"
                 [routerLink]="[
                   '/dashboard/admin',
                   { outlets: { details: 'edit-hotel/' + hotel.id } }
@@ -49,14 +60,42 @@
               >
                 Edit
               </button>
+              <button
+                *ngIf="isVendor()"
+                type="button"
+                class="btn btn-outline-warning btn-sm mx-1"
+                [routerLink]="[
+                  '/dashboard/vendor',
+                  { outlets: { details: 'edit-hotel/' + hotel.id } }
+                ]"
+                routerLinkActive="active-link"
+              >
+                Edit
+              </button>
 
-              <button class="btn btn-danger" (click)="delete(hotel.id)">
+              <button
+                class="btn btn-outline-danger btn-sm mx-1"
+                (click)="delete(hotel.id)"
+              >
                 Delete
               </button>
 
               <button
+                *ngIf="isAdmin()"
                 type="button"
-                class="btn btn-info"
+                class="btn btn-outline-info btn-sm mx-1"
+                [routerLink]="[
+                  '/dashboard/admin',
+                  { outlets: { details: 'show-hotel/' + hotel.id } }
+                ]"
+                routerLinkActive="active-link"
+              >
+                Show
+              </button>
+              <button
+                *ngIf="isVendor()"
+                type="button"
+                class="btn btn-outline-info btn-sm mx-1"
                 [routerLink]="[
                   '/dashboard/vendor',
                   { outlets: { details: 'show-hotel/' + hotel.id } }
@@ -72,3 +111,37 @@
     </div>
   </div>
 </div>
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item">
+      <button
+        class="page-link"
+        aria-label="Previous"
+        (click)="onPageChange(currentPage - 1)"
+        [disabled]="currentPage === 1"
+      >
+        <span aria-hidden="true">&laquo;</span>
+      </button>
+    </li>
+    <li
+      class="page-item"
+      *ngFor="let button of pageButtons"
+      [class.active]="button === currentPage"
+    >
+      <button class="page-link" (click)="onPageChange(button)">
+        <span aria-hidden="true">{{ button }}</span>
+      </button>
+    </li>
+
+    <li class="page-item">
+      <button
+        class="page-link"
+        aria-label="Next"
+        (click)="onPageChange(currentPage + 1)"
+        [disabled]="currentPage === Hotels.last_page"
+      >
+        <span aria-hidden="true">&raquo;</span>
+      </button>
+    </li>
+  </ul>
+</nav>

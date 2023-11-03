@@ -10,6 +10,15 @@
           formControlName="name"
           required
         />
+        <div
+          *ngIf="
+            tripForm.controls['name'].invalid &&
+            tripForm.controls['name'].touched
+          "
+          class="text-danger"
+        >
+          Name is required.
+        </div>
       </div>
 
       <div class="mb-3">
@@ -21,6 +30,15 @@
           formControlName="government"
           required
         />
+        <div
+          *ngIf="
+            tripForm.controls['government'].invalid &&
+            tripForm.controls['government'].touched
+          "
+          class="text-danger"
+        >
+          Government is required.
+        </div>
       </div>
 
       <div class="mb-3">
@@ -32,6 +50,15 @@
           formControlName="duration"
           required
         />
+        <div
+          *ngIf="
+            tripForm.controls['duration'].invalid &&
+            tripForm.controls['duration'].touched
+          "
+          class="text-danger"
+        >
+          Duration is required.
+        </div>
       </div>
 
       <div class="mb-3">
@@ -43,6 +70,15 @@
           formControlName="cost"
           required
         />
+        <div
+          *ngIf="
+            tripForm.controls['cost'].invalid &&
+            tripForm.controls['cost'].touched
+          "
+          class="text-danger"
+        >
+          Cost is required.
+        </div>
       </div>
 
       <div class="mb-3">
@@ -55,17 +91,21 @@
           required
         >
         </textarea>
-      </div>
-
-      <div class="mb-3">
-        <label for="rating" class="form-label">Rating</label>
-        <input
-          type="text"
-          class="form-control"
-          id="rating"
-          formControlName="rating"
-          required
-        />
+        <div
+          *ngIf="
+            tripForm.controls['description'].invalid &&
+            tripForm.controls['description'].touched
+          "
+          class="text-danger"
+        >
+          Description is required.
+        </div>
+        <div
+          *ngIf="tripForm.controls['description'].errors?.['minLength']"
+          class="text-danger"
+        >
+          Description length not less than 10 characters
+        </div>
       </div>
 
       <div class="mb-3">
@@ -78,6 +118,15 @@
           (change)="onImageChange($event)"
           required
         />
+        <div
+          *ngIf="
+            tripForm.controls['thumbnail'].invalid &&
+            tripForm.controls['thumbnail'].touched
+          "
+          class="text-danger"
+        >
+          Thumbnail is required.
+        </div>
       </div>
       <div class="mb-3">
         <label for="images" class="form-label">images</label>
@@ -91,6 +140,15 @@
           multiple
           (change)="onImagesChange($event)"
         />
+        <div
+          *ngIf="
+            tripForm.controls['images'].invalid &&
+            tripForm.controls['images'].touched
+          "
+          class="text-danger"
+        >
+          Images is required.
+        </div>
       </div>
 
       <div class="mb-3">

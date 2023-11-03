@@ -73,6 +73,27 @@ export class ShowTripComponent {
   this.fileInput.nativeElement.click();
 }
 
+
+
+onAddImage(){
+  console.log(this.selectedImage);
+  const formData = new FormData();
+  formData.append('image', this.selectedImage);
+  formData.append('imageable_id', this.getId);
+  formData.append('imageable_type', 'Trip');
+
+  this.ImageCrudService.addImage(formData).subscribe(
+    (response) => {
+      console.log('Data and images saved successfully');
+      this.selectedImage = null;
+       location.reload();
+      //  this.ngZone.run(()=>this.router.navigateByUrl('dashboard/vendor/(details:hotels)')) 
+    },
+    (error) => {
+      console.error('Error saving data and images:', error);
+    }
+  );
+}
 onFileSelected(event: any) {
   const selectedFile = event.target.files[0];
   this.selectedImage=selectedFile;
@@ -88,25 +109,6 @@ onFileSelected(event: any) {
   };
 
   reader.readAsDataURL(selectedFile);
-}
-
-onAddImage(){
-  console.log(this.selectedImage);
-  const formData = new FormData();
-  formData.append('image', this.selectedImage);
-  formData.append('imageable_id', this.getId);
-  formData.append('imageable_type', 'Trip');
-
-  this.ImageCrudService.addImage(formData).subscribe(
-    (response) => {
-      console.log('Data and images saved successfully');
-      this.selectedImage = null;
-      location.reload();
-      //  this.ngZone.run(()=>this.router.navigateByUrl('dashboard/vendor/(details:hotels)')) 
-    },
-    (error) => {
-      console.error('Error saving data and images:', error);
-    }
-  );
+  this.onAddImage();
 }
 }

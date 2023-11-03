@@ -1,7 +1,7 @@
 import { Component, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { TripCrudService } from 'src/app/Services/trip-crud.service';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder ,Validators} from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -24,19 +24,18 @@ export class AddTripComponent {
     private tripCrudService: TripCrudService
   ){
     this.tripForm = this.formBuilder.group({
-      id:[''],
-      name:[''],
-      government:[''],
-      duration:[''],
-      cost:[''],
-      description:[''],
-      rating:[''],
-      thumbnail:[''],
-      creator_id:[''],
-      images:[''],
-      reviews:[''],
+      name: ['', Validators.required],
+      government: ['', Validators.required],
+      duration: ['', Validators.required],
+      cost: ['', Validators.required],
+      description: ['', Validators.required,Validators.minLength(10)],
+      rating: ['', Validators.required],
+      thumbnail: ['', Validators.required],
+       images: ['', Validators.required],
+       creator_id: ['', Validators.required],
+      reviews:['',Validators.required],
 
-    })
+    });
     
   }
   imageUpload(event:any){
@@ -50,6 +49,7 @@ export class AddTripComponent {
       }
       reader.readAsDataURL(this.file);
     }
+    
     
   }
   onSubmit(){
