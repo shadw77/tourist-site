@@ -1,36 +1,59 @@
-<button type="button" class="btn btn-info" [routerLink]="['/dashboard/admin', { outlets: { details: ['add-destination'] } }]" routerLinkActive="active-link">Add New Destination</button> 
-<div class="row my-5">
-    <h3 class="fs-4 mb-3">All Destinations</h3>
-    <div class="col">
-        <table class="table bg-white rounded shadow-sm  table-hover">
-            <thead>
-                <tr>
-                    <th scope="col" width="50">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Thumbnail</th>
-                    <th scope="col">Creator Id</th>
-                    <th scope="col">Action</th>
-
-                </tr>
-
-            </thead>
-            <tbody>
-                <tr *ngFor="let destination of Destinations; let i = index">
-                    <th scope="row">{{destination.id}}</th>
-                    <td>{{destination.name}}</td>
-                    <td>{{destination.description}}</td>
-                    <td>
-                        <img [src]="destination.thumbnail" alt="Thumbnail">
-                    </td>
-                    <td>{{destination.creator_id}}</td>
-                    <td>
-                        <button type="button" class="btn btn-info" [routerLink]="['/dashboard/admin', { outlets: { details: 'edit-destination/' + destination.id
- } }]" routerLinkActive="active-link">Edit</button> 
-                        <button type="button" class="btn btn-danger" (click)="delete(destination.id, i)">Delete</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+<button
+  type="button"
+  class="btn btn-primary my-3"
+  [routerLink]="[
+    '/dashboard/admin',
+    { outlets: { details: ['add-destination'] } }
+  ]"
+  routerLinkActive="active-link"
+>
+  Add New Destination
+</button>
+<div class="row">
+  <h3 class="fs-4 mb-3">All Destinations</h3>
+  <div class="table-responsive">
+    <table class="table bg-white rounded shadow-sm table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">Thumbnail</th>
+          <th scope="col">Creator Id</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let destination of Destinations; let i = index">
+          <th scope="row">{{ destination.id }}</th>
+          <td>{{ destination.name }}</td>
+          <td>{{ destination.description }}</td>
+          <td>
+            <img [src]="destination.thumbnail" alt="Thumbnail" />
+          </td>
+          <td>{{ destination.creator_id }}</td>
+          <td>
+            <button
+              type="button"
+              class="btn btn-outline-warningbtn-sm mx-1"
+              [routerLink]="[
+                '/dashboard/admin',
+                { outlets: { details: 'edit-destination/' + destination.id } }
+              ]"
+              routerLinkActive="active-link"
+            >
+              Edit
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-danger btn-sm mx-1"
+              (click)="delete(destination.id, i)"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

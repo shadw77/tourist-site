@@ -26,7 +26,7 @@ export class TripDetailsComponent {
       government: ['', Validators.required],
       duration: ['', Validators.required],
       cost: ['', Validators.required],
-      description: ['', Validators.required,Validators.minLength(50)],
+      description: ['', Validators.required,Validators.minLength(10)],
       rating: ['', Validators.required],
       thumbnail: ['', Validators.required],
       // images: ['', Validators.required],

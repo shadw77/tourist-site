@@ -254,28 +254,6 @@ const routes: Routes = [
     component: VendorComponent,
     children: [
       { 
-        path: 'hotels',
-        component: HotelsComponent,
-        outlet: 'details'
-      },
-      {  
-        path: 'add-hotel',
-        component: AddHotelComponent,
-        outlet: 'details'
-        
-      },
-      { 
-        path: 'edit-hotel/:id',
-        component: HotelDetailsComponent,
-        outlet: 'details'
-      },
-      { 
-        path: 'show-hotel/:id',
-        component: ShowHotelComponent,
-        outlet: 'details'
-      },
-  
-      { 
         path: 'trips',
         component: TripsComponent,
         outlet: 'details'
@@ -286,6 +264,17 @@ const routes: Routes = [
         component: AddTripComponent,
         outlet: 'details'
         
+      },
+      {
+  
+        path: 'edit-trip/:id',
+        component: TripDetailsComponent,
+        outlet: 'details'
+      },
+      { 
+        path: 'show-trip/:id',
+        component: ShowTripComponent,
+        outlet: 'details'
       },
       { 
   
@@ -304,6 +293,11 @@ const routes: Routes = [
         outlet: 'details'
       },
       { 
+        path: 'show-restaurant/:id',
+        component: ShowRestaurantComponent,
+        outlet: 'details'
+      },
+      { 
         path: 'destinations',
         component: DestinationsComponent,
         outlet: 'details'
@@ -318,10 +312,49 @@ const routes: Routes = [
         component:AddDestinationComponent,
         outlet: 'details'
       },
+      { 
+        path: 'hotels',
+        component: HotelsComponent,
+        outlet: 'details'
+      },
+      {  
+        path: 'add-hotel',
+        component: AddHotelComponent,
+        outlet: 'details'
+        
+      },
+      { 
+        path: 'edit-hotel/:id',
+        component: HotelDetailsComponent,
+        outlet: 'details',
+      },
+      { 
+        path: 'show-hotel/:id',
+        component: ShowHotelComponent,
+        outlet: 'details'
+      },
+      
       {
   
-        path: 'edit-trip/:id',
-        component: TripDetailsComponent,
+        path: 'user-orders',
+        component: UserOrdersComponent,
+        outlet: 'details'
+      },
+      {
+  
+        path: 'add-order',
+        component: AddUserOrderComponent,
+        outlet: 'details'
+      },
+      {
+        path: 'edit-order/:id',
+        component: UserOrderDetailsComponent,
+        outlet: 'details'
+      },
+      {
+
+        path: 'user-orders',
+        component: UserOrdersComponent,
         outlet: 'details'
       },
     ]

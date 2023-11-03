@@ -13,8 +13,8 @@ export class DestinationsComponent {
   ngOnInit():void{
     this.destinationCrudService.getDestinations().subscribe(res=>{        
         this.Destinations= res;
-        // console.log(this.Destinations['destinations']);
-        console.log(this.Destinations);
+         console.log(this.Destinations['destinations']);
+        console.log(res);
     })
   }
 

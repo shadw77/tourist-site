@@ -22,6 +22,17 @@ export class TripsComponent {
         console.log(this.Trips);
         this.generatePageButtons();
     });
+       
+    localStorage.setItem('role', 'admin');
+  }
+  isAdmin(): boolean {
+    const user =localStorage.getItem('role');
+    return user=== 'admin';
+  }
+
+  isVendor(): boolean {
+    const user = localStorage.getItem('role');
+    return  user === 'vendor';
   }
 
   delete(id:any){
