@@ -62,10 +62,11 @@ export class DestinationCrudService {
   }
 
   getTopDestinations(): Observable<Destination[]> {
+    
     const params = {
       sort: 'rating'
     };
-    return this.httpClient.get<Destination[]>(this.REST_API, { params });
+    return this.httpClient.get<Destination[]>( "http://localhost:8000/api/topdestinations", { params });
   }
 
 }
