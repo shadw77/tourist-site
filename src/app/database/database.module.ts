@@ -23,7 +23,6 @@ import { UserOrderDetailsComponent } from './user-order-details/user-order-detai
 import { ShowRestaurantComponent } from './show-restaurant/show-restaurant.component';
 import { ShowDestinationComponent } from './show-destination/show-destination.component';
 import { ShowTripComponent } from './show-trip/show-trip.component';
-import { ShowRestaurantComponent } from './show-restaurant/show-restaurant.component';
 
 @NgModule({
   declarations: [
