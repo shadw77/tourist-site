@@ -38,7 +38,7 @@ import { ShowTripComponent } from './database/show-trip/show-trip.component';
 
 import { ShowRestaurantComponent } from './database/show-restaurant/show-restaurant.component';
 import { DisplayServicesComponent } from './display-services/display-services.component';
-
+import { ShowDestinationComponent } from './database/show-destination/show-destination.component';
 import { authGuard } from './Guard/auth.guard';
 import { adminguard } from './Guard/admin.guard';
 import { adminOrVendorGuard } from './Guard/admin-or-vendor.guard';
@@ -190,6 +190,12 @@ const routes: Routes = [
     {  
       path: 'add-destination',
       component:AddDestinationComponent,
+      outlet: 'details'
+    },
+  
+    { 
+      path: 'show-destination/:id',
+      component: ShowDestinationComponent,
       outlet: 'details'
     },
     { 

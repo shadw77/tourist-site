@@ -1,6 +1,6 @@
 <div>
     <div> 
-        <form [formGroup]="updateForm" (ngSubmit)="onUpdate()">
+        <form [formGroup]="destinationForm" (ngSubmit)="onSubmit()">
             <div class="mb-3">
               <label for="name" class="form-label">Name</label>
               <input type="text" class="form-control" id="name" formControlName="name" required >
@@ -14,10 +14,20 @@
             </div>
 
 
-          
             <div class="mb-3">
                 <label for="thumbnail" class="form-label">Thumbnail</label>
-                <input type="file" class="form-control" id="thumbnail" formControlName="thumbnail" required>
+                <input
+                  type="file"
+                  class="form-control"
+                  id="thumbnail"
+                  formControlName="thumbnail"
+                  (change)="onImageChange($event)"
+                  required
+                />
+              </div>
+            <div class="mb-3">
+                <label for="rating" class="form-label">Rating</label>
+                <input type="text" class="form-control" id="rating" formControlName="rating" required>
             </div>
 
             <div class="mb-3">
@@ -25,7 +35,7 @@
                 <input type="text" class="form-control" id="creator_id" formControlName="creator_id" required>
             </div>
 
-            <button type="submit" class="btn btn-primary">Add</button>
+            <button type="submit" class="btn btn-primary">update</button>
           </form>
     </div>
 </div>
