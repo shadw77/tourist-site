@@ -8,7 +8,7 @@ import{ DestinationCrudService } from 'src/app/Services/destination-crud.service
 export class DestinationsComponent {
 
   Destinations: any = [];
-  imagePath: string = 'http://127.0.0.1:8000/images/Destination_images/thumbnails/';
+  imagePath: string = 'http://127.0.0.1:8000/images/destination_images/thumbnails/';
 
   constructor(private destinationCrudService: DestinationCrudService){}
   ngOnInit():void{
