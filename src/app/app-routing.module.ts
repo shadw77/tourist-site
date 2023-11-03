@@ -33,10 +33,15 @@ import { VendorComponent } from './dashboard/vendor/vendor.component';
 import { HotelsVendorComponent } from './dashboard/hotels-vendor/hotels-vendor.component';
 import { UpdatehotelVendorComponent } from './dashboard/updatehotel-vendor/updatehotel-vendor.component';
 import { ShowHotelComponent } from './dashboard/show-hotel/show-hotel.component';
+
+import { ShowTripComponent } from './database/show-trip/show-trip.component';
+
 import { ShowRestaurantComponent } from './database/show-restaurant/show-restaurant.component';
 import { DisplayServicesComponent } from './display-services/display-services.component';
-
 import { ShowDestinationComponent } from './database/show-destination/show-destination.component';
+import { authGuard } from './Guard/auth.guard';
+import { adminguard } from './Guard/admin.guard';
+import { adminOrVendorGuard } from './Guard/admin-or-vendor.guard';
 
 const routes: Routes = [
   {
@@ -97,9 +102,10 @@ const routes: Routes = [
     },
      {
       path:'discover',loadChildren: () => import('src/app/discovermodule/discovermodule.module')
-      .then(m=>m.DiscovermoduleModule)
+      .then(m=>m.DiscovermoduleModule),
+      //canActivate:[authGuard,adminOrVendorGuard]
     },
-  
+    
     {
       path:'about', 
       component:AboutUsComponent
@@ -213,6 +219,11 @@ const routes: Routes = [
 
       path: 'edit-trip/:id',
       component: TripDetailsComponent,
+      outlet: 'details'
+    },
+    { 
+      path: 'show-trip/:id',
+      component: ShowTripComponent,
       outlet: 'details'
     },
     {

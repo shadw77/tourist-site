@@ -20,6 +20,8 @@ export class DiscoverComponent implements OnInit{
   reviewstopplaces=[];
   commentsoftopplaces:any=[];
 
+  averageRating?: number;
+
 
   constructor(private data:HandleapiService,
     private auth:AuthService,
@@ -46,6 +48,7 @@ export class DiscoverComponent implements OnInit{
           console.error('Error fetching places:', error);
         },
         complete:()=>{
+          console.log(this.places);
         }
       });
       /*end function to get nearby places from services*/

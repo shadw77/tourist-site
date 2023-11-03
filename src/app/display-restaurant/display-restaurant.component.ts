@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DisplayRestaurantComponent {
   Restaurents: any = [];
+  imagePath: string = 'http://127.0.0.1:8000/images/Restaurant_images/thumbnails/';
   data : any;
   constructor(private activatedRoute: ActivatedRoute,private route: ActivatedRoute,private restaurantCrudService: RestaurantCrudService, private searchDataService: SearchDataService){}
   ngOnInit():void{

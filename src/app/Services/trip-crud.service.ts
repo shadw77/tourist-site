@@ -14,11 +14,14 @@ export class TripCrudService {
 
   constructor(private httpClient: HttpClient) { }
 
-  addTrip(data:Trip): Observable<any>{
+  addTrip(data:FormData): Observable<any>{
     let API_URL = this.REST_API;
     return this.httpClient.post(API_URL, data).pipe(catchError(this.handleError));
   }
-
+  Trips(page:any){
+     let API_URL = `http://localhost:8000/api/trips?page=${page}`;
+    return this.httpClient.get( API_URL);
+  }
   getTrips(){
     return this.httpClient.get(this.REST_API);
   }
@@ -29,10 +32,11 @@ export class TripCrudService {
     .pipe(map((res: any)=>{return res || {}}),
       catchError(this.handleError));
   }
-
-  updateTrip(id:any, data: Trip): Observable<any>{
-    let API_URL = `${this.REST_API}/${id}`;
-    return this.httpClient.put(API_URL, data, {headers: this.httpHeaders})
+  updateTrip(id:any, data: FormData): Observable<any>{
+    let API_URL = `${this.REST_API}/${id}`;  
+    return this.httpClient.post<any>( API_URL , data,{
+      responseType: 'json'
+    })
     .pipe(catchError(this.handleError));
   }
 
