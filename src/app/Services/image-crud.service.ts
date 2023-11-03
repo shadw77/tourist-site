@@ -11,14 +11,13 @@ export class ImageCrudService {
   REST_API: string = "http://localhost:8000/api/images";
   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
   
+  addImage(  data: FormData): Observable<any> {
+    let API_URL = `${this.REST_API}`;
+    return this.httpClient.post<any>( API_URL, data);
+  }
 
-  // updateImage(imageId: number, image: File): Observable<any> {
-  //   const formData = new FormData();
-  //   formData.append('image', image, image.name);
-  //   let API_URL = `${this.REST_API}/${imageId}`;
-  //   return this.httpClient.post<any>( API_URL, formData);
-  // }
   updateImage(id:any, data: FormData): Observable<any>{
+   
     let API_URL = `${this.REST_API}/${id}`;  
     return this.httpClient.post<any>(API_URL , data)
     .pipe(catchError(this.handleError));

@@ -23,7 +23,9 @@ export class ShowDestinationComponent {
   ngOnInit() {
     this.getId = this.activatedRoute.snapshot.paramMap.get('id');
     this.destinationCrudService.getDestination(this.getId).subscribe((data)=>{
-       this.images=data.data.images;
+
+       this.images=data.destination.images;
+       console.log(data);
 
     },
     (error) => {
@@ -42,15 +44,15 @@ export class ShowDestinationComponent {
   }
 
   onUpdate(){
-    console.log(this.imageId);
+    console.log('hiffff',this.imageId);
     console.log(this.selectedImage);
     const formData = new FormData();
     formData.append('image', this.selectedImage);
     this.ImageCrudService.updateImage(this.imageId,formData).subscribe(
       (response) => {
         console.log('Data and images saved successfully');
-        this.selectedImage = null;
-        location.reload();
+         this.selectedImage = null;
+         location.reload();
         //  this.ngZone.run(()=>this.router.navigateByUrl('dashboard/vendor/(details:hotels)')) 
       },
       (error) => {
@@ -68,5 +70,48 @@ export class ShowDestinationComponent {
  
  
   }
+  @ViewChild('fileInput', { static: false }) fileInput!: ElementRef<HTMLInputElement>;
+ selectImage() {
+  this.fileInput.nativeElement.click();
+}
+
+
+
+onAddImage(){
+  console.log(this.selectedImage);
+  const formData = new FormData();
+  formData.append('image', this.selectedImage);
+  formData.append('imageable_id', this.getId);
+  formData.append('imageable_type', 'Destination');
+
+  this.ImageCrudService.addImage(formData).subscribe(
+    (response) => {
+      console.log('Data and images saved successfully');
+      this.selectedImage = null;
+      // location.reload();
+      //  this.ngZone.run(()=>this.router.navigateByUrl('dashboard/vendor/(details:hotels)')) 
+    },
+    (error) => {
+      console.error('Error saving data and images:', error);
+    }
+  );
+}
+onFileSelected(event: any) {
+  const selectedFile = event.target.files[0];
+  this.selectedImage=selectedFile;
+  const reader = new FileReader();
+
+  reader.onload = (e: any) => {
+    const imgSrc = e.target.result;
+    const imageElement = document.querySelector('#new_image');
+
+    if (imageElement) {
+      imageElement.setAttribute('src', imgSrc);
+    }
+  };
+
+  reader.readAsDataURL(selectedFile);
+  this.onAddImage();
+}
   
 }
