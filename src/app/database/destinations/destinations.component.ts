@@ -8,13 +8,15 @@ import{ DestinationCrudService } from 'src/app/Services/destination-crud.service
 export class DestinationsComponent {
 
   Destinations: any = [];
+  imagePath: string = 'http://127.0.0.1:8000/images/Destination_images/thumbnails/';
 
   constructor(private destinationCrudService: DestinationCrudService){}
   ngOnInit():void{
     this.destinationCrudService.getDestinations().subscribe(res=>{        
         this.Destinations= res;
          console.log(this.Destinations['destinations']);
-        console.log(res);
+        console.log(res);       
+        console.log("hi correct");
     })
   }
 
@@ -24,7 +26,10 @@ export class DestinationsComponent {
       this.Destinations.splice(i,1);
   })
     
-   
+  this.destinationCrudService.getDestinations().subscribe(res=>{        
+                 this.Destinations= res;
+            }); 
   }
 
+ 
 }

@@ -1,31 +1,31 @@
 import { Component,ElementRef, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { RestaurantCrudService } from 'src/app/Services/restaurant-crud.service';
+import { DestinationCrudService } from 'src/app/Services/destination-crud.service';
 import { ImageCrudService } from 'src/app/Services/image-crud.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Location } from '@angular/common';
-
 @Component({
-  selector: 'app-show-restaurant',
-  templateUrl: './show-restaurant.component.html',
-  styleUrls: ['./show-restaurant.component.css']
+  selector: 'app-show-destination',
+  templateUrl: './show-destination.component.html',
+  styleUrls: ['./show-destination.component.css']
 })
-export class ShowRestaurantComponent {
-
-  constructor( private activatedRoute:ActivatedRoute,public formBuilder:FormBuilder,
-     private restaurantCrudService: RestaurantCrudService,
-     private ImageCrudService:ImageCrudService, private location: Location){
-     }
+export class ShowDestinationComponent {
   getId: any;
   images:any=[];
   imageId: number | null = null;
   selectedImage: File | any = null; 
-  imagePath: string = 'http://127.0.0.1:8000/images/Restaurant_images/images/';
+  imagePath: string = 'http://127.0.0.1:8000/images/Destination_images/images/';
+  constructor( private activatedRoute:ActivatedRoute,public formBuilder:FormBuilder,
+    private destinationCrudService: DestinationCrudService,
+    private ImageCrudService:ImageCrudService, private location: Location){
+    }
   
   ngOnInit() {
     this.getId = this.activatedRoute.snapshot.paramMap.get('id');
-    this.restaurantCrudService.getRestaurant(this.getId).subscribe((data)=>{
-       this.images=data.data.images;
+    this.destinationCrudService.getDestination(this.getId).subscribe((data)=>{
+
+       this.images=data.destination.images;
+       console.log(data);
 
     },
     (error) => {
@@ -44,15 +44,15 @@ export class ShowRestaurantComponent {
   }
 
   onUpdate(){
-    console.log(this.imageId);
+    console.log('hiffff',this.imageId);
     console.log(this.selectedImage);
     const formData = new FormData();
     formData.append('image', this.selectedImage);
     this.ImageCrudService.updateImage(this.imageId,formData).subscribe(
       (response) => {
         console.log('Data and images saved successfully');
-        this.selectedImage = null;
-        // location.reload();
+         this.selectedImage = null;
+         location.reload();
         //  this.ngZone.run(()=>this.router.navigateByUrl('dashboard/vendor/(details:hotels)')) 
       },
       (error) => {
@@ -82,7 +82,7 @@ onAddImage(){
   const formData = new FormData();
   formData.append('image', this.selectedImage);
   formData.append('imageable_id', this.getId);
-  formData.append('imageable_type', 'Restaurant');
+  formData.append('imageable_type', 'Destination');
 
   this.ImageCrudService.addImage(formData).subscribe(
     (response) => {
