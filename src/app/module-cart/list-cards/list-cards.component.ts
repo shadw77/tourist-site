@@ -21,8 +21,8 @@ export class ListCardsComponent {
             this.counter=val;
         });
   }
-   redirectTo(item:any,count:number) {
-    this.cartItems.PushCartItems(item,count);
+   redirectTo(item:any,count:number,type:any) {
+    this.cartItems.PushCartItems(item,count,type);
     this.router.navigate(['cart'])
   } 
 }
