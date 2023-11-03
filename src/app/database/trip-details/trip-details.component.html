@@ -10,6 +10,15 @@
           formControlName="name"
           required
         />
+        <div
+          *ngIf="
+            updateForm.controls['name'].invalid &&
+            updateForm.controls['name'].touched
+          "
+          class="text-danger"
+        >
+          Name is required.
+        </div>
       </div>
 
       <div class="mb-3">
@@ -21,6 +30,15 @@
           formControlName="government"
           required
         />
+        <div
+          *ngIf="
+            updateForm.controls['government'].invalid &&
+            updateForm.controls['government'].touched
+          "
+          class="text-danger"
+        >
+          Government is required.
+        </div>
       </div>
 
       <div class="mb-3">
@@ -32,6 +50,15 @@
           formControlName="duration"
           required
         />
+        <div
+          *ngIf="
+            updateForm.controls['duration'].invalid &&
+            updateForm.controls['duration'].touched
+          "
+          class="text-danger"
+        >
+          Duration is required.
+        </div>
       </div>
 
       <div class="mb-3">
@@ -43,6 +70,15 @@
           formControlName="cost"
           required
         />
+        <div
+          *ngIf="
+            updateForm.controls['duration'].invalid &&
+            updateForm.controls['duration'].touched
+          "
+          class="text-danger"
+        >
+          Duration is required.
+        </div>
       </div>
 
       <div class="mb-3">
@@ -55,17 +91,15 @@
           required
         >
         </textarea>
-      </div>
-
-      <div class="mb-3">
-        <label for="rating" class="form-label">Rating</label>
-        <input
-          type="text"
-          class="form-control"
-          id="rating"
-          formControlName="rating"
-          required
-        />
+        <div
+          *ngIf="
+            updateForm.controls['description'].invalid &&
+            updateForm.controls['description'].touched
+          "
+          class="text-danger"
+        >
+          Description is required.
+        </div>
       </div>
 
       <div class="mb-3">
@@ -76,8 +110,16 @@
           id="thumbnail"
           formControlName="thumbnail"
           (change)="onImageChange($event)"
-          required
         />
+        <div
+          *ngIf="
+            updateForm.controls['thumbnail'].invalid &&
+            updateForm.controls['thumbnail'].touched
+          "
+          class="text-danger"
+        >
+          Thumbnail is required.
+        </div>
       </div>
 
       <!-- <div class="mb-3">
