@@ -46,37 +46,7 @@ export class RestaurantDetailsComponent {
     }
   
   onSubmit():any{
-//     const nameControl = this.restaurantForm.get('name');
-//   const streetControl = this.restaurantForm.get('street');
-//     const emailControl = this.restaurantForm.get('email');
-//   const governmentControl = this.restaurantForm.get('government');
-//   const descriptionControl = this.restaurantForm.get('description');
-//   const creator_idControl = this.restaurantForm.get('creator_id');
-//   const phoneControl = this.restaurantForm.get('phone');
-// const ratingControl = this.restaurantForm.get(' rating');
-//   const discount_Control = this.restaurantForm.get('discount');
-//   const name = nameControl ? nameControl.value : '';
-//   const email = emailControl ? emailControl.value : '';
-//   const street = streetControl ? streetControl.value : '';
-//   const phone = phoneControl ? phoneControl.value : '';
-//   const rating = ratingControl ? ratingControl.value : '';
-//   const government = governmentControl ? governmentControl.value : '';
-//   const description = descriptionControl ? descriptionControl.value : '';
-//   const creator_id = creator_idControl ? creator_idControl.value : '';
-//   const discount = discount_Control ? discount_Control.value : '';
- 
-//   const formData = new FormData();
 
-//   formData.append('name', name);
-//   formData.append('email', email);
-//   formData.append('phone', phone);
-//   formData.append('rating', rating);
-//   formData.append('street', street);
-//   formData.append('government', government);
-//   formData.append('description', description);
-//   formData.append('creator_id', creator_id);
-
-//   formData.append('discount', discount);
 const formData = new FormData();
     formData.append('name', this.restaurantForm.get('name')?.value || '');
     formData.append('email', this.restaurantForm.get('email')?.value || '');

@@ -12,14 +12,39 @@
                 <textarea class="form-control" rows="3" id="description" formControlName="description" required>
                 </textarea>
             </div>
-
-
-          
             <div class="mb-3">
                 <label for="thumbnail" class="form-label">Thumbnail</label>
-                <input type="file" class="form-control" id="thumbnail" formControlName="thumbnail" required>
+                <input
+                  type="file"
+                  class="form-control"
+                  id="thumbnail"
+                  formControlName="thumbnail"
+                  (change)="onImageChange($event)"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="rating" class="form-label">Rating</label>
+                <input type="text" class="form-control" id="rating" formControlName="rating" required>
             </div>
 
+            <div class="mb-3">
+                <label for="creator_id" class="form-label">Creator Id</label>
+                <input type="text" class="form-control" id="creator_id" formControlName="creator_id" required>
+            </div>
+            <div class="mb-3">
+                <label for="images" class="form-label">images</label>
+                <input
+                  type="file"
+                  class="form-control"
+                  id="images"
+                  name="images[]"
+                  formControlName="images"
+                  required
+                  multiple
+                  (change)="onImagesChange($event)"
+                />
+              </div>
             <div class="mb-3">
                 <label for="creator_id" class="form-label">Creator Id</label>
                 <input type="text" class="form-control" id="creator_id" formControlName="creator_id" required>

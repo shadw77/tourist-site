@@ -9,6 +9,7 @@
                     <th scope="col">Name</th>
                     <th scope="col">Description</th>
                     <th scope="col">Thumbnail</th>
+                    <th scope="col">Rating</th>
                     <th scope="col">Creator Id</th>
                     <th scope="col">Action</th>
 
@@ -16,18 +17,34 @@
 
             </thead>
             <tbody>
-                <tr *ngFor="let destination of Destinations; let i = index">
+                <tr *ngFor="let destination of Destinations['destinations']; let i = index">
                     <th scope="row">{{destination.id}}</th>
                     <td>{{destination.name}}</td>
                     <td>{{destination.description}}</td>
                     <td>
-                        <img [src]="destination.thumbnail" alt="Thumbnail">
-                    </td>
+                        <img
+                          src="{{ imagePath }}{{ destination.thumbnail }}"
+                          alt="{{ destination.thumbnail }}"
+                        />
+                      </td>
+                      <td>{{destination.rating}}</td>
                     <td>{{destination.creator_id}}</td>
                     <td>
                         <button type="button" class="btn btn-info" [routerLink]="['/dashboard/admin', { outlets: { details: 'edit-destination/' + destination.id
  } }]" routerLinkActive="active-link">Edit</button> 
                         <button type="button" class="btn btn-danger" (click)="delete(destination.id, i)">Delete</button>
+                    
+                        <button
+                        type="button"
+                        class="btn btn-info"
+                        [routerLink]="[
+                          '/dashboard/admin',
+                          { outlets: { details: 'show-destination/' + destination.id } }
+                        ]"
+                        routerLinkActive="active-link"
+                      >
+                        Show
+                      </button>
                     </td>
                 </tr>
             </tbody>
