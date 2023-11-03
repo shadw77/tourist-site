@@ -51,6 +51,8 @@ export class LoginComponent implements OnInit{
       password:['',[Validators.required, Validators.maxLength(9)]],
       confirmpassword:['',[Validators.required, Validators.maxLength(9)]],
       government:['',Validators.required],
+      street:['',Validators.required],
+
 
     },{validators:passwordidentical});
     /*end initialize signup inputs*/
@@ -114,6 +116,9 @@ export class LoginComponent implements OnInit{
 
   get registerpassword(){
     return this.userregister.get('password');
+  }
+  get registerstreet(){
+    return this.userregister.get('street');
   }
   get registerconfirmpassword(){
     return this.userregister.get('confirmpassword');
