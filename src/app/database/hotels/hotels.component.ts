@@ -10,11 +10,18 @@ export class HotelsComponent {
 
   Hotels: any = [];
   imagePath: string = 'http://127.0.0.1:8000/images/Hotel_images/thumbnails/';
-
+  currentPage: number = 1;
+  totalPages:any;
+  totalItems: number=0;
+  pageButtons: number[] = [];
   constructor(private hotelCrudService: HotelCrudService){}
   ngOnInit():void{
     this.hotelCrudService.getHotels().subscribe(res=>{        
         this.Hotels= res;
+        this.totalPages=this.Hotels.meta.last_page;
+        this.totalItems =this.Hotels.meta.total;
+        console.log(this.Hotels);
+        this.generatePageButtons();
         // console.log(this.Hotels['data']);
     });
    
@@ -30,4 +37,26 @@ export class HotelsComponent {
   })
   }
 
+  onPageChange(pageNumber: number) {
+    this.currentPage = pageNumber;
+    this.hotelCrudService.hotels(this.currentPage).subscribe(res=>{        
+      this.Hotels= res;
+  })
+  }
+  generatePageButtons(): void {
+    this.pageButtons = [];
+    for (let i = 1; i <= this.totalPages; i++) {
+      this.pageButtons.push(i);
+    }
+  }
+
+  isAdmin(): boolean {
+    const user =localStorage.getItem('role');
+    return user=== 'admin';
+  }
+
+  isVendor(): boolean {
+    const user = localStorage.getItem('role');
+    return  user === 'vendor';
+  }
 }

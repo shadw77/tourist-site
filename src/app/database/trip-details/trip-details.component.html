@@ -72,12 +72,12 @@
         />
         <div
           *ngIf="
-            updateForm.controls['duration'].invalid &&
-            updateForm.controls['duration'].touched
+            updateForm.controls['cost'].invalid &&
+            updateForm.controls['cost'].touched
           "
           class="text-danger"
         >
-          Duration is required.
+          Cost is required.
         </div>
       </div>
 
@@ -100,6 +100,12 @@
         >
           Description is required.
         </div>
+        <div
+          *ngIf="updateForm.controls['description'].errors?.['minLength']"
+          class="text-danger"
+        >
+          Description length not less than 10 characters
+        </div>
       </div>
 
       <div class="mb-3">
@@ -121,17 +127,6 @@
           Thumbnail is required.
         </div>
       </div>
-
-      <!-- <div class="mb-3">
-        <label for="creator_id" class="form-label">Creator Id</label>
-        <input
-          type="text"
-          class="form-control"
-          id="creator_id"
-          formControlName="creator_id"
-          required
-        />
-      </div> -->
 
       <button type="submit" class="btn btn-success">Update</button>
     </form>

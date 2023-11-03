@@ -1,69 +1,88 @@
-<button type="button" class="btn btn-info" [routerLink]="['/dashboard/admin', { outlets: { details: ['add-restaurant'] } }]" routerLinkActive="active-link">Add New Restaurant</button> 
-<div class="row my-5">
-    <h3 class="fs-4 mb-3">All Restaurants</h3>
-    <div class="col">
-        <table class="table bg-white rounded shadow-sm  table-hover">
-            <thead>
-                <tr>
-                    <th scope="col" width="50">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col"> email</th>
-                    <th scope="col">Street</th>
-                    <th scope="col">Government</th>
-                    <th scope="col">Phone</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Rating</th>
-                    <th scope="col">Thumbnail</th>
-                    <th scope="col">Discount</th>
-                    <th scope="col">Creator Id</th>
-                    <th scope="col">Action</th>
+<button
+  type="button"
+  class="btn btn-primary my-3"
+  [routerLink]="[
+    '/dashboard/admin',
+    { outlets: { details: ['add-restaurant'] } }
+  ]"
+  routerLinkActive="active-link"
+>
+  Add New Restaurant
+</button>
+<div class="row">
+  <h3 class="fs-4 mb-3">All Restaurants</h3>
+  <div class="table-responsive">
+    <table class="table bg-white rounded shadow-sm table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">email</th>
+          <th scope="col">Street</th>
+          <th scope="col">Government</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Description</th>
+          <th scope="col">Rating</th>
+          <th scope="col">Thumbnail</th>
+          <th scope="col">Discount</th>
+          <th scope="col">Creator Id</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let restaurant of Restaurants['data']; let i = index">
+          <th scope="row">{{ restaurant.id }}</th>
+          <td>{{ restaurant.name }}</td>
+          <td>{{ restaurant.email }}</td>
+          <td>{{ restaurant.street }}</td>
+          <td>{{ restaurant.government }}</td>
+          <td>{{ restaurant.phone }}</td>
+          <td>{{ restaurant.description }}</td>
+          <td>{{ restaurant.rating }}</td>
+          <td>
+            <img
+              src="{{ imagePath }}{{ restaurant.thumbnail }}"
+              alt="{{ restaurant.thumbnail }}"
+            />
+          </td>
 
-                </tr>
-            
-            </thead>
-            <tbody>
-                <tr *ngFor="let restaurant of Restaurants['data']; let i = index">
-                    <th scope="row">{{restaurant.id}}</th>
-                    <td>{{restaurant.name}}</td>
-                    <td>{{restaurant.email}}</td>
-                    <td>{{restaurant.street}}</td>
-                    <td>{{restaurant.government}}</td>
-                    <td>{{restaurant.phone}}</td>
-                    <td>{{restaurant.description}}</td>
-                    <td>{{restaurant.rating}}</td>
-                    <td>
-                        <img
-                          src="{{ imagePath }}{{ restaurant.thumbnail }}"
-                          alt="{{ restaurant.thumbnail }}"
-                        />
-                      </td>
-                    
-                    <td>{{restaurant.discount}}</td>
-                    <td>{{restaurant.creator_id}}</td>
-                  
-                    <td>
-             <button type="button" class="btn btn-info" [routerLink]="['/dashboard/admin', { outlets: { details: 'edit-restaurant/' + restaurant.id
- } }]" routerLinkActive="active-link">Edit</button> 
-                        <button type="button" class="btn btn-danger" (click)="delete(restaurant.id, i)">Delete</button>
-                 
-                    <button
-                    type="button"
-                    class="btn btn-info"
-                    [routerLink]="[
-                      '/dashboard/admin',
-                      { outlets: { details: 'show-restaurant/' + restaurant.id } }
-                    ]"
-                    routerLinkActive="active-link"
-                  >
-                    Show
-                  </button>
-                  </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+          <td>{{ restaurant.discount }}</td>
+          <td>{{ restaurant.creator_id }}</td>
+
+          <td>
+            <button
+              type="button"
+              class="btn btn-outline-warning btn-sm mx-1"
+              [routerLink]="[
+                '/dashboard/admin',
+                { outlets: { details: 'edit-restaurant/' + restaurant.id } }
+              ]"
+              routerLinkActive="active-link"
+            >
+              Edit
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-danger btn-sm mx-1"
+              (click)="delete(restaurant.id, i)"
+            >
+              Delete
+            </button>
+
+            <button
+              type="button"
+              class="btn btn-outline-info btn-sm mx-1"
+              [routerLink]="[
+                '/dashboard/admin',
+                { outlets: { details: 'show-restaurant/' + restaurant.id } }
+              ]"
+              routerLinkActive="active-link"
+            >
+              Show
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
-
-
-
-

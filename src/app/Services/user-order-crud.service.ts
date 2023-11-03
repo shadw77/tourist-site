@@ -13,7 +13,7 @@ export class UserOrderCrudService {
 
   constructor(private httpClient: HttpClient) { }
 
-  addUserOrder(data:UserOrder): Observable<any>{
+  addUserOrder(data:FormData): Observable<any>{
     let API_URL = this.REST_API;
     return this.httpClient.post(API_URL, data).pipe(catchError(this.handleError));
   }
