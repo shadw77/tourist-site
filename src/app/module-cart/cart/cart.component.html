@@ -26,9 +26,9 @@
           *ngFor="let cart of cartProducts"
         >
           <div class="row g-2">
-            <div class="col-md-4 col-6">
+            <div class="col-md-4 col-6" >
               <img
-                src="{{ cart.item.thumbnail }}"
+                src="{{imagePath}}{{ cart.item.thumbnail }}"
                 class="img-fluid rounded"
                 alt="..."
               />

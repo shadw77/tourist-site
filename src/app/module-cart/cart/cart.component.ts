@@ -12,6 +12,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   
 })
 export class CartComponent {
+
     constructor(
       private http: HttpClient,
       private cartItems:CartItemService,private location: Location,private CounterService:CounterService){}
@@ -22,6 +23,8 @@ export class CartComponent {
     counter:number=0;
     subtotal:number=0;
     selectedOption:string='';
+    imagePath: string = '';
+
     ngOnInit() {
      this.cartProducts=this.cartItems.retrieveProductsFromSession();
      for(let i=0;i<this.cartProducts.length;i++){
@@ -32,6 +35,20 @@ export class CartComponent {
         this.counter=val;
       });
       this.CounterService.set_Counter(this.cartProducts.length);
+      for(let i=0; i<= this.cartProducts.length ; i++){
+        if(this.cartProducts[i].type === 'Hotel'){
+            this.imagePath='http://127.0.0.1:8000/images/Hotel_images/thumbnails/'           
+        }
+        else if(this.cartProducts[i].type === 'Restaurant'){
+          this.imagePath='http://127.0.0.1:8000/images/Restaurant_images/thumbnails/'
+        } 
+        else if(this.cartProducts[i].type === 'Trip'){
+          this.imagePath='http://127.0.0.1:8000/images/trip_images/thumbnails/'
+        }
+        else{
+        this.imagePath='http://127.0.0.1:8000/images/Destination_images/thumbnails/'
+        }
+      }
     }
 
     removeProductsFromSession(cart:any) {
