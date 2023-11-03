@@ -61,6 +61,19 @@
                 <!--start near places-->
                 <div class="tab-pane fade show active" id="pills-home" role="tabpanel" 
                     aria-labelledby="pills-home-tab">
+
+                    <div class="government w-50 my-5">
+                        <label for="government" class="form-label">Choose Nearest Government</label>
+                        <select class="form-select" id="government" name="government" formControlName="government" aria-label="Default select example"
+                        (change)="filterPlacesByGovernment($event)">
+                        
+
+                        <ng-container *ngFor="let government of allGovernmets;let i=index">
+                                <option value="{{government}}">{{government}}</option>
+                        </ng-container>
+                        </select>
+                    </div>
+
                     <app-caraousel [carouselimages]="places"></app-caraousel>
 
                     <br>

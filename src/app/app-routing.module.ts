@@ -39,6 +39,8 @@ import { DisplayServicesComponent } from './display-services/display-services.co
 import { authGuard } from './Guard/auth.guard';
 import { adminguard } from './Guard/admin.guard';
 import { adminOrVendorGuard } from './Guard/admin-or-vendor.guard';
+import { SignComponent } from './Sign/sign.component';
+import { SignupComponent } from './signup/signup.component';
 
 
 const routes: Routes = [
@@ -50,6 +52,16 @@ const routes: Routes = [
       path: '', 
     component: HomeComponent 
   },
+   
+  {
+    path:'login', 
+    component:SignComponent
+  },  
+  {
+    path:'register', 
+    component:SignupComponent
+  },
+  
     {
       path:'hotels',
       component:DisplayHotelsComponent,
@@ -101,7 +113,7 @@ const routes: Routes = [
      {
       path:'discover',loadChildren: () => import('src/app/discovermodule/discovermodule.module')
       .then(m=>m.DiscovermoduleModule),
-      //canActivate:[authGuard,adminOrVendorGuard]
+      //canActivate:[authGuard]
     },
     
     {
@@ -319,6 +331,8 @@ const routes: Routes = [
       },
     ]
   },
+ 
+  
   {
     path: '**',
     redirectTo: '',

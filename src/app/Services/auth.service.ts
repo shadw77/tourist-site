@@ -61,7 +61,7 @@ export class AuthService {
 
 
   /*start register function that call api*/
-  register( user:{email: string,name: string, password: string,government:string} ) :Observable<any>{
+  register( user:{email: string,name: string,mobile:string,street:string, government:string,password: string} ) :Observable<any>{
     //console.log(user);
     return this.httpClient.post<RegisterResponse>(`${this.apiuUrl}/register`,user).pipe(
       tap(response => {

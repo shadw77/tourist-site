@@ -32,21 +32,23 @@ import { CuttextPipe } from './Pipes/cuttext.pipe';
 
 import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoginComponent } from './login/login.component';
+
 
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { DisplayServicesComponent } from './display-services/display-services.component';
+import { SignComponent } from './Sign/sign.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [AppComponent, MainSearchComponent, TopDestinationComponent, ImgCardComponent, HomeComponent, ExploreComponent, DescCardComponent, ItemComponent, DisplayRestaurantComponent, DisplayHotelsComponent  ,  AboutUsComponent,
     ContactUsComponent,
     HomeLayoutComponent,
     DashboardLayoutComponent,
-
     DisplayTripsComponent,
     DisplayDestinationsComponent,
-    LoginComponent,
     DisplayServicesComponent,
+    SignComponent,
+    SignupComponent,
     ],
   imports: [
     BrowserModule,

@@ -16,6 +16,8 @@ export class HandleapiService {
   // ServiceData:any;
   private apiUrl:string="http://localhost:8000/api";   
 
+  governments=['Sharm El Sheikh','Hurghada','Cairo','Ain Sukhna','Mersa Matruh','Alexandria','Marsa Alam',
+  'El Alamein','Dahab','Luxor','Aswan'];
 
   httpOptions={
     headers:new HttpHeaders({
@@ -38,7 +40,7 @@ export class HandleapiService {
 
 
   /*start function to get nearby places from api*/
-  getNearbyPlaces(city:string) :Observable<any>{
+  getNearbyPlaces(city:string|null) :Observable<any>{
     return this.httpclient.get(`${this.apiUrl}/get-nearbyplaces/${city}`);
   }
   /*end function to get nearby places from api*/
@@ -60,6 +62,13 @@ export class HandleapiService {
     return this.httpclient.get(`${this.apiUrl}/get-review-topattractions-places`)
   }
   /*end function that retrieve review that belong to top attractions*/
+
+  /*start function that get our governments*/
+  getGovernemnt(){
+    return this.governments;
+  }
+  /*end function that get our governments*/
+
 
   /*start function that test retrieve data under jwt token*/
   getTestData():Observable<any>{

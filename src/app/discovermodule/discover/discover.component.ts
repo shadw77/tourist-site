@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/Services/auth.service';
 })
 export class DiscoverComponent implements OnInit{
   government:string|null=localStorage.getItem('government')??null;
+  allGovernmets:any;
   getnearbyplaces=[];
   places:any=[];
   reviewsplaces=[];
@@ -36,18 +37,27 @@ export class DiscoverComponent implements OnInit{
       }, 1000);
       /*end spinner till data get from services*/
 
+      /*start function that get all governments from services*/
+      this.allGovernmets=this.data.getGovernemnt();
+      /*end function that get all governments from services*/
+
+
       /*start function to get nearby places from services*/
       this.data.getNearbyPlaces(this.government!).subscribe({
         next:(next)=>{
           this.getnearbyplaces=next.nearbyplaces;
-          //console.log(next);
+          //console.log(this.getnearbyplaces);
           this.places=[].concat(...Object.values(this.getnearbyplaces));
           this.places = Array.from(this.places);
+
         },
         error:(error) => {
           console.error('Error fetching places:', error);
         },
         complete:()=>{
+          //console.log(typeof this.government);
+          //console.log( this.government);
+
           console.log(this.places);
         }
       });
@@ -146,7 +156,13 @@ export class DiscoverComponent implements OnInit{
     });
   }
   /*end testing function*/
+  filterPlacesByGovernment(selectedGovernment: any): void {
+    //console.log(selectedGovernment.target.value);
+    console.log(this.places);
 
+      this.places = this.places.filter((place:any )=> place.government === selectedGovernment.target.value);
+    console.log(this.places);
 
-
+        // Filter the places based on the selected government
+  }
 }
