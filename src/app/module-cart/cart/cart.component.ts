@@ -24,6 +24,7 @@ export class CartComponent {
     subtotal:number=0;
     selectedOption:string='';
     imagePath: string = '';
+    imagePaths:any;
 
     ngOnInit() {
      this.cartProducts=this.cartItems.retrieveProductsFromSession();
@@ -35,20 +36,18 @@ export class CartComponent {
         this.counter=val;
       });
       this.CounterService.set_Counter(this.cartProducts.length);
-      for(let i=0; i<= this.cartProducts.length ; i++){
-        if(this.cartProducts[i].type === 'Hotel'){
-            this.imagePath='http://127.0.0.1:8000/images/Hotel_images/thumbnails/'           
-        }
-        else if(this.cartProducts[i].type === 'Restaurant'){
-          this.imagePath='http://127.0.0.1:8000/images/Restaurant_images/thumbnails/'
-        } 
-        else if(this.cartProducts[i].type === 'Trip'){
-          this.imagePath='http://127.0.0.1:8000/images/trip_images/thumbnails/'
-        }
-        else{
-        this.imagePath='http://127.0.0.1:8000/images/Destination_images/thumbnails/'
-        }
+      this.imagePaths=  {
+          Hotel: 'http://127.0.0.1:8000/images/Hotel_images/thumbnails/',
+          Restaurant: 'http://127.0.0.1:8000/images/Restaurant_images/thumbnails/',
+          Trip: 'http://127.0.0.1:8000/images/trip_images/thumbnails/',
+          Destination: 'http://127.0.0.1:8000/images/Destination_images/thumbnails/'
+        };
+      for (let i = 0; i < this.cartProducts.length; i++) {
+        const currentProductType = this.cartProducts[i].type;
+        const currentImagePath = this.imagePaths[currentProductType]; 
+        this.imagePath = currentImagePath;
       }
+      
     }
 
     removeProductsFromSession(cart:any) {

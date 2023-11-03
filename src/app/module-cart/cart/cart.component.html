@@ -25,10 +25,11 @@
           style="height: 250px"
           *ngFor="let cart of cartProducts"
         >
+        <p>{{imagePaths[cart.type]}}</p>
           <div class="row g-2">
             <div class="col-md-4 col-6" >
               <img
-                src="{{imagePath}}{{ cart.item.thumbnail }}"
+                src="{{imagePaths[cart.type]}}{{cart.item.thumbnail}}"
                 class="img-fluid rounded"
                 alt="..."
               />

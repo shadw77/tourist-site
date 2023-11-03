@@ -11,7 +11,7 @@ export class CartItemService {
   PushCartItems(item:any,quantity:number, type:any){
       const cartItem ={item:item,quantity:quantity, type:type};
        const index=this.cartProducts.find((product)=>{
-           return product.item.id==cartItem.item.id;
+           return product.item.name==cartItem.item.name;
        }) 
        if(index){
           index.quantity++;
