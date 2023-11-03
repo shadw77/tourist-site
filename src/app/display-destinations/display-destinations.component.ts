@@ -39,12 +39,4 @@ export class DisplayDestinationsComponent {
       }
       
     });  }
-    redirectTo(item:any,count:number,type:any) {
-      this.cartItems.PushCartItems(item,count,type);
-      console.log(item);
-      
-      this.router.navigate(['cart'])
-  
-  
-  }
 }
