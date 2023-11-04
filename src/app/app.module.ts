@@ -3,7 +3,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { FormGroup, FormsModule } from '@angular/forms';
+import {  FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from "./shared/shared.module";
 import { MainSearchComponent } from './main-search/main-search.component';
@@ -42,6 +42,8 @@ import { RequestResetComponent } from './password/request-reset/request-reset.co
 import { ResponseResetComponent } from './password/response-reset/response-reset.component';
 import { DisplayOrdersComponent } from './display-orders/display-orders.component';
 
+
+
 @NgModule({
   declarations: [AppComponent, MainSearchComponent, TopDestinationComponent, ImgCardComponent, HomeComponent, ExploreComponent, DescCardComponent, ItemComponent, DisplayRestaurantComponent, DisplayHotelsComponent  ,  AboutUsComponent,
     ContactUsComponent,
@@ -50,8 +52,14 @@ import { DisplayOrdersComponent } from './display-orders/display-orders.componen
     DisplayTripsComponent,
     DisplayDestinationsComponent,
     DisplayServicesComponent,
+    SignComponent,
+    SignupComponent,
+    RequestResetComponent,
+    ResponseResetComponent,
+    DisplayOrdersComponent
     ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -68,6 +76,7 @@ import { DisplayOrdersComponent } from './display-orders/display-orders.componen
     NgxSpinnerModule.forRoot()
   ],
   providers: [],
+
   bootstrap: [AppComponent],
 })
 export class AppModule {} 
