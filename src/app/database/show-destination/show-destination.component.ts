@@ -14,7 +14,7 @@ export class ShowDestinationComponent {
   images:any=[];
   imageId: number | null = null;
   selectedImage: File | any = null; 
-  imagePath: string = 'http://127.0.0.1:8000/images/Destination_images/images/';
+  imagePath: string = 'http://127.0.0.1:8000/images/destination_images/images/';
   constructor( private activatedRoute:ActivatedRoute,public formBuilder:FormBuilder,
     private destinationCrudService: DestinationCrudService,
     private ImageCrudService:ImageCrudService, private location: Location){
