@@ -12,6 +12,7 @@ import { AuthService } from '../Services/auth.service';
 })
 export class SignComponent implements OnInit{
 
+  private apiUrl:string="http://127.0.0.1:8000/api";
   userlogin!:FormGroup;
 
   governments=['Sharm El Sheikh','Hurghada','Cairo','Ain Sukhna','Mersa Matruh','Alexandria','Marsa Alam',
@@ -89,5 +90,20 @@ export class SignComponent implements OnInit{
     
   }
   /*end login function*/
+
+
+  /*start login with github function*/
+  loginWithGithub(){
+    window.location.href=`${this.apiUrl}/auth/redirect`;
+  }
+  /*end login with github function*/
+
+  
+  /*start login with github function*/
+  loginWithGoogle(){
+    window.location.href=`${this.apiUrl}/google/auth/redirect`;
+  }
+  /*end login with github function*/
+  
 
 }

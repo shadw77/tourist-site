@@ -12,7 +12,10 @@ export class DiscoverComponent implements OnInit{
   government:string|null=localStorage.getItem('government')??null;
   allGovernmets:any;
   getnearbyplaces=[];
+  storedPlaces:any=[];
+
   places:any=[];
+
   reviewsplaces=[];
   comments:any=[];
 
@@ -20,8 +23,6 @@ export class DiscoverComponent implements OnInit{
   topplaces:any=[];
   reviewstopplaces=[];
   commentsoftopplaces:any=[];
-
-  averageRating?: number;
 
 
   constructor(private data:HandleapiService,
@@ -47,8 +48,9 @@ export class DiscoverComponent implements OnInit{
         next:(next)=>{
           this.getnearbyplaces=next.nearbyplaces;
           //console.log(this.getnearbyplaces);
-          this.places=[].concat(...Object.values(this.getnearbyplaces));
-          this.places = Array.from(this.places);
+          this.storedPlaces=[].concat(...Object.values(this.getnearbyplaces));
+          this.storedPlaces= Array.from(this.storedPlaces);
+          this.places=this.storedPlaces;
 
         },
         error:(error) => {
@@ -67,7 +69,7 @@ export class DiscoverComponent implements OnInit{
       this.data.getReviewNearByPlaces(this.government!).subscribe({
         next:(next)=>{
           this.reviewsplaces=next.reviews;
-          //console.log(this.reviewsplaces);
+          console.log(this.reviewsplaces);
           this.comments=[].concat(...Object.values(this.reviewsplaces));
           this.comments = Array.from(this.comments);
         },
@@ -75,7 +77,7 @@ export class DiscoverComponent implements OnInit{
           console.error('Error fetching reviews:', error);
         },
         complete:()=>{
-          //console.log(this.comments);
+          console.log(this.comments);
 
         }
       });
@@ -156,13 +158,33 @@ export class DiscoverComponent implements OnInit{
     });
   }
   /*end testing function*/
+
+  /*start function that filter bygovernment*/
   filterPlacesByGovernment(selectedGovernment: any): void {
     //console.log(selectedGovernment.target.value);
     console.log(this.places);
 
-      this.places = this.places.filter((place:any )=> place.government === selectedGovernment.target.value);
-    console.log(this.places);
-
-        // Filter the places based on the selected government
-  }
+      //filter places by government 
+      this.places = this.storedPlaces.filter((place:any )=> place.government === selectedGovernment.target.value);
+        /*start function to get review of nearby places from services*/
+        this.data.getReviewNearByPlaces(selectedGovernment.target.value).subscribe({
+          next:(next)=>{
+            this.reviewsplaces=next.reviews;
+            console.log(this.reviewsplaces);
+            this.comments=[].concat(...Object.values(this.reviewsplaces));
+            this.comments = Array.from(this.comments);
+          },
+          error:(error) => {
+            console.error('Error fetching reviews:', error);
+          },
+          complete:()=>{
+            console.log(this.comments);
+  
+          }
+        });
+        /*end function to get review of nearby places from services*/
+  
+  
+    }
+   /*end function that filter bygovernment*/
 }

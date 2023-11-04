@@ -68,15 +68,15 @@
                           <button  [disabled]="userlogin.invalid" class="btn btn-dark btn-lg btn-block" type="submit">Login</button>
                         </div>
       
-                        <a class="small text-muted" href="#!">Forgot password?</a>
+                        <a class="small text-muted" routerLink="/request-password-reset">Forgot password?</a>
                         <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? 
                             <a routerLink="/register" class="fw-bold text-body" style="color: #393f81;">Register here</a>
                         </p>
                             
-                        <a class="btn me-1  border border-primary"  href="#!" role="button">
+                        <a class="btn me-1  border border-primary" (click)="loginWithGoogle()" role="button">
                             <img src="https://static.tacdn.com/img2/google/G_color_20x20.png" class="regGoogleIcon" alt="">Continue with Google
                         </a>
-                        <a class="btn  border border-primary" href="#!"role="button">
+                        <a class="btn  border border-primary" (click)="loginWithGithub()">
                             <i class="fab fa-github me-2"></i>Continue with Github
                         </a>
                         <br>

@@ -46,7 +46,7 @@ export class HandleapiService {
   /*end function to get nearby places from api*/
 
   /*start function that retrieve review that belong to nearbyplaces*/
-  getReviewNearByPlaces(city:string) :Observable<any>{
+  getReviewNearByPlaces(city:string|null) :Observable<any>{
     return this.httpclient.get(`${this.apiUrl}/get-review-nearbyplaces/${city}`);
   }
   /*end function that retrieve review that belong to nearbyplaces*/

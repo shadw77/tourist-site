@@ -38,6 +38,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { DisplayServicesComponent } from './display-services/display-services.component';
 import { SignComponent } from './Sign/sign.component';
 import { SignupComponent } from './signup/signup.component';
+import { RequestResetComponent } from './password/request-reset/request-reset.component';
+import { ResponseResetComponent } from './password/response-reset/response-reset.component';
 
 @NgModule({
   declarations: [AppComponent, MainSearchComponent, TopDestinationComponent, ImgCardComponent, HomeComponent, ExploreComponent, DescCardComponent, ItemComponent, DisplayRestaurantComponent, DisplayHotelsComponent  ,  AboutUsComponent,
@@ -49,6 +51,8 @@ import { SignupComponent } from './signup/signup.component';
     DisplayServicesComponent,
     SignComponent,
     SignupComponent,
+    RequestResetComponent,
+    ResponseResetComponent,
     ],
   imports: [
     BrowserModule,

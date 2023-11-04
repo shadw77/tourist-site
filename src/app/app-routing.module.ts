@@ -41,6 +41,8 @@ import { adminguard } from './Guard/admin.guard';
 import { adminOrVendorGuard } from './Guard/admin-or-vendor.guard';
 import { SignComponent } from './Sign/sign.component';
 import { SignupComponent } from './signup/signup.component';
+import { RequestResetComponent } from './password/request-reset/request-reset.component';
+import { ResponseResetComponent } from './password/response-reset/response-reset.component';
 
 
 const routes: Routes = [
@@ -60,6 +62,15 @@ const routes: Routes = [
   {
     path:'register', 
     component:SignupComponent
+  },
+
+  {
+    path:'request-password-reset', 
+    component:RequestResetComponent
+  },
+  {
+    path:'response-password-reset', 
+    component:ResponseResetComponent
   },
   
     {

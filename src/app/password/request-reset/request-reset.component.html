@@ -1,0 +1,36 @@
+<div class="mt-4">
+    <div class="card w-50 m-auto">
+        <div class="card-header">
+           send email to reset your account's password
+        </div>
+        <div class="card-body">
+            <form  [formGroup]="requestresetform"  (ngSubmit)="onSubmit(requestresetform)">
+
+                <h3 class="h3 mb-3 font-weight-normal text-center">Reset Password</h3>
+                <div *ngIf="successMessage!.length >0 " class="alert alert-success">
+                    <small >{{successMessage}}</small>   
+                </div>
+                <!-- Login -->
+
+                <div class="form-group row">
+                    <label>Email</label>
+                    <input type="email" class="form-control" name="email"  formControlName="email">
+                    <div class="alert alert-danger" [hidden]="loginemail?.valid || loginemail?.untouched">
+                        <small *ngIf="loginemail?.errors?.['required']">email is required</small>
+                        <small *ngIf="loginemail?.errors?.['email']">email is Not Valid</small>
+                      </div>
+                      <div *ngIf="ErrorEmailBackend?.length >0 "  class="alert alert-danger">
+                        <ng-container *ngFor="let error of ErrorEmailBackend;let i=index">
+                            <small >{{error}}</small><br>
+                        </ng-container>
+                    </div>
+                </div>
+
+                <button [disabled]="!requestresetform.valid" type="submit" class="btn btn-block mt-3 btn-primary" >
+                  send password reset email
+                </button>
+            </form>
+        </div>
+    </div>
+  
+  </div>
