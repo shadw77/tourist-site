@@ -72,6 +72,7 @@ this.destinationCrudService.updateDestination(this.getId,formData).subscribe(
     this.selectedImage = null;
     this.selectedImages = null;
     console.log(response);
+    this.ngZone.run(()=>this.router.navigateByUrl('dashboard/admin/(details:destinations)')) 
   },
   (error) => {
     console.error('Error saving data and images:', error);

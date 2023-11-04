@@ -71,7 +71,7 @@ export class DestinationCrudService {
     const params = {
       sort: 'rating'
     };
-    return this.httpClient.get<Destination[]>( "http://localhost:8000/api/topdestinations", { params });
+    return this.httpClient.get<Destination[]>( "http://localhost:8000/api/topDestinations", { params });
   }
 
 }
