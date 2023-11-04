@@ -21,12 +21,14 @@ export class UserOrderCrudService {
   getUserOrders(){
     return this.httpClient.get(this.REST_API);
   }
-  getAllUserOrders(id:any){
-    let API_URL = `${this.REST_API}/${id}`;
-    return this.httpClient.get(API_URL, {headers: this.httpHeaders})
-    .pipe(map((res: any)=>{return res || {}}),
-      catchError(this.handleError));
-
+  getAllUserOrders(userId: any): Observable<any> {
+    const API_URL = `${this.REST_API}/?userId=${userId}`;
+    
+    return this.httpClient.get(API_URL, { headers: this.httpHeaders })
+      .pipe(
+        map((res: any) => res || {}),
+        catchError(this.handleError)
+      );
   }
 
   getUserOrder(id:any): Observable<any>{
