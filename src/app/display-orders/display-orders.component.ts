@@ -64,9 +64,10 @@ export class DisplayOrdersComponent {
       const minutesPassed = timeDifference / (1000 * 60);
 
       if (minutesPassed >= 30) {
-        console.log('mmm',...this.latestOrder);
         this.Orders.data.push(...this.latestOrder);
         this.latestOrder = [];
+        this.discountForLatestOrder=0;
+        this.amountForLatestOrder=0;
         
       }     
       else{ this.Orders.data = this.Orders.data.filter((order: any) => {
