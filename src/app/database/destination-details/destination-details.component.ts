@@ -1,7 +1,7 @@
 import { Component ,NgZone} from '@angular/core';
 import { Router , ActivatedRoute} from '@angular/router';
 import { DestinationCrudService } from 'src/app/Services/destination-crud.service';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder,Validators } from '@angular/forms';
 @Component({
   selector: 'app-destination-details',
   templateUrl: './destination-details.component.html',
@@ -24,21 +24,33 @@ selectedImages: File[] | any = null;;
    
     this.destinationForm = this.formBuilder.group({
       id:[''],
-      name:[''],
-      description:[''],
-      thumbnail:[''],
-      creator_id:[''],
-      rating:[''],
-      images:[''],
-      reviews:[''],
+        name: ['', [Validators.required, Validators.maxLength(255)]],
+        description: ['', [Validators.required, Validators.minLength(10)]],
+        thumbnail:['', [Validators.required]],
+        creator_id:['', [Validators.required]],
+        rating:[''],
+        images:['', [Validators.required]],
+        reviews:[''],
+  
 
     });
     
   }
   ngOnInit() {
-         this.getId = this.activatedRoute.snapshot.paramMap.get('id');
-     }
-    
+    this.getId = this.activatedRoute.snapshot.paramMap.get('id');
+         this.fetchDestinationData(this.getId);
+        }
+      
+        fetchDestinationData(id: string) {
+          this.destinationCrudService.getDestination(id).subscribe(
+            (data) => {
+              this.destinationForm.patchValue(data);
+            },
+            (error) => {
+              console.error('Error fetching restaurant data:', error);
+            }
+          );
+        }
 onSubmit():any{
 
 const formData = new FormData();
@@ -82,7 +94,14 @@ if (inputElement.files && inputElement.files.length > 0) {
 }
 }
 
+markFormGroupTouched(formGroup: FormGroup) {
+  Object.values(formGroup.controls).forEach((control) => {
+    control.markAsTouched();
 
+    if (control instanceof FormGroup) {
+      this.markFormGroupTouched(control);
+    }
+  });
 }
-
+}
 

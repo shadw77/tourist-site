@@ -214,7 +214,11 @@ const routes: Routes = [
       component: HotelDetailsComponent,
       outlet: 'details',
     },
-    
+    { 
+      path: 'show-hotel/:id',
+      component: ShowHotelComponent,
+      outlet: 'details'
+    },
     {
 
       path: 'edit-trip/:id',
