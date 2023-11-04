@@ -48,7 +48,9 @@ export class CartComponent {
      this.cartProducts=this.cartItems.retrieveProductsFromSession();
      this.subtotal=0;
      for(let i=0;i<this.cartProducts.length;i++){
-          this.subtotal+=this.cartProducts[i].quantity * this.cartProducts[i].item.cost;
+          this.subtotal+=Number(this.cartProducts[i].quantity) * Number(this.cartProducts[i].item.cost);
+          console.log(this.cartProducts[i].item);
+          
           this.discount += Number(this.cartProducts[i].item.discount);
           }          
           this.totalPrice+=(this.subtotal- Number(this.discount));
