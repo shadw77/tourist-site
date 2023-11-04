@@ -16,6 +16,9 @@ export class DisplayOrdersComponent {
   imagePath:any;
   userName:any;
   ProcessedOrders: any[] = [];
+  amountForLatestOrder:number=0;
+  discountForLatestOrder:number=0;
+
 
   constructor(private userOrderCrudService: UserOrderCrudService,  private http: HttpClient,
     ){}
@@ -43,29 +46,37 @@ export class DisplayOrdersComponent {
       });
       
       const latestTimestamp = new Date(this.latestOrder[0].created_at).getTime(); // Get the timestamp of the latest order
-
+      this.amountForLatestOrder=0;
       this.latestOrder = this.Orders.data.filter((order: any) => {
         const timestamp = new Date(order.created_at).getTime();
-        return timestamp === latestTimestamp;
-      });
-        if (this.latestOrder.length > 0) {
-          this.ProcessedOrders.push(this.latestOrder[0]);
-            this.Orders.data = this.Orders.data.filter((order: any)=> order !== this.latestOrder[0]);
-                this.latestOrder = [];
+        if(timestamp === latestTimestamp){
+        this.amountForLatestOrder+=Number(order.amount);
+        console.log(order);
+        
+        
+        order.discount?this.discountForLatestOrder+=Number(order.discount):0;
         }
-   
-    
-      console.log(this.latestOrder);
-      console.log(this.Orders.data);
+        
+        return timestamp === latestTimestamp;
+      });   
       const currentTime = new Date().getTime();
       const timeDifference = currentTime - latestTimestamp;
       const minutesPassed = timeDifference / (1000 * 60);
 
       if (minutesPassed >= 30) {
-        this.Orders.data.push(...this.ProcessedOrders);
-        this.ProcessedOrders = [];
-      }
-    });
+        console.log('mmm',...this.latestOrder);
+        this.Orders.data.push(...this.latestOrder);
+        this.latestOrder = [];
+        
+      }     
+      else{ this.Orders.data = this.Orders.data.filter((order: any) => {
+        const timestamp = new Date(order.created_at).getTime();
+        return timestamp !== latestTimestamp;
+      });}
+    });      
+    console.log(this.latestOrder);
+      console.log(this.Orders.data);
+
         this.imagePaths=  {
       Hotel: 'http://127.0.0.1:8000/images/Hotel_images/thumbnails/',
       Restaurant: 'http://127.0.0.1:8000/images/Restaurant_images/thumbnails/',
