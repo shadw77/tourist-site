@@ -1,3 +1,10 @@
+<div *ngIf="tokenExpired==true">
+  <div class="alert alert-danger ms-auto d-flex align-items-center w-25 h-25 fw-bold" role="alert">
+    <div>
+      Your session expired, Please login again!
+    </div>
+  </div>
+</div>
 <div class="container mt-4">
   <div *ngIf="cartProducts.length != 0; then thenBlock; else elseBlock"></div>
   <ng-template #thenBlock>
@@ -26,10 +33,10 @@
           *ngFor="let cart of cartProducts"
         >
           <div class="row g-2">
-            <div class="col-md-4 col-6">
+            <div class="col-md-4 col-6" >
               <img
-                src="{{ cart.item.thumbnail }}"
-                class="img-fluid rounded"
+                src="{{imagePaths[cart.type]}}{{cart.item.thumbnail}}"
+                class="img-fluid rounded w-50"
                 alt="..."
               />
             </div>
@@ -44,7 +51,7 @@
 
                 <p class="card-text">
                   <span class="text-body-secondary fw-bold"
-                    >{{ cart.item.cost }}$</span
+                    >{{ cart.item.cost }}EGP</span
                   >
                 </p>
                 <div class="row">
@@ -76,6 +83,7 @@
           </div>
         </div>
       </div>
+     
       <div class="col-md-4 position-relative">
         <div class="card p-3 position-sticky top-0" style="height: 250px">
           <div class="card-body">
@@ -83,16 +91,20 @@
             <p class="card-subtitle mb-2">Booking Fee</p>
             <p class="text-body-secondary mb-2 d-flex justify-content-between">
               <span>Subtotal</span>
-              <span> {{ subtotal }}</span>
+              <span> {{ subtotal }} EGP</span>
+            </p>
+            <p class="text-body-secondary mb-2 d-flex justify-content-between">
+              <span>Discount</span>
+              <span> {{ discount }} EGP</span>
             </p>
             <p
               class="card-text text-body-secondary d-flex justify-content-between"
             >
               <span>Total ({{ cartProducts.length }})</span>
-              <span> {{ totalPrice }}</span>
+              <span> {{ totalPrice }} EGP</span>
             </p>
           </div>
-          <button class="btn btn-warning rounded-pill">Checkout</button>
+          <button (click)="checkout()" class="btn btn-warning rounded-pill">Checkout</button>
         </div>
       </div>
     </div>

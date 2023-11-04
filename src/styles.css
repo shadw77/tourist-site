@@ -13,7 +13,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   }
   
   .primary-text {
-    color: var(--main-text-color);
+    /* color: var(--main-text-color); */
+    color:#0085db;
   }
   
   .second-text {
@@ -21,11 +22,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   }
   
   .primary-bg {
-    background-color: var(--main-bg-color);
+    background-color: #0085db;
+    /* background-color: var(--main-bg-color); */
+    
   }
   
   .secondary-bg {
-    background-color: var(--second-bg-color);
+    /* background-color: var(--second-bg-color); */
+    background-color: #0085db1a!important;
   }
   
   .rounded-full {
@@ -34,14 +38,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   
   #wrapper {
     overflow-x: hidden;
-    background-image: linear-gradient(
+    /* background-image: linear-gradient(
       to right,
       #baf3d7,
       #c2f5de,
       #cbf7e4,
       #d4f8ea,
       #ddfaef
-    );
+    ); */
   }
   
   #sidebar-wrapper {
@@ -81,7 +85,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   
   .list-group-item.active {
     background-color: transparent;
-    color: var(--main-text-color);
+    /* color: var(--main-text-color); */
+    color:#0085db;
     font-weight: bold;
     border: none;
   }

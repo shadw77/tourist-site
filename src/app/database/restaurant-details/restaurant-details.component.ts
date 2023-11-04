@@ -1,7 +1,7 @@
 import { Component ,NgZone} from '@angular/core';
 import { Router , ActivatedRoute} from '@angular/router';
 import { RestaurantCrudService } from 'src/app/Services/restaurant-crud.service';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder,Validators } from '@angular/forms';
 
 
 @Component({
@@ -23,60 +23,40 @@ export class RestaurantDetailsComponent {
     private ngZone:NgZone,
     private restaurantCrudService: RestaurantCrudService 
   ){    
-
     this.restaurantForm = this.formBuilder.group({
-      id:[''],
-      name:[''],
-      email:[''],
-      street:[''],
-      phone:[''],
-      government:[''],
-      description:[''],
-      rating:[''],
-      thumbnail:[''],
-      discount:[''],
-       creator_id:[''],
-      images:[''],
-      reviews:[''],
-
-    })
+      id: [''],
+      name: ['', [Validators.required, Validators.maxLength(255)]],
+      email: ['', [Validators.required, Validators.email]],
+      street: ['', [Validators.required, Validators.maxLength(255)]],
+      phone: ['', [Validators.required]],
+      government: ['', [Validators.required, Validators.maxLength(255)]],
+      description: ['', [Validators.required, Validators.minLength(10)]],
+      rating: ['', [Validators.required]],
+      thumbnail: [''],
+      discount: ['', [Validators.required]],
+      creator_id: ['', [Validators.required]],
+      images: [''],
+      reviews: [''],
+    });
   }
     ngOnInit() {
       this.getId = this.activatedRoute.snapshot.paramMap.get('id');
+      this.fetchRestaurantData(this.getId);
+    }
+  
+    fetchRestaurantData(id: string) {
+      this.restaurantCrudService.getRestaurant(id).subscribe(
+        (data) => {
+          this.restaurantForm.patchValue(data);
+        },
+        (error) => {
+          console.error('Error fetching restaurant data:', error);
+        }
+      );
     }
   
   onSubmit():any{
-//     const nameControl = this.restaurantForm.get('name');
-//   const streetControl = this.restaurantForm.get('street');
-//     const emailControl = this.restaurantForm.get('email');
-//   const governmentControl = this.restaurantForm.get('government');
-//   const descriptionControl = this.restaurantForm.get('description');
-//   const creator_idControl = this.restaurantForm.get('creator_id');
-//   const phoneControl = this.restaurantForm.get('phone');
-// const ratingControl = this.restaurantForm.get(' rating');
-//   const discount_Control = this.restaurantForm.get('discount');
-//   const name = nameControl ? nameControl.value : '';
-//   const email = emailControl ? emailControl.value : '';
-//   const street = streetControl ? streetControl.value : '';
-//   const phone = phoneControl ? phoneControl.value : '';
-//   const rating = ratingControl ? ratingControl.value : '';
-//   const government = governmentControl ? governmentControl.value : '';
-//   const description = descriptionControl ? descriptionControl.value : '';
-//   const creator_id = creator_idControl ? creator_idControl.value : '';
-//   const discount = discount_Control ? discount_Control.value : '';
- 
-//   const formData = new FormData();
 
-//   formData.append('name', name);
-//   formData.append('email', email);
-//   formData.append('phone', phone);
-//   formData.append('rating', rating);
-//   formData.append('street', street);
-//   formData.append('government', government);
-//   formData.append('description', description);
-//   formData.append('creator_id', creator_id);
-
-//   formData.append('discount', discount);
 const formData = new FormData();
     formData.append('name', this.restaurantForm.get('name')?.value || '');
     formData.append('email', this.restaurantForm.get('email')?.value || '');
@@ -127,7 +107,14 @@ onImagesChange(event: Event) {
 }
 
 
+markFormGroupTouched(formGroup: FormGroup) {
+  Object.values(formGroup.controls).forEach((control) => {
+    control.markAsTouched();
+
+    if (control instanceof FormGroup) {
+      this.markFormGroupTouched(control);
+    }
+  });
 }
-
-
+}
 

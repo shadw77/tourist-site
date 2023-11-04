@@ -13,13 +13,22 @@ export class UserOrderCrudService {
 
   constructor(private httpClient: HttpClient) { }
 
-  addUserOrder(data:UserOrder): Observable<any>{
+  addUserOrder(data:FormData): Observable<any>{
     let API_URL = this.REST_API;
     return this.httpClient.post(API_URL, data).pipe(catchError(this.handleError));
   }
 
   getUserOrders(){
     return this.httpClient.get(this.REST_API);
+  }
+  getAllUserOrders(userId: any): Observable<any> {
+    const API_URL = `${this.REST_API}/?userId=${userId}`;
+    
+    return this.httpClient.get(API_URL, { headers: this.httpHeaders })
+      .pipe(
+        map((res: any) => res || {}),
+        catchError(this.handleError)
+      );
   }
 
   getUserOrder(id:any): Observable<any>{

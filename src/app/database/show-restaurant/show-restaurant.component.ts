@@ -26,6 +26,8 @@ export class ShowRestaurantComponent {
     this.getId = this.activatedRoute.snapshot.paramMap.get('id');
     this.restaurantCrudService.getRestaurant(this.getId).subscribe((data)=>{
        this.images=data.data.images;
+       console.log(data);
+       console.log(this.getId);
 
     },
     (error) => {
@@ -52,7 +54,7 @@ export class ShowRestaurantComponent {
       (response) => {
         console.log('Data and images saved successfully');
         this.selectedImage = null;
-        location.reload();
+        // location.reload();
         //  this.ngZone.run(()=>this.router.navigateByUrl('dashboard/vendor/(details:hotels)')) 
       },
       (error) => {
@@ -70,5 +72,48 @@ export class ShowRestaurantComponent {
  
  
   }
+  @ViewChild('fileInput', { static: false }) fileInput!: ElementRef<HTMLInputElement>;
+ selectImage() {
+  this.fileInput.nativeElement.click();
+}
+
+
+
+onAddImage(){
+  console.log(this.selectedImage);
+  const formData = new FormData();
+  formData.append('image', this.selectedImage);
+  formData.append('imageable_id', this.getId);
+  formData.append('imageable_type', 'Restaurant');
+
+  this.ImageCrudService.addImage(formData).subscribe(
+    (response) => {
+      console.log('Data and images saved successfully');
+      this.selectedImage = null;
+      // location.reload();
+      //  this.ngZone.run(()=>this.router.navigateByUrl('dashboard/vendor/(details:hotels)')) 
+    },
+    (error) => {
+      console.error('Error saving data and images:', error);
+    }
+  );
+}
+onFileSelected(event: any) {
+  const selectedFile = event.target.files[0];
+  this.selectedImage=selectedFile;
+  const reader = new FileReader();
+
+  reader.onload = (e: any) => {
+    const imgSrc = e.target.result;
+    const imageElement = document.querySelector('#new_image');
+
+    if (imageElement) {
+      imageElement.setAttribute('src', imgSrc);
+    }
+  };
+
+  reader.readAsDataURL(selectedFile);
+  this.onAddImage();
+}
   
 }

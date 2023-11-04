@@ -1,70 +1,91 @@
 <div>
-    <div> 
-        <form [formGroup]="restaurantForm" (ngSubmit)="onSubmit()">
-            <div class="mb-3">
-              <label for="name" class="form-label">Name</label>
-              <input type="text" class="form-control" id="name" formControlName="name" required >
-            </div>
-    
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="text" class="form-control" id="email" formControlName="email" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="rating" class="form-label">Rating</label>
-                    <input type="text" class="form-control" id="rating" formControlName="rating" required>
-                </div>
-    
-                <div class="mb-3">
-                    <label for="street" class="form-label">Street</label>
-                    <input type="text" class="form-control" id="street" formControlName="street" required>
-                </div>
-    
-    
-            <div class="mb-3">
-                <label for="government" class="form-label">Government</label>
-                <input type="text" class="form-control" id="government" formControlName="government" required>
-            </div>
-
-            <div class="mb-3">
-                <label for="phone" class="form-label">Phone</label>
-                <input type="text" class="form-control" id="phone" formControlName="phone" required>
-            </div>  
+  <div>
+    <form [formGroup]="restaurantForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" formControlName="name" required>
+        <div *ngIf="restaurantForm?.get('name')?.invalid && restaurantForm?.get('name')?.touched" class="text-danger">
+          Name is required.
+        </div>
         
+      </div>
 
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="text" class="form-control" id="email" formControlName="email" required>
+        <div *ngIf="restaurantForm?.get('email')?.hasError('required') && restaurantForm?.get('email')?.touched" class="text-danger">
+          Email is required.
+        </div>
+        <div *ngIf="restaurantForm?.get('email')?.hasError('email') && restaurantForm?.get('email')?.touched" class="text-danger">
+          Email should be a valid email address.
+        </div>
+      </div>
 
-            <div class="mb-3">
-                <label for="description" class="form-label">Description</label>
-                <textarea class="form-control" rows="3" id="description" formControlName="description" required>
-                </textarea>
-            </div>
+      <div class="mb-3">
+        <label for="rating" class="form-label">Rating</label>
+        <input type="text" class="form-control" id="rating" formControlName="rating" required>
+        <div *ngIf="restaurantForm?.get('rating')?.invalid && restaurantForm?.get('rating')?.touched" class="text-danger">
+          Rating is required.
+        </div>
+      </div>
 
-          
-          
-            <div class="mb-3">
-                <label for="discount" class="form-label">Discount</label>
-                <input type="text" class="form-control" id="discount" formControlName="discount" required>
-            </div>
-            <div class="mb-3">
-                <label for="thumbnail" class="form-label">Thumbnail</label>
-                <input
-                  type="file"
-                  class="form-control"
-                  id="thumbnail"
-                  formControlName="thumbnail"
-                  (change)="onImageChange($event)"
-                  required
-                />
-              </div>
-          
-        
-            <div class="mb-3">
-                <label for="creator_id" class="form-label">Creator Id</label>
-                <input type="text" class="form-control" id="creator_id" formControlName="creator_id" required>
-            </div>
+      <div class="mb-3">
+        <label for="street" class="form-label">Street</label>
+        <input type="text" class="form-control" id="street" formControlName="street" required>
+        <div *ngIf="restaurantForm?.get('street')?.invalid && restaurantForm?.get('street')?.touched" class="text-danger">
+          Street is required.
+        </div>
+      </div>
 
-            <button type="submit" class="btn btn-primary">Update</button>
-          </form>
-    </div>
+      <div class="mb-3">
+        <label for="government" class="form-label">Government</label>
+        <input type="text" class="form-control" id="government" formControlName="government" required>
+        <div *ngIf="restaurantForm?.get('government')?.invalid && restaurantForm?.get('government')?.touched" class="text-danger">
+          Government is required.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="phone" class="form-label">Phone</label>
+        <input type="text" class="form-control" id="phone" formControlName="phone" required>
+        <div *ngIf="restaurantForm?.get('phone')?.invalid && restaurantForm?.get('phone')?.touched" class="text-danger">
+          Phone is required.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" rows="3" id="description" formControlName="description" required></textarea>
+        <div *ngIf="restaurantForm?.get('description')?.invalid && restaurantForm?.get('description')?.touched" class="text-danger">
+          Description is required and should be at least 10 characters long.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="discount" class="form-label">Discount</label>
+        <input type="text" class="form-control" id="discount" formControlName="discount" required>
+        <div *ngIf="restaurantForm?.get('discount')?.invalid && restaurantForm?.get('discount')?.touched" class="text-danger">
+          Discount is required.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="thumbnail" class="form-label">Thumbnail</label>
+        <input type="file" class="form-control" id="thumbnail" formControlName="thumbnail" (change)="onImageChange($event)" required>
+        <div *ngIf="!selectedImage" class="text-danger">
+          Thumbnail is required.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="creator_id" class="form-label">Creator Id</label>
+        <input type="text" class="form-control" id="creator_id" formControlName="creator_id" required>
+        <div *ngIf="restaurantForm?.get('creator_id')?.invalid && restaurantForm?.get('creator_id')?.touched" class="text-danger">
+          Creator ID is required.
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+  </div>
 </div>

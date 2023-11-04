@@ -1,31 +1,53 @@
 <div>
     <div> 
-        <form [formGroup]="updateForm" (ngSubmit)="onUpdate()">
-            <div class="mb-3">
-              <label for="name" class="form-label">Name</label>
-              <input type="text" class="form-control" id="name" formControlName="name" required >
+        <form [formGroup]="destinationForm" (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" formControlName="name" required >
+            <div *ngIf="destinationForm.get('name')?.invalid && destinationForm.get('name')?.touched" class="text-danger">
+              Name is required.
+            </div>      
+          </div>
+
+
+          <div class="mb-3">
+              <label for="description" class="form-label">Description</label>
+              <textarea class="form-control" rows="3" id="description" formControlName="description" required>
+              </textarea>
+              <div *ngIf="destinationForm.get('description')?.invalid && destinationForm.get('description')?.touched" class="text-danger">
+                Description is required and should be at least 10 characters long.
+              </div>
             </div>
 
 
-            <div class="mb-3">
-                <label for="description" class="form-label">Description</label>
-                <textarea class="form-control" rows="3" id="description" formControlName="description" required>
-                </textarea>
-            </div>
-
-
-          
             <div class="mb-3">
                 <label for="thumbnail" class="form-label">Thumbnail</label>
-                <input type="file" class="form-control" id="thumbnail" formControlName="thumbnail" required>
+                <input
+                  type="file"
+                  class="form-control"
+                  id="thumbnail"
+                  formControlName="thumbnail"
+                  (change)="onImageChange($event)"
+                  required
+                />
+                <div *ngIf="!selectedImage" class="text-danger">
+                  Thumbnail is required.
+                </div>
+              </div>
+            <div class="mb-3">
+                <label for="rating" class="form-label">Rating</label>
+                <input type="text" class="form-control" id="rating" formControlName="rating" required>
             </div>
 
             <div class="mb-3">
-                <label for="creator_id" class="form-label">Creator Id</label>
-                <input type="text" class="form-control" id="creator_id" formControlName="creator_id" required>
+              <label for="creator_id" class="form-label">Creator Id</label>
+              <input type="text" class="form-control" id="creator_id" formControlName="creator_id" required>
+              <div *ngIf="destinationForm.get('creator_id')?.invalid && destinationForm.get('creator_id')?.touched" class="text-danger">
+                Creator ID is required.
+              </div>
             </div>
 
-            <button type="submit" class="btn btn-primary">Add</button>
+            <button type="submit" class="btn btn-primary">update</button>
           </form>
     </div>
 </div>

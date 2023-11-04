@@ -19,15 +19,21 @@ export class DestinationCrudService {
 
   constructor(private httpClient: HttpClient) { }
 
-  addDestination(data:Destination): Observable<any>{
+  addDestination( data: FormData): Observable<any>{
+    console.log(data);
     let API_URL = this.REST_API;
     return this.httpClient.post(API_URL, data).pipe(catchError(this.handleError));
   }
 
   getDestinations(){
+    console.log(this.httpClient.get(this.REST_API));
+    
     return this.httpClient.get(this.REST_API);
   }
-
+  Destinations(page:any){
+    let API_URL = `http://localhost:8000/api/destinations?page=${page}`;
+   return this.httpClient.get( API_URL);
+ }
   getDestination(id:any): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;
     return this.httpClient.get(API_URL, {headers: this.httpHeaders})
@@ -35,9 +41,9 @@ export class DestinationCrudService {
       catchError(this.handleError));
   }
 
-  updateDestination(id:any, data: Destination): Observable<any>{
+  updateDestination(id:any, data: FormData): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;
-    return this.httpClient.put(API_URL, data, {headers: this.httpHeaders})
+    return this.httpClient.post(API_URL, data )
     .pipe(catchError(this.handleError));
   }
 
@@ -61,10 +67,11 @@ export class DestinationCrudService {
   }
 
   getTopDestinations(): Observable<Destination[]> {
+    
     const params = {
       sort: 'rating'
     };
-    return this.httpClient.get<Destination[]>(this.REST_API, { params });
+    return this.httpClient.get<Destination[]>( "http://localhost:8000/api/topdestinations", { params });
   }
 
 }

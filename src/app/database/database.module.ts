@@ -21,6 +21,9 @@ import { UserOrdersComponent } from './user-orders/user-orders.component';
 import { AddUserOrderComponent } from './add-user-order/add-user-order.component';
 import { UserOrderDetailsComponent } from './user-order-details/user-order-details.component';
 import { ShowRestaurantComponent } from './show-restaurant/show-restaurant.component';
+import { ShowDestinationComponent } from './show-destination/show-destination.component';
+import { ShowTripComponent } from './show-trip/show-trip.component';
+import { OffersComponent } from './offers/offers.component';
 
 
 @NgModule({
@@ -43,7 +46,11 @@ import { ShowRestaurantComponent } from './show-restaurant/show-restaurant.compo
     UserOrdersComponent,
     AddUserOrderComponent,
     UserOrderDetailsComponent,
+    ShowTripComponent,
     ShowRestaurantComponent,
+    ShowDestinationComponent,
+    OffersComponent,
+
 
   ],
   imports: [

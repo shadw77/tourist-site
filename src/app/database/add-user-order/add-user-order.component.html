@@ -1,23 +1,49 @@
 <div>
-    <div> 
-        <form [formGroup]="userOrderForm" (ngSubmit)="onSubmit()">
-            <div class="mb-3">
-              <label for="user_id" class="form-label">User ID</label>
-              <input type="text" class="form-control" id="user_id" formControlName="user_id" required >
-            </div>
+  <div>
+    <form [formGroup]="userOrderForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="user_id" class="form-label">User Name</label>
+        <select
+          class="form-select"
+          aria-label="Default select example"
+          formControlName="user_id"
+        >
+          <option value="">Select a user</option>
+          <option *ngFor="let user of users['data']" [value]="user.id">
+            {{ user.name }}
+          </option>
+        </select>
+      </div>
 
-            <div class="mb-3">
-                <label for="service_id" class="form-label">Service ID</label>
-                <input type="text" class="form-control" id="service_id" formControlName="service_id" required>
-            </div>
+      <div class="mb-3">
+        <label for="service_id" class="form-label">Service ID</label>
+        <select
+          class="form-select"
+          aria-label="Default select example"
+          formControlName="service_id"
+        >
+          <option value="">Select a Service</option>
+          <option *ngFor="let Hotel of Hotels['data']" [value]="Hotel.id">
+            {{ Hotel.name }}
+          </option>
+        </select>
+      </div>
 
-            <div class="mb-3">
-                <label for="service_type" class="form-label">Service Type</label>
-                <input type="service_type" class="form-control" id="service_type" formControlName="service_type" required>
-            </div>  
-        
-        
-            <button type="submit" class="btn btn-success">Add</button>
-          </form>
-    </div>
+      <div class="mb-3">
+        <label for="service_type" class="form-label">Service Type</label>
+        <select
+          class="form-select"
+          aria-label="Default select example"
+          formControlName="service_type"
+        >
+          <option value="">Select a Service Type</option>
+          <option value="Hotel">Hotel</option>
+          <option value="Trip">Trip</option>
+          <option value="restaurant">restaurant</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-success">Add</button>
+    </form>
+  </div>
 </div>

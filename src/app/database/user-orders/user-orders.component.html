@@ -1,28 +1,52 @@
-<button type="button" class="btn btn-info" [routerLink]="['/dashboard/admin', { outlets: { details: ['add-order'] } }]" routerLinkActive="active-link">Add New Order</button>
-<div class="row my-5">
-    <h3 class="fs-4 mb-3">All Orders</h3>
-    <div class="col">
-        <table class="table bg-white rounded shadow-sm  table-hover">
-            <thead>
-                <tr>
-                    <th scope="col" width="50">#</th>
-                    <th scope="col">user_id</th>
-                    <th scope="col">service_id</th>
-                    <th scope="col">service_type</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let order of Orders['data']; let i = index">
-                    <th scope="row">{{order.id}}</th>
-                    <td>{{order.user_id}}</td>
-                    <td>{{order.service_id}}</td>
-                    <td>{{order.service_type}}</td>           
-                    <td>
-                        <button type="button" class="btn btn-info" [routerLink]="['/dashboard/admin', { outlets: { details: 'edit-order/' + order.id } }]" routerLinkActive="active-link">Edit</button>
-                        <button type="button" class="btn btn-danger" (click)="delete(order.id, i)">Delete</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+<button
+  *ngIf="isAdmin()"
+  type="button"
+  class="btn btn-primary my-3"
+  [routerLink]="['/dashboard/admin', { outlets: { details: ['add-order'] } }]"
+  routerLinkActive="active-link"
+>
+  Add New Order
+</button>
+<div class="row">
+  <h3 class="fs-4 mb-3">All Orders</h3>
+  <div class="table-responsive">
+    <table class="table bg-white rounded shadow-sm table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">user_id</th>
+          <th scope="col">service_id</th>
+          <th scope="col">service_type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of Orders['data']; let i = index">
+          <th scope="row">{{ order.id }}</th>
+          <td>{{ order.user_id }}</td>
+          <td>{{ order.service_id }}</td>
+          <td>{{ order.service_type }}</td>
+          <td>
+            <button
+              type="button"
+              class="btn btn-outline-warning btn-sm mx-1"
+              [routerLink]="[
+                '/dashboard/admin',
+                { outlets: { details: 'edit-order/' + order.id } }
+              ]"
+              routerLinkActive="active-link"
+            >
+              Edit
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-danger btn-sm mx-1"
+              (click)="delete(order.id, i)"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

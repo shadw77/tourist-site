@@ -1,49 +1,153 @@
-<!-- <button type="button" class="btn btn-info" routerLink="add-trip" routerLinkActive="Active">Add New Trip</button> -->
-<button type="button" class="btn btn-info" [routerLink]="['/dashboard/admin', { outlets: { details: ['add-trip'] } }]" routerLinkActive="active-link">Add New Trip</button>
-<div class="row my-5">
-    <h3 class="fs-4 mb-3">All Trips</h3>
-    <div class="col">
-        <table class="table bg-white rounded shadow-sm  table-hover">
-            <thead>
-                <tr>
-                    <th scope="col" width="50">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Government</th>
-                    <th scope="col">Duration</th>
-                    <th scope="col">Cost</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Rating</th>
-                    <th scope="col">Thumbnail</th>
-                    <th scope="col">Creator Id</th>
-                    <th scope="col">Action</th>
+<div class="trip">
+  <button
+    *ngIf="isAdmin()"
+    type="button"
+    class="btn btn-primary my-3"
+    [routerLink]="['/dashboard/admin', { outlets: { details: ['add-trip'] } }]"
+    routerLinkActive="active-link"
+  >
+    Add New Trip
+  </button>
+  <button
+    *ngIf="isVendor()"
+    type="button"
+    class="btn btn-primary my-3"
+    [routerLink]="['/dashboard/vendor', { outlets: { details: ['add-trip'] } }]"
+    routerLinkActive="active-link"
+  >
+    Add New Trip
+  </button>
 
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let trip of Trips['data']; let i = index">
-                    <th scope="row">{{trip.id}}</th>
-                    <td>{{trip.name}}</td>
-                    <td>{{trip.government}}</td>
-                    <td>{{trip.duration}}</td>
-                    <td>{{trip.cost}}</td>
-                    <td>{{trip.description}}</td>
-                    <td>{{trip.rating}}</td>
-                    <td><img [src]="trip.thumbnail"/></td>
-                    <!-- <td><img [src]="'data:image/jpeg;base64,' + trip.thumbnail"/></td> -->
-                    <!-- <td><img [src]="trip.thumbnail"/> </td> -->
-                    <td>{{trip.creator_id}}</td>
-                    <td>
-
-                        <button type="button" class="btn btn-info" [routerLink]="['/dashboard/admin', { outlets: { details: 'edit-trip/' + trip.id } }]" routerLinkActive="active-link">Edit</button>
-                        <!-- <button type="button" class="btn btn-info" [routerLink]="['/dashboard/admin', { outlets: { details: 'edit-trip/{{trip.id}}' } }]" routerLinkActive="active-link">Edit</button> -->
-
-                        <!-- <button type="button" class="btn btn-warning" [routerLink]="[{ outlets: { details: ['edit-trip/{{trip.id}}'] } }]" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Edit</button> -->
-                        <!-- <button type="button" class="btn btn-info" [routerLink]="['/dashboard/admin', { outlets: { details: ['edit-trip/{{trip.id}}'] } }]" routerLinkActive="active-link">Edit</button> -->
-                        <!-- <button type="button" class="btn btn-warning" routerLink="edit-trip/{{trip.id}}">Edit</button> -->
-                        <button type="button" class="btn btn-danger" (click)="delete(trip.id, i)">Delete</button>
-                    </td>
-                </tr>
-            </tbody>
+  <div class="row">
+    <!-- <h3 class="fs-4 mb-3">All Trips</h3> -->
+    <div class="">
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Government</th>
+              <th scope="col">Duration</th>
+              <th scope="col">Cost</th>
+              <th scope="col">Description</th>
+              <th scope="col">Rating</th>
+              <th scope="col">Thumbnail</th>
+              <th scope="col">Creator Id</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let trip of Trips['data']; let i = index">
+              <th scope="row">{{ trip.id }}</th>
+              <td>{{ trip.name }}</td>
+              <td>{{ trip.government }}</td>
+              <td>{{ trip.duration }}</td>
+              <td>{{ trip.cost }}</td>
+              <td>{{ trip.description }}</td>
+              <td>{{ trip.rating }}</td>
+              <td>
+                <img
+                  src="{{ imagePath }}{{ trip.thumbnail }}"
+                  alt="{{ trip.thumbnail }}"
+                />
+              </td>
+              <td>{{ trip.creator_id }}</td>
+              <td>
+                <button
+                  *ngIf="isAdmin()"
+                  type="button"
+                  class="btn btn-outline-warning btn-sm mx-1"
+                  [routerLink]="[
+                    '/dashboard/admin',
+                    { outlets: { details: 'edit-trip/' + trip.id } }
+                  ]"
+                  routerLinkActive="active-link"
+                >
+                  Edit
+                </button>
+                <button
+                  *ngIf="isVendor()"
+                  type="button"
+                  class="btn btn-outline-warning btn-sm mx-1"
+                  [routerLink]="[
+                    '/dashboard/vendor',
+                    { outlets: { details: 'edit-trip/' + trip.id } }
+                  ]"
+                  routerLinkActive="active-link"
+                >
+                  Edit
+                </button>
+                <button
+                  class="btn btn-outline-danger btn-sm mx-1"
+                  (click)="delete(trip.id)"
+                >
+                  Delete
+                </button>
+                <button
+                  *ngIf="isAdmin()"
+                  type="button"
+                  class="btn btn-outline-info btn-sm mx-1"
+                  [routerLink]="[
+                    '/dashboard/admin',
+                    { outlets: { details: 'show-trip/' + trip.id } }
+                  ]"
+                  routerLinkActive="active-link"
+                >
+                  Show
+                </button>
+                <button
+                  *ngIf="isVendor()"
+                  type="button"
+                  class="btn btn-outline-info btn-sm mx-1"
+                  [routerLink]="[
+                    '/dashboard/vendor',
+                    { outlets: { details: 'show-trip/' + trip.id } }
+                  ]"
+                  routerLinkActive="active-link"
+                >
+                  Show
+                </button>
+              </td>
+            </tr>
+          </tbody>
         </table>
+      </div>
     </div>
+  </div>
 </div>
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item">
+      <button
+        class="page-link"
+        aria-label="Previous"
+        (click)="onPageChange(currentPage - 1)"
+        [disabled]="currentPage === 1"
+      >
+        <span aria-hidden="true">&laquo;</span>
+      </button>
+    </li>
+    <li
+      class="page-item"
+      *ngFor="let button of pageButtons"
+      [class.active]="button === currentPage"
+    >
+      <button class="page-link" (click)="onPageChange(button)">
+        <span aria-hidden="true">{{ button }}</span>
+      </button>
+    </li>
+
+    <li class="page-item">
+      <button
+        class="page-link"
+        aria-label="Next"
+        (click)="onPageChange(currentPage + 1)"
+        [disabled]="currentPage === Trips.last_page"
+      >
+        <span aria-hidden="true">&raquo;</span>
+      </button>
+    </li>
+  </ul>
+</nav>

@@ -29,7 +29,10 @@ export class HotelCrudService {
     .pipe(map((res: any)=>{return res || {}}),
       catchError(this.handleError));
   }
-
+  hotels(page:any){
+    let API_URL = `http://localhost:8000/api/hotels?page=${page}`;
+   return this.httpClient.get( API_URL);
+ }
   updateHotel(id:any, data: FormData): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;  
     return this.httpClient.post<any>( API_URL , data)
@@ -41,7 +44,7 @@ export class HotelCrudService {
     return this.httpClient.delete(API_URL, {headers: this.httpHeaders})
     .pipe(catchError(this.handleError));
   }
-
+  
   handleError(error: HttpErrorResponse){
     let errorMessage = '';
     if(error.error instanceof ErrorEvent){
