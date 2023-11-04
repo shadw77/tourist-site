@@ -7,13 +7,12 @@
                     <img src="{{ imagePath }}{{ item.thumbnail }}" class="m-3  img-fluid rounded-start" alt="..."/>
                 </div>
                 <div class="col-md-8 p-4">
-                    <app-item [item]="item"></app-item>
-                </div>
-                <div class="card-body">
-                    <button class="btn btn-primary" (click)="redirectTo(item, 1,'Restaurant')">
+                    <app-item [item]="item"></app-item> 
+                     <button class="btn btn-primary" (click)="redirectTo(item, 1,'Restaurant')">
                       add to cart
                     </button>
-                  </div>
+                </div>
+             
                 <hr>
             </div>
         </div>

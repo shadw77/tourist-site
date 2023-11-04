@@ -21,6 +21,13 @@ export class UserOrderCrudService {
   getUserOrders(){
     return this.httpClient.get(this.REST_API);
   }
+  getAllUserOrders(id:any){
+    let API_URL = `${this.REST_API}/${id}`;
+    return this.httpClient.get(API_URL, {headers: this.httpHeaders})
+    .pipe(map((res: any)=>{return res || {}}),
+      catchError(this.handleError));
+
+  }
 
   getUserOrder(id:any): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;

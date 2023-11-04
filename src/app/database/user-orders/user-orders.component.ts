@@ -22,8 +22,11 @@ export class UserOrdersComponent {
   delete(id:any, i:any){
     console.log(id);
     this.userOrderCrudService.deleteUserOrder(id).subscribe(res=>{
-      this.Orders.splice(i,1);
-  })
+      this.userOrderCrudService.getUserOrders().subscribe(res=>{        
+        this.Orders= res;
+        // console.log(this.Orders.data);
+    });
+  });
     
    
   }
