@@ -1,0 +1,16 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Discount</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of discountedItems">
+      <td>{{ item.name }}</td>
+      <td>{{ item.discount }}</td>
+      <td>{{ item.type }}</td>
+    </tr>
+  </tbody>
+</table>

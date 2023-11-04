@@ -42,6 +42,7 @@ import { ShowDestinationComponent } from './database/show-destination/show-desti
 import { authGuard } from './Guard/auth.guard';
 import { adminguard } from './Guard/admin.guard';
 import { adminOrVendorGuard } from './Guard/admin-or-vendor.guard';
+import { OffersComponent } from './database/offers/offers.component';
 
 const routes: Routes = [
   {
@@ -127,6 +128,11 @@ const routes: Routes = [
     path: 'dashboard/admin',
     component: AdminComponent,
     children: [
+      { 
+        path: 'offers',
+        component: OffersComponent,
+        outlet: 'details'
+      },
     { 
       path: 'users',
       component: UsersComponent,
@@ -214,7 +220,11 @@ const routes: Routes = [
       component: HotelDetailsComponent,
       outlet: 'details',
     },
-    
+    { 
+      path: 'show-hotel/:id',
+      component: ShowHotelComponent,
+      outlet: 'details'
+    },
     {
 
       path: 'edit-trip/:id',
