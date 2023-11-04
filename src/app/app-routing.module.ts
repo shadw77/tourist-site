@@ -43,6 +43,8 @@ import { authGuard } from './Guard/auth.guard';
 import { adminguard } from './Guard/admin.guard';
 import { adminOrVendorGuard } from './Guard/admin-or-vendor.guard';
 import { OffersComponent } from './database/offers/offers.component';
+import { DisplayOrdersComponent } from './display-orders/display-orders.component';
+
 
 const routes: Routes = [
   {
@@ -100,6 +102,10 @@ const routes: Routes = [
     {
       path:'cart',
       component:CartComponent,
+    },
+    {
+      path:'orders',
+      component:DisplayOrdersComponent,
     },
      {
       path:'discover',loadChildren: () => import('src/app/discovermodule/discovermodule.module')

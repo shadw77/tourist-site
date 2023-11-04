@@ -51,6 +51,7 @@ export class DisplayServicesComponent {
           this.restaurantCrudService.getRestaurants().toPromise()
         ]).then(([destinations, trips, restaurants, hotels]) => {
           this.Destinations = destinations;
+          this.Destinations = this.Destinations['destinations']
           this.Trips = trips; 
           this.Trips = this.Trips['data'];
           this.Hotels = hotels; 
@@ -61,58 +62,5 @@ export class DisplayServicesComponent {
         });
       }
     });
-
-    
-//     this.route.paramMap.subscribe((params) => {
-//       this.data = params.get('data');
-//       if (this.data) {
-//         this.searchDataService.searchDestinations(this.data).then((response) => {
-//           this.Destinations = response;
-    
-//           this.searchDataService.searchTrips(this.data).then((response) => {
-//             this.Trips = response;
-//           });
-    
-//           this.searchDataService.searchRestaurants(this.data).then((response) => {
-//             this.Restaurents = response;
-//           });        this.Services = [...this.Destinations, ...this.Trips, ...this.Restaurents];
-
-//         });            
-
-//       } else {
-//         this.destinationCrudService.getDestinations().subscribe((res) => {
-//           this.Destinations = res;
-    
-//           this.tripCrudService.getTrips().subscribe((res) => {
-//             this.Trips = res;
-//             this.Trips = this.Trips['data'];
-    
-//           });
-    
-//           this.restaurantCrudService.getRestaurants().subscribe((res) => {
-//             this.Restaurents = res;
-//             this.Restaurents = this.Restaurents['data'];
-//           });            
-//          this.Services = [...this.Destinations, ...this.Trips, ...this.Restaurents];
-
-//         });         
-
-//       }
-
-//     });
-// console.log("booooom", this.Services);
-
-
-
-
-
-
-
-
-
-
-
-
-
    }
 }
