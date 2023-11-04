@@ -1,7 +1,7 @@
 import { Component, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { DestinationCrudService } from 'src/app/Services/destination-crud.service';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder,Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-destination',
@@ -22,12 +22,12 @@ export class AddDestinationComponent {
     this. destinationForm = this.formBuilder.group({
      
         id:[''],
-        name:[''],
-        description:[''],
-        thumbnail:[''],
-        creator_id:[''],
+        name: ['', [Validators.required, Validators.maxLength(255)]],
+        description: ['', [Validators.required, Validators.minLength(10)]],
+        thumbnail:['', [Validators.required]],
+        creator_id:['', [Validators.required]],
         rating:[''],
-        images:[''],
+        images:['', [Validators.required]],
         reviews:[''],
   
       })
@@ -35,7 +35,9 @@ export class AddDestinationComponent {
     }
       
   onSubmit():any{
-  
+    this.markFormGroupTouched(this.destinationForm);
+
+    if (this.destinationForm.valid) {
   const formData = new FormData();
     formData.append('name', this.destinationForm.get('name')?.value || '');
     formData.append('rating', this.destinationForm.get('rating')?.value || '5');
@@ -62,6 +64,7 @@ export class AddDestinationComponent {
       }
     );
   }
+}
   onImageChange(event: Event) {
     const inputElement = event.target as HTMLInputElement;
     if (inputElement.files && inputElement.files.length > 0) {
@@ -75,6 +78,15 @@ export class AddDestinationComponent {
       this.selectedImages = Array.from(inputElement.files);
     }
   }
-  
+
+  markFormGroupTouched(formGroup: FormGroup) {
+    Object.values(formGroup.controls).forEach((control) => {
+      control.markAsTouched();
+
+      if (control instanceof FormGroup) {
+        this.markFormGroupTouched(control);
+      }
+    });
   }
+}
   

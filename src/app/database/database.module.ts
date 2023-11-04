@@ -25,6 +25,7 @@ import { ShowDestinationComponent } from './show-destination/show-destination.co
 import { ShowTripComponent } from './show-trip/show-trip.component';
 import { OffersComponent } from './offers/offers.component';
 
+
 @NgModule({
   declarations: [
     UsersComponent,
