@@ -26,6 +26,8 @@ export class ShowRestaurantComponent {
     this.getId = this.activatedRoute.snapshot.paramMap.get('id');
     this.restaurantCrudService.getRestaurant(this.getId).subscribe((data)=>{
        this.images=data.data.images;
+       console.log(data);
+       console.log(this.getId);
 
     },
     (error) => {

@@ -23,9 +23,8 @@ export class ShowDestinationComponent {
   ngOnInit() {
     this.getId = this.activatedRoute.snapshot.paramMap.get('id');
     this.destinationCrudService.getDestination(this.getId).subscribe((data)=>{
-
        this.images=data.destination.images;
-       console.log(data);
+      
 
     },
     (error) => {

@@ -17,16 +17,16 @@ export class RestaurantsComponent {
         console.log(this.Restaurants['data']);
     })
   }
-
-  delete(id:any, i:any){
+load(){
+  this.restaurantCrudService.getRestaurants().subscribe(updatedRes => {
+    this.Restaurants = updatedRes;
+  });
+}
+  delete(id: any, i: any) {
     console.log(id);
-    this.restaurantCrudService.deleteRestaurant(id).subscribe(res=>{
-      this.Restaurants.splice(i,1);
-  })
-  this.restaurantCrudService.getRestaurants().subscribe(res=>{        
-            this.Restaurants= res;
-       }); 
-   
+    this.restaurantCrudService.deleteRestaurant(id).subscribe(res => {
+      this.load();
+    });
   }
  
 }
