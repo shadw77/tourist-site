@@ -18,9 +18,24 @@ export class DestinationsComponent {
   ngOnInit():void{
     this.destinationCrudService.getDestinations().subscribe(res=>{        
         this.Destinations= res;
+        this.totalPages=this.Destinations.meta.last_page;
+        this.totalItems =this.Destinations.meta.total;
         this.generatePageButtons();
+        console.log(res);
+        console.log(this.totalItems);
+        console.log(this.totalPages);
          console.log(this.Destinations['destinations']);
     })
+    localStorage.setItem('role', 'admin');
+  }
+  isAdmin(): boolean {
+    const user =localStorage.getItem('role');
+    return user=== 'admin';
+  }
+
+  isVendor(): boolean {
+    const user = localStorage.getItem('role');
+    return  user === 'vendor';
   }
 
   delete(id:any, i:any){
