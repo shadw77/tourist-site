@@ -36,6 +36,7 @@ import { LoginComponent } from './login/login.component';
 
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { DisplayServicesComponent } from './display-services/display-services.component';
+import { DisplayOrdersComponent } from './display-orders/display-orders.component';
 
 @NgModule({
   declarations: [AppComponent, MainSearchComponent, TopDestinationComponent, ImgCardComponent, HomeComponent, ExploreComponent, DescCardComponent, ItemComponent, DisplayRestaurantComponent, DisplayHotelsComponent  ,  AboutUsComponent,
@@ -47,6 +48,7 @@ import { DisplayServicesComponent } from './display-services/display-services.co
     DisplayDestinationsComponent,
     LoginComponent,
     DisplayServicesComponent,
+    DisplayOrdersComponent,
     ],
   imports: [
     BrowserModule,

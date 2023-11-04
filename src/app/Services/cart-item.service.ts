@@ -21,6 +21,8 @@ export class CartItemService {
         this.cartProducts.push(cartItem);
        }
         sessionStorage.setItem('cartProducts', JSON.stringify(this.cartProducts));
+        sessionStorage.setItem('orderTimestamp',String( Date.now()));
+
   }
  
   getCartItems() {
