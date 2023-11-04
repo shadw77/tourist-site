@@ -25,6 +25,17 @@ interface logoutResponse {
   mssg: string;
 }
 
+interface passwordResponse {
+  status: number;
+  mssg:string;
+  error: {
+    email:string,
+    password:string
+  };
+}
+
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -41,7 +52,6 @@ export class AuthService {
     })
   };
 
-
   constructor(private httpClient:HttpClient,
         private router: Router) { }
 
@@ -49,7 +59,6 @@ export class AuthService {
   login(user:{email: string, password: string}):Observable<any>{
     return this.httpClient.post<RegisterResponse>(`${this.apiuUrl}/login`,user).pipe(
       tap(response => {
-      
         if(response.status == 200){
           console.log(response);
           this.storeUserDataInLocalStorage(response.userdata.api_token,response.userdata.role,
@@ -61,7 +70,7 @@ export class AuthService {
 
 
   /*start register function that call api*/
-  register( user:{email: string,name: string, password: string,government:string} ) :Observable<any>{
+  register( user:{email: string,name: string,mobile:string,street:string, government:string,password: string} ) :Observable<any>{
     //console.log(user);
     return this.httpClient.post<RegisterResponse>(`${this.apiuUrl}/register`,user).pipe(
       tap(response => {
@@ -91,11 +100,7 @@ export class AuthService {
   }
   /*end function taht check if user is logged*/
 
-  isUserAuthenticated():Observable<boolean>{
-    const token =localStorage.getItem('api_token');
-     this.usertoken.next(!!token);
-     return this.usertoken.asObservable();
-  }
+
   /*start function that get user role*/
   getUserRole():string {
     const role = localStorage.getItem('role') as string ;
@@ -103,7 +108,7 @@ export class AuthService {
   }
   /*end function that get user role*/
 
-
+  /*start logout function*/
   logout():Observable<any>{
     return this.httpClient.get<logoutResponse>(`${this.apiuUrl}/logout`,this.httpOptions).pipe(
       tap(response => {
@@ -115,7 +120,21 @@ export class AuthService {
       }));
     //this.router.navigate(['/login']);
   }
+  /*end logout function*/
 
-  
-  
+  /*start function call api to send email*/
+  sendPasswordResetLink(data:any){
+    //console.log(data);
+    return this.httpClient.post<passwordResponse>(`${this.apiuUrl}/sendPasswordResetLink`,data);
+  }
+  /*end function call api to send email*/
+
+
+    /*start function call api to change password*/
+    changePassword(data:any){
+      //console.log(data);
+      return this.httpClient.post<passwordResponse>(`${this.apiuUrl}/resetPassword`,data);
+    }
+  /*end function call api to change password*/
+
 }

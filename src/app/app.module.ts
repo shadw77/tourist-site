@@ -32,10 +32,14 @@ import { CuttextPipe } from './Pipes/cuttext.pipe';
 
 import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoginComponent } from './login/login.component';
+
 
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { DisplayServicesComponent } from './display-services/display-services.component';
+import { SignComponent } from './Sign/sign.component';
+import { SignupComponent } from './signup/signup.component';
+import { RequestResetComponent } from './password/request-reset/request-reset.component';
+import { ResponseResetComponent } from './password/response-reset/response-reset.component';
 import { DisplayOrdersComponent } from './display-orders/display-orders.component';
 
 @NgModule({
@@ -43,12 +47,9 @@ import { DisplayOrdersComponent } from './display-orders/display-orders.componen
     ContactUsComponent,
     HomeLayoutComponent,
     DashboardLayoutComponent,
-
     DisplayTripsComponent,
     DisplayDestinationsComponent,
-    LoginComponent,
     DisplayServicesComponent,
-    DisplayOrdersComponent,
     ],
   imports: [
     BrowserModule,
