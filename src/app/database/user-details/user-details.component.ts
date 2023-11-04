@@ -1,6 +1,6 @@
 import { Component ,NgZone} from '@angular/core';
 import { Router , ActivatedRoute} from '@angular/router';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder,Validators } from '@angular/forms';
 import { UserCrudService } from 'src/app/Services/user-crud.service';
 
 @Component({
@@ -38,26 +38,43 @@ export class UserDetailsComponent {
     });   
     this.updateForm = this.formBuilder.group({
       id:[''],
-      name:[''],
-      government:[''],
-      email:[''],
-      password:[''],
-      street:[''],
-      mobile:[''],
-      role:[''],
-    });
+      name:['', [Validators.required]],
+      government:['', [Validators.required]],
+      email:['', [Validators.required, Validators.email]],
+      password:['', [Validators.required]],
+      street:['', [Validators.required]],
+      mobile:['', [Validators.required]],
+      role:['', [Validators.required]],
+
+    })
+   
     
   }
-  onUpdate():any{
-    this.userCrudService.updateUser(this.getId,this.updateForm.value)
-    .subscribe(()=>{
-      console.log('Data Updated Successfully');
-      this.ngZone.run(()=>this.router.navigateByUrl('/users-list')) 
-    },(err)=>{
-      console.log(err);
-      
-    })
+
+  onUpdate(): any {
+    if (this.updateForm.invalid) {
+      this.markFormGroupTouched(this.updateForm);
+      return;
+    }
+
+    this.userCrudService.updateUser(this.getId, this.updateForm.value).subscribe(
+      () => {
+        console.log('Data Updated Successfully');
+        this.ngZone.run(() => this.router.navigateByUrl('dashboard/admin/(details:users)'));
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
 
+  markFormGroupTouched(formGroup: FormGroup) {
+    Object.values(formGroup.controls).forEach((control) => {
+      control.markAsTouched();
 
+      if (control instanceof FormGroup) {
+        this.markFormGroupTouched(control);
+      }
+    });
+  }
 }

@@ -1,6 +1,6 @@
 import { Component, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder,Validators } from '@angular/forms';
 import { UserCrudService } from 'src/app/Services/user-crud.service';
 
 @Component({
@@ -19,27 +19,40 @@ export class AddUserComponent {
   ){
     this.userForm = this.formBuilder.group({
       id:[''],
-      name:[''],
-      government:[''],
-      email:[''],
-      password:[''],
-      street:[''],
-      mobile:[''],
-      role:[''],
+      name:['', [Validators.required]],
+      government:['', [Validators.required]],
+      email:['', [Validators.required, Validators.email]],
+      password:['', [Validators.required]],
+      street:['', [Validators.required]],
+      mobile:['', [Validators.required]],
+      role:['', [Validators.required]],
 
     })
     
   }
   onSubmit():any{
+    this.markFormGroupTouched(this.userForm);
+
+    if (this.userForm.valid) {
     this.userCrudService.addUser(this.userForm.value)
     .subscribe(()=>{
       console.log('Data Added Successfully');
-      this.ngZone.run(()=>this.router.navigateByUrl('/users-list')) 
+      this.ngZone.run(()=>this.router.navigateByUrl('dashboard/admin/(details:users)')) 
     },(err)=>{
       console.log(err);
       
     })
   }
+}
 
 
+markFormGroupTouched(formGroup: FormGroup) {
+  Object.values(formGroup.controls).forEach((control) => {
+    control.markAsTouched();
+
+    if (control instanceof FormGroup) {
+      this.markFormGroupTouched(control);
+    }
+  });
+}
 }

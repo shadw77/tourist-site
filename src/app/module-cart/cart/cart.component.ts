@@ -115,11 +115,10 @@ export class CartComponent {
         'Authorization': `Bearer ${this.userData.api_token}`,
       });
       console.log(this.userData.api_token);
-            if (this.isTokenExpired(this.userData.api_token)) {
+      if (this.isTokenExpired(this.userData.api_token)) {
         console.log('Token is expired.');
       } else {
         console.log('Token is valid.');
-        // The token is still valid, you can use it for authentication.
       }    
 
       

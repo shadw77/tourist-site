@@ -17,7 +17,6 @@ import { ItemComponent } from './item/item.component';
 import { DisplayRestaurantComponent } from './display-restaurant/display-restaurant.component';
 import { DisplayHotelsComponent } from './display-hotels/display-hotels.component';
 import { AboutUsComponent } from './about-us/about-us.component';
-import{ ReactiveFormsModule} from'@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import {ModuleCartModule} from 'src/app/module-cart/module-cart.module';
@@ -32,10 +31,14 @@ import { CuttextPipe } from './Pipes/cuttext.pipe';
 
 import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoginComponent } from './login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { DisplayServicesComponent } from './display-services/display-services.component';
+import { SignComponent } from './Sign/sign.component';
+import { SignupComponent } from './signup/signup.component';
+import { RequestResetComponent } from './password/request-reset/request-reset.component';
+import { ResponseResetComponent } from './password/response-reset/response-reset.component';
 import { DisplayOrdersComponent } from './display-orders/display-orders.component';
 
 @NgModule({
@@ -43,12 +46,9 @@ import { DisplayOrdersComponent } from './display-orders/display-orders.componen
     ContactUsComponent,
     HomeLayoutComponent,
     DashboardLayoutComponent,
-
     DisplayTripsComponent,
     DisplayDestinationsComponent,
-    LoginComponent,
-    DisplayServicesComponent,
-    DisplayOrdersComponent,
+    DisplayServicesComponent,SignComponent,SignupComponent,RequestResetComponent,ResponseResetComponent,DisplayOrdersComponent
     ],
   imports: [
     BrowserModule,

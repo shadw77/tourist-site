@@ -12,17 +12,11 @@ export class NavbarComponent implements OnInit{
   constructor(private CounterService:CounterService,
     protected authService:AuthService){}
   counter: number = 0;
-  @Output() loginClicked = new EventEmitter<void>();
 
 
   ngOnInit(){
     this.CounterService.get_Counter().subscribe((val)=>this.counter=val);
 
-  }
-
-  handleLogin() {
-    //console.log('ssss');
-    this.loginClicked.emit();
   }
 
  

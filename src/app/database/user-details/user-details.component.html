@@ -2,44 +2,68 @@
     <div> 
         <form [formGroup]="updateForm" (ngSubmit)="onUpdate()">
             <div class="mb-3">
-              <label for="name" class="form-label">Name</label>
-              <input type="text" class="form-control" id="name" formControlName="name" required >
-            </div>
-
-            <div class="mb-3">
-                <label for="government" class="form-label">Government</label>
-                <input type="text" class="form-control" id="government" formControlName="government" required>
-            </div>
-
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" formControlName="email" required>
-            </div>  
-        
-        
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" formControlName="password" required>
-            </div>
-
-
-            <div class="mb-3">
-                <label for="street" class="form-label">Street</label>
-                <input class="form-control" type="text" id="street" formControlName="street" required/>
-            </div>
-
-
-            <div class="mb-3">
-                <label for="mobile" class="form-label">Mobile</label>
-                <input type="tel" class="form-control" id="mobile" formControlName="mobile" required>
-            </div>
-
-
-            <div class="mb-3">
-                <label for="role" class="form-label">Role</label>
-                <input type="text" class="form-control" id="role" formControlName="role" required>
-            </div>
-
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" formControlName="name" required >
+                <div *ngIf="updateForm?.get('name')?.invalid && updateForm?.get('name')?.touched" class="text-danger">
+                  Name is required.
+                </div>
+                
+              </div>
+  
+              <div class="mb-3">
+                  <label for="government" class="form-label">Government</label>
+                  <input type="text" class="form-control" id="government" formControlName="government" required>
+                  <div *ngIf="updateForm?.get('government')?.invalid && updateForm?.get('government')?.touched" class="text-danger">
+                      Government is required.
+                    </div>
+              </div>
+  
+              <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="email" formControlName="email" required>
+                  <div *ngIf="updateForm?.get('email')?.hasError('required') && updateForm?.get('email')?.touched" class="text-danger">
+                    Email is required.
+                  </div>
+                  <div *ngIf="updateForm?.get('email')?.hasError('email') && updateForm?.get('email')?.touched" class="text-danger">
+                      Email should be a valid email address.
+                    </div>
+              </div>  
+          
+          
+              <div class="mb-3">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="password" formControlName="password" required>
+                  <div *ngIf="updateForm?.get('password')?.invalid && updateForm?.get('password')?.touched" class="text-danger">
+                      password is required.
+                    </div>
+              </div>
+  
+  
+              <div class="mb-3">
+                  <label for="street" class="form-label">Street</label>
+                  <input class="form-control" type="text" id="street" formControlName="street" required/>
+                  <div *ngIf="updateForm?.get('street')?.invalid && updateForm?.get('street')?.touched" class="text-danger">
+                      Street is required.
+                    </div>
+              </div>
+  
+  
+              <div class="mb-3">
+                  <label for="mobile" class="form-label">Mobile</label>
+                  <input type="tel" class="form-control" id="mobile" formControlName="mobile" required>
+                  <div *ngIf="updateForm?.get('mobile')?.invalid && updateForm?.get('mobile')?.touched" class="text-danger">
+                      Mobile is required.
+                    </div>
+              </div>
+  
+  
+              <div class="mb-3">
+                  <label for="role" class="form-label">Role</label>
+                  <input type="text" class="form-control" id="role" formControlName="role" required>
+                  <div *ngIf="updateForm?.get('Role')?.invalid && updateForm?.get('Role')?.touched" class="text-danger">
+                      Role is required.
+                    </div>
+              </div>
          
             <button type="submit" class="btn btn-success">Update</button>
           </form>

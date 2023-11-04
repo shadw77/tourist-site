@@ -1,5 +1,5 @@
 import { Component , ViewChild   } from '@angular/core';
-import { LoginComponent } from './login/login.component';
+
 import {HttpClient} from '@angular/common/http';
 import datajson from '../assets/tables.json';
 
