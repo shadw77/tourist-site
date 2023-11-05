@@ -9,7 +9,7 @@
               <h2 class="text-uppercase text-center mb-5">Create an account</h2>
 
               <!--start register form-->
-              <form [formGroup]="userregister"  (ngSubmit)="submitteddata(userregister)" class="userregister p-5 border border-success">
+              <form [formGroup]="userregister" (ngSubmit)="submitteddata(userregister)" class="userregister p-5 border border-success">
                 
                 <!--start message that come from backend-->
                 <div *ngIf="successMessage!.length >0 "  class="alert alert-success">
