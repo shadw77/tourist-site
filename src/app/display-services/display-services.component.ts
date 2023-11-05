@@ -18,6 +18,7 @@ export class DisplayServicesComponent {
   Trips: any=[];
   Restaurents: any=[];
   Services: any=[];
+  imagePaths:any;
 
   data : any;
   constructor(private activatedRoute: ActivatedRoute,private route: ActivatedRoute,
@@ -27,6 +28,14 @@ export class DisplayServicesComponent {
     private hotelCrudService:HotelCrudService,
     private searchDataService: SearchDataService){}
   ngOnInit():void{
+
+    this.imagePaths=  {
+      Hotel: 'http://127.0.0.1:8000/images/Hotel_images/thumbnails/',
+      Restaurant: 'http://127.0.0.1:8000/images/Restaurant_images/thumbnails/',
+      Trip: 'http://127.0.0.1:8000/images/trip_images/thumbnails/',
+      Destination: 'http://127.0.0.1:8000/images/destination_images/thumbnails/'
+    };
+
 
     this.route.paramMap.subscribe((params) => {
       this.data = params.get('data');
