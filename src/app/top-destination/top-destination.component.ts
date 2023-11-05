@@ -23,7 +23,8 @@ export class TopDestinationComponent {
 
 
   ngOnInit(): void {
-    this.getTopDestinations();      console.log(this.Destinations);
+    this.getTopDestinations();     
+     console.log(this.Destinations);
 
   }
 

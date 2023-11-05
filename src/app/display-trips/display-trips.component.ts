@@ -16,6 +16,7 @@ export class DisplayTripsComponent {
   data : any;
   products:any;
   counter:number=0;
+  imagePath: string = 'http://127.0.0.1:8000/images/trip_images/thumbnails/';
 
   constructor(private CounterService:CounterService,
     private router:Router,private cartItems:CartItemService,

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {CartItemService} from 'src/app/Services/cart-item.service'
 import {CounterService} from 'src/app/Services/counter.service'
 import {jwtDecode} from 'jwt-decode';
-
+import { UserOrderCrudService } from 'src/app/Services/user-order-crud.service';
 import { Location } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -14,7 +14,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class CartComponent {
 
-    constructor(
+    constructor(private userOrderCrudService:UserOrderCrudService,
       private http: HttpClient,
       private cartItems:CartItemService,private location: Location,private CounterService:CounterService){}
     cartProducts:any[]=[];
@@ -124,11 +124,12 @@ export class CartComponent {
       
       if (this.userData)
        {
-        
+
         const orderData = {
           cartProducts: this.cartProducts,
-        };
 
+        };
+        
         this.http.post('http://127.0.0.1:8000/api/checkout', orderData,  { headers }).subscribe(
           (response) => {
             console.log('ordered successfully');

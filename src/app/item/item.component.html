@@ -1,7 +1,20 @@
-<div class="card-body">
-    <h5 class="card-title fs-5 fw-bold">{{item.name}}</h5>
-    <p class="card-text  text-primary fw-bold">{{item.city}}, {{item.street}}</p>
-
-    <p class="card-text">{{item.description.slice(0, 100) }}..</p>
-    <p class="card-text"><small class="text-danger">Cost: {{item.cost}} EGP</small></p>
+<div class="offers_content">
+    <div class="offers_price">${{item.cost}} <span>Discount: EGP {{item.discount}}</span></div>
+    <div class="rating_r rating_r_4 offers_rating">
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+    </div>
+    <p class="offers_text">{{item.description.slice(0, 100) }}..</p>
+    <div class="offers_icons">
+        <ul class="offers_icons_list">
+            <li class="offers_icons_item"><img src="images/post.png" alt=""></li>
+            <li class="offers_icons_item"><img src="images/compass.png" alt=""></li>
+            <li class="offers_icons_item"><img src="images/bicycle.png" alt=""></li>
+            <li class="offers_icons_item"><img src="images/sailboat.png" alt=""></li>
+        </ul>
+    </div>
 </div>
+

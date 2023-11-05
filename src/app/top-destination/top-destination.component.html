@@ -1,8 +1,14 @@
 <div class="container">
-    <h1 class="fw-bold fs-3">Top Destination</h1>
-    <div class="row row-cols-lg-3 ">
-        <div class="col" *ngFor="let dest of Destinations ;let i =index"> 
-            <app-img-card [destination]="dest"></app-img-card>
-        </div>
+    <div class="position-absolute start-100 bottom-0 translate-middle-x d-none d-xl-block ms-xl-n4">
+      </div>
+    <div class="mb-7 text-center ">
+      <h3 class="text-secondary ">Top Selling </h3>
+      <h1 class=" fw-bold font-cursive text-capitalize name my-3">Top Destinations</h1>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-4 mb-4" *ngFor="let dest of Destinations ;let i =index">
+              <app-img-card [destination]="dest"></app-img-card>
     </div>
 </div>
+</div>
+

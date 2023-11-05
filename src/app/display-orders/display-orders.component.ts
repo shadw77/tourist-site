@@ -18,12 +18,17 @@ export class DisplayOrdersComponent {
   ProcessedOrders: any[] = [];
   amountForLatestOrder:number=0;
   discountForLatestOrder:number=0;
+  created_at:any;
+  invoiceNumber:any;
 
 
   constructor(private userOrderCrudService: UserOrderCrudService,  private http: HttpClient,
     ){}
   
   ngOnInit():void{
+
+    const randomInvoiceNumber = Math.floor(100000 + Math.random() * 900000);
+    this.invoiceNumber = Math.floor(100000 + Math.random() * 900000);
 
     const userDataString = localStorage.getItem('userData');
     if (userDataString) {
@@ -37,7 +42,7 @@ export class DisplayOrdersComponent {
 
     this.userOrderCrudService.getAllUserOrders(this.userData.id).subscribe(res => {        
       this.Orders = res;
-      this.latestOrder = Object.values(res); // Convert the object values to an array      
+      this.latestOrder = Object.values(res);     
 
       this.latestOrder = this.latestOrder[0].sort((a: any, b: any) => {
         const timestampA = new Date(a.created_at).getTime();
@@ -45,7 +50,10 @@ export class DisplayOrdersComponent {
         return timestampB - timestampA;
       });
       
-      const latestTimestamp = new Date(this.latestOrder[0].created_at).getTime(); // Get the timestamp of the latest order
+      const latestTimestamp = new Date(this.latestOrder[0].created_at).getTime(); 
+      this.created_at = this.latestOrder[0].created_at;
+      
+
       this.amountForLatestOrder=0;
       this.latestOrder = this.Orders.data.filter((order: any) => {
         const timestamp = new Date(order.created_at).getTime();
@@ -76,6 +84,7 @@ export class DisplayOrdersComponent {
       });}
     });      
     console.log(this.latestOrder);
+
       console.log(this.Orders.data);
 
         this.imagePaths=  {
