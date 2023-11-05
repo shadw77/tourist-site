@@ -38,6 +38,18 @@ export class HotelDetailsComponent {
   }
   ngOnInit() {
     this.getId = this.activatedRoute.snapshot.paramMap.get('id');
+    this.hotelCrudService.getHotel(this.getId).subscribe(response=>{
+      console.log(response);
+    this.hotelForm.patchValue({
+      name: response.data.name,
+      government: response.data.government,
+      description: response.data.description,
+      street: response.data.street,
+      thumbnail: response.data.thumbnail,
+      images: response.data.images,
+      
+    });  
+  });
   }
 
   onSubmit() {

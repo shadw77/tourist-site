@@ -28,6 +28,8 @@
             <th scope="col">Street</th>
             <th scope="col">Government</th>
             <th scope="col">Description</th>
+            <th scope="col">cost</th>
+            <th scope="col">Discount</th>
             <th scope="col">Thumbnail</th>
             <th scope="col">Creator Id</th>
             <th scope="col">Action</th>
@@ -38,8 +40,10 @@
             <th scope="row">{{ hotel.id }}</th>
             <td>{{ hotel.name }}</td>
             <td>{{ hotel.street }}</td>
-            <td>{{ hotel.description }}</td>
             <td>{{ hotel.government }}</td>
+            <td>{{ hotel.description }}</td>
+            <td>{{ hotel.cost }}</td>
+            <td>{{ hotel.discount }}</td>
             <td>
               <img
                 src="{{ imagePath }}{{ hotel.thumbnail }}"

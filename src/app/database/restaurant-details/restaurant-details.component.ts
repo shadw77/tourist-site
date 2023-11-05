@@ -22,7 +22,11 @@ export class RestaurantDetailsComponent {
     private activatedRoute:ActivatedRoute,
     private ngZone:NgZone,
     private restaurantCrudService: RestaurantCrudService 
-  ){    
+  ){   
+    
+    
+
+    
     this.restaurantForm = this.formBuilder.group({
       id: [''],
       name: ['', [Validators.required, Validators.maxLength(255)]],
@@ -42,6 +46,23 @@ export class RestaurantDetailsComponent {
   }
     ngOnInit() {
       this.getId = this.activatedRoute.snapshot.paramMap.get('id');
+      this.restaurantCrudService.getRestaurant(this.getId).subscribe(response=>{
+        console.log(response);
+      this.restaurantForm.patchValue({
+        name: response.data.name,
+        government: response.data.government,
+        rating: response.data.rating,
+        email: response.data.email,
+        street: response.data.street,
+        description: response.data.description,
+        phone: response.data.phone,
+        cost: response.data.cost,
+        discount: response.data.discount,
+        thumbnail: response.data.thumbnail,
+        images: response.data.images,
+        
+      });  
+    });
       this.fetchRestaurantData(this.getId);
     }
   

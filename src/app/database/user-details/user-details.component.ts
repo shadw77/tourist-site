@@ -22,7 +22,7 @@ export class UserDetailsComponent {
   ){    
     this.getId = this.activatedRoute.snapshot.paramMap.get('id');
     this.userCrudService.getUser(this.getId).subscribe(res=>{
-      console.log(res['user']['id']);
+      
 
       this.updateForm.setValue({
       id:res['data']['id'],

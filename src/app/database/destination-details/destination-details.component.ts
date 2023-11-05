@@ -38,6 +38,18 @@ selectedImages: File[] | any = null;;
   }
   ngOnInit() {
     this.getId = this.activatedRoute.snapshot.paramMap.get('id');
+    this.destinationCrudService.getDestination(this.getId).subscribe(response=>{
+      console.log(response);
+    this.destinationForm.patchValue({
+      name: response.destination.name,
+      rating: response.destination.rating,
+      description: response.destination.description,
+      thumbnail: response.destination.thumbnail,
+      creator_id: response.destination.creator_id,
+      images: response.destination.images,
+      
+    });  
+  });
          this.fetchDestinationData(this.getId);
         }
       
