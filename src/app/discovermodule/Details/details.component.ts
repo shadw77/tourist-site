@@ -1,6 +1,10 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router, NavigationEnd } from '@angular/router';
+import { HandleapiService } from 'src/app/Services/handleapi.service';
+
+
+declare var google: any;
 
 @Component({
   selector: 'app-details',
@@ -9,56 +13,51 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class DetailsComponent {
   detailsdata:any;
-
+  comment:any;
+  /*
+  latitudeElement?: ElementRef;
+  longitudeElement?: ElementRef;
+  @ViewChild('latitude', { static: true }) set latitude(element: ElementRef) {
+    this.latitudeElement = element;
+  }
+  @ViewChild('longitude', { static: true }) set longitude(element: ElementRef) {
+    this.longitudeElement = element;
+  }*/
   
   constructor(private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private handle:HandleapiService) { }
 
 
   ngOnInit() {
-    this.route.paramMap.subscribe((params) => {
-      console.log(params);
-      this.detailsdata= params;
-      console.log(this.detailsdata);
-    });
+    const state = history.state;
+    //console.log(state);
+    if (state) {
+      this.detailsdata = state.data; 
+      //console.log(this.detailsdata);
+    }
+    //this.initAutocomplete();
+
   } 
-  /*
-  npm install @types/googlemaps --save-dev
 
-  @ViewChild('mapElement', { static: false }) mapElement: ElementRef;
-  map: google.maps.Map;
-
-
-
-     ngAfterViewInit() {
-      this.initializeMap();
-    }
+  sendReview(){
     
-    
-  
-    initializeMap() {
-      this.map = new google.maps.Map(this.mapElement.nativeElement, {
-        center: { lat: -34.397, lng: 150.644 },
-        zoom: 8
-      });
-    }
-  
-    showAddressOnMap(address: string) {
-      const geocoder = new google.maps.Geocoder();
-      geocoder.geocode({ address: address }, (results, status) => {
-        if (status === 'OK') {
-          this.map.setCenter(results[0].geometry.location);
-          new google.maps.Marker({
-            map: this.map,
-            position: results[0].geometry.location
-          });
-        } else {
-          alert('Geocode was not successful for the following reason: ' + status);
-        }
-      });
-    }
+    //console.log(this.userId);
 
-  }*/
-  
+    console.log(this.comment);
+    this.handle.storeReview(this.detailsdata,this.comment).subscribe({
+      next:(next)=>{
+        console.log(next);
+      },
+      error:(error) => {
+        console.error('Error fetching reviews:', error);
+      },
+      complete:()=>{
+      }
+    });  
+    ;
+  }
+
+
+
 }
-

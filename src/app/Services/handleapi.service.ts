@@ -8,6 +8,11 @@ interface logoutResponse {
   status: number;
   mssg: string;
 }
+interface Response {
+  status: number;
+  mssg: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -70,9 +75,27 @@ export class HandleapiService {
   /*end function that get our governments*/
 
 
+  /*start function that store review*/
+   storeReview(object:any,review:any):Observable<any>{
+    const data = {
+      object: object,
+      review: review
+    };
+    console.log(data);
+    return this.httpclient.post<Response>(`${this.apiUrl}/review`,data).pipe(
+      tap(response => {
+        if(response.status == 200){
+          console.log(response);
+
+        }
+      }));
+  }
+  /*end function that store review*/
+
+
   /*start function that test retrieve data under jwt token*/
   getTestData():Observable<any>{
-    return this.httpclient.get<logoutResponse>(`${this.apiUrl}/get-test-data`, this.httpOptions ).pipe(
+    return this.httpclient.get<logoutResponse>(`${this.apiUrl}/get-test-data` ).pipe(
       tap(response => {
         //console.log(this.httpOptions);
         if(response.status == 200){

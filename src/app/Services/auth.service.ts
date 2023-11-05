@@ -88,6 +88,7 @@ export class AuthService {
     localStorage.setItem("api_token", api_token);
     localStorage.setItem("role", role);
     localStorage.setItem("government", government);
+    //localStorage.setItem("userId", id);
     localStorage.setItem("userData", JSON.stringify(userData));
   }
 
