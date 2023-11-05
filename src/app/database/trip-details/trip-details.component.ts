@@ -41,6 +41,7 @@ export class TripDetailsComponent {
     this.updateForm.patchValue({
       name: response.data.name,
       government: response.data.government,
+      rating: response.data.rating,
       duration: response.data.duration,
       cost: response.data.cost,
       description: response.data.description,
@@ -57,10 +58,10 @@ export class TripDetailsComponent {
     const formData = new FormData();
     formData.append('name', this.updateForm.value.name);
     formData.append('government', this.updateForm.value.government);
+    formData.append('rating', this.updateForm.value.rating);
     formData.append('duration', this.updateForm.value.duration);
     formData.append('cost', this.updateForm.value.cost);
     formData.append('description', this.updateForm.value.description);
-    // formData.append('rating', this.updateForm.value.rating);
     // formData.append('creator_id', this.updateForm.value.creator_id);
 
     formData.append('thumbnail', this.selectedImage);

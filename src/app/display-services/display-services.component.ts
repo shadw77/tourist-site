@@ -18,6 +18,7 @@ export class DisplayServicesComponent {
   Trips: any=[];
   Restaurents: any=[];
   Services: any=[];
+  imagePaths:any;
 
   data : any;
   constructor(private activatedRoute: ActivatedRoute,private route: ActivatedRoute,
@@ -27,6 +28,14 @@ export class DisplayServicesComponent {
     private hotelCrudService:HotelCrudService,
     private searchDataService: SearchDataService){}
   ngOnInit():void{
+
+    this.imagePaths=  {
+      Hotel: 'http://127.0.0.1:8000/images/Hotel_images/thumbnails/',
+      Restaurant: 'http://127.0.0.1:8000/images/Restaurant_images/thumbnails/',
+      Trip: 'http://127.0.0.1:8000/images/trip_images/thumbnails/',
+      Destination: 'http://127.0.0.1:8000/images/destination_images/thumbnails/'
+    };
+
 
     this.route.paramMap.subscribe((params) => {
       this.data = params.get('data');
@@ -51,6 +60,7 @@ export class DisplayServicesComponent {
           this.restaurantCrudService.getRestaurants().toPromise()
         ]).then(([destinations, trips, restaurants, hotels]) => {
           this.Destinations = destinations;
+          this.Destinations = this.Destinations['destinations']
           this.Trips = trips; 
           this.Trips = this.Trips['data'];
           this.Hotels = hotels; 
@@ -61,58 +71,5 @@ export class DisplayServicesComponent {
         });
       }
     });
-
-    
-//     this.route.paramMap.subscribe((params) => {
-//       this.data = params.get('data');
-//       if (this.data) {
-//         this.searchDataService.searchDestinations(this.data).then((response) => {
-//           this.Destinations = response;
-    
-//           this.searchDataService.searchTrips(this.data).then((response) => {
-//             this.Trips = response;
-//           });
-    
-//           this.searchDataService.searchRestaurants(this.data).then((response) => {
-//             this.Restaurents = response;
-//           });        this.Services = [...this.Destinations, ...this.Trips, ...this.Restaurents];
-
-//         });            
-
-//       } else {
-//         this.destinationCrudService.getDestinations().subscribe((res) => {
-//           this.Destinations = res;
-    
-//           this.tripCrudService.getTrips().subscribe((res) => {
-//             this.Trips = res;
-//             this.Trips = this.Trips['data'];
-    
-//           });
-    
-//           this.restaurantCrudService.getRestaurants().subscribe((res) => {
-//             this.Restaurents = res;
-//             this.Restaurents = this.Restaurents['data'];
-//           });            
-//          this.Services = [...this.Destinations, ...this.Trips, ...this.Restaurents];
-
-//         });         
-
-//       }
-
-//     });
-// console.log("booooom", this.Services);
-
-
-
-
-
-
-
-
-
-
-
-
-
    }
 }

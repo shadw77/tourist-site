@@ -1,8 +1,8 @@
-<div class="card my-3 " style="width: 18rem; height: 25rem;">
-    <img src="{{trip.thumbnail}}" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title fs-6 text-danger">{{trip.name}}</h5>
-      <p class="card-text">{{trip.description | slice:0:100 }}... </p>
-      <a href="#" class="btn btn-primary">See More</a>
+<div class="card  my-5" style=" height: 25rem;">
+    <img src="{{trip.thumbnail}}" class="card-img-top " alt="...">
+    <div class="card-body"style="height: 80px;">
+      <h5 class="card-title fs-6 text-danger name fw-bold " >{{trip.name | slice:0:60}}</h5>
+      <p class="card-text text-mmuted">{{trip.description | slice:0:60 }}... </p>
+      <a href="# " class="text-decoration-underline text-dark" style="color: orange !important;" >See More</a>
     </div>
 </div>

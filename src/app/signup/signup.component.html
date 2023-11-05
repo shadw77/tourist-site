@@ -1,0 +1,162 @@
+<section class="bg-image"
+  style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+
+              <!--start register form-->
+              <form [formGroup]="userregister"  (ngSubmit)="submitteddata(userregister)" class="userregister p-5 border border-success">
+                
+                <!--start message that come from backend-->
+                <div *ngIf="successMessage!.length >0 "  class="alert alert-success">
+                    <small >{{successMessage}}</small><br>
+                </div>
+                <!--start message that come from backend-->
+
+                
+                <!--start email input-->
+                <div class="form-outline mb-4">
+                  <input type="email" id="form3Example3cg" class="form-control form-control-lg" name="email" formControlName="email" required placeholder="Email"/>
+                  <div class="alert alert-danger" [hidden]="registeremail?.valid || registeremail?.untouched">
+                    <small *ngIf="registeremail?.errors?.['required']">email is required</small>
+                    <small *ngIf="registeremail?.errors?.['email']">email is Not Valid</small>
+                    </div>
+                    <div *ngIf="ErrorEmailBackend?.length >0 "  class="alert alert-danger">
+                        <ng-container *ngFor="let error of ErrorEmailBackend;let i=index">
+                            <small >{{error}}</small><br>
+                        </ng-container>
+                    </div>
+                </div>
+                <!--end email input-->
+                
+                
+                <div class="row">
+
+                  <!--start username input-->
+                  <div class="col-md-6">
+                    <div class="form-outline mb-4">
+                      <input type="text" id="form3Example1cg" class="form-control form-control-lg" name="name" formControlName="name" required placeholder="Name"/>
+                      <div class="alert alert-danger" [hidden]="registername?.valid || registername?.untouched">
+                          <small *ngIf="registername?.errors?.['required']">username is required</small>
+                        </div>
+                        <div *ngIf="ErrorNameBackend?.length >0 "  class="alert alert-danger">
+                            <ng-container *ngFor="let error of ErrorNameBackend;let i=index">
+                                <small >{{error}}</small><br>
+                            </ng-container>
+                        </div>
+                    </div>
+                  </div>
+                  <!--end username input-->
+
+                  <!--start Mobile input-->
+                    <div class="col-md-6 ">
+                      <div class="form-outline mb-4">
+                        <input type="text" id="form3Example1cg" class="form-control form-control-lg" name="mobile" formControlName="mobile" required  placeholder="Mobile"/>
+                        <div class="alert alert-danger" [hidden]="registermobile?.valid || registermobile?.untouched">
+                            <small *ngIf="registermobile?.errors?.['required']"> Mobile is required </small>
+                            <small *ngIf="registermobile?.errors?.['maxlength']">Mobile Max Number Is 11</small>
+                          </div>
+                          <div *ngIf="ErrorMobileBackend?.length >0 "  class="alert alert-danger">
+                              <ng-container *ngFor="let error of ErrorMobileBackend;let i=index">
+                                  <small >{{error}}</small><br>
+                              </ng-container>
+                          </div>
+                      </div>
+                    </div>
+                  <!--end Mobile input-->
+                </div>  
+
+
+                <div class="row">
+
+                  <!--start street input-->
+                  <div class="col-md-6">
+                    <div class="form-outline mb-4">
+                      <input type="text" id="form3Example1cg" class="form-control form-control-lg" name="street" formControlName="street" required  placeholder="Street"/>
+                      <div class="alert alert-danger" [hidden]="registerstreet?.valid || registerstreet?.untouched">
+                          <small *ngIf="registerstreet?.errors?.['required']">Street is required</small>
+                          <small *ngIf="registerstreet?.errors?.['maxlength']">Street Max Number Is 15</small>
+
+                        </div>
+                        <div *ngIf="ErrorstreetBackend?.length >0 "  class="alert alert-danger">
+                            <ng-container *ngFor="let error of ErrorMobileBackend;let i=index">
+                                <small >{{error}}</small><br>
+                            </ng-container>
+                        </div>
+                    </div>
+                  </div>
+                  <!--end street input-->
+
+                  <!--start government input-->
+                  <div class="col-md-6">
+                      <div class="mb-3">
+                        <select class="form-select" id="government" name="government" formControlName="government" aria-label="Default select example">
+                            <ng-container *ngFor="let government of governments;let i=index">
+                                <option value="{{government}}">{{government}}</option>
+                            </ng-container>
+                        </select>
+                        <div class="alert alert-danger" [hidden]="registergovernment?.valid || registergovernment?.untouched">
+                            <small *ngIf="registergovernment?.errors?.['required']">Government is required</small>
+                        </div>
+                      </div>
+                  </div>
+                  <!--end government input-->
+
+
+                </div>
+
+                
+
+
+                <!--start confirm password input-->
+                <div class="form-outline mb-4">
+                  <input type="password" id="form3Example4cg" class="form-control form-control-lg" formControlName="password" required name="password" placeholder="Password"/>
+                  <div class="alert alert-danger" [hidden]="registerpassword?.valid || registerpassword?.untouched">
+                    <small *ngIf="registerpassword?.errors?.['required']">password is required</small> <br>
+                    <small *ngIf="registerpassword?.errors?.['maxlength']">password max lenght  is 9 characters</small> <br>
+                </div>
+                <div *ngIf="ErrorPasswordBackend?.length >0 "  class="alert alert-danger">
+                    <ng-container *ngFor="let error of ErrorPasswordBackend;let i=index">
+                        <small >{{error}}</small><br>
+                    </ng-container>
+                </div>
+                </div>
+                <!--end confirm password input-->
+
+                <!--start confirm password input-->
+                <div class="form-outline mb-4">
+                  <input type="password" id="form3Example4cdg" class="form-control form-control-lg" name="confirmpassword" formControlName="confirmpassword"  placeholder="Confirm Pasword"/>
+                    <div class="alert alert-danger" [hidden]="registerconfirmpassword?.valid || registerconfirmpassword?.untouched">
+                        <small *ngIf="registerconfirmpassword?.errors?.['required'] && registerconfirmpassword?.touched">confirmpassword is required</small> <br>
+                        <small *ngIf="registerconfirmpassword?.errors?.['maxlength']">password max lenght  is 9 characters</small> 
+                    </div>
+                    <div class="alert alert-danger" *ngIf="userregister?.errors?.['passwordnotidenticalconfirm'] && registerconfirmpassword?.touched">
+                        {{userregister.errors?.['passwordnotidenticalconfirm']}}
+                    </div>
+                </div>
+                <!--end confirm password input-->
+
+
+                <div class="d-flex justify-content-center">
+                  <button type="submit"
+                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
+                </div>
+
+                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a routerLink="/login"
+                    class="fw-bold text-body"><u>Login here</u></a></p>
+
+              </form>
+                <!--end register form-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  

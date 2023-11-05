@@ -48,7 +48,10 @@ export class RestaurantCrudService {
     .pipe(catchError(this.handleError));
   }
 
-
+  Restaurants(page:any){
+    let API_URL = `http://localhost:8000/api/restaurants?page=${page}`;
+    return this.httpClient.get( API_URL);
+  }
   handleError(error: HttpErrorResponse){
     let errorMessage = '';
     if(error.error instanceof ErrorEvent){

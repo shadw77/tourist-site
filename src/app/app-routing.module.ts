@@ -43,6 +43,13 @@ import { authGuard } from './Guard/auth.guard';
 import { adminguard } from './Guard/admin.guard';
 import { adminOrVendorGuard } from './Guard/admin-or-vendor.guard';
 import { OffersComponent } from './database/offers/offers.component';
+import { DisplayOrdersComponent } from './display-orders/display-orders.component';
+import { SignComponent } from './Sign/sign.component';
+import { SignupComponent } from './signup/signup.component';
+import { RequestResetComponent } from './password/request-reset/request-reset.component';
+import { ResponseResetComponent } from './password/response-reset/response-reset.component';
+import { EditUserOrderComponent } from './edit-user-order/edit-user-order.component';
+
 
 const routes: Routes = [
   {
@@ -53,6 +60,25 @@ const routes: Routes = [
       path: '', 
     component: HomeComponent 
   },
+   
+  {
+    path:'login', 
+    component:SignComponent
+  },  
+  {
+    path:'register', 
+    component:SignupComponent
+  },
+
+  {
+    path:'request-password-reset', 
+    component:RequestResetComponent
+  },
+  {
+    path:'response-password-reset', 
+    component:ResponseResetComponent
+  },
+  
     {
       path:'hotels',
       component:DisplayHotelsComponent,
@@ -101,10 +127,19 @@ const routes: Routes = [
       path:'cart',
       component:CartComponent,
     },
+    {
+      path:'orders',
+      component:DisplayOrdersComponent,
+    },
+    {
+      path: 'edit-order/:id',
+      component: EditUserOrderComponent,
+
+    },
      {
       path:'discover',loadChildren: () => import('src/app/discovermodule/discovermodule.module')
       .then(m=>m.DiscovermoduleModule),
-      //canActivate:[authGuard,adminOrVendorGuard]
+      //canActivate:[authGuard]
     },
     
     {
@@ -375,6 +410,8 @@ const routes: Routes = [
       },
     ]
   },
+ 
+  
   {
     path: '**',
     redirectTo: '',

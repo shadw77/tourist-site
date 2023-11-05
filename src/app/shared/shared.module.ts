@@ -6,6 +6,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule } from '@angular/router';
 
 import { ComponentsModule } from '../components/components.module';
+import { FormGroup, FormsModule } from '@angular/forms';
 
 
 
@@ -15,7 +16,9 @@ import { ComponentsModule } from '../components/components.module';
     CommonModule,
     ComponentsModule,
     FontAwesomeModule,
-    RouterModule
+    RouterModule,
+    FormsModule,
+
   ],
   exports : [
     NavbarComponent,

@@ -1,17 +1,31 @@
 <app-main-search></app-main-search>
-<div class="card mb-5" style="max-width: 840px;">
-    <div class="row g-0 ">
-        <div *ngFor="let item of Destinations" class="col-md-12">
-            <div class="row g-0 ">
-                <div class="col-md-4">
-                    <img src="{{item.thumbnail}}" class="m-3  img-fluid rounded-start" alt="...">
-                </div>
-                <div class="col-md-8 p-4">
-                    <app-item [item]="item"></app-item>
-                </div>
-                <hr>
+<div class="offers">
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <p class="lead fs-3 fw-bold" style="text-transform: capitalize;">The best offers with destinations</p>
             </div>
         </div>
+        <div class="row offers_items">
 
+            <div class="col-lg-6 offers_col" *ngFor="let item of Destinations" >
+                <div class="offers_item">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="offers_image_container ">
+                                <img src="{{ imagePath }}{{ item.thumbnail }}" class="  img-fluid rounded-start" style="height: 18rem;" alt="..."/>
+                                <div class="offer_name"><a href="#">{{item.name}}</a></div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <app-item [item]="item"></app-item> 
+                            <div class="offers_link fs-4">
+                                <a  class="text-decoration-underline" style="cursor: pointer;">See More Details</a>
+                            </div>
+                        </div>                          
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

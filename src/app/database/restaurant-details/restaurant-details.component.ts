@@ -1,7 +1,7 @@
 import { Component ,NgZone} from '@angular/core';
 import { Router , ActivatedRoute} from '@angular/router';
 import { RestaurantCrudService } from 'src/app/Services/restaurant-crud.service';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder,Validators } from '@angular/forms';
 
 
 @Component({
@@ -23,26 +23,36 @@ export class RestaurantDetailsComponent {
     private ngZone:NgZone,
     private restaurantCrudService: RestaurantCrudService 
   ){    
-
     this.restaurantForm = this.formBuilder.group({
-      id:[''],
-      name:[''],
-      email:[''],
-      street:[''],
-      phone:[''],
-      government:[''],
-      description:[''],
-      rating:[''],
-      thumbnail:[''],
-      discount:[''],
-       creator_id:[''],
-      images:[''],
-      reviews:[''],
-
-    })
+      id: [''],
+      name: ['', [Validators.required, Validators.maxLength(255)]],
+      email: ['', [Validators.required, Validators.email]],
+      street: ['', [Validators.required, Validators.maxLength(255)]],
+      phone: ['', [Validators.required]],
+      government: ['', [Validators.required, Validators.maxLength(255)]],
+      description: ['', [Validators.required, Validators.minLength(10)]],
+      rating: ['', [Validators.required]],
+      thumbnail: [''],
+      discount: ['', [Validators.required]],
+      creator_id: ['', [Validators.required]],
+      images: [''],
+      reviews: [''],
+    });
   }
     ngOnInit() {
       this.getId = this.activatedRoute.snapshot.paramMap.get('id');
+      this.fetchRestaurantData(this.getId);
+    }
+  
+    fetchRestaurantData(id: string) {
+      this.restaurantCrudService.getRestaurant(id).subscribe(
+        (data) => {
+          this.restaurantForm.patchValue(data);
+        },
+        (error) => {
+          console.error('Error fetching restaurant data:', error);
+        }
+      );
     }
   
   onSubmit():any{
@@ -97,7 +107,14 @@ onImagesChange(event: Event) {
 }
 
 
+markFormGroupTouched(formGroup: FormGroup) {
+  Object.values(formGroup.controls).forEach((control) => {
+    control.markAsTouched();
+
+    if (control instanceof FormGroup) {
+      this.markFormGroupTouched(control);
+    }
+  });
 }
-
-
+}
 
