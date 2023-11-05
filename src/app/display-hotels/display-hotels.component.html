@@ -1,10 +1,29 @@
 <app-main-search></app-main-search>
 <div class="offers">
     <div class="container">
+
+
         <div class="row">
             <div class="col text-center">
                 <p class="lead fs-3 fw-bold" style="text-transform: capitalize;">The best offers with hotels</p>
             </div>
+            <form class="col d-flex justify-content-center" role="search" enctype="multipart/form-data" (ngSubmit)="search()">
+                <div class="input-group mb-3 w-50 ">
+                  <span class="input-group-text" id="basic-addon1">
+                    <fa-icon [icon]="faSearch"></fa-icon>
+                  </span>
+                  <input
+                    type="date"
+                    class="form-control py-3"
+                    placeholder="Search"
+                    (input)="getProductSearch($event)"
+                  />
+                </div>
+              </form>
+              <!-- Include a time slot input -->
+<!-- <input [(ngModel)]="searchWord" (input)="getProductSearch($event)" placeholder="Search Hotels"> -->
+<input [(ngModel)]="timeSlot" placeholder="Select Time Slot" (change)="search()">
+
         </div>
         <div class="row offers_items">
 

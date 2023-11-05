@@ -52,7 +52,6 @@ export class DisplayOrdersComponent {
       
       const latestTimestamp = new Date(this.latestOrder[0].created_at).getTime(); 
       this.created_at = this.latestOrder[0].created_at;
-      console.log('vvvvvv', this.created_at);
       
 
       this.amountForLatestOrder=0;

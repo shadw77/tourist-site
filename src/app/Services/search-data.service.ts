@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse, HttpHeaderResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaderResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Trip } from '../interface/trip';
 import { Observable, catchError, map, throwError } from 'rxjs';
@@ -81,4 +81,22 @@ export class SearchDataService {
     
     return response; 
     }
+
+    searchHotelsByTime(keyword: string, timeSlot: string) {
+      const response = new Promise((resolve) => {
+          const apiUrl = 'http://localhost:8000/api/searchHotelByTime';
+          const params = new HttpParams().set('search_service', keyword).set('time_slot', timeSlot);  
+          this.http.get(apiUrl, { params }).subscribe(
+              (data) => {
+                  resolve(data);
+              },
+              (err) => {
+                  console.log(err);
+              }
+          );
+      });
+  
+      return response;
+  }
+  
 }
