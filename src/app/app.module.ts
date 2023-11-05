@@ -40,6 +40,7 @@ import { SignupComponent } from './signup/signup.component';
 import { RequestResetComponent } from './password/request-reset/request-reset.component';
 import { ResponseResetComponent } from './password/response-reset/response-reset.component';
 import { DisplayOrdersComponent } from './display-orders/display-orders.component';
+import { EditUserOrderComponent } from './edit-user-order/edit-user-order.component';
 
 @NgModule({
   declarations: [AppComponent, MainSearchComponent, TopDestinationComponent, ImgCardComponent, HomeComponent, ExploreComponent, DescCardComponent, ItemComponent, DisplayRestaurantComponent, DisplayHotelsComponent  ,  AboutUsComponent,
@@ -48,7 +49,7 @@ import { DisplayOrdersComponent } from './display-orders/display-orders.componen
     DashboardLayoutComponent,
     DisplayTripsComponent,
     DisplayDestinationsComponent,
-    DisplayServicesComponent,SignComponent,SignupComponent,RequestResetComponent,ResponseResetComponent,DisplayOrdersComponent
+    DisplayServicesComponent,SignComponent,SignupComponent,RequestResetComponent,ResponseResetComponent,DisplayOrdersComponent, EditUserOrderComponent
     ],
   imports: [
     BrowserModule,

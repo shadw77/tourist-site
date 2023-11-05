@@ -37,7 +37,7 @@ export class DisplayOrdersComponent {
 
     this.userOrderCrudService.getAllUserOrders(this.userData.id).subscribe(res => {        
       this.Orders = res;
-      this.latestOrder = Object.values(res); // Convert the object values to an array      
+      this.latestOrder = Object.values(res);     
 
       this.latestOrder = this.latestOrder[0].sort((a: any, b: any) => {
         const timestampA = new Date(a.created_at).getTime();
@@ -45,7 +45,7 @@ export class DisplayOrdersComponent {
         return timestampB - timestampA;
       });
       
-      const latestTimestamp = new Date(this.latestOrder[0].created_at).getTime(); // Get the timestamp of the latest order
+      const latestTimestamp = new Date(this.latestOrder[0].created_at).getTime(); 
       this.amountForLatestOrder=0;
       this.latestOrder = this.Orders.data.filter((order: any) => {
         const timestamp = new Date(order.created_at).getTime();

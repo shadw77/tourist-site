@@ -12,7 +12,7 @@
               <p class="small text-muted mb-0">Receipt Voucher : 1KAU9-84UIL</p>
             </div>         
 
-            <div class="card shadow-0 border mb-4" *ngFor="let order of latestOrder ">
+            <div class="card shadow-0 border mb-4" *ngFor="let order of latestOrder ;let i = index">
               <div class="card-body">         
                 <div class="row">
                   <div class="col-md-2">     
@@ -23,7 +23,7 @@
                     <p class="text-muted mb-0">{{order.service_name}}</p>
                   </div>
                   <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                    <p class="text-muted mb-0 small">Qty: 1</p>
+                    <p class="text-muted mb-0 small">Qty: {{order.quantity}}</p>
                   </div>
                   <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
                     <p class="text-muted mb-0 small">{{order.amount}} EGP</p>
@@ -31,6 +31,15 @@
                   <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
                     <p class="text-muted mb-0">{{ order.created_at | date:'medium' }}</p>
                   </div>
+                  <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                    <a  [routerLink]="['/edit-order/' + order.id ]"
+                  routerLinkActive="active-link" class="text-decoration-none text-decoration-underline text-warning"
+                    >Edit Order</a>               
+                    <a (click)="delete(order.id, i)" class="text-decoration-none text-decoration-underline text-danger" style="cursor: pointer;">
+                      Delete Order</a>
+
+                  </div>
+             
                 </div>
                 <hr class="mb-4" style="background-color: #e0e0e0; opacity: 1;">
                 <div class="row d-flex align-items-center">
@@ -106,7 +115,7 @@
                       <p class="text-muted mb-0">{{order.service_name}}</p>
                     </div>
                     <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                      <p class="text-muted mb-0 small">Qty: 1</p>
+                      <p class="text-muted mb-0 small">Qty: {{order.quantity}}</p>
                     </div>
                     <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
                       <p class="text-muted mb-0 small">{{order.amount}} EGP</p>

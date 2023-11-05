@@ -48,6 +48,7 @@ import { SignComponent } from './Sign/sign.component';
 import { SignupComponent } from './signup/signup.component';
 import { RequestResetComponent } from './password/request-reset/request-reset.component';
 import { ResponseResetComponent } from './password/response-reset/response-reset.component';
+import { EditUserOrderComponent } from './edit-user-order/edit-user-order.component';
 
 
 const routes: Routes = [
@@ -129,6 +130,11 @@ const routes: Routes = [
     {
       path:'orders',
       component:DisplayOrdersComponent,
+    },
+    {
+      path: 'edit-order/:id',
+      component: EditUserOrderComponent,
+
     },
      {
       path:'discover',loadChildren: () => import('src/app/discovermodule/discovermodule.module')
