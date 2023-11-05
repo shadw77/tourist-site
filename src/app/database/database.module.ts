@@ -24,6 +24,7 @@ import { ShowRestaurantComponent } from './show-restaurant/show-restaurant.compo
 import { ShowDestinationComponent } from './show-destination/show-destination.component';
 import { ShowTripComponent } from './show-trip/show-trip.component';
 import { OffersComponent } from './offers/offers.component';
+import { NotificationOrderComponent } from './notification-order/notification-order.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { OffersComponent } from './offers/offers.component';
     ShowRestaurantComponent,
     ShowDestinationComponent,
     OffersComponent,
+    NotificationOrderComponent,
 
 
   ],
