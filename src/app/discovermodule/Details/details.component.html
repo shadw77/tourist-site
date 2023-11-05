@@ -1,8 +1,3 @@
-  {{detailsdata | json}}
-  <br>
-  <br>
-  
-  {{detailsdata.reviews | json}}
 
   <main role="main" class="container mt-5">
 
@@ -31,23 +26,18 @@
         </div>
       </div>
     </div>
-
   </main>
-
-<br>
-<br>
-<br>
 
 <section style="background-color: #f7f6f6;">
   <div class=" my-5 py-5 text-dark">
     <div class="row d-flex justify-content-center">
       <div class="col-md-12 col-lg-10 col-xl-8">
         <div class="d-flex justify-content-between align-items-center mb-4">
-          <h4 class="text-dark mb-0">{{detailsdata.reviews.length}} comments </h4>
+          <h4 class="text-dark mb-0">{{postedComment.length}} comments </h4>
           <app-review-stars [rating]="detailsdata.rating"></app-review-stars>
         </div>
 
-        <ng-container *ngFor="let review of detailsdata.reviews">
+        <ng-container *ngFor="let review of postedComment">
           <div class="card mb-3">
             <div class="card-body">
               <div class="d-flex flex-start">
@@ -60,7 +50,7 @@
                       {{review.user.name}}
                       <span class="text-dark ms-2">{{review.review}}</span>
                     </h6>
-                    <p class="mb-0">{{review.created_at  | date: 'mediumDate'}}</p>
+                    <p class="mb-0">{{review.created_at  | date: 'medium'}}</p>
                   </div>
                 </div>
               </div>
@@ -82,7 +72,6 @@
           </div>
           <div class="float-end mt-2 pt-1">
             <button type="button" class="btn btn-primary btn-sm" (click)="sendReview()">Post comment</button>
-            <button type="button" class="btn btn-outline-primary btn-sm">Cancel</button>
           </div>
         </div>
 

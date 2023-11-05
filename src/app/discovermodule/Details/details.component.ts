@@ -13,7 +13,11 @@ declare var google: any;
 })
 export class DetailsComponent {
   detailsdata:any;
+  postedComment:any;
   comment:any;
+  userId=localStorage.getItem("userId");
+
+
   /*
   latitudeElement?: ElementRef;
   longitudeElement?: ElementRef;
@@ -30,24 +34,43 @@ export class DetailsComponent {
 
 
   ngOnInit() {
-    const state = history.state;
     //console.log(state);
-    if (state) {
-      this.detailsdata = state.data; 
+    if (history.state) {
+      this.detailsdata = history.state.data; 
       //console.log(this.detailsdata);
     }
     //this.initAutocomplete();
 
+    this.handle.getReviewById(this.detailsdata).subscribe({
+      next:(next)=>{
+        //console.log(next);
+        if(next.status == 200){
+          //console.log(next);
+          this.postedComment=next.reviews;
+         // console.log(this.postedComment);
+          //console.log(typeof this.postedComment);
+        }
+      },
+      error:(error) => {
+        console.error('Error fetching reviews:', error);
+      },
+      complete:()=>{
+      }
+    }); 
+
+
   } 
 
   sendReview(){
-    
     //console.log(this.userId);
-
-    console.log(this.comment);
-    this.handle.storeReview(this.detailsdata,this.comment).subscribe({
+    //console.log(this.comment);
+    this.handle.storeReview(this.detailsdata,this.comment,this.userId).subscribe({
       next:(next)=>{
-        console.log(next);
+        //console.log(next);
+        if(next.status == 200){
+          this.comment="";
+          this.postedComment.push(next.reviews);
+        }
       },
       error:(error) => {
         console.error('Error fetching reviews:', error);
@@ -55,7 +78,6 @@ export class DetailsComponent {
       complete:()=>{
       }
     });  
-    ;
   }
 
 

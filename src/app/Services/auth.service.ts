@@ -62,7 +62,7 @@ export class AuthService {
         if(response.status == 200){
           console.log(response);
           this.storeUserDataInLocalStorage(response.userdata.api_token,response.userdata.role,
-            response.userdata.government,response.userdata);
+            response.userdata.government,response.userdata.id,response.userdata);
         }
       }));
   }
@@ -77,18 +77,18 @@ export class AuthService {
         //console.log(response);
         if(response.status != 400){
           this.storeUserDataInLocalStorage(response.userdata.api_token,response.userdata.role,
-            response.userdata.government,response.userdata);
+            response.userdata.government,response.userdata.id,response.userdata);
         }
       }));
   }
   /*end register function that call api*/
 
   /*start function that store coming user data in localstorage*/
-  storeUserDataInLocalStorage(api_token:string,role:string,government:string,userData:any){
+  storeUserDataInLocalStorage(api_token:string,role:string,government:string,id:any,userData:any){
     localStorage.setItem("api_token", api_token);
     localStorage.setItem("role", role);
     localStorage.setItem("government", government);
-    //localStorage.setItem("userId", id);
+    localStorage.setItem("userId", id);
     localStorage.setItem("userData", JSON.stringify(userData));
   }
 

@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit{
         const userdata = response['original']['userdata'];
         console.log(userdata);
         //console.log(response);
-        this.auth.storeUserDataInLocalStorage(userdata.api_token,userdata.role,userdata.government,userdata);
+        this.auth.storeUserDataInLocalStorage(userdata.api_token,userdata.role,userdata.government,userdata.id,userdata);
       }
     });  
     /*end get user data that logged either from google or github and store it in localstorage*/

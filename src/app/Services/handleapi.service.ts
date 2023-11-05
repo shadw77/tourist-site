@@ -76,21 +76,36 @@ export class HandleapiService {
 
 
   /*start function that store review*/
-   storeReview(object:any,review:any):Observable<any>{
+   storeReview(object:any,review:any,userID:any):Observable<any>{
     const data = {
       object: object,
-      review: review
+      review: review,
+      userID:userID
     };
-    console.log(data);
+    //console.log(data);
     return this.httpclient.post<Response>(`${this.apiUrl}/review`,data).pipe(
       tap(response => {
         if(response.status == 200){
-          console.log(response);
-
+          //console.log(response);
         }
       }));
   }
   /*end function that store review*/
+
+
+  /*start function that get review by id*/ 
+  getReviewById(object:any):Observable<any>{
+
+    //console.log(object);
+    return this.httpclient.post<any>(`${this.apiUrl}/get-review`,object).pipe(
+      tap(response => {
+        if(response){
+          //console.log(response);
+        }
+      }));
+  }
+  /*end function that get review by id*/
+
 
 
   /*start function that test retrieve data under jwt token*/
