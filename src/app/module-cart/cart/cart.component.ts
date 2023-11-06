@@ -136,6 +136,7 @@ export class CartComponent {
             
             this.cartProducts = [];
             sessionStorage.removeItem('cartProducts');
+            sessionStorage.removeItem('time_slot');
             this.CounterService.set_Counter(0);
           },
           (error) => {

@@ -82,21 +82,46 @@ export class SearchDataService {
     return response; 
     }
 
-    searchHotelsByTime(keyword: string, timeSlot: string) {
-      const response = new Promise((resolve) => {
-          const apiUrl = 'http://localhost:8000/api/searchHotelByTime';
-          const params = new HttpParams().set('search_service', keyword).set('time_slot', timeSlot);  
-          this.http.get(apiUrl, { params }).subscribe(
-              (data) => {
-                  resolve(data);
-              },
-              (err) => {
-                  console.log(err);
-              }
-          );
-      });
+
+    searchHotelsByTime(keyword: string,endDate:string, timeSlot: string) {
+      const response  = new Promise(resolve => {
+        this.http.get('http://localhost:8000/api' + `/searchHotelByTime?search_service=${keyword}&&endDate=${endDate}&&time_slot=${timeSlot}`)
+        .subscribe(data=>{
+          resolve(data);
+        }, err=>{
+          console.log(err);
+          
+        });
+      });      
+      return response; 
+      }
+
+
+    // searchHotelsByTime(keyword: string, timeSlot: string): Observable<any> {
+    //   const apiUrl = 'http://localhost:8000/api';
+    //   const params = new HttpParams().set('search_service', keyword).set('time_slot', timeSlot);
+    //   const url = `${apiUrl}/searchHotelByTime`;
   
-      return response;
-  }
+    //   return this.http.get(url, { params });
+    // }
+
+  //   searchHotelsByTime(keyword: string, timeSlot: string) {
+  //     const response = new Promise((resolve) => {
+  //         const apiUrl = 'http://localhost:8000/api/searchHotelByTime';
+  //         const params = new HttpParams().set('search_service', keyword).set('time_slot', timeSlot);  
+  //         console.log('mmmmmmmmmmmm', apiUrl, { params });
+          
+  //         this.http.get(apiUrl, { params }).subscribe(
+  //             (data) => {
+  //                 resolve(data);
+  //             },
+  //             (err) => {
+  //                 console.log(err);
+  //             }
+  //         );
+  //     });
+  
+  //     return response;
+  // }
   
 }

@@ -9,6 +9,7 @@ import {CounterService} from 'src/app/Services/counter.service'
   styleUrls: ['./list-cards.component.css']
 })
 export class ListCardsComponent {
+  timeSlot=sessionStorage.getItem('time_slot');
   constructor(private productsService:HandleapiService ,private CounterService:CounterService,
     private router:Router,private cartItems:CartItemService){}
   products:any;
@@ -21,8 +22,8 @@ export class ListCardsComponent {
             this.counter=val;
         });
   }
-   redirectTo(item:any,count:number,type:any) {
-    this.cartItems.PushCartItems(item,count,type);
+   redirectTo(item:any,count:number,type:any, timeSlot:any) {
+    this.cartItems.PushCartItems(item,count,type, timeSlot);
     this.router.navigate(['cart'])
   } 
 }

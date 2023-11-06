@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import {CartItemService} from 'src/app/Services/cart-item.service'
 import {CounterService} from 'src/app/Services/counter.service'
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-display-trips',
   templateUrl: './display-trips.component.html',
@@ -16,6 +17,12 @@ export class DisplayTripsComponent {
   data : any;
   products:any;
   counter:number=0;
+  timeSlot=sessionStorage.getItem('time_slot');
+  searchWord: any;    //start date
+  endDate:any;
+  faSearch = faSearch;
+
+
   imagePath: string = 'http://127.0.0.1:8000/images/trip_images/thumbnails/';
 
   constructor(private CounterService:CounterService,
@@ -44,11 +51,43 @@ export class DisplayTripsComponent {
       this.counter=val;
   });
   }
-  redirectTo(item:any,count:number,type:any) {
-    this.cartItems.PushCartItems(item,count,type);
+  search() {    
+    if (this.timeSlot) {
+      sessionStorage.setItem('time_slot',this.timeSlot);
+    
+      // Handle the searchHotelsByTime method
+      this.searchDataService.searchHotelsByTime(this.searchWord,this.endDate, this.timeSlot).then((response) => {
+        this.data = response;
+        this.Trips = this.data;
+        this.Trips =this.Trips.data;
+    
+        console.log(this.data);
+      });
+    } else {
+      // Handle the searchHotels method
+      this.searchDataService.searchHotels(this.searchWord).then((response) => {
+        this.Trips = response;
+        this.Trips =this.Trips.data;
+        console.log('Searched Hotels:', this.Trips);
+      });
+    }
+    }
+  redirectTo(item:any,count:number,type:any,timeSlot:any) {
+    this.cartItems.PushCartItems(item,count,type,timeSlot);
     console.log(item);
     
     this.router.navigate(['cart'])
 
+  }
+  getStartDate(event: any){
+    this.searchWord = event.target.value;
+    console.log(this.searchWord);
+    
+  }
+  
+  getEndDate(event: any){
+    this.endDate = event.target.value;
+    console.log(this.endDate);
+    
   }
 }
