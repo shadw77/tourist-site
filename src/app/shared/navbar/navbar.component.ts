@@ -1,35 +1,45 @@
-import { Component , EventEmitter, OnInit, Output} from '@angular/core';
-import { RouterModule } from '@angular/router';
-import {CounterService} from 'src/app/Services/counter.service';
-import {AuthService} from '../../Services/auth.service';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../Services/auth.service';
+import { CounterService } from 'src/app/Services/counter.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-navbar",
   templateUrl: "./navbar.component.html",
   styleUrls: ["./navbar.component.css"],
 })
-export class NavbarComponent implements OnInit{
-  constructor(private CounterService:CounterService,
-    protected authService:AuthService){}
+export class NavbarComponent implements OnInit {
+  userData: any;
+  isSigned: boolean = false;
   counter: number = 0;
 
-
-  ngOnInit(){
-    this.CounterService.get_Counter().subscribe((val)=>this.counter=val);
-
+  constructor(
+    private CounterService: CounterService,
+    private router: Router,
+    protected authService: AuthService
+  ) {
+    this.userData = localStorage.getItem('userData');
+    this.isSigned = !!this.userData;
   }
 
- 
-  /*
-  this.authService.register().subscribe({
-    next:(next)=>{
+  ngOnInit() {
+    this.CounterService.get_Counter().subscribe((val)=>this.counter=val);
 
-      console.log(next);
-    },
-    error:(error) => {
-      console.error('Error fetching reviews:', error);
-    },
-    complete:()=>{}
-  });
-  */
+    this.authService.loginSuccessEvent.subscribe(() => {
+      this.userData = localStorage.getItem('userData');
+      this.isSigned = !!this.userData;
+    });
+  }
+
+  
+
+  logOut() {
+    this.authService.logout().subscribe(() => {
+      localStorage.clear(); 
+      this.isSigned = false; 
+      console.log('Logged out');
+      this.router.navigate(['/login']); 
+    });
+  }
 }
+

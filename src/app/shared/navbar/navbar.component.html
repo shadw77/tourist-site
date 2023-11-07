@@ -30,11 +30,6 @@
                     >Cart</a
                   >
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" routerLink="orders" routerLinkActive="active-link"
-                    >My Orders</a
-                  >
-                </li>
               
                 <li class="nav-item">
                   <a
@@ -82,9 +77,21 @@
                   </svg>
                   <span class="text-center count ">{{ counter }}</span>
                 </a>
+              </div>           
+
+              <button class="btn btn-warning py-2 px-4 d-none d-xl-inline-block rounded-pill" routerLinkActive="active-link" routerLink="login" *ngIf="!isSigned">
+                Sign In
+              </button>
+
+              <div *ngIf="isSigned" class="dropdown">
+                <button class="btn btn-warning py-2 px-4 d-none d-xl-inline-block rounded-pill dropdown-toggle" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Profile
+                </button>
+                <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                  <a class="dropdown-item" routerLink="orders">My Orders</a>
+                  <a class="dropdown-item" (click)="logOut()">Sign Out</a>
+                </div>
               </div>
-              <button  class="btn btn-warning py-2 px-4 d-none d-xl-inline-block rounded-pill" routerLinkActive="active-link" routerLink="login">Sign in</button>
-         
           </div>
       </nav>
   </div>

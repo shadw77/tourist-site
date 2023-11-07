@@ -7,7 +7,7 @@
             <div class="col text-center">
                 <p class="lead fs-3 fw-bold" style="text-transform: capitalize;">The best offers with hotels</p>
             </div>
-            <form class="col d-flex justify-content-center" role="search" enctype="multipart/form-data" (ngSubmit)="search()">
+            <form class="col d-flex justify-content-center" role="search" enctype="multipart/form-data" >
                 <div class="input-group mb-3 w-50 ">
                   <span class="input-group-text" id="basic-addon1">
                     <fa-icon [icon]="faSearch"></fa-icon>
@@ -16,13 +16,25 @@
                     type="date"
                     class="form-control py-3"
                     placeholder="Search"
-                    (input)="getProductSearch($event)"
+                    (input)="getStartDate($event)"
                   />
                 </div>
+
+                <div class="input-group mb-3 w-50 ">
+                    <span class="input-group-text" id="basic-addon1">
+                      <fa-icon [icon]="faSearch"></fa-icon>
+                    </span>
+                    <input
+                      type="date"
+                      class="form-control py-3"
+                      placeholder="Search"
+                      (input)="getEndDate($event)"
+                    />
+                  </div>
+
+<input [(ngModel)]="timeSlot" placeholder="Select Time Slot" name="timeSlot">
+<button (click)="search()">Search</button>
               </form>
-              <!-- Include a time slot input -->
-<!-- <input [(ngModel)]="searchWord" (input)="getProductSearch($event)" placeholder="Search Hotels"> -->
-<input [(ngModel)]="timeSlot" placeholder="Select Time Slot" (change)="search()">
 
         </div>
         <div class="row offers_items">
@@ -39,7 +51,7 @@
                         <div class="col-lg-6">
                             <app-item [item]="item"></app-item> 
                             <div class="offers_link fs-4">
-                                <a (click)="redirectTo(item, 1,'Hotel')" class="text-decoration-underline" style="cursor: pointer;">Reserve a table</a>
+                                <a (click)="redirectTo(item, 1,'Hotel',time_slot)" class="text-decoration-underline" style="cursor: pointer;">Reserve a table</a>
                             </div>
                         </div>                          
                     </div>

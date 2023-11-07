@@ -27,4 +27,5 @@ const routes: Routes = [
 exports:[ListCardsComponent,CartComponent]
   
 })
-export class ModuleCartModule { }
+export class ModuleCartModule {   
+}
