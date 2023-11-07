@@ -110,6 +110,24 @@ export class DisplayOrdersComponent {
    
   }
 
-  
+  /*start function that call payment services*/
+  callPayment(){
+    this.userOrderCrudService.callPayment();
+
+   /* this.userOrderCrudService.callPayment().subscribe({
+      next:(next)=>{
+        //console.log(next);
+
+      },
+      error:(error) => {
+        console.error('Error fetching reviews:', error);
+      },
+      complete:()=>{
+      }
+    });  */
+  }
+  /*end function that call payment services*/
+
+
 
 }

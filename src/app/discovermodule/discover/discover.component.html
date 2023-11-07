@@ -13,7 +13,6 @@
         </div> 
         <!--end header-->
 
-        <button (click)="calltestapi()">test api token</button>
         <button (click)="testuserlogged()">test User is Logged</button>
         <button (click)="testlogout()">test logout</button>
 
@@ -97,14 +96,14 @@
                 <div class="tab-pane fade" id="pills-contact" role="tabpanel" 
                     aria-labelledby="pills-contact-tab">
 
-                    <app-caraousel [carouselimages]="places"></app-caraousel>
+                    <app-caraousel [carouselimages]="offers"></app-caraousel>
 
                     <br>
                     <br>
-                    <app-ngbcomment [reviews]="reviewsplaces"></app-ngbcomment>
+                    <app-ngbcomment [reviews]="commentsofoffers"></app-ngbcomment>
                     <br>
                     <br>
-                    <app-media [city]="places"></app-media>
+                    <app-media [city]="offers"></app-media>
                 </div>
                 <!--end offers-->
 

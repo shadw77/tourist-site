@@ -68,6 +68,20 @@ export class HandleapiService {
   }
   /*end function that retrieve review that belong to top attractions*/
 
+  /*start function to get offers places from api*/
+  getOffers():Observable<any>{
+    return this.httpclient.get(`${this.apiUrl}/get-offers-places`);
+  }
+  /*end function to get offers places from api*/
+
+  /*start function that retrieve review that belong to offers*/
+  getReviewOffers():Observable<any>{
+    return this.httpclient.get(`${this.apiUrl}/get-review-offers-places`)
+  }
+  /*end function that retrieve review that belong to offers*/
+
+
+
   /*start function that get our governments*/
   getGovernemnt(){
     return this.governments;
@@ -109,8 +123,12 @@ export class HandleapiService {
 
 
   /*start function that test retrieve data under jwt token*/
-  getTestData():Observable<any>{
-    return this.httpclient.get<logoutResponse>(`${this.apiUrl}/get-test-data` ).pipe(
+  getTestData( review: any, userID: any):Observable<any>{
+    const data = {
+      review: review,
+      userID: userID
+    };
+    return this.httpclient.post<any>(`${this.apiUrl}/get-test-data`,data,this.httpOptions ).pipe(
       tap(response => {
         //console.log(this.httpOptions);
         if(response.status == 200){

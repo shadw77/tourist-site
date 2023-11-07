@@ -28,6 +28,11 @@
     </div>
   </main>
 
+  <input type="hidden"  value="" id="latitude" name="latitude">
+  <input type="hidden" value="" id="longitude"  name="longitude">
+  <div id="map" style="height: 500px;width: 1000px;"></div>
+
+
 <section style="background-color: #f7f6f6;">
   <div class=" my-5 py-5 text-dark">
     <div class="row d-flex justify-content-center">
@@ -72,6 +77,9 @@
           </div>
           <div class="float-end mt-2 pt-1">
             <button type="button" class="btn btn-primary btn-sm" (click)="sendReview()">Post comment</button>
+            <button id="myButton">Click</button>
+            <button (click)="calltestapi()">test api token</button>
+
           </div>
         </div>
 
@@ -79,6 +87,3 @@
     </div>
   </div>
 </section>
-
-
-

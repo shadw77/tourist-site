@@ -25,6 +25,14 @@ export class DiscoverComponent implements OnInit{
   commentsoftopplaces:any=[];
 
 
+  getoffers=[];
+  offers:any=[];
+  reviewsoffers=[];
+  commentsofoffers:any=[];
+
+
+
+
   constructor(private data:HandleapiService,
     private auth:AuthService,
             private spinner: NgxSpinnerService){}
@@ -69,7 +77,7 @@ export class DiscoverComponent implements OnInit{
       this.data.getReviewNearByPlaces(this.government!).subscribe({
         next:(next)=>{
           this.reviewsplaces=next.reviews;
-          console.log(this.reviewsplaces);
+          //console.log(this.reviewsplaces);
           this.comments=[].concat(...Object.values(this.reviewsplaces));
           this.comments = Array.from(this.comments);
         },
@@ -78,7 +86,6 @@ export class DiscoverComponent implements OnInit{
         },
         complete:()=>{
           //console.log(this.comments);
-
         }
       });
       /*end function to get review of nearby places from services*/
@@ -99,9 +106,9 @@ export class DiscoverComponent implements OnInit{
           //console.log(this.topplaces);
         }
       });
-      /*end function to get nearby places from services*/
+      /*end function to get top attractions from services*/
 
-      /*start function to get review of nearby places from services*/
+      /*start function to get review of top attractions from services*/
       this.data.getReviewTopAttractions().subscribe({
         next:(next)=>{
           this.reviewstopplaces=next.reviews;
@@ -116,27 +123,79 @@ export class DiscoverComponent implements OnInit{
           //console.log(this.commentsoftopplaces);
         }
       });  
-      /*end function to get review of nearby places from services*/
+      /*end function to get review of top attractions from services*/
+
+      /*start function to get offers from services*/
+      this.data.getOffers().subscribe({
+        next:(next)=>{
+          this.getoffers=next.topAttractions;
+          //console.log(next);
+          this.offers=[].concat(...Object.values(this.getoffers));
+          this.offers = Array.from(this.offers);
+        },
+        error:(error) => {
+          console.error('Error fetching places:', error);
+        },
+        complete:()=>{
+          console.log(this.offers);
+        }
+      });
+      /*end function to get offers from services*/
+
+      /*start function to get review of offers from services*/
+      this.data.getReviewOffers().subscribe({
+        next:(next)=>{
+          this.reviewsoffers=next.reviews;
+          //console.log(this.reviewstopplaces);
+          this.commentsofoffers=[].concat(...Object.values(this.reviewsoffers));
+          this.commentsofoffers = Array.from(this.commentsofoffers);
+        },
+        error:(error) => {
+          console.error('Error fetching reviews:', error);
+        },
+        complete:()=>{
+        console.log(this.commentsofoffers);
+        }
+      });  
+      /*end function to get review of offers from services*/
+
+
+
 
   }//end ngoninit
 
 
-  /*start testing function that test retrieve data under jwt token*/
-  calltestapi(){
-    this.data.getTestData().subscribe({
-      next:(next)=>{
-        //console.log(next);
-      },
-      error:(error) => {
-        //console.error('Error fetching places:', error);
-      },
-      complete:()=>{
-      }
-    });
-  }
-  /*end testing function that test retrieve data under jwt token*/
+  /*start function that filter bygovernment*/
+  filterPlacesByGovernment(selectedGovernment: any): void {
+    //console.log(selectedGovernment.target.value);
+    //console.log(this.places);
+
+      //filter places by government 
+      this.places = this.storedPlaces.filter((place:any )=> place.government === selectedGovernment.target.value);
+        /*start function to get review of nearby places from services*/
+        this.data.getReviewNearByPlaces(selectedGovernment.target.value).subscribe({
+          next:(next)=>{
+            this.reviewsplaces=next.reviews;
+            //console.log(this.reviewsplaces);
+            this.comments=[].concat(...Object.values(this.reviewsplaces));
+            this.comments = Array.from(this.comments);
+          },
+          error:(error) => {
+            console.error('Error fetching reviews:', error);
+          },
+          complete:()=>{
+           // console.log(this.comments);
+          }
+        });
+        /*end function to get review of nearby places from services*/
+    }
+   /*end function that filter bygovernment*/
+
+   
 
 
+
+   
   /*start testing function*/
   testuserlogged(){
     //console.log(this.auth.isAuthenticated());
@@ -159,32 +218,9 @@ export class DiscoverComponent implements OnInit{
   }
   /*end testing function*/
 
-  /*start function that filter bygovernment*/
-  filterPlacesByGovernment(selectedGovernment: any): void {
-    //console.log(selectedGovernment.target.value);
-    console.log(this.places);
 
-      //filter places by government 
-      this.places = this.storedPlaces.filter((place:any )=> place.government === selectedGovernment.target.value);
-        /*start function to get review of nearby places from services*/
-        this.data.getReviewNearByPlaces(selectedGovernment.target.value).subscribe({
-          next:(next)=>{
-            this.reviewsplaces=next.reviews;
-            console.log(this.reviewsplaces);
-            this.comments=[].concat(...Object.values(this.reviewsplaces));
-            this.comments = Array.from(this.comments);
-          },
-          error:(error) => {
-            console.error('Error fetching reviews:', error);
-          },
-          complete:()=>{
-            console.log(this.comments);
-  
-          }
-        });
-        /*end function to get review of nearby places from services*/
-  
-  
-    }
-   /*end function that filter bygovernment*/
+
+
+
+
 }

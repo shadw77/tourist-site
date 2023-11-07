@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaderResponse, HttpHeaders } from '
 import { Injectable } from '@angular/core';
 import { Observable, catchError, map, throwError } from 'rxjs';
 import { UserOrder } from '../interface/user-order';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { UserOrder } from '../interface/user-order';
 export class UserOrderCrudService {
   REST_API: string = "http://localhost:8000/api/orders";
   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
-  
+   userId:any=localStorage.getItem("userId");
 
   constructor(private httpClient: HttpClient) { }
 
@@ -62,6 +63,23 @@ export class UserOrderCrudService {
     return throwError(errorMessage);
     
   }
+
+  /*start function that call payment api*/
+  callPayment(){
+    const id=this.userId;
+    //console.log(object);
+    window.location.href=  'http://localhost:8000/api/orders/payment';
+
+    /*return this.httpClient.post<any>(`http://localhost:8000/api/orders/payment`,{}).pipe(
+      tap(response => {
+
+      }));*/
+  }
+  /*end function that call payment api*/
+
+
+
+  
 }
 
 

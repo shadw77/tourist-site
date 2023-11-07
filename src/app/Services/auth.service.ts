@@ -45,12 +45,14 @@ export class AuthService {
   private apiuUrl:string="http://localhost:8000/api";
   private usertoken=new BehaviorSubject<boolean>(false);
 
+
   httpOptions={
     headers:new HttpHeaders({
-      'Content-Type':'application/json',
-      'Authorization': `Bearer ${localStorage.getItem('api_token')}`
+      'authorization':`Bearer ${localStorage.getItem('api_token')}`,
+      'Content-Type':'application/json'
     })
   };
+
 
   constructor(private httpClient:HttpClient,
         private router: Router) { }
@@ -111,7 +113,8 @@ export class AuthService {
 
   /*start logout function*/
   logout():Observable<any>{
-    return this.httpClient.get<logoutResponse>(`${this.apiuUrl}/logout`,this.httpOptions).pipe(
+    console.log(this.httpClient);
+    return this.httpClient.post<logoutResponse>(`${this.apiuUrl}/logout`,{},this.httpOptions).pipe(
       tap(response => {
         if(response.status == 200){
           //console.log(response);
@@ -131,11 +134,11 @@ export class AuthService {
   /*end function call api to send email*/
 
 
-    /*start function call api to change password*/
-    changePassword(data:any){
-      //console.log(data);
-      return this.httpClient.post<passwordResponse>(`${this.apiuUrl}/resetPassword`,data);
-    }
+  /*start function call api to change password*/
+  changePassword(data:any){
+    //console.log(data);
+    return this.httpClient.post<passwordResponse>(`${this.apiuUrl}/resetPassword`,data);
+  }
   /*end function call api to change password*/
 
 }
