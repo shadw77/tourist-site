@@ -1,180 +1,89 @@
 
+  <main role="main" class="container mt-5">
 
-<p>{{detailsdata | json}}</p>
+    <div class="row">
+      <div class="col-md-6">
+        <img src="{{detailsdata.thumbnail}}" class="img-fluid" alt="Hotel Image">
+      </div>
+      <div class="col-md-6">
+        <h2>{{detailsdata.name}}</h2>
+        <p>{{detailsdata.description}} </p>
+
+        <p>Price: {{detailsdata.cosst ?? '-'}}</p>
+        <h3>Location: {{detailsdata.street}} {{detailsdata.government}}</h3>
+
+        <h3>Contact</h3>
+        <span>Email: info@example.com</span> || 
+        <span>phone: 123-456-7890</span>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="row"> 
+      <div class="col-md-3" *ngFor="let imageUrl of detailsdata.images">
+        <div class="card mb-4 box-shadow">
+          <img class="card-img-top" [src]="imageUrl.image" alt="Image" style="height: 100%;">
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <input type="hidden"  value="" id="latitude" name="latitude">
+  <input type="hidden" value="" id="longitude"  name="longitude">
+  <div id="map" style="height: 500px;width: 1000px;"></div>
+
 
 <section style="background-color: #f7f6f6;">
-    <div class=" my-5 py-5 text-dark">
-      <div class="row d-flex justify-content-center">
-        <div class="col-md-12 col-lg-10 col-xl-8">
-          <div class="d-flex justify-content-between align-items-center mb-4">
-            <h4 class="text-dark mb-0">comments </h4>
-          </div>
-  
+  <div class=" my-5 py-5 text-dark">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-12 col-lg-10 col-xl-8">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h4 class="text-dark mb-0">{{postedComment.length}} comments </h4>
+          <app-review-stars [rating]="detailsdata.rating"></app-review-stars>
+        </div>
+
+        <ng-container *ngFor="let review of postedComment">
           <div class="card mb-3">
             <div class="card-body">
               <div class="d-flex flex-start">
                 <img class="rounded-circle shadow-1-strong me-3"
-                  src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(26).webp" alt="avatar" width="40"
+                  src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="avatar" width="40"
                   height="40" />
                 <div class="w-100">
                   <div class="d-flex justify-content-between align-items-center mb-3">
                     <h6 class="text-primary fw-bold mb-0">
-                      lara_stewart
-                      <span class="text-dark ms-2">Hmm, This poster looks cool</span>
+                      {{review.user.name}}
+                      <span class="text-dark ms-2">{{review.review}}</span>
                     </h6>
-                    <p class="mb-0">2 days ago</p>
+                    <p class="mb-0">{{review.created_at  | date: 'medium'}}</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-  
-          <div class="card py-3 border-0" style="background-color: #f8f9fa;">
-            <div class="d-flex flex-start w-100">
-              <img class="rounded-circle shadow-1-strong me-3"
-                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(19).webp" alt="avatar" width="40"
-                height="40" />
-              <div class="form-outline w-100">
-                <textarea class="form-control" id="textAreaExample" rows="4"
-                  style="background: #fff;"></textarea>
-                <label class="form-label" for="textAreaExample">Message</label>
-              </div>
-            </div>
-            <div class="float-end mt-2 pt-1">
-              <button type="button" class="btn btn-primary btn-sm">Post comment</button>
-              <button type="button" class="btn btn-outline-primary btn-sm">Cancel</button>
+        </ng-container>
+
+
+        <div class="card py-3 border-0" style="background-color: #f8f9fa;">
+          <div class="d-flex flex-start w-100">
+            <img class="rounded-circle shadow-1-strong me-3"
+              src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="avatar" width="40"
+              height="40" />
+            <div class="form-outline w-100">
+              <textarea class="form-control" id="textAreaExample" rows="4"
+                style="background: #fff;" [(ngModel)]="comment"></textarea>
+              <label class="form-label" for="textAreaExample">Message</label>
             </div>
           </div>
+          <div class="float-end mt-2 pt-1">
+            <button type="button" class="btn btn-primary btn-sm" (click)="sendReview()">Post comment</button>
+            <button id="myButton">Click</button>
+            <button (click)="calltestapi()">test api token</button>
 
+          </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-
-
-  <!-- Hotel Details Section -->
-  <div class="container mt-4">
-    <div class="row">
-      <div class="col-lg-6">
-        <img src="https://via.placeholder.com/600x400" class="img-fluid" alt="Hotel Image">
-      </div>
-      <div class="col-lg-6">
-        <h2>Hotel Name</h2>
-        <p>Located at a beautiful place, the Hotel Name offers luxurious amenities and stunning views.</p>
-        <p>Facilities:</p>
-        <ul>
-          <li>Swimming pool</li>
-          <li>Restaurant</li>
-          <li>Spa</li>
-          <li>Gym</li>
-        </ul>
-        <p>Price: $200 per night</p>
-        <button class="btn btn-primary">Book Now</button>
       </div>
     </div>
   </div>
-
-  <!-- Room Options Section -->
-  <div class="container mt-4">
-    <h3>Room Options</h3>
-    <div class="row">
-      <div class="col-lg-4">
-        <div class="card">
-          <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Room Image">
-          <div class="card-body">
-            <h5 class="card-title">Standard Room</h5>
-            <p class="card-text">Comfortable room with essential amenities.</p>
-            <p class="card-text">$200 per night</p>
-            <a href="#" class="btn btn-primary">Book</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4">
-        <div class="card">
-          <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Room Image">
-          <div class="card-body">
-            <h5 class="card-title">Deluxe Room</h5>
-            <p class="card-text">Spacious room with additional amenities.</p>
-            <p class="card-text">$300 per night</p>
-            <a href="#" class="btn btn-primary">Book</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4">
-        <div class="card">
-          <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Room Image">
-          <div class="card-body">
-            <h5 class="card-title">Suite</h5>
-            <p class="card-text">Luxurious suite with top-notch amenities.</p>
-            <p class="card-text">$500 per night</p>
-            <a href="#" class="btn btn-primary">Book</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <main role="main" class="container">
-    <div class="jumbotron">
-      <h1 class="display-4">Welcome to Hotel Details</h1>
-      <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in lacus sed quam iaculis eleifend sed et justo.</p>
-    </div>
-
-    <div class="row">
-      <div class="col-md-6">
-        <img src="https://via.placeholder.com/600x400" class="img-fluid" alt="Hotel Image">
-      </div>
-      <div class="col-md-6">
-        <h2>Hotel Name</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed faucibus ex dolor, sit amet ultricies ex hendrerit a. Proin vitae pretium nisl, quis sollicitudin magna. Morbi nec mi non erat vulputate tincidunt. </p>
-
-        <h3>Features</h3>
-        <ul>
-          <li>Swimming pool</li>
-          <li>Restaurant</li>
-          <li>Gym</li>
-          <li>Spa</li>
-        </ul>
-
-        <h3>Location</h3>
-        <p>123 Hotel Street, City, Country</p>
-
-        <h3>Contact</h3>
-        <p>Email: info@example.com</p>
-        <p>Phone: 123-456-7890</p>
-      </div>
-    </div>
-  </main>
-
-
-
-  
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <img src="https://via.placeholder.com/600x400" alt="Hotel Image" class="img-fluid">
-      </div>
-      <div class="col-md-6">
-        <h1>Hotel Name</h1>
-        <p>Location: Hotel Location</p>
-        <p>Rating: 4.5/5</p>
-        <p>Price: $200 per night</p>
-        <p>Description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, magnam, autem illo quisquam porro sed ipsa placeat nobis iusto voluptas.</p>
-        <button class="btn btn-primary">Book Now</button>
-      </div>
-    </div>
-  </div>
-
-<br>
-<br>
-<br>
-
-<!--<div>
-    <input type="text" #addressInput placeholder="Enter an address">
-    <button (click)="showAddressOnMap(addressInput.value)">Show on Map</button>
-    <div #mapElement id="map"></div>
-</div>
-
--->
+</section>

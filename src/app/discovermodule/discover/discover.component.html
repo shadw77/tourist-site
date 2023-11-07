@@ -13,7 +13,6 @@
         </div> 
         <!--end header-->
 
-        <button (click)="calltestapi()">test api token</button>
         <button (click)="testuserlogged()">test User is Logged</button>
         <button (click)="testlogout()">test logout</button>
 
@@ -45,13 +44,6 @@
                 </li>
                 <!--end offers-->
 
-                <!--start special occassion-->
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="pills-Special-tab" data-bs-toggle="pill" 
-                      data-bs-target="#pills-Special" type="button" role="tab" 
-                      aria-controls="pills-Special" aria-selected="false">Special occasions </button>
-                  </li>
-                <!--end special occassion-->
 
             </ul>
 
@@ -104,32 +96,18 @@
                 <div class="tab-pane fade" id="pills-contact" role="tabpanel" 
                     aria-labelledby="pills-contact-tab">
 
-                    <app-caraousel [carouselimages]="places"></app-caraousel>
+                    <app-caraousel [carouselimages]="offers"></app-caraousel>
 
                     <br>
                     <br>
-                    <app-ngbcomment [reviews]="reviewsplaces"></app-ngbcomment>
+                    <app-ngbcomment [reviews]="commentsofoffers"></app-ngbcomment>
                     <br>
                     <br>
-                    <app-media [city]="places"></app-media>
+                    <app-media [city]="offers"></app-media>
                 </div>
                 <!--end offers-->
 
-                <!--start special occassion-->
-                <div class="tab-pane fade" id="pills-Special" role="tabpanel" 
-                    aria-labelledby="pills-Special-tab">
-                    <app-caraousel [carouselimages]="places"></app-caraousel>
 
-                    <br>
-                    <br>
-                    <app-ngbcomment [reviews]="reviewsplaces"></app-ngbcomment>
-                    <br>
-                    <br>
-                    <app-media [city]="places"></app-media>
-
-                </div>
-                <!--end special occassion-->      
-                
             </div>
         
         </div>

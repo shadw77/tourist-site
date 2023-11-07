@@ -46,9 +46,9 @@ export class MediaComponent {
 
   /*start function that navigate to route with data details*/
   viewDetails(data: any,name:string) {
-    console.log(data);
-    this.router.navigate(  [`discover/${name}-details` ,  data ]);
-
+    //console.log(data);
+    // Encode the entire data object
+    this.router.navigate(['discover', `${name}-details`], { state: {  data } });
   }
   /*end function that navigate to route with data details*/
 

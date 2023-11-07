@@ -3,7 +3,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { FormGroup, FormsModule } from '@angular/forms';
+import {  FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from "./shared/shared.module";
 import { MainSearchComponent } from './main-search/main-search.component';
@@ -50,8 +50,10 @@ import { EditUserOrderComponent } from './edit-user-order/edit-user-order.compon
     DisplayTripsComponent,
     DisplayDestinationsComponent,
     DisplayServicesComponent,SignComponent,SignupComponent,RequestResetComponent,ResponseResetComponent,DisplayOrdersComponent, EditUserOrderComponent
+
     ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -68,6 +70,7 @@ import { EditUserOrderComponent } from './edit-user-order/edit-user-order.compon
     NgxSpinnerModule.forRoot()
   ],
   providers: [],
+
   bootstrap: [AppComponent],
 })
 export class AppModule {} 
