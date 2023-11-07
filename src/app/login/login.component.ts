@@ -1,20 +1,19 @@
-import { Component,Renderer2, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component,Renderer2, ElementRef, OnInit, ViewChild, ChangeDetectorRef, EventEmitter } from '@angular/core';
 import {NgbModal, ModalDismissReasons}  from '@ng-bootstrap/ng-bootstrap'; 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { passwordidentical } from "src/app/customsvalidations/passwordidentical";
 import { AuthService } from '../Services/auth.service';
-
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
   
 })
 export class LoginComponent implements OnInit{
   @ViewChild('content') content: any;//took content reference on ng-template
   closeResult = ''; 
   userlogin!:FormGroup;
+  loginSuccessEvent: EventEmitter<void> = new EventEmitter<void>();
   userregister!:FormGroup;
   isUserLogin: boolean = true;
   governments=['Sharm El Sheikh','Hurghada','Cairo','Ain Sukhna','Mersa Matruh','Alexandria','Marsa Alam',
@@ -27,11 +26,11 @@ export class LoginComponent implements OnInit{
   ErrorPasswordBackend:any;
   successsLoginReference:string="";
   errorLoginReference:string="";
-
+  isSigned:boolean=false;
   constructor(private modalService: NgbModal,
               private Fb:FormBuilder,
-              protected authservice:AuthService,
-
+              protected authservice:AuthService,private router:Router,
+              private changeDetectorRef: ChangeDetectorRef,
               ) {} 
     
   ngOnInit(): void {
@@ -59,7 +58,14 @@ export class LoginComponent implements OnInit{
 
   }
 
-
+  updateIsSigned() {
+    this.isSigned = true; 
+    this.changeDetectorRef.detectChanges();
+  }
+  onLoginSuccess() {
+    // Call updateIsSigned when the user successfully logs in
+    this.updateIsSigned();
+  }
   /*start function that open popup window*/
   open() { 
     //console.log(this.content);
@@ -144,6 +150,7 @@ export class LoginComponent implements OnInit{
         }
         else{
           this.successMessage=next.mssg;
+
         }
         console.log(next);
       },
@@ -178,6 +185,7 @@ export class LoginComponent implements OnInit{
         }
         else{
           this.successsLoginReference=next.mssg;
+          this.loginSuccessEvent.emit();
         }
         //console.log(next);
       },
