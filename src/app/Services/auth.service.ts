@@ -85,6 +85,8 @@ export class AuthService {
         if(response.status != 400){
           this.storeUserDataInLocalStorage(response.userdata.api_token,response.userdata.role,
             response.userdata.government,response.userdata);
+            this.router.navigate(['/home']); 
+
         }
       }));
   }
