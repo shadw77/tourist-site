@@ -30,6 +30,7 @@ export class AddRestaurantComponent {
       phone: ['', [Validators.required]],
       government: ['', [Validators.required, Validators.maxLength(255)]],
       description: ['', [Validators.required, Validators.minLength(10)]],
+      cost: ['', [Validators.required]],
       rating: ['', [Validators.required]],
       thumbnail: [''],
       discount: ['', [Validators.required]],
@@ -48,6 +49,7 @@ export class AddRestaurantComponent {
       formData.append('name', this.restaurantForm.get('name')?.value || '');
       formData.append('email', this.restaurantForm.get('email')?.value || '');
       formData.append('phone', this.restaurantForm.get('phone')?.value || '');
+      formData.append('cost', this.restaurantForm.get('cost')?.value || '');
       formData.append('rating', this.restaurantForm.get('rating')?.value || '');
       formData.append('street', this.restaurantForm.get('street')?.value || '');
       formData.append('government', this.restaurantForm.get('government')?.value || '');

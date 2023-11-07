@@ -38,6 +38,18 @@ selectedImages: File[] | any = null;;
   }
   ngOnInit() {
     this.getId = this.activatedRoute.snapshot.paramMap.get('id');
+    this.destinationCrudService.getDestination(this.getId).subscribe(response=>{
+      console.log(response);
+    this.destinationForm.patchValue({
+      name: response.destination.name,
+      rating: response.destination.rating,
+      description: response.destination.description,
+      thumbnail: response.destination.thumbnail,
+      creator_id: response.destination.creator_id,
+      images: response.destination.images,
+      
+    });  
+  });
          this.fetchDestinationData(this.getId);
         }
       
@@ -72,6 +84,7 @@ this.destinationCrudService.updateDestination(this.getId,formData).subscribe(
     this.selectedImage = null;
     this.selectedImages = null;
     console.log(response);
+    this.ngZone.run(()=>this.router.navigateByUrl('dashboard/admin/(details:destinations)')) 
   },
   (error) => {
     console.error('Error saving data and images:', error);

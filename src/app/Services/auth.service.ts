@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable,of,BehaviorSubject } from 'rxjs';
 import { tap } from 'rxjs/operators';
@@ -42,6 +42,8 @@ interface passwordResponse {
 
 
 export class AuthService {
+  loginSuccessEvent: EventEmitter<void> = new EventEmitter<void>();
+
   private apiuUrl:string="http://localhost:8000/api";
   private usertoken=new BehaviorSubject<boolean>(false);
 
@@ -57,6 +59,7 @@ export class AuthService {
   constructor(private httpClient:HttpClient,
         private router: Router) { }
 
+ 
   /*start login function that call api*/
   login(user:{email: string, password: string}):Observable<any>{
     return this.httpClient.post<RegisterResponse>(`${this.apiuUrl}/login`,user).pipe(
@@ -65,6 +68,9 @@ export class AuthService {
           console.log(response);
           this.storeUserDataInLocalStorage(response.userdata.api_token,response.userdata.role,
             response.userdata.government,response.userdata.id,response.userdata);
+            response.userdata.government,response.userdata);
+            this.loginSuccessEvent.emit();
+            this.router.navigate(['/home']); 
         }
       }));
   }
@@ -79,7 +85,12 @@ export class AuthService {
         //console.log(response);
         if(response.status != 400){
           this.storeUserDataInLocalStorage(response.userdata.api_token,response.userdata.role,
+
             response.userdata.government,response.userdata.id,response.userdata);
+
+            response.userdata.government,response.userdata);
+            this.router.navigate(['/home']); 
+
         }
       }));
   }
@@ -122,7 +133,7 @@ export class AuthService {
           localStorage.clear();
         }
       }));
-    //this.router.navigate(['/login']);
+    // this.router.navigate(['/login']);
   }
   /*end logout function*/
 

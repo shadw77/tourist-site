@@ -5,7 +5,7 @@ import {jwtDecode} from 'jwt-decode';
 import { UserOrderCrudService } from 'src/app/Services/user-order-crud.service';
 import { Location } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -15,7 +15,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class CartComponent {
 
     constructor(private userOrderCrudService:UserOrderCrudService,
-      private http: HttpClient,
+      private http: HttpClient,private router:Router,
       private cartItems:CartItemService,private location: Location,private CounterService:CounterService){}
     cartProducts:any[]=[];
     userData:any;
@@ -33,6 +33,9 @@ export class CartComponent {
       const userDataString = localStorage.getItem('userData');
       if (userDataString) {
          this.userData = JSON.parse(userDataString);
+      }
+      if(!userDataString){
+        this.router.navigate(['/login']); 
       }
         const headers = new HttpHeaders({
         'Content-Type': 'application/json',
@@ -136,6 +139,7 @@ export class CartComponent {
             
             this.cartProducts = [];
             sessionStorage.removeItem('cartProducts');
+            sessionStorage.removeItem('time_slot');
             this.CounterService.set_Counter(0);
           },
           (error) => {

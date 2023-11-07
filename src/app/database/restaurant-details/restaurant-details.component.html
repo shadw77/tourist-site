@@ -20,7 +20,13 @@
           Email should be a valid email address.
         </div>
       </div>
-
+      <div class="mb-3">
+        <label for="cost" class="form-label">Cost</label>
+        <input type="text" class="form-control" id="cost" formControlName="cost" required>
+        <div *ngIf="restaurantForm?.get('cost')?.invalid && restaurantForm?.get('cost')?.touched" class="text-danger">
+          cost is required.
+        </div>
+      </div>
       <div class="mb-3">
         <label for="rating" class="form-label">Rating</label>
         <input type="text" class="form-control" id="rating" formControlName="rating" required>
