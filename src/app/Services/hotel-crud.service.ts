@@ -9,39 +9,46 @@ import { Observable, catchError, map, throwError } from 'rxjs';
 })
 export class HotelCrudService {
 
-
+   user =localStorage.getItem('userId');
   constructor(private httpClient: HttpClient) { }
   REST_API: string = "http://localhost:8000/api/hotels";
   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
-  addHotel(data: FormData): Observable<any>{
+  httpOptions={
+    headers:new HttpHeaders({
+      'Content-Type':'application/json',
+      'Authorization': `Bearer ${localStorage.getItem('api_token')}`
+    })
+  };
+  addHotel(data:FormData){
     console.log(data);
     let API_URL = this.REST_API;
-    return this.httpClient.post<any>(API_URL, data).pipe(catchError(this.handleError));
+    return this.httpClient.post<any>(API_URL,data).pipe(catchError(this.handleError));
   }
+  
 
   getHotels(){
-    return this.httpClient.get(this.REST_API);
+    return this.httpClient.get(this.REST_API,this.httpOptions);
   }
 
   getHotel(id:any): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;
-    return this.httpClient.get(API_URL, {headers: this.httpHeaders})
+    return this.httpClient.get(API_URL, this.httpOptions)
     .pipe(map((res: any)=>{return res || {}}),
       catchError(this.handleError));
   }
   hotels(page:any){
     let API_URL = `http://localhost:8000/api/hotels?page=${page}`;
-   return this.httpClient.get( API_URL);
+   return this.httpClient.get( API_URL,this.httpOptions);
  }
   updateHotel(id:any, data: FormData): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;  
-    return this.httpClient.post<any>( API_URL , data)
+    return this.httpClient.post<any>( API_URL , data,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
   
   deleteHotel(id:any): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;
-    return this.httpClient.delete(API_URL, {headers: this.httpHeaders})
+    return this.httpClient.delete(API_URL,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
   
