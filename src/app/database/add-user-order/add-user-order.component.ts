@@ -4,7 +4,8 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { UserOrderCrudService } from 'src/app/Services/user-order-crud.service';
 import { UserCrudService } from 'src/app/Services/user-crud.service';
 import{ HotelCrudService } from 'src/app/Services/hotel-crud.service';
-
+import { map } from 'rxjs/operators';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-add-user-order',
@@ -39,6 +40,21 @@ export class AddUserOrderComponent {
   this.HotelCrudService.getHotels().subscribe((res)=>{
       this.Hotels=res;
  });
+//  const hotels$ =this.HotelCrudService.getHotels().pipe(
+//   map((hotels: any[]) => hotels.map((hotel: any) => ({ ...hotel, type: "Hotel" })))
+// );
+
+// const trips$ = this.getDiscountedTrips().pipe(
+//   map((trips: any[]) => trips.map((trip: any) => ({ ...trip, type: "Trip" })))
+// );
+
+// const restaurants$ = this.getDiscountedRestaurants().pipe(
+//   map((restaurants: any[]) => restaurants.map((restaurant: any) => ({ ...restaurant, type: "Restaurant" })))
+// );
+
+// forkJoin([hotels$, trips$, restaurants$]).subscribe(([hotels, trips, restaurants]) => {
+//   this.discountedItems = [...hotels, ...trips, ...restaurants];
+// });
   }
   onSubmit():any{
     const formData = new FormData();
