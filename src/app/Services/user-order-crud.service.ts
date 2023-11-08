@@ -37,7 +37,9 @@ export class UserOrderCrudService {
     .pipe(map((res: any)=>{return res || {}}),
       catchError(this.handleError));
   }
-
+  getOrderDetails(orderId: number) {
+    return this.httpClient.get<any>(`http://localhost:8000/api/ordersdetails/${orderId}`);
+  }
   updateUserOrder(id:any, data: UserOrder): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;
     return this.httpClient.put(API_URL, data, {headers: this.httpHeaders})

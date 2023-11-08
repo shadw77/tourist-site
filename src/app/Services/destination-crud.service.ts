@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaderResponse, HttpHeaders } from '
 import { Injectable } from '@angular/core';
 import { Destination  } from '../interface/destination';
 import { Observable, catchError, map, throwError } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -10,12 +11,12 @@ export class DestinationCrudService {
 
   REST_API: string = "http://localhost:8000/api/destinations";
    httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
-  //  httpOptions = {
-  //   headers: new HttpHeaders({
-  //     'Content-Type': 'application/json',
-  //     'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk4NTg3MzIyLCJleHAiOjE2OTg1OTA5MjIsIm5iZiI6MTY5ODU4NzMyMiwianRpIjoiSnluRlhmT1RvME1DaExVSCIsInN1YiI6IjIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.hUydZowyIPbV9_ZRzha4Ids3yTDPjoMLLS6sAx3hyMA'
-  //   })
-  // }; 
+   httpOptions={
+    headers:new HttpHeaders({
+      'Content-Type':'application/json',
+      'Authorization': `Bearer ${localStorage.getItem('api_token')}`
+    })
+  };
 
   constructor(private httpClient: HttpClient) { }
 
@@ -73,5 +74,13 @@ export class DestinationCrudService {
     };
     return this.httpClient.get<Destination[]>( "http://localhost:8000/api/topDestinations", { params });
   }
-
+  getTestData():Observable<any>{
+    return this.httpClient.get<any>('http://localhost:8000/api/get-test-data', this.httpOptions ).pipe(
+      tap((response:any )=> {
+        //console.log(this.httpOptions);
+        if(response.status == 200){
+        console.log(response);
+        }
+      }));
+  }
 }

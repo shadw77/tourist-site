@@ -49,6 +49,7 @@ import { SignupComponent } from './signup/signup.component';
 import { RequestResetComponent } from './password/request-reset/request-reset.component';
 import { ResponseResetComponent } from './password/response-reset/response-reset.component';
 import { EditUserOrderComponent } from './edit-user-order/edit-user-order.component';
+import { ShowOrderComponent } from './database/show-order/show-order.component';
 
 
 const routes: Routes = [
@@ -289,6 +290,11 @@ const routes: Routes = [
       component: UserOrderDetailsComponent,
       outlet: 'details'
     },
+    { 
+      path: 'show-order/:id',
+      component: ShowOrderComponent,
+      outlet: 'details'
+    }
   ]
   },
 
@@ -408,6 +414,11 @@ const routes: Routes = [
         component: UserOrdersComponent,
         outlet: 'details'
       },
+      { 
+        path: 'show-order/:id',
+        component: ShowOrderComponent,
+        outlet: 'details'
+      }
     ]
   },
  
