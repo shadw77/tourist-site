@@ -4,15 +4,15 @@ import { Router, NavigationEnd } from '@angular/router';
 import { HandleapiService } from 'src/app/Services/handleapi.service';
 //import { google } from '@google/maps';
 
-declare var google: any;
-declare var $: any;
-declare var customScript: any;
-interface Position {
-  coords: {
-    latitude: number;
-    longitude: number;
-  };
-}
+// declare var google: any;
+// declare var $: any;
+// declare var customScript: any;
+// interface Position {
+//   coords: {
+//     latitude: number;
+//     longitude: number;
+//   };
+// }
 
 
 @Component({
@@ -26,16 +26,16 @@ export class DetailsComponent implements OnInit{
   comment:any;
   userId=localStorage.getItem("userId");
 
-  
+  userRating:any;
   constructor(private router: Router,
     private route: ActivatedRoute,
     private handle:HandleapiService) {
-      $(document).ready(function() {
-        $("#myButton").click(function() {
-          alert("Button clicked!");
-        });
+      // $(document).ready(function() {
+      //   $("#myButton").click(function() {
+      //     alert("Button clicked!");
+      //   });
      
-      });
+      // });
 
      }
 
@@ -67,6 +67,9 @@ export class DetailsComponent implements OnInit{
     //this.initializeMap();
   } 
   /*end ngoninit*/
+  onRatingChange(rating: any) {    
+    this.userRating = Number(rating);
+  }
 
   sendReview(){
     //console.log(this.userId);

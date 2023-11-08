@@ -63,10 +63,15 @@ export class UserOrderCrudService {
     return throwError(errorMessage);
     
   }
+  orders(page:any){
+    let API_URL = `http://localhost:8000/api/orders?page=${page}`;
+   return this.httpClient.get( API_URL);
+ }
 
   /*start function that call payment api*/
   callPayment(){
     const id=this.userId;
+    
     //console.log(object);
     window.location.href=  'http://localhost:8000/api/orders/payment';
 
