@@ -135,6 +135,7 @@ export class CartComponent {
         
         this.http.post('http://127.0.0.1:8000/api/checkout', orderData,  { headers }).subscribe(
           (response) => {
+            
             console.log('ordered successfully');
             
             this.cartProducts = [];

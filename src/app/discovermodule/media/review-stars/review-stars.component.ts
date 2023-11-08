@@ -12,4 +12,7 @@ export class ReviewStarsComponent {
   ngOnInit() {
     this.starRange = Array.from({ length: 5 }, (_, index) => index + 1);
   }
+  setRating(rating: number) {
+    this.rating = rating;
+  }
 }

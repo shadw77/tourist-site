@@ -26,7 +26,7 @@ export class DetailsComponent implements OnInit{
   comment:any;
   userId=localStorage.getItem("userId");
 
-  
+  userRating:any;
   constructor(private router: Router,
     private route: ActivatedRoute,
     private handle:HandleapiService) {
@@ -67,6 +67,9 @@ export class DetailsComponent implements OnInit{
     //this.initializeMap();
   } 
   /*end ngoninit*/
+  onRatingChange(rating: any) {    
+    this.userRating = Number(rating);
+  }
 
   sendReview(){
     //console.log(this.userId);
