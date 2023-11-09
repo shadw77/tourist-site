@@ -68,8 +68,7 @@ export class AuthService {
           console.log(response);
           this.storeUserDataInLocalStorage(response.userdata.api_token,response.userdata.role,
             response.userdata.government,response.userdata.id,response.userdata);
-            response.userdata.government,response.userdata);
-            this.loginSuccessEvent.emit();
+
             this.router.navigate(['/home']); 
         }
       }));
@@ -85,12 +84,8 @@ export class AuthService {
         //console.log(response);
         if(response.status != 400){
           this.storeUserDataInLocalStorage(response.userdata.api_token,response.userdata.role,
-
             response.userdata.government,response.userdata.id,response.userdata);
-
-            response.userdata.government,response.userdata);
             this.router.navigate(['/home']); 
-
         }
       }));
   }

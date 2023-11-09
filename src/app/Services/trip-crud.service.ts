@@ -10,13 +10,19 @@ export class TripCrudService {
 
   REST_API: string = "http://localhost:8000/api/trips";
   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
-  
+  httpOptions={
+    headers:new HttpHeaders({
+      'authorization':`Bearer ${localStorage.getItem('api_token')}`,
+    })
+  };
+
 
   constructor(private httpClient: HttpClient) { }
 
   addTrip(data:FormData): Observable<any>{
+    console.log(data);
     let API_URL = this.REST_API;
-    return this.httpClient.post(API_URL, data).pipe(catchError(this.handleError));
+    return this.httpClient.post(API_URL,data,this.httpOptions).pipe(catchError(this.handleError));
   }
   Trips(page:any){
      let API_URL = `http://localhost:8000/api/trips?page=${page}`;

@@ -4,3 +4,11 @@
 .link-grey:hover {
      color: #00913b; 
 }
+
+#map {
+    height: 400px;
+  }
+  
+  input[type="text"] {
+    width: 200px;
+  }

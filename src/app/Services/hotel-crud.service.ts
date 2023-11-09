@@ -12,11 +12,19 @@ export class HotelCrudService {
 
   constructor(private httpClient: HttpClient) { }
   REST_API: string = "http://localhost:8000/api/hotels";
-  httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
+   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
+  httpOptions={
+    headers:new HttpHeaders({
+      'authorization':`Bearer ${localStorage.getItem('api_token')}`,
+      'Content-Type':'application/json'
+    })
+  };
+
+
   addHotel(data: FormData): Observable<any>{
     console.log(data);
     let API_URL = this.REST_API;
-    return this.httpClient.post<any>(API_URL, data).pipe(catchError(this.handleError));
+    return this.httpClient.post<any>(API_URL, data,this.httpOptions).pipe(catchError(this.handleError));
   }
 
   getHotels(){
