@@ -4,16 +4,6 @@ import { Router, NavigationEnd } from '@angular/router';
 import { HandleapiService } from 'src/app/Services/handleapi.service';
 
 //import { google } from 'googlemaps';
-// declare var google: any;
-// declare var $: any;
-// declare var customScript: any;
-// interface Position {
-//   coords: {
-//     latitude: number;
-//     longitude: number;
-//   };
-// }
-
 
 @Component({
   selector: 'app-details',
@@ -39,7 +29,6 @@ export class DetailsComponent implements OnInit{
     private handle:HandleapiService) {}
 
 
-  
 
   /*start ngoninit*/
   ngOnInit() {
