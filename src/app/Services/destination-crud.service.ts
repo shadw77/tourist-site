@@ -10,10 +10,8 @@ import { tap } from 'rxjs/operators';
 export class DestinationCrudService {
 
   REST_API: string = "http://localhost:8000/api/destinations";
-   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
    httpOptions={
     headers:new HttpHeaders({
-      'Content-Type':'application/json',
       'Authorization': `Bearer ${localStorage.getItem('api_token')}`
     })
   };
@@ -23,34 +21,34 @@ export class DestinationCrudService {
   addDestination( data: FormData): Observable<any>{
     console.log(data);
     let API_URL = this.REST_API;
-    return this.httpClient.post(API_URL, data).pipe(catchError(this.handleError));
+    return this.httpClient.post(API_URL, data,this.httpOptions).pipe(catchError(this.handleError));
   }
 
   getDestinations(){
     console.log(this.httpClient.get(this.REST_API));
     
-    return this.httpClient.get(this.REST_API);
+    return this.httpClient.get(this.REST_API,this.httpOptions);
   }
   Destinations(page:any){
     let API_URL = `http://localhost:8000/api/destinations?page=${page}`;
-   return this.httpClient.get( API_URL);
+   return this.httpClient.get( API_URL,this.httpOptions);
  }
   getDestination(id:any): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;
-    return this.httpClient.get(API_URL, {headers: this.httpHeaders})
+    return this.httpClient.get(API_URL,this.httpOptions)
     .pipe(map((res: any)=>{return res || {}}),
       catchError(this.handleError));
   }
 
   updateDestination(id:any, data: FormData): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;
-    return this.httpClient.post(API_URL, data )
+    return this.httpClient.post(API_URL, data ,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
 
   deleteDestination(id:any): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;
-    return this.httpClient.delete(API_URL, {headers: this.httpHeaders})
+    return this.httpClient.delete(API_URL,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
 

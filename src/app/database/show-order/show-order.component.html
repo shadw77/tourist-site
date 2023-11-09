@@ -2,10 +2,10 @@
   <div class="card" style="width: 18rem;">
     <img [src]="imagePath + serviceDetails.thumbnail" alt="{{ serviceDetails.name }}" />
     <div class="card-body">
-      <h5 class="card-title">{{ serviceDetails.name }}</h5>
-      <p class="card-text">{{ serviceDetails.description }}</p>
-      <p class="card-text">{{ serviceDetails.cost }}</p>
-      <p class="card-text">{{ serviceDetails.discount }}</p>
+      <h5 class="card-title"><span>Name:</span>{{ serviceDetails.name }}</h5>
+      <p class="card-text"><span>Description:</span>{{ serviceDetails.description }}</p>
+      <p class="card-text"><span>Cost:</span>{{ serviceDetails.cost }}</p>
+      <p class="card-text"><span>Discount:</span>{{ serviceDetails.discount }}</p>
     </div>
   </div>
 
