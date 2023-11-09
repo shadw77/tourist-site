@@ -9,6 +9,7 @@ import { Observable, catchError, map, throwError } from 'rxjs';
 export class TripCrudService {
 
   REST_API: string = "http://localhost:8000/api/trips";
+
   httpOptions={
     headers:new HttpHeaders({
       'Authorization': `Bearer ${localStorage.getItem('api_token')}`

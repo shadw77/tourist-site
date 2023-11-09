@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable,of,BehaviorSubject } from 'rxjs';
 import { tap } from 'rxjs/operators';
@@ -42,19 +42,24 @@ interface passwordResponse {
 
 
 export class AuthService {
+  loginSuccessEvent: EventEmitter<void> = new EventEmitter<void>();
+
   private apiuUrl:string="http://localhost:8000/api";
   private usertoken=new BehaviorSubject<boolean>(false);
 
+
   httpOptions={
     headers:new HttpHeaders({
-      'Content-Type':'application/json',
-      'Authorization': `Bearer ${localStorage.getItem('api_token')}`
+      'authorization':`Bearer ${localStorage.getItem('api_token')}`,
+      'Content-Type':'application/json'
     })
   };
+
 
   constructor(private httpClient:HttpClient,
         private router: Router) { }
 
+ 
   /*start login function that call api*/
   login(user:{email: string, password: string}):Observable<any>{
     return this.httpClient.post<RegisterResponse>(`${this.apiuUrl}/login`,user).pipe(
@@ -62,7 +67,9 @@ export class AuthService {
         if(response.status == 200){
           console.log(response);
           this.storeUserDataInLocalStorage(response.userdata.api_token,response.userdata.role,
-            response.userdata.government,response.userdata);
+            response.userdata.government,response.userdata.id,response.userdata);
+
+            this.router.navigate(['/home']); 
         }
       }));
   }
@@ -77,17 +84,22 @@ export class AuthService {
         //console.log(response);
         if(response.status != 400){
           this.storeUserDataInLocalStorage(response.userdata.api_token,response.userdata.role,
-            response.userdata.government,response.userdata);
+            response.userdata.government,response.userdata.id,response.userdata);
+
+            
+            this.router.navigate(['/home']);
+
         }
       }));
   }
   /*end register function that call api*/
 
   /*start function that store coming user data in localstorage*/
-  storeUserDataInLocalStorage(api_token:string,role:string,government:string,userData:any){
+  storeUserDataInLocalStorage(api_token:string,role:string,government:string,id:any,userData:any){
     localStorage.setItem("api_token", api_token);
     localStorage.setItem("role", role);
     localStorage.setItem("government", government);
+    localStorage.setItem("userId", id);
     localStorage.setItem("userData", JSON.stringify(userData));
   }
 
@@ -110,15 +122,16 @@ export class AuthService {
 
   /*start logout function*/
   logout():Observable<any>{
-    return this.httpClient.get<logoutResponse>(`${this.apiuUrl}/logout`,this.httpOptions).pipe(
+    console.log(this.httpClient);
+    return this.httpClient.post<logoutResponse>(`${this.apiuUrl}/logout`,{},this.httpOptions).pipe(
       tap(response => {
         if(response.status == 200){
-          //console.log(response);
+          console.log(response);
 
-          localStorage.clear();
+          // localStorage.clear();
         }
       }));
-    //this.router.navigate(['/login']);
+    // this.router.navigate(['/login']);
   }
   /*end logout function*/
 
@@ -130,11 +143,11 @@ export class AuthService {
   /*end function call api to send email*/
 
 
-    /*start function call api to change password*/
-    changePassword(data:any){
-      //console.log(data);
-      return this.httpClient.post<passwordResponse>(`${this.apiuUrl}/resetPassword`,data);
-    }
+  /*start function call api to change password*/
+  changePassword(data:any){
+    //console.log(data);
+    return this.httpClient.post<passwordResponse>(`${this.apiuUrl}/resetPassword`,data);
+  }
   /*end function call api to change password*/
 
 }

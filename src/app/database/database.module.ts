@@ -25,6 +25,8 @@ import { ShowDestinationComponent } from './show-destination/show-destination.co
 import { ShowTripComponent } from './show-trip/show-trip.component';
 import { OffersComponent } from './offers/offers.component';
 import { ShowOrderComponent } from './show-order/show-order.component';
+import { NotificationOrderComponent } from './notification-order/notification-order.component';
+
 
 
 @NgModule({
@@ -52,6 +54,8 @@ import { ShowOrderComponent } from './show-order/show-order.component';
     ShowDestinationComponent,
     OffersComponent,
     ShowOrderComponent,
+    NotificationOrderComponent,
+
 
 
   ],

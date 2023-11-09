@@ -9,7 +9,7 @@ import { Observable, catchError, map, throwError } from 'rxjs';
 })
 export class HotelCrudService {
 
-
+   user =localStorage.getItem('userId');
   constructor(private httpClient: HttpClient) { }
   REST_API: string = "http://localhost:8000/api/hotels";
   httpOptions={
@@ -21,7 +21,9 @@ export class HotelCrudService {
     console.log(data);
     let API_URL = this.REST_API;
     return this.httpClient.post<any>(API_URL, data,this.httpOptions).pipe(catchError(this.handleError));
+
   }
+  
 
   getHotels(){
     return this.httpClient.get(this.REST_API,this.httpOptions);
@@ -35,7 +37,7 @@ export class HotelCrudService {
   }
   hotels(page:any){
     let API_URL = `http://localhost:8000/api/hotels?page=${page}`;
-   return this.httpClient.get( API_URL);
+   return this.httpClient.get( API_URL,this.httpOptions);
  }
   updateHotel(id:any, data: FormData): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;  

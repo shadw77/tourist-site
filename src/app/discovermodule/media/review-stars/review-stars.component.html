@@ -1,6 +1,12 @@
-<div class="d-flex  align-items-center">
+<!-- <div class="d-flex  align-items-center">
     <div class="ratings">
         <i class="fa fa-star" [class.rating-color]="rating && rating >= starValue" *ngFor="let starValue of starRange"></i>
     </div>
-    <h5 class="review-count">12 Reviews</h5>
+</div>
+<div class="d-flex  align-items-center"> -->
+
+<div class="ratings">
+    <i class="fa fa-star" [style.color]="rating && rating >= starValue?'orange':'gray'" 
+        (click)="setRating(starValue)"
+        *ngFor="let starValue of starRange"></i>
 </div>

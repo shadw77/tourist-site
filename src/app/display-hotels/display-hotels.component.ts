@@ -19,27 +19,49 @@ export class DisplayHotelsComponent {
   Hotels: any = [];
   faSearch = faSearch;
   @Output() keywordChanged: EventEmitter<string> = new EventEmitter<string>();
-  searchWord: any;
+  searchWord: any;    //start date
+  endDate:any;
   timeSlot:any;
   data : any;
   imagePath: string = 'http://127.0.0.1:8000/images/Hotel_images/thumbnails/';
   products:any;
   counter:number=0;
+  time_slot=sessionStorage.getItem('time_slot');
   constructor(private CounterService:CounterService,
     private router:Router,private cartItems:CartItemService,
 
     private activatedRoute: ActivatedRoute,private route: ActivatedRoute,private hotelCrudService: HotelCrudService, private searchDataService: SearchDataService){}
   ngOnInit():void{
-
+    const regex = /^\d{4}-\d{2}-\d{2}$/;
     this.route.paramMap.subscribe((params) => {
       this.data = params.get('data');
+      if (regex.test(this.data)) {
+        console.log('1234',this.searchWord,this.timeSlot);
+        
+        this.searchDataService.searchHotelsByTime(this.searchWord,this.endDate, this.timeSlot).then((response) => {             console.log(this.searchWord);
+         console.log(this.timeSlot);
+         
+         
+          this.data = response;   
+
+      console.log(this.data);
       
-      if (this.data) {
+      });
+      
+
+      }
+      
+
+     else if (this.data &&(!regex.test(this.data))) {
+      console.log('567');
+      
         this.searchDataService.searchHotels(this.data).then((response) => {
           this.Hotels = response;
           console.log('Searched Hotels:', this.Hotels);
         });
       } else {
+        console.log('2030405');
+        
         this.hotelCrudService.getHotels().subscribe((res) => {
           this.Hotels = res;
           this.Hotels = this.Hotels['data'];
@@ -54,8 +76,8 @@ export class DisplayHotelsComponent {
         });
   }
  
-  redirectTo(item:any,count:number,type:any) {
-    this.cartItems.PushCartItems(item,count,type);
+  redirectTo(item:any,count:number,type:any, time_slot:any) {
+    this.cartItems.PushCartItems(item,count,type, time_slot);
     console.log(item);
     
     this.router.navigate(['cart'])
@@ -63,22 +85,41 @@ export class DisplayHotelsComponent {
 
 }
 search() {    
-  const keyword = this.searchWord;
-  // this.keywordChanged.emit(keyword);
-  this.searchDataService.searchHotelsByTime(this.searchWord, this.timeSlot).then(response => {
-    this.data = response;
-});
-this.router.navigate(['/hotels', this.searchWord]);
+if (this.timeSlot) {
+  sessionStorage.setItem('time_slot',this.timeSlot);
 
+  // Handle the searchHotelsByTime method
+  this.searchDataService.searchHotelsByTime(this.searchWord,this.endDate, this.timeSlot).then((response) => {
+    this.data = response;
+    this.Hotels = this.data;
+    this.Hotels =this.Hotels.data;
+
+    console.log(this.data);
+  });
+} else {
+  // Handle the searchHotels method
+  this.searchDataService.searchHotels(this.searchWord).then((response) => {
+    this.Hotels = response;
+    this.Hotels =this.Hotels.data;
+    console.log('Searched Hotels:', this.Hotels);
+  });
+}
 }
 
 
 
-getProductSearch(event: any){
+
+getStartDate(event: any){
   this.searchWord = event.target.value;
   console.log(this.searchWord);
   
-    }
+}
+
+getEndDate(event: any){
+  this.endDate = event.target.value;
+  console.log(this.endDate);
+  
+}
 
  
 }

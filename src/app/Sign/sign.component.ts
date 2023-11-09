@@ -13,7 +13,7 @@ import { AuthService } from '../Services/auth.service';
 export class SignComponent implements OnInit{
 
   private apiUrl:string="http://127.0.0.1:8000/api";
-  userlogin!:FormGroup;
+  userlogin!:any;
 
   governments=['Sharm El Sheikh','Hurghada','Cairo','Ain Sukhna','Mersa Matruh','Alexandria','Marsa Alam',
   'El Alamein','Dahab','Luxor','Aswan'];

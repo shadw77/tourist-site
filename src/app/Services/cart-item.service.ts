@@ -8,8 +8,8 @@ export class CartItemService {
   constructor() { }
   cartProducts:any[] =[];
 
-  PushCartItems(item:any,quantity:number, type:any){
-      const cartItem ={item:item,quantity:quantity, type:type};
+  PushCartItems(item:any,quantity:number, type:any, time_slot:any){
+      const cartItem ={item:item,quantity:quantity, type:type, time_slot:time_slot};
        const index=this.cartProducts.find((product)=>{
            return product.item.name==cartItem.item.name;
        }) 

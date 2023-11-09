@@ -10,6 +10,7 @@ import { NgbcommentComponent } from './ngbcomment/ngbcomment.component';
 import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 import { ReviewStarsComponent } from './media/review-stars/review-stars.component';
 import { DetailsComponent } from './Details/details.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   
@@ -24,11 +25,12 @@ const routes: Routes = [
     DiscoverComponent, CaraouselComponent, MediaComponent,CuttextPipe, NgbcommentComponent, ReviewStarsComponent, DetailsComponent
   ],
   imports: [
-    CommonModule,
+  CommonModule,
     NgbModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes),
-    NgxSpinnerModule.forRoot()
-
+    NgxSpinnerModule.forRoot(),
   ]
 })
 export class DiscovermoduleModule { }

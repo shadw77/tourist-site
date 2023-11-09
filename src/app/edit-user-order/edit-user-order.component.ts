@@ -29,6 +29,8 @@ export class EditUserOrderComponent {
 
   this.userOrderCrudService.getUserOrder(this.id).subscribe(res => {        
     this.Order = res;
+    console.log(this.id);
+    
 
   });  
     

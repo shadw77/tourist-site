@@ -81,6 +81,7 @@
             <h5 class="d-flex align-items-center justify-content-end text-white text-uppercase mb-0">Total
               paid: <span class="h2 mb-0 ms-2">{{amountForLatestOrder}} EGP</span></h5>
           </div>
+          <button (click)="callPayment()">Checkout</button>
         </div>
       </div>
     </div>
@@ -99,7 +100,7 @@
               <h5 class="text-muted mb-0 fs-5">Your previous orders</h5>
             </div>
             <div class="card-body p-4">
-              <div class="card shadow-0 border mb-4" *ngFor="let order of Orders.data ">
+              <div class="card shadow-0 border mb-4" *ngFor="let order of Orders.data " >
                 <div class="card-body">
                   <div class="row">
                     <div class="col-md-2">
@@ -114,6 +115,7 @@
                     </div>
                     <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
                       <p class="text-muted mb-0 small">{{order.amount}} EGP</p>
+
                     </div>
                     <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
                       <p class="text-muted mb-0">{{ order.created_at | date:'medium' }}</p>
@@ -138,6 +140,43 @@
                   </div>
                 </div>
               </div>
+              <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                  <li class="page-item">
+                    <button
+                      class="page-link"
+                      aria-label="Previous"
+                      (click)="onPageChange(currentPage - 1)"
+                      [disabled]="currentPage === 1"
+                    >
+                      <span aria-hidden="true">&laquo;</span>
+                    </button>
+                  </li>
+                  <li
+                    class="page-item"
+                    *ngFor="let button of pageButtons"
+                    [class.active]="button === currentPage"
+                  >
+                    <button class="page-link" (click)="onPageChange(button)">
+                      <span aria-hidden="true">{{ button }}</span>
+                    </button>
+                  </li>
+              
+                  <li class="page-item">
+                    <button
+                      class="page-link"
+                      aria-label="Next"
+                      (click)="onPageChange(currentPage + 1)"
+                      [disabled]="currentPage === Orders.last_page"
+                    >
+                      <span aria-hidden="true">&raquo;</span>
+                    </button>
+                  </li>
+                </ul>
+              </nav>
+              
+              
+
             </div>   
           </div>
         </div>

@@ -5,6 +5,7 @@ import { SearchDataService } from '../Services/search-data.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import {CartItemService} from 'src/app/Services/cart-item.service'
 import {CounterService} from 'src/app/Services/counter.service'
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-display-restaurant',
   templateUrl: './display-restaurant.component.html',
@@ -16,6 +17,12 @@ export class DisplayRestaurantComponent {
   data : any;
   products:any;
   counter:number=0;
+  timeSlot=sessionStorage.getItem('time_slot');
+  searchWord: any;    //start date
+  endDate:any;
+  faSearch = faSearch;
+
+
   constructor(    private router:Router, private cartItems:CartItemService,private CounterService:CounterService,
 
     private activatedRoute: ActivatedRoute,private route: ActivatedRoute,private restaurantCrudService: RestaurantCrudService, private searchDataService: SearchDataService){}
@@ -42,12 +49,45 @@ export class DisplayRestaurantComponent {
       this.counter=val;
   });
   }
-  redirectTo(item:any,count:number,type:any) {
-    this.cartItems.PushCartItems(item,count,type);
+  redirectTo(item:any,count:number,type:any, time_slot:any) {
+    this.cartItems.PushCartItems(item,count,type, time_slot);
     console.log(item);
     
     this.router.navigate(['cart'])
 
 
 }
+search() {    
+  if (this.timeSlot) {
+    sessionStorage.setItem('time_slot',this.timeSlot);
+  
+    // Handle the searchHotelsByTime method
+    this.searchDataService.searchHotelsByTime(this.searchWord,this.endDate, this.timeSlot).then((response) => {
+      this.data = response;
+      this.Restaurents = this.data;
+      this.Restaurents =this.Restaurents.data;
+  
+      console.log(this.data);
+    });
+  } else {
+    // Handle the searchHotels method
+    this.searchDataService.searchHotels(this.searchWord).then((response) => {
+      this.Restaurents = response;
+      this.Restaurents =this.Restaurents.data;
+      console.log('Searched Hotels:', this.Restaurents);
+    });
+  }
+  }
+  getStartDate(event: any){
+    this.searchWord = event.target.value;
+    console.log(this.searchWord);
+    
+  }
+  
+  getEndDate(event: any){
+    this.endDate = event.target.value;
+    console.log(this.endDate);
+    
+  }
+  
 }

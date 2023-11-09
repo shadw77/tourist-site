@@ -20,10 +20,16 @@ export class DisplayOrdersComponent {
   discountForLatestOrder:number=0;
   created_at:any;
   invoiceNumber:any;
-
+  currentPage: number = 1;
+  totalPages:any;
+  totalItems: number=0;
+  pageButtons: number[] = [];
 
   constructor(private userOrderCrudService: UserOrderCrudService,  private http: HttpClient,
-    ){}
+    ){   
+          //  this.totalItems =this.Orders.meta.total;
+      console.log(this.Orders);
+      this.generatePageButtons();}
   
   ngOnInit():void{
 
@@ -110,6 +116,36 @@ export class DisplayOrdersComponent {
    
   }
 
-  
+  onPageChange(pageNumber: number) {
+    this.currentPage = pageNumber;
+    this.userOrderCrudService.orders(this.currentPage).subscribe(res=>{        
+      this.Orders= res;
+  })
+  }
+  generatePageButtons(): void {
+    this.pageButtons = [];
+    for (let i = 1; i <= this.totalPages; i++) {
+      this.pageButtons.push(i);
+    }
+  }
+  /*start function that call payment services*/
+  callPayment(){
+    this.userOrderCrudService.callPayment();
+
+   /* this.userOrderCrudService.callPayment().subscribe({
+      next:(next)=>{
+        //console.log(next);
+
+      },
+      error:(error) => {
+        console.error('Error fetching reviews:', error);
+      },
+      complete:()=>{
+      }
+    });  */
+  }
+  /*end function that call payment services*/
+
+
 
 }
