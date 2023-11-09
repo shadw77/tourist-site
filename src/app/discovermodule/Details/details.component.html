@@ -35,13 +35,14 @@
 
 
 <section style="background-color: #f7f6f6;">
-<div class=" my-5 py-5 text-dark">
-  <div class="row d-flex justify-content-center">
-    <div class="col-md-12 col-lg-10 col-xl-8">
-      <div class="d-flex justify-content-between align-items-center mb-4">
-        <h4 class="text-dark mb-0">{{postedComment.length}} comments </h4>
-        <app-review-stars [rating]="detailsdata.rating"></app-review-stars>
-      </div>
+  <div class=" my-5 py-5 text-dark">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-12 col-lg-10 col-xl-8">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h4 class="text-dark mb-0">{{postedComment.length}} comments </h4>
+          <app-review-stars [rating]="detailsdata.rating" (rated)="onRatingChange($event)"></app-review-stars>
+
+        </div>
 
       <ng-container *ngFor="let review of postedComment">
         <div class="card mb-3">

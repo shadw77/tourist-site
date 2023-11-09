@@ -12,10 +12,10 @@ export class TripCrudService {
   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
   httpOptions={
     headers:new HttpHeaders({
-      'authorization':`Bearer ${localStorage.getItem('api_token')}`,
+      'Content-Type':'application/json',
+      'Authorization': `Bearer ${localStorage.getItem('api_token')}`
     })
   };
-
 
   constructor(private httpClient: HttpClient) { }
 

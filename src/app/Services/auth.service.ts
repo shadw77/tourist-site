@@ -85,7 +85,10 @@ export class AuthService {
         if(response.status != 400){
           this.storeUserDataInLocalStorage(response.userdata.api_token,response.userdata.role,
             response.userdata.government,response.userdata.id,response.userdata);
-            this.router.navigate(['/home']); 
+
+            
+            this.router.navigate(['/home']);
+
         }
       }));
   }
@@ -123,9 +126,9 @@ export class AuthService {
     return this.httpClient.post<logoutResponse>(`${this.apiuUrl}/logout`,{},this.httpOptions).pipe(
       tap(response => {
         if(response.status == 200){
-          //console.log(response);
+          console.log(response);
 
-          localStorage.clear();
+          // localStorage.clear();
         }
       }));
     // this.router.navigate(['/login']);

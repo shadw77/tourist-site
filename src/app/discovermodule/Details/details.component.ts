@@ -4,6 +4,15 @@ import { Router, NavigationEnd } from '@angular/router';
 import { HandleapiService } from 'src/app/Services/handleapi.service';
 
 //import { google } from 'googlemaps';
+// declare var google: any;
+// declare var $: any;
+// declare var customScript: any;
+// interface Position {
+//   coords: {
+//     latitude: number;
+//     longitude: number;
+//   };
+// }
 
 
 @Component({
@@ -15,6 +24,8 @@ export class DetailsComponent implements OnInit{
   detailsdata:any;
   postedComment:any;
   comment:any;
+
+
   userId=localStorage.getItem("userId");
   @ViewChild('mapContainer', { static: false }) mapElement!: ElementRef;
 
@@ -22,10 +33,13 @@ export class DetailsComponent implements OnInit{
   markers: google.maps.Marker[] = [];
 
 
-  
+  userRating:any;
   constructor(private router: Router,
     private route: ActivatedRoute,
     private handle:HandleapiService) {}
+
+
+  
 
   /*start ngoninit*/
   ngOnInit() {
@@ -56,6 +70,9 @@ export class DetailsComponent implements OnInit{
 
   } 
   /*end ngoninit*/
+  onRatingChange(rating: any) {    
+    this.userRating = Number(rating);
+  }
 
   /*start function that send comment to service*/
   sendReview(){

@@ -49,6 +49,7 @@ import { SignupComponent } from './signup/signup.component';
 import { RequestResetComponent } from './password/request-reset/request-reset.component';
 import { ResponseResetComponent } from './password/response-reset/response-reset.component';
 import { EditUserOrderComponent } from './edit-user-order/edit-user-order.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 
 const routes: Routes = [
@@ -135,6 +136,10 @@ const routes: Routes = [
       path: 'edit-order/:id',
       component: EditUserOrderComponent,
 
+    },
+    {
+      path:'edit-profile',
+      component:EditProfileComponent,
     },
      {
       path:'discover',loadChildren: () => import('src/app/discovermodule/discovermodule.module')
