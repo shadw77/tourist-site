@@ -41,7 +41,7 @@ export class DisplayRestaurantComponent {
           this.Restaurents = res;
           this.Restaurents = this.Restaurents['data'];
           
-          console.log('All Restaurents:', this.Restaurents['data']);
+          console.log('All Restaurents:', this.Restaurents);
         });
       }
     });

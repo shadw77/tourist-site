@@ -66,7 +66,7 @@ export class DisplayHotelsComponent {
           this.Hotels = res;
           this.Hotels = this.Hotels['data'];
           
-          console.log('All Hotels:', this.Hotels['data']);
+          console.log( this.Hotels);
         });
       }
     });

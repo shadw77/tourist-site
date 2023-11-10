@@ -44,6 +44,7 @@ export class HandleapiService {
   }
 
 
+
   /*start function to get nearby places from api*/
   getNearbyPlaces(city:string|null) :Observable<any>{
     return this.httpclient.get(`${this.apiUrl}/get-nearbyplaces/${city}`);

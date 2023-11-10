@@ -35,7 +35,8 @@ load(){
       this.load();
     });
   }
- 
+
+
   onPageChange(pageNumber: number) {
     this.currentPage = pageNumber;
     this.restaurantCrudService.Restaurants(this.currentPage).subscribe(res=>{        

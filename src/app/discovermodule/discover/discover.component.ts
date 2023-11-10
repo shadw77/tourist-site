@@ -31,8 +31,6 @@ export class DiscoverComponent implements OnInit{
   commentsofoffers:any=[];
 
 
-
-
   constructor(private data:HandleapiService,
     private auth:AuthService,
             private spinner: NgxSpinnerService){}
@@ -219,8 +217,7 @@ export class DiscoverComponent implements OnInit{
   /*end testing function*/
 
 
-
-
+ 
 
 
 }

@@ -33,12 +33,13 @@ import { VendorComponent } from './dashboard/vendor/vendor.component';
 import { HotelsVendorComponent } from './dashboard/hotels-vendor/hotels-vendor.component';
 import { UpdatehotelVendorComponent } from './dashboard/updatehotel-vendor/updatehotel-vendor.component';
 import { ShowHotelComponent } from './dashboard/show-hotel/show-hotel.component';
-
 import { ShowTripComponent } from './database/show-trip/show-trip.component';
-
 import { ShowRestaurantComponent } from './database/show-restaurant/show-restaurant.component';
 import { DisplayServicesComponent } from './display-services/display-services.component';
 import { ShowDestinationComponent } from './database/show-destination/show-destination.component';
+import { adminGroupGuard } from './Guard/admin-group.guard';
+import {groupAdminOrVendorGuard } from './Guard/group-admin-or-vendor.guard';
+import { authGroupGuard } from './Guard/auth-group.guard';
 import { authGuard } from './Guard/auth.guard';
 import { adminguard } from './Guard/admin.guard';
 import { adminOrVendorGuard } from './Guard/admin-or-vendor.guard';
@@ -133,22 +134,23 @@ const routes: Routes = [
     {
       path:'orders',
       component:DisplayOrdersComponent,
+      canActivate:[authGuard]
     },
     {
       path: 'edit-order/:id',
       component: EditUserOrderComponent,
+      canActivate:[authGuard]
 
     },
     {
       path:'edit-profile',
       component:EditProfileComponent,
+      canActivate:[authGuard]
     },
      {
       path:'discover',loadChildren: () => import('src/app/discovermodule/discovermodule.module')
       .then(m=>m.DiscovermoduleModule),
-      //canActivate:['authGuard']
-    },
-    
+    },    
     {
       path:'about', 
       component:AboutUsComponent
@@ -159,16 +161,17 @@ const routes: Routes = [
     }
   ]
   
-},{
-
-  
+},
+{
     path: 'dashboard',
     redirectTo: 'dashboard/admin',
-    pathMatch: 'full'
+    pathMatch: 'full',
+
   },
   {
     path: 'dashboard/admin',
     component: AdminComponent,
+    canActivateChild: [adminGroupGuard],
     children: [
       { 
         path: 'offers',
@@ -306,15 +309,15 @@ const routes: Routes = [
 
 
   {
-
   
     path: 'dashboard',
     redirectTo: 'dashboard/vendor',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'dashboard/vendor',
     component: VendorComponent,
+    canActivateChild: [groupAdminOrVendorGuard],
     children: [
       { 
         path: 'trips',
