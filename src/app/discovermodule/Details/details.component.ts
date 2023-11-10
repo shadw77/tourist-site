@@ -17,11 +17,12 @@ export class DetailsComponent implements OnInit{
 
 
   userId=localStorage.getItem("userId");
-  @ViewChild('mapContainer', { static: false }) mapElement!: ElementRef;
 
+  /*
+  @ViewChild('mapContainer', { static: false }) mapElement!: ElementRef;
   map!: google.maps.Map;
   markers: google.maps.Marker[] = [];
-
+*/
 
   userRating:any;
   constructor(private router: Router,
@@ -55,13 +56,15 @@ export class DetailsComponent implements OnInit{
       complete:()=>{
       }
     }); 
-    this.initMap();
+    //this.initMap();
 
   } 
   /*end ngoninit*/
   onRatingChange(rating: any) {    
     this.userRating = Number(rating);
   }
+
+
 
   /*start function that send comment to service*/
   sendReview(){
@@ -105,8 +108,7 @@ export class DetailsComponent implements OnInit{
 
 
 
-  /*start functions that handle maps*/
-  initMap() {
+  /*  initMap() {
     // Set initial map options
     const mapOptions: google.maps.MapOptions = {
       center: { lat: 37.7749, lng: -122.4194 }, // Default location (San Francisco, CA)
@@ -149,9 +151,7 @@ export class DetailsComponent implements OnInit{
     }
     this.markers = [];
   }
-  /*end functions that handle maps*/
-
-
+*/
 
 
 }//end class
