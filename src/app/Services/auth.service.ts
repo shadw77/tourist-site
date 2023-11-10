@@ -128,7 +128,7 @@ export class AuthService {
         if(response.status == 200){
           console.log(response);
 
-          // localStorage.clear();
+          localStorage.clear();
         }
       }));
     // this.router.navigate(['/login']);
