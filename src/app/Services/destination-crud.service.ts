@@ -11,6 +11,7 @@ export class DestinationCrudService {
 
   userData:any;
   REST_API: string = "http://localhost:8000/api/destinations";
+   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
    httpOptions={
     headers:new HttpHeaders({
       'Authorization': `Bearer ${localStorage.getItem('api_token')}`
@@ -61,7 +62,7 @@ export class DestinationCrudService {
 
   deleteDestination(id:any): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;
-    return this.httpClient.delete(API_URL,this.httpOptions)
+    return this.httpClient.delete(API_URL, this.httpOptions)
     .pipe(catchError(this.handleError));
   }
 

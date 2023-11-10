@@ -25,11 +25,11 @@ export class HotelCrudService {
       'Authorization': `Bearer ${localStorage.getItem('api_token')}`
     })
   };
+
   addHotel(data: FormData): Observable<any>{
     console.log(data);
     let API_URL = this.REST_API;
     return this.httpClient.post<any>(API_URL, data,this.httpOptions).pipe(catchError(this.handleError));
-
   }
 
 

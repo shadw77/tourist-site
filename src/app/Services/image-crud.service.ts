@@ -9,6 +9,7 @@ import { Observable, catchError, map, throwError } from 'rxjs';
 export class ImageCrudService {
   constructor(private httpClient: HttpClient) { }
   REST_API: string = "http://localhost:8000/api/images";
+  httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
   httpOptions={
     headers:new HttpHeaders({
       'Authorization': `Bearer ${localStorage.getItem('api_token')}`
