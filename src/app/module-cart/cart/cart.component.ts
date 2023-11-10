@@ -84,7 +84,9 @@ export class CartComponent {
       // sessionStorage.removeItem('cartProducts');
     }
     goBack() {
-      this.location.back();
+      // this.location.back();
+      this.router.navigate(['/home'])
+
     }
     onOptionChange(event: any,cart:any) {
       this.selectedOption = event.target.value;
