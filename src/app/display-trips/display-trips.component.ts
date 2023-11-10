@@ -23,7 +23,7 @@ export class DisplayTripsComponent {
   faSearch = faSearch;
 
 
-  imagePath: string = 'http://127.0.0.1:8000/images/trip_images/thumbnails/';
+  imagePath: string = 'http://127.0.0.1:8000/images/trips_images/thumbnails/';
 
   constructor(private CounterService:CounterService,
     private router:Router,private cartItems:CartItemService,

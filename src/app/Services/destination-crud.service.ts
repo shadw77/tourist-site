@@ -9,14 +9,22 @@ import { tap } from 'rxjs/operators';
 })
 export class DestinationCrudService {
 
+  userData:any;
   REST_API: string = "http://localhost:8000/api/destinations";
+   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
    httpOptions={
     headers:new HttpHeaders({
       'Authorization': `Bearer ${localStorage.getItem('api_token')}`
     })
   };
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+    const userDataString = localStorage.getItem('userData');
+    if (userDataString) {
+       this.userData = JSON.parse(userDataString);
+    }
+
+   }
 
   addDestination( data: FormData): Observable<any>{
     console.log(data);
@@ -25,6 +33,9 @@ export class DestinationCrudService {
   }
 
   getDestinations(){
+    if(this.userData.role=='user'){
+      this.REST_API = `${'http://localhost:8000/api/user-destinations'}`;
+    }
     console.log(this.httpClient.get(this.REST_API));
     
     return this.httpClient.get(this.REST_API,this.httpOptions);
@@ -35,6 +46,9 @@ export class DestinationCrudService {
  }
   getDestination(id:any): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;
+    if(this.userData.role=='user'){
+      API_URL = `${'http://localhost:8000/api/user-destinations'}/${id}`;
+   }
     return this.httpClient.get(API_URL,this.httpOptions)
     .pipe(map((res: any)=>{return res || {}}),
       catchError(this.handleError));
@@ -48,7 +62,7 @@ export class DestinationCrudService {
 
   deleteDestination(id:any): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;
-    return this.httpClient.delete(API_URL,this.httpOptions)
+    return this.httpClient.delete(API_URL, this.httpOptions)
     .pipe(catchError(this.handleError));
   }
 

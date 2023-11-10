@@ -96,7 +96,7 @@
 	top: 120%;
 	margin: 0;
 	width: 100%;
-	background: #FFFFFF;
+	/* background: #FFFFFF; */
 	visibility: hidden;
 	opacity: 0;
 	z-index: 1;
@@ -120,6 +120,8 @@
 	padding-left: 25px;
 	padding-right: 25px;
 }
+
+
 .offers_sorting li ul li span
 {
 	display: block;
@@ -322,7 +324,7 @@
 	width: 100%;
 	padding-top: 105px;
 	padding-bottom: 43px;
-	background: #f3f6f9;
+	/* background: #f3f6f9; */
 }
 .offers_items
 {
@@ -1605,4 +1607,9 @@
 @media only screen and (max-width: 400px)
 {
 	
+}
+
+.custom-bg {
+    background-color: #fa9e1b !important;
+    padding: 10px; /* Adjust padding as needed */
 }

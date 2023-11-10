@@ -106,50 +106,54 @@ export class DetailsComponent implements OnInit{
 
 
   /*start functions that handle maps*/
-  // initMap() {
-  //   // Set initial map options
-  //   const mapOptions: google.maps.MapOptions = {
-  //     center: { lat: 37.7749, lng: -122.4194 }, // Default location (San Francisco, CA)
-  //     zoom: 12
-  //   };
 
-  //   // Create the map
-  //   this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
-  // }
+  initMap() {
+    // Set initial map options
+    // const mapOptions: google.maps.MapOptions = {
+    //   center: { lat: 37.7749, lng: -122.4194 }, // Default location (San Francisco, CA)
+    //   zoom: 12
+    // };
 
-  // searchAddress(address: string) {
-  //   // Use the Geocoding API to convert the address to coordinates
-  //   const geocoder = new google.maps.Geocoder();
-  //   geocoder.geocode({ address }, (results:any, status:any) => {
-  //     if (status === google.maps.GeocoderStatus.OK) {
-  //       // Clear existing markers
-  //       this.clearMarkers();
+    // Create the map
+    // this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+  }
 
-  //       // Set the map center to the first result
-  //       this.map.setCenter(results[0].geometry.location);
+  searchAddress(address: string) {
+    // Use the Geocoding API to convert the address to coordinates
+    // const geocoder = new google.maps.Geocoder();
+    // geocoder.geocode({ address }, (results:any, status:any) => {
+    //   if (status === google.maps.GeocoderStatus.OK) {
+    //     // Clear existing markers
+    //     this.clearMarkers();
 
-  //       // Create a marker for each result
-  //       for (const result of results) {
-  //         this.addMarker(result.geometry.location);
-  //       }
-  //     } else {
-  //       console.error('Geocode was not successful for the following reason:', status);
-  //     }
-  //   });
-  // }
+    //     // Set the map center to the first result
+    //     this.map.setCenter(results[0].geometry.location);
+
+    //     // Create a marker for each result
+    //     // for (const result of results) {
+    //     //   this.addMarker(result.geometry.location);
+    //     // }
+    //   } else {
+    //     console.error('Geocode was not successful for the following reason:', status);
+    //   }
+    // });
+  }
+
 
   // addMarker(position: google.maps.LatLng) {
   //   const marker = new google.maps.Marker({ position, map: this.map });
   //   this.markers.push(marker);
   // }
 
-  // clearMarkers() {
-  //   for (const marker of this.markers) {
-  //     marker.setMap(null);
-  //   }
-  //   this.markers = [];
-  // }
-  // /*end functions that handle maps*/
+
+  clearMarkers() {
+    // for (const marker of this.markers) {
+    //   marker.setMap(null);
+    // }
+    // this.markers = [];
+  }
+  /*end functions that handle maps*/
+
 
 
 
