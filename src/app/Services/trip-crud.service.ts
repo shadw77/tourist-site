@@ -8,9 +8,9 @@ import { Observable, catchError, map, throwError } from 'rxjs';
 })
 export class TripCrudService {
 
+  userData:any;
   REST_API: string = "http://localhost:8000/api/trips";
-  httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
-  
+
   httpOptions={
     headers:new HttpHeaders({
       'Authorization': `Bearer ${localStorage.getItem('api_token')}`
@@ -18,7 +18,12 @@ export class TripCrudService {
   };
 
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {  
+    const userDataString = localStorage.getItem('userData');
+    if (userDataString) {
+      this.userData = JSON.parse(userDataString);
+    }
+}
 
   addTrip(data:FormData): Observable<any>{
 
@@ -30,29 +35,33 @@ export class TripCrudService {
 
   Trips(page:any){
      let API_URL = `http://localhost:8000/api/trips?page=${page}`;
-    return this.httpClient.get( API_URL);
+    return this.httpClient.get( API_URL,this.httpOptions);
   }
   getTrips(){
-    return this.httpClient.get(this.REST_API);
+    if(this.userData.role=='user'){
+      this.REST_API = `${'http://localhost:8000/api/user-trips'}`;
+    }
+    return this.httpClient.get(this.REST_API,this.httpOptions);
   }
 
   getTrip(id:any): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;
-    return this.httpClient.get(API_URL, {headers: this.httpHeaders})
+    if(this.userData.role=='user'){
+      API_URL = `${'http://localhost:8000/api/user-trips'}/${id}`;
+   }
+    return this.httpClient.get(API_URL,this.httpOptions)
     .pipe(map((res: any)=>{return res || {}}),
       catchError(this.handleError));
   }
   updateTrip(id:any, data: FormData): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;  
-    return this.httpClient.post<any>( API_URL , data,{
-      responseType: 'json'
-    })
+    return this.httpClient.post<any>( API_URL , data,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
 
   deleteTrip(id:any): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;
-    return this.httpClient.delete(API_URL, {headers: this.httpHeaders})
+    return this.httpClient.delete(API_URL,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
 
@@ -69,4 +78,3 @@ export class TripCrudService {
     
   }
 }
-

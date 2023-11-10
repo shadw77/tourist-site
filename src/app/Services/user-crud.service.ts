@@ -9,36 +9,39 @@ import { Observable, catchError, map, throwError } from 'rxjs';
 export class UserCrudService {
 
   REST_API: string = "http://localhost:8000/api/users";
-  httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
-  
+  httpOptions={
+    headers:new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem('api_token')}`
+    })
+  };
 
   constructor(private httpClient: HttpClient) { }
 
   addUser(data:User): Observable<any>{
     let API_URL = this.REST_API;
-    return this.httpClient.post(API_URL, data).pipe(catchError(this.handleError));
+    return this.httpClient.post(API_URL, data,this.httpOptions).pipe(catchError(this.handleError));
   }
 
   getUsers(){
-    return this.httpClient.get(this.REST_API);
+    return this.httpClient.get(this.REST_API,this.httpOptions);
   }
 
   getUser(id:any): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;
-    return this.httpClient.get(API_URL, {headers: this.httpHeaders})
+    return this.httpClient.get(API_URL,this.httpOptions)
     .pipe(map((res: any)=>{return res || {}}),
       catchError(this.handleError));
   }
 
   updateUser(id:any, data: User): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;
-    return this.httpClient.put(API_URL, data, {headers: this.httpHeaders})
+    return this.httpClient.put(API_URL, data,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
 
   deleteUser(id:any): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;
-    return this.httpClient.delete(API_URL, {headers: this.httpHeaders})
+    return this.httpClient.delete(API_URL,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
 

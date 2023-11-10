@@ -8,31 +8,44 @@ import { Observable, catchError, map, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class HotelCrudService {
+  userData:any;
 
-   user =localStorage.getItem('userId');
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+    const user =localStorage.getItem('userId');
+    const userDataString = localStorage.getItem('userData');
+    if (userDataString) {
+       this.userData = JSON.parse(userDataString);
+    }
+
+   }
+
   REST_API: string = "http://localhost:8000/api/hotels";
-  httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
   httpOptions={
     headers:new HttpHeaders({
-      'Content-Type':'application/json',
       'Authorization': `Bearer ${localStorage.getItem('api_token')}`
     })
   };
-  addHotel(data:FormData){
+
+  addHotel(data: FormData): Observable<any>{
     console.log(data);
     let API_URL = this.REST_API;
-    return this.httpClient.post<any>(API_URL,data).pipe(catchError(this.handleError));
+    return this.httpClient.post<any>(API_URL, data,this.httpOptions).pipe(catchError(this.handleError));
   }
-  
+
 
   getHotels(){
+    if(this.userData.role=='user'){
+      this.REST_API = `${'http://localhost:8000/api/user-hotels'}`;
+    }
     return this.httpClient.get(this.REST_API,this.httpOptions);
   }
 
   getHotel(id:any): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;
-    return this.httpClient.get(API_URL, this.httpOptions)
+    if(this.userData.role=='user'){
+      API_URL = `${'http://localhost:8000/api/user-hotels'}/${id}`;
+   }
+    return this.httpClient.get(API_URL,this.httpOptions)
     .pipe(map((res: any)=>{return res || {}}),
       catchError(this.handleError));
   }

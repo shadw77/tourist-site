@@ -16,3 +16,10 @@
 a:hover{
     color: #fd7e14;
 }
+.background{
+    background-image: url(../../../assets/images/pexels-asad-photo-maldives-3601425.jpg);
+    /* background-image: url(../../../assets/images/ser.png); */
+    height: 90% !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

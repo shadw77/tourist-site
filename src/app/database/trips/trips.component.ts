@@ -15,7 +15,7 @@ export class TripsComponent {
   pageButtons: number[] = [];
   constructor(private tripCrudService: TripCrudService){}
   ngOnInit():void{
-    this.tripCrudService.Trips(this.currentPage).subscribe(res=>{        
+    this.tripCrudService.getTrips().subscribe(res=>{        
         this.Trips= res;
         this.totalPages=this.Trips.meta.last_page;
         this.totalItems =this.Trips.meta.total;
@@ -23,7 +23,7 @@ export class TripsComponent {
         this.generatePageButtons();
     });
        
-    localStorage.setItem('role', 'admin');
+ 
   }
   isAdmin(): boolean {
     const user =localStorage.getItem('role');
@@ -37,10 +37,9 @@ export class TripsComponent {
 
   delete(id:any){
     this.tripCrudService.deleteTrip(id).subscribe(res=>{
-    this.Trips = this.Trips.filter((trip: any) => trip.id !== id);
-  //   this.tripCrudService.getTrips().subscribe(res=>{        
-  //     this.Trips= res;
-  // });
+    this.tripCrudService.getTrips().subscribe(res=>{        
+      this.Trips= res;
+  });
   })
     
    
