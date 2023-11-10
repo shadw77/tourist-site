@@ -8,31 +8,48 @@ import { Observable, catchError, map, throwError } from 'rxjs';
 })
 export class TripCrudService {
 
+  userData:any;
   REST_API: string = "http://localhost:8000/api/trips";
-  httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
+
   httpOptions={
     headers:new HttpHeaders({
       'Authorization': `Bearer ${localStorage.getItem('api_token')}`
     })
   };
 
-  constructor(private httpClient: HttpClient) { }
+
+  constructor(private httpClient: HttpClient) {  
+    const userDataString = localStorage.getItem('userData');
+    if (userDataString) {
+      this.userData = JSON.parse(userDataString);
+    }
+}
 
   addTrip(data:FormData): Observable<any>{
+
+    console.log(data);
     let API_URL = this.REST_API;
     return this.httpClient.post(API_URL,data,this.httpOptions).pipe(catchError(this.handleError));
   }
+
+
   Trips(page:any){
      let API_URL = `http://localhost:8000/api/trips?page=${page}`;
     return this.httpClient.get( API_URL,this.httpOptions);
   }
   getTrips(){
+    if(this.userData.role=='user'){
+      this.REST_API = `${'http://localhost:8000/api/user-trips'}`;
+    }
     return this.httpClient.get(this.REST_API,this.httpOptions);
   }
 
   getTrip(id:any): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;
-    return this.httpClient.get(API_URL, this.httpOptions)
+    if(this.userData.role=='user'){
+      API_URL = `${'http://localhost:8000/api/user-trips'}/${id}`;
+   }
+    return this.httpClient.get(API_URL,this.httpOptions)
     .pipe(map((res: any)=>{return res || {}}),
       catchError(this.handleError));
   }
@@ -44,7 +61,7 @@ export class TripCrudService {
 
   deleteTrip(id:any): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;
-    return this.httpClient.delete(API_URL, this.httpOptions)
+    return this.httpClient.delete(API_URL,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
 
@@ -61,4 +78,3 @@ export class TripCrudService {
     
   }
 }
-

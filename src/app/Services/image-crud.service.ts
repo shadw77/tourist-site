@@ -15,7 +15,6 @@ export class ImageCrudService {
       'Authorization': `Bearer ${localStorage.getItem('api_token')}`
     })
   };
-  
   addImage(  data: FormData): Observable<any> {
     let API_URL = `${this.REST_API}`;
     return this.httpClient.post<any>( API_URL, data,this.httpOptions);

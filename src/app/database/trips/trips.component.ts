@@ -23,7 +23,7 @@ export class TripsComponent {
         this.generatePageButtons();
     });
        
-    localStorage.setItem('role', 'admin');
+ 
   }
   isAdmin(): boolean {
     const user =localStorage.getItem('role');

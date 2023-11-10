@@ -96,7 +96,7 @@
 	top: 120%;
 	margin: 0;
 	width: 100%;
-	background: #FFFFFF;
+	/* background: #FFFFFF; */
 	visibility: hidden;
 	opacity: 0;
 	z-index: 1;
@@ -322,7 +322,7 @@
 	width: 100%;
 	padding-top: 105px;
 	padding-bottom: 43px;
-	background: #f3f6f9;
+	/* background: #f3f6f9; */
 }
 .offers_items
 {
@@ -508,7 +508,7 @@
 		text-align: center;
 		height: 100%;
 		flex-grow: 1;
-		background: #FFFFFF;
+		/* background: #FFFFFF; */
 		cursor: pointer;
 		-webkit-transition: all 200ms ease;
 		-moz-transition: all 200ms ease;
