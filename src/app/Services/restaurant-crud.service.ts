@@ -7,13 +7,19 @@ import { DisplayRestaurantComponent } from '../display-restaurant/display-restau
   providedIn: 'root'
 })
 export class RestaurantCrudService {
+  userData:any;
   REST_API: string = "http://localhost:8000/api/restaurants";
   httpOptions={
     headers:new HttpHeaders({
       'Authorization': `Bearer ${localStorage.getItem('api_token')}`
     })
   };
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) { 
+    const userDataString = localStorage.getItem('userData');
+    if (userDataString) {
+       this.userData = JSON.parse(userDataString);
+    }
+  }
 
   addRestaurant(data: FormData): Observable<any>{
     let API_URL = this.REST_API;
@@ -22,11 +28,17 @@ export class RestaurantCrudService {
 
 
   getRestaurants(){
+    if(this.userData.role=='user'){
+      this.REST_API = `${'http://localhost:8000/api/user-restaurants'}`;
+    }
     return this.httpClient.get(this.REST_API,this.httpOptions);
   }
 
   getRestaurant(id:any): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;
+    if(this.userData.role=='user'){
+      API_URL = `${'http://localhost:8000/api/user-restaurants'}/${id}`;
+   }
     return this.httpClient.get(API_URL,this.httpOptions)
     .pipe(map((res: any)=>{return res || {}}),
       catchError(this.handleError));
