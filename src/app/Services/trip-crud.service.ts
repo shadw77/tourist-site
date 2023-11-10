@@ -8,6 +8,7 @@ import { Observable, catchError, map, throwError } from 'rxjs';
 })
 export class TripCrudService {
 
+  userData:any;
   REST_API: string = "http://localhost:8000/api/trips";
 
   httpOptions={
@@ -17,7 +18,12 @@ export class TripCrudService {
   };
 
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {  
+    const userDataString = localStorage.getItem('userData');
+    if (userDataString) {
+      this.userData = JSON.parse(userDataString);
+    }
+}
 
   addTrip(data:FormData): Observable<any>{
 
@@ -32,11 +38,17 @@ export class TripCrudService {
     return this.httpClient.get( API_URL,this.httpOptions);
   }
   getTrips(){
+    if(this.userData.role=='user'){
+      this.REST_API = `${'http://localhost:8000/api/user-trips'}`;
+    }
     return this.httpClient.get(this.REST_API,this.httpOptions);
   }
 
   getTrip(id:any): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;
+    if(this.userData.role=='user'){
+      API_URL = `${'http://localhost:8000/api/user-trips'}/${id}`;
+   }
     return this.httpClient.get(API_URL,this.httpOptions)
     .pipe(map((res: any)=>{return res || {}}),
       catchError(this.handleError));
