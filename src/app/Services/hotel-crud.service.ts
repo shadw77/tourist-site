@@ -25,29 +25,18 @@ export class HotelCrudService {
     let API_URL = this.REST_API;
     return this.httpClient.post<any>(API_URL, data).pipe(catchError(this.handleError));
   }
-  userGetHotels(){
+  getHotels(){
     if(this.userData.role=='user'){
       this.REST_API = `${'http://localhost:8000/api/user-hotels'}`;
     }
     return this.httpClient.get(this.REST_API);
   }
 
-  userGetHotel(id:any): Observable<any>{    
-    let API_URL = `${this.REST_API}/${id}`;
-    if(this.userData.role=='user'){
-      let API_URL = `${'http://localhost:8000/api/user-hotels'}/${id}`;
-    }
-    return this.httpClient.get(API_URL, {headers: this.httpHeaders})
-    .pipe(map((res: any)=>{return res || {}}),
-      catchError(this.handleError));
-  }
-
-  getHotels(){
-    return this.httpClient.get(this.REST_API);
-  }
-
   getHotel(id:any): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;
+    if(this.userData.role=='user'){
+       API_URL = `${'http://localhost:8000/api/user-hotels'}/${id}`;
+    }
     return this.httpClient.get(API_URL, {headers: this.httpHeaders})
     .pipe(map((res: any)=>{return res || {}}),
       catchError(this.handleError));
