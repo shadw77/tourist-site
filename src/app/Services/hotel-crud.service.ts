@@ -11,7 +11,7 @@ export class HotelCrudService {
   userData:any;
 
   constructor(private httpClient: HttpClient) {
-    user =localStorage.getItem('userId');
+    const user =localStorage.getItem('userId');
     const userDataString = localStorage.getItem('userData');
     if (userDataString) {
        this.userData = JSON.parse(userDataString);

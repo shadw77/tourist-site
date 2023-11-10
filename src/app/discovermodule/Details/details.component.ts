@@ -19,8 +19,8 @@ export class DetailsComponent implements OnInit{
   userId=localStorage.getItem("userId");
   @ViewChild('mapContainer', { static: false }) mapElement!: ElementRef;
 
-  map!: google.maps.Map;
-  markers: google.maps.Marker[] = [];
+  // map!: google.maps.Map;
+  // markers: google.maps.Marker[] = [];
 
 
   userRating:any;
@@ -108,46 +108,46 @@ export class DetailsComponent implements OnInit{
   /*start functions that handle maps*/
   initMap() {
     // Set initial map options
-    const mapOptions: google.maps.MapOptions = {
-      center: { lat: 37.7749, lng: -122.4194 }, // Default location (San Francisco, CA)
-      zoom: 12
-    };
+    // const mapOptions: google.maps.MapOptions = {
+    //   center: { lat: 37.7749, lng: -122.4194 }, // Default location (San Francisco, CA)
+    //   zoom: 12
+    // };
 
     // Create the map
-    this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+    // this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
   }
 
   searchAddress(address: string) {
     // Use the Geocoding API to convert the address to coordinates
-    const geocoder = new google.maps.Geocoder();
-    geocoder.geocode({ address }, (results:any, status:any) => {
-      if (status === google.maps.GeocoderStatus.OK) {
-        // Clear existing markers
-        this.clearMarkers();
+    // const geocoder = new google.maps.Geocoder();
+    // geocoder.geocode({ address }, (results:any, status:any) => {
+    //   if (status === google.maps.GeocoderStatus.OK) {
+    //     // Clear existing markers
+    //     this.clearMarkers();
 
-        // Set the map center to the first result
-        this.map.setCenter(results[0].geometry.location);
+    //     // Set the map center to the first result
+    //     this.map.setCenter(results[0].geometry.location);
 
-        // Create a marker for each result
-        for (const result of results) {
-          this.addMarker(result.geometry.location);
-        }
-      } else {
-        console.error('Geocode was not successful for the following reason:', status);
-      }
-    });
+    //     // Create a marker for each result
+    //     // for (const result of results) {
+    //     //   this.addMarker(result.geometry.location);
+    //     // }
+    //   } else {
+    //     console.error('Geocode was not successful for the following reason:', status);
+    //   }
+    // });
   }
 
-  addMarker(position: google.maps.LatLng) {
-    const marker = new google.maps.Marker({ position, map: this.map });
-    this.markers.push(marker);
-  }
+  // addMarker(position: google.maps.LatLng) {
+  //   const marker = new google.maps.Marker({ position, map: this.map });
+  //   this.markers.push(marker);
+  // }
 
   clearMarkers() {
-    for (const marker of this.markers) {
-      marker.setMap(null);
-    }
-    this.markers = [];
+    // for (const marker of this.markers) {
+    //   marker.setMap(null);
+    // }
+    // this.markers = [];
   }
   /*end functions that handle maps*/
 
