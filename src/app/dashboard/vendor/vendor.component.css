@@ -1,0 +1,22 @@
+.icon{
+     position: relative;
+}
+.icon_content{
+    position: absolute;
+    text-align: center;
+    padding: 2px 8px;
+    background: red;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 11px;
+    top: -11px;
+    left: 9px
+}
+#navbarNav{
+    border-radius: 5%;
+    background-color: #fff;
+    right: 16%;
+    width: 380px;
+    max-height: 316px;
+    max-width: 1325px;
+}

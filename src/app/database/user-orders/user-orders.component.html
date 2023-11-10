@@ -7,6 +7,7 @@
 >
   Add New Order
 </button>
+
 <div class="row">
   <h3 class="fs-4 mb-3">All Orders</h3>
   <div class="table-responsive">
@@ -44,6 +45,18 @@
             >
               Delete
             </button>
+            <button
+            type="button"
+            class="btn btn-outline-info btn-sm mx-1"
+            [routerLink]="[
+              '/dashboard/admin',
+              { outlets: { details: 'show-order/' + order.id }}
+            ]"
+            routerLinkActive="active-link"
+          >
+            Show
+          </button>
+          
           </td>
         </tr>
       </tbody>

@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
 import { UserOrderCrudService } from 'src/app/Services/user-order-crud.service';
-
-
-
 @Component({
   selector: 'app-user-orders',
   templateUrl: './user-orders.component.html',
@@ -10,7 +7,7 @@ import { UserOrderCrudService } from 'src/app/Services/user-order-crud.service';
 })
 export class UserOrdersComponent {
   Orders: any = [];
-
+  
   constructor(private userOrderCrudService: UserOrderCrudService){}
   ngOnInit():void{
     this.userOrderCrudService.getUserOrders().subscribe(res=>{        

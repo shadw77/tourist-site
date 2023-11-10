@@ -9,23 +9,29 @@ import { tap } from 'rxjs/operators';
 })
 export class UserOrderCrudService {
   REST_API: string = "http://localhost:8000/api/orders";
-  httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
+  httpOptions={
+    headers:new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem('api_token')}`
+    })
+  };
+
    userId:any=localStorage.getItem("userId");
+
 
   constructor(private httpClient: HttpClient) { }
 
   addUserOrder(data:FormData): Observable<any>{
     let API_URL = this.REST_API;
-    return this.httpClient.post(API_URL, data).pipe(catchError(this.handleError));
+    return this.httpClient.post(API_URL, data,this.httpOptions).pipe(catchError(this.handleError));
   }
 
   getUserOrders(){
-    return this.httpClient.get(this.REST_API);
+    return this.httpClient.get(this.REST_API,this.httpOptions);
   }
   getAllUserOrders(userId: any): Observable<any> {
     const API_URL = `${this.REST_API}/?userId=${userId}`;
     
-    return this.httpClient.get(API_URL, { headers: this.httpHeaders })
+    return this.httpClient.get(API_URL,this.httpOptions)
       .pipe(
         map((res: any) => res || {}),
         catchError(this.handleError)
@@ -34,20 +40,22 @@ export class UserOrderCrudService {
 
   getUserOrder(id:any): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;
-    return this.httpClient.get(API_URL, {headers: this.httpHeaders})
+    return this.httpClient.get(API_URL,this.httpOptions)
     .pipe(map((res: any)=>{return res || {}}),
       catchError(this.handleError));
   }
-
+  getOrderDetails(orderId: number) {
+    return this.httpClient.get<any>(`http://localhost:8000/api/ordersdetails/${orderId}`,this.httpOptions);
+  }
   updateUserOrder(id:any, data: UserOrder): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;
-    return this.httpClient.put(API_URL, data, {headers: this.httpHeaders})
+    return this.httpClient.put(API_URL, data,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
 
   deleteUserOrder(id:any): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;
-    return this.httpClient.delete(API_URL, {headers: this.httpHeaders})
+    return this.httpClient.delete(API_URL,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
 

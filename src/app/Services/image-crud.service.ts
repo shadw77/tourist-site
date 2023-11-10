@@ -9,23 +9,26 @@ import { Observable, catchError, map, throwError } from 'rxjs';
 export class ImageCrudService {
   constructor(private httpClient: HttpClient) { }
   REST_API: string = "http://localhost:8000/api/images";
-  httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
-  
+  httpOptions={
+    headers:new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem('api_token')}`
+    })
+  };
   addImage(  data: FormData): Observable<any> {
     let API_URL = `${this.REST_API}`;
-    return this.httpClient.post<any>( API_URL, data);
+    return this.httpClient.post<any>( API_URL, data,this.httpOptions);
   }
 
   updateImage(id:any, data: FormData): Observable<any>{
    
     let API_URL = `${this.REST_API}/${id}`;  
-    return this.httpClient.post<any>(API_URL , data)
+    return this.httpClient.post<any>(API_URL , data,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
 
   deleteImage(id:any): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;
-    return this.httpClient.delete(API_URL, {headers: this.httpHeaders})
+    return this.httpClient.delete(API_URL,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
 
