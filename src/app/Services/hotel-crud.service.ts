@@ -15,14 +15,12 @@ export class HotelCrudService {
   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
   httpOptions={
     headers:new HttpHeaders({
-      'Content-Type':'application/json',
       'Authorization': `Bearer ${localStorage.getItem('api_token')}`
     })
   };
   addHotel(data:FormData){
-    console.log(data);
     let API_URL = this.REST_API;
-    return this.httpClient.post<any>(API_URL,data).pipe(catchError(this.handleError));
+    return this.httpClient.post<any>(API_URL,data,this.httpOptions).pipe(catchError(this.handleError));
   }
   
 
