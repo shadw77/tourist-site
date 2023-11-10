@@ -8,9 +8,17 @@ import { Observable, catchError, map, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class HotelCrudService {
+  userData:any;
 
-   user =localStorage.getItem('userId');
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+    user =localStorage.getItem('userId');
+    const userDataString = localStorage.getItem('userData');
+    if (userDataString) {
+       this.userData = JSON.parse(userDataString);
+    }
+
+   }
+
   REST_API: string = "http://localhost:8000/api/hotels";
   httpOptions={
     headers:new HttpHeaders({
@@ -23,7 +31,7 @@ export class HotelCrudService {
     return this.httpClient.post<any>(API_URL, data,this.httpOptions).pipe(catchError(this.handleError));
 
   }
-  
+
 
   getHotels(){
     return this.httpClient.get(this.REST_API,this.httpOptions);
