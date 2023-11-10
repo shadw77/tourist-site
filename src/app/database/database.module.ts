@@ -26,6 +26,7 @@ import { ShowTripComponent } from './show-trip/show-trip.component';
 import { OffersComponent } from './offers/offers.component';
 import { ShowOrderComponent } from './show-order/show-order.component';
 import { NotificationOrderComponent } from './notification-order/notification-order.component';
+import { TransactionsComponent } from './transactions/transactions.component';
 
 
 
@@ -55,6 +56,7 @@ import { NotificationOrderComponent } from './notification-order/notification-or
     OffersComponent,
     ShowOrderComponent,
     NotificationOrderComponent,
+    TransactionsComponent,
 
 
 

@@ -73,7 +73,7 @@ export class UserOrderCrudService {
   }
   orders(page:any){
     let API_URL = `http://localhost:8000/api/orders?page=${page}`;
-   return this.httpClient.get( API_URL);
+   return this.httpClient.get( API_URL,this.httpOptions);
  }
 
   /*start function that call payment api*/
@@ -90,7 +90,7 @@ export class UserOrderCrudService {
   }
   /*end function that call payment api*/
 
-
+  
 
   
 }

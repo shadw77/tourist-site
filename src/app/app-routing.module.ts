@@ -51,6 +51,7 @@ import { ResponseResetComponent } from './password/response-reset/response-reset
 import { EditUserOrderComponent } from './edit-user-order/edit-user-order.component';
 import { ShowOrderComponent } from './database/show-order/show-order.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { TransactionsComponent } from './database/transactions/transactions.component';
 
 
 
@@ -143,6 +144,7 @@ const routes: Routes = [
       path:'edit-profile',
       component:EditProfileComponent,
     },
+    
      {
       path:'discover',loadChildren: () => import('src/app/discovermodule/discovermodule.module')
       .then(m=>m.DiscovermoduleModule),
@@ -294,6 +296,11 @@ const routes: Routes = [
 
       path: 'edit-order/:id',
       component: UserOrderDetailsComponent,
+      outlet: 'details'
+    },
+    {
+      path:'transactions',
+      component:TransactionsComponent,
       outlet: 'details'
     },
     { 
