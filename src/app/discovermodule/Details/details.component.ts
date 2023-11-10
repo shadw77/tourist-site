@@ -56,7 +56,7 @@ export class DetailsComponent implements OnInit{
       complete:()=>{
       }
     }); 
-    //this.initMap();
+    // this.initMap();
 
   } 
   /*end ngoninit*/
@@ -108,7 +108,9 @@ export class DetailsComponent implements OnInit{
 
 
 
-  /*  initMap() {
+  /*start functions that handle maps*/
+
+  initMap() {
     // Set initial map options
     // const mapOptions: google.maps.MapOptions = {
     //   center: { lat: 37.7749, lng: -122.4194 }, // Default location (San Francisco, CA)
@@ -140,10 +142,12 @@ export class DetailsComponent implements OnInit{
     // });
   }
 
+
   // addMarker(position: google.maps.LatLng) {
   //   const marker = new google.maps.Marker({ position, map: this.map });
   //   this.markers.push(marker);
   // }
+
 
   clearMarkers() {
     // for (const marker of this.markers) {
@@ -151,7 +155,10 @@ export class DetailsComponent implements OnInit{
     // }
     // this.markers = [];
   }
-*/
+  /*end functions that handle maps*/
+
+
+
 
 
 }//end class

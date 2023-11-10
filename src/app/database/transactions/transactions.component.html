@@ -1,0 +1,32 @@
+<div class="mb-3">
+    <h3 class="fs-4 mb-3">All Transactions</h3>
+    <div class="table-responsive">
+      <table class="table bg-white rounded shadow-sm table-hover">
+        <thead>
+          <tr>
+            <th scope="col" width="50">#</th>
+            <th scope="col">Payment ID</th>
+            <th scope="col">User ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let transaction of transactions['data']">
+            <th scope="row">{{ transaction.id }}</th>
+            <td>{{ transaction.paymentid }}</td>
+            <td>{{ transaction.user.id }}</td> 
+            <td>{{ transaction.user.name }}</td> 
+            <td>{{ transaction.user.email }}</td> 
+            <td>
+              <button type="button" class="btn btn-outline-danger btn-sm mx-1" (click)="deleteTransaction(transaction.id)">
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
