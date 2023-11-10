@@ -4,7 +4,6 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { UserOrderCrudService } from 'src/app/Services/user-order-crud.service';
 import { UserCrudService } from 'src/app/Services/user-crud.service';
 import{ HotelCrudService } from 'src/app/Services/hotel-crud.service';
-import { map } from 'rxjs/operators';
 import { forkJoin } from 'rxjs';
 
 @Component({

@@ -11,7 +11,7 @@ export class HotelCrudService {
   userData:any;
 
   constructor(private httpClient: HttpClient) {
-    user =localStorage.getItem('userId');
+    const user =localStorage.getItem('userId');
     const userDataString = localStorage.getItem('userData');
     if (userDataString) {
        this.userData = JSON.parse(userDataString);
@@ -34,11 +34,17 @@ export class HotelCrudService {
 
 
   getHotels(){
+    if(this.userData.role=='user'){
+      this.REST_API = `${'http://localhost:8000/api/user-hotels'}`;
+    }
     return this.httpClient.get(this.REST_API,this.httpOptions);
   }
 
   getHotel(id:any): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;
+    if(this.userData.role=='user'){
+      API_URL = `${'http://localhost:8000/api/user-hotels'}/${id}`;
+   }
     return this.httpClient.get(API_URL,this.httpOptions)
     .pipe(map((res: any)=>{return res || {}}),
       catchError(this.handleError));
