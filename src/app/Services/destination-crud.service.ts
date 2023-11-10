@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaderResponse, HttpHeaders } from '
 import { Injectable } from '@angular/core';
 import { Destination  } from '../interface/destination';
 import { Observable, catchError, map, throwError } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -9,47 +10,45 @@ import { Observable, catchError, map, throwError } from 'rxjs';
 export class DestinationCrudService {
 
   REST_API: string = "http://localhost:8000/api/destinations";
-   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
-  //  httpOptions = {
-  //   headers: new HttpHeaders({
-  //     'Content-Type': 'application/json',
-  //     'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk4NTg3MzIyLCJleHAiOjE2OTg1OTA5MjIsIm5iZiI6MTY5ODU4NzMyMiwianRpIjoiSnluRlhmT1RvME1DaExVSCIsInN1YiI6IjIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.hUydZowyIPbV9_ZRzha4Ids3yTDPjoMLLS6sAx3hyMA'
-  //   })
-  // }; 
+   httpOptions={
+    headers:new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem('api_token')}`
+    })
+  };
 
   constructor(private httpClient: HttpClient) { }
 
   addDestination( data: FormData): Observable<any>{
     console.log(data);
     let API_URL = this.REST_API;
-    return this.httpClient.post(API_URL, data).pipe(catchError(this.handleError));
+    return this.httpClient.post(API_URL, data,this.httpOptions).pipe(catchError(this.handleError));
   }
 
   getDestinations(){
     console.log(this.httpClient.get(this.REST_API));
     
-    return this.httpClient.get(this.REST_API);
+    return this.httpClient.get(this.REST_API,this.httpOptions);
   }
   Destinations(page:any){
     let API_URL = `http://localhost:8000/api/destinations?page=${page}`;
-   return this.httpClient.get( API_URL);
+   return this.httpClient.get( API_URL,this.httpOptions);
  }
   getDestination(id:any): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;
-    return this.httpClient.get(API_URL, {headers: this.httpHeaders})
+    return this.httpClient.get(API_URL,this.httpOptions)
     .pipe(map((res: any)=>{return res || {}}),
       catchError(this.handleError));
   }
 
   updateDestination(id:any, data: FormData): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;
-    return this.httpClient.post(API_URL, data )
+    return this.httpClient.post(API_URL, data ,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
 
   deleteDestination(id:any): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;
-    return this.httpClient.delete(API_URL, {headers: this.httpHeaders})
+    return this.httpClient.delete(API_URL,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
 
@@ -73,5 +72,13 @@ export class DestinationCrudService {
     };
     return this.httpClient.get<Destination[]>( "http://localhost:8000/api/topDestinations", { params });
   }
-
+  getTestData():Observable<any>{
+    return this.httpClient.get<any>('http://localhost:8000/api/get-test-data', this.httpOptions ).pipe(
+      tap((response:any )=> {
+        //console.log(this.httpOptions);
+        if(response.status == 200){
+        console.log(response);
+        }
+      }));
+  }
 }

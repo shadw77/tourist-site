@@ -9,40 +9,47 @@ import { Observable, catchError, map, throwError } from 'rxjs';
 export class TripCrudService {
 
   REST_API: string = "http://localhost:8000/api/trips";
-  httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
-  
+
+  httpOptions={
+    headers:new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem('api_token')}`
+    })
+  };
+
 
   constructor(private httpClient: HttpClient) { }
 
   addTrip(data:FormData): Observable<any>{
+
+    console.log(data);
     let API_URL = this.REST_API;
-    return this.httpClient.post(API_URL, data).pipe(catchError(this.handleError));
+    return this.httpClient.post(API_URL,data,this.httpOptions).pipe(catchError(this.handleError));
   }
+
+
   Trips(page:any){
      let API_URL = `http://localhost:8000/api/trips?page=${page}`;
-    return this.httpClient.get( API_URL);
+    return this.httpClient.get( API_URL,this.httpOptions);
   }
   getTrips(){
-    return this.httpClient.get(this.REST_API);
+    return this.httpClient.get(this.REST_API,this.httpOptions);
   }
 
   getTrip(id:any): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;
-    return this.httpClient.get(API_URL, {headers: this.httpHeaders})
+    return this.httpClient.get(API_URL,this.httpOptions)
     .pipe(map((res: any)=>{return res || {}}),
       catchError(this.handleError));
   }
   updateTrip(id:any, data: FormData): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;  
-    return this.httpClient.post<any>( API_URL , data,{
-      responseType: 'json'
-    })
+    return this.httpClient.post<any>( API_URL , data,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
 
   deleteTrip(id:any): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;
-    return this.httpClient.delete(API_URL, {headers: this.httpHeaders})
+    return this.httpClient.delete(API_URL,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
 
@@ -59,4 +66,3 @@ export class TripCrudService {
     
   }
 }
-
