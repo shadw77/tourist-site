@@ -112,23 +112,23 @@
 
   <ng-template #elseBlock>
     <div class="text-center">
-      <h1>Your Cart Is Empty</h1>
-      <h4 (click)="goBack()">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="25"
-          height="30"
-          fill="currentColor"
-          class="bi bi-arrow-left"
-          viewBox="0 0 16 16"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
-          />
-        </svg>
-        <a class="fs-5 link-dark ms-2">See all things to do </a>
-      </h4>
+  <!-- shop empty page -->
+  <div class="py-6 py-lg-12">
+      <div class="container">
+          <div class="row">
+              <div class="offset-lg-3 col-lg-6 col-md-12 col-12 text-center">
+                
+                  <img src="https://static.vecteezy.com/system/resources/previews/004/929/004/original/paper-bags-group-illustration-empty-shopping-bags-with-assorted-colors-isolated-in-white-for-fashion-and-store-market-design-elements-vector.jpg" alt="" class="img-fluid mb-4">
+                  <h2>You didn't reserve anything yet</h2>
+                  <p class="mb-4">
+                      Return to the services to reserve places and don't forget <span class="fw-bold" style="color: rgb(243, 99, 16);">Take only pictures, leave only footprints</span>. Before proceed to checkout you must reserve some places. You will find a lot of interesting places on our tour page.
+                  </p>
+                  <a href="#" class="btn btn-primary" (click)="goBack()">Explore Services</a>
+              </div>
+          </div>
+      </div>
+  </div>
+
     </div>
   </ng-template>
 </div>
