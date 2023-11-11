@@ -1,15 +1,11 @@
 <app-main-search ></app-main-search>
-
-<div class="row py-5"style="background-color:#0b0b58">
-  <div class="col text-center ">
-      <p class="lead fs-3 fw-bold " style="text-transform: capitalize; color: #ffffff;">The best offers with hotels</p>
-  </div>
-  <div class="row  d-flex rounded  h-25 mt-3 justify-content-center" style="background-color: #fa9e1b !important;">
+<div class="main-part">
+  <div class="row  d-flex rounded  h-25 justify-content-center" style="background-color: #fd7e14 !important;">
       <div class="text-center d-flex  ">
-       <div class="form-container  col-12  d-flex ">
+       <div class="form-container  col-12  d-flex " style="padding: 30px;">
          <form class="w-100  ">
            <div class="row justify-content-center align-items-center">
-               <div class="col-md-3 p-2">
+               <div class="col-md-3 ">
                    <div class="input-group">
                      <span class="input-group-text" style="background-color: #0b0b58; color: white;">Start Date</span>
                      <input
@@ -53,11 +49,13 @@
        </div>
        </div>
      </div>
-     
-</div>
+     <div class="row pt-5 ">
+      <div class="col text-center py-4">
+          <p class="lead fs-3 fw-bold " style="text-transform: capitalize; color: #0b0b58;">The best offers with hotels</p>
+      </div>
+    </div>
 
-	<!-- Start unique-feature Area -->
-  <section class="unique-feature-area section-gap " style="background-color: #0b0b58; margin-left: 0px !important;" id="unique">
+  <section class="unique-feature-area section-gap " style=" margin-left: 0px !important;" id="unique">
     <div class="container">
       <div class="row  d-flex justify-content-center">
         <div class="menu-content pb-60 col-lg-10 mt-4">
@@ -65,8 +63,8 @@
         </div>
       </div>						
       <div class="row">
-        <div class="col-lg-3 col-md-6" *ngFor="let item of Hotels">
-          <div class="single-unique-product">
+        <div class="col-lg-3 col-md-6 " *ngFor="let item of Hotels">
+          <div class="single-unique-product " style="border:3px solid #fd7e14;">
             <!-- <app-item [item]="item"></app-item>  -->
 
             <img class="img-fluid " src="{{ imagePath }}{{ item.thumbnail }}" alt="">
@@ -75,7 +73,7 @@
                 {{item.name}}
               </h4>
               <h6 class="my-2">EGP{{item.cost}}</h6>
-              <a class="text-uppercase primary-btn mb-3" style="background-color: #fa9e1b; " (click)="redirectTo(item, 1,'Hotel',time_slot)"
+              <a class="text-uppercase primary-btn mb-3" style="background-color: #fd7e14; " (click)="redirectTo(item, 1,'Hotel',time_slot)"
               >Reserve Now</a>
             </div>
           </div>
@@ -86,9 +84,7 @@
       </div>
     </div>	
   </section>
-  <!-- End unique-feature Area -->
-
-
+</div>
 
 
 

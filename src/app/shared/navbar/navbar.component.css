@@ -7,7 +7,7 @@
     top: 20px;
 }
 .text-warning{
-    color: #fd7e14 !important;
+    color: #944403 !important;
 }
 .btn-warning{
     background-color: #fd7e14;
@@ -15,4 +15,10 @@
 }
 a:hover{
     color: #fd7e14;
+    text-decoration: underline;
+}
+
+.nav-link {
+    color: black;
+    font-weight: 300;
 }

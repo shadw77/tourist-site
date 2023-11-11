@@ -1,28 +1,37 @@
-<app-main-search></app-main-search>
-<div class="offers">
-    <div class="container">
-        <div class="row">
-            <div class="col text-center">
-                <p class="lead fs-3 fw-bold" style="text-transform: capitalize;">The best offers</p>
-            </div>
-        </div>
-        <div class="row offers_items">
-
-            <div class="col-lg-6 offers_col" *ngFor="let item of Services" >
-                <div class="offers_item">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="offers_image_container ">
-                                <img src="{{ item.thumbnail }}" class="  img-fluid rounded-start" style="height: 18rem;" alt="..."/>
-                                <div class="offer_name"><a href="#">{{item.name}}</a></div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <app-item [item]="item"></app-item> 
-                        </div>                          
-                    </div>
-                </div>
-            </div>
-        </div>
+<app-main-search ></app-main-search>
+<div class="main-part">
+     <div class="row pt-5 ">
+      <div class="col text-center py-4">
+          <p class="lead fs-3 fw-bold " style="text-transform: capitalize; color: #0b0b58;">The best offers with Destinations</p>
+      </div>
     </div>
+
+  <section class="unique-feature-area section-gap " style=" margin-left: 0px !important;" id="unique">
+    <div class="container">
+      <div class="row  d-flex justify-content-center">
+        <div class="menu-content pb-60 col-lg-10 mt-4">
+       
+        </div>
+      </div>						
+      <div class="row">
+        <div class="col-lg-3 col-md-6 " *ngFor="let item of Services; let i = index;">
+          <div class="single-unique-product " style="border:3px solid #fd7e14;">      
+            <!-- <app-item [item]="item"></app-item>  -->
+            <img class="img-fluid " src="{{imagePaths[types[i]]}}{{ item.thumbnail }}" alt="">
+            <div class="desc my-3">
+              <h4>
+                {{item.name}}
+              </h4>
+              <h6 class="my-2">EGP{{item.cost}}</h6>
+              <a class="text-uppercase primary-btn mb-3" style="background-color: #fd7e14; "
+              >See More Details</a>
+            </div>
+          </div>
+        </div>
+    
+ 
+																	
+      </div>
+    </div>	
+  </section>
 </div>
