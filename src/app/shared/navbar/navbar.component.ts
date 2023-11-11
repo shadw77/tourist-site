@@ -30,7 +30,7 @@ export class NavbarComponent implements OnInit {
       this.userData = localStorage.getItem('userData');
       this.isSigned = !!this.userData;
     });
-    if(this.checkToken(this.userData.api_token)){
+    if(!this.checkToken(this.userData.api_token)){
       this.isSigned = !!this.userData;
 
     }

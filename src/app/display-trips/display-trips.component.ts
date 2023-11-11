@@ -30,33 +30,75 @@ export class DisplayTripsComponent {
     private activatedRoute: ActivatedRoute,private route: ActivatedRoute,private tripCrudService: TripCrudService, private searchDataService: SearchDataService){}
   ngOnInit():void{
 
+    const regex = /^\d{4}-\d{2}-\d{2}$/;
     this.route.paramMap.subscribe((params) => {
       this.data = params.get('data');
+      if (regex.test(this.data)) {
+        console.log('1234',this.searchWord,this.timeSlot);
+        if(this.timeSlot)
+        this.searchDataService.searchTripsByTime(this.searchWord,this.endDate, this.timeSlot).then((response) => {             console.log(this.searchWord);
+         console.log(this.timeSlot);
+         
+         
+          this.data = response;   
+
+      console.log(this.data);
       
-      if (this.data) {
+      });
+      
+
+      }
+      
+
+     else if (this.data &&(!regex.test(this.data))) {
+      
         this.searchDataService.searchTrips(this.data).then((response) => {
           this.Trips = response;
-          console.log('Searched trips:', this.Trips);
+          console.log('Searched Trips:', this.Trips);
         });
       } else {
+        
         this.tripCrudService.getTrips().subscribe((res) => {
           this.Trips = res;
           this.Trips = this.Trips['data'];
           
-          console.log('All trips:', this.Trips['data']);
+          console.log( this.Trips);
         });
       }
     });
-    this.CounterService.get_Counter().subscribe((val)=>{
-      this.counter=val;
-  });
+
+            this.CounterService.get_Counter().subscribe((val)=>{
+            this.counter=val;
+        });
+
+
+  //   this.route.paramMap.subscribe((params) => {
+  //     this.data = params.get('data');
+      
+  //     if (this.data) {
+  //       this.searchDataService.searchTrips(this.data).then((response) => {
+  //         this.Trips = response;
+  //         console.log('Searched trips:', this.Trips);
+  //       });
+  //     } else {
+  //       this.tripCrudService.getTrips().subscribe((res) => {
+  //         this.Trips = res;
+  //         this.Trips = this.Trips['data'];
+          
+  //         console.log('All trips:', this.Trips['data']);
+  //       });
+  //     }
+  //   });
+  //   this.CounterService.get_Counter().subscribe((val)=>{
+  //     this.counter=val;
+  // });
   }
   search() {    
     if (this.timeSlot) {
       sessionStorage.setItem('time_slot',this.timeSlot);
     
-      // Handle the searchHotelsByTime method
-      this.searchDataService.searchHotelsByTime(this.searchWord,this.endDate, this.timeSlot).then((response) => {
+      // Handle the searchTripsByTime method
+      this.searchDataService.searchTripsByTime(this.searchWord,this.endDate, this.timeSlot).then((response) => {
         this.data = response;
         this.Trips = this.data;
         this.Trips =this.Trips.data;
@@ -64,11 +106,11 @@ export class DisplayTripsComponent {
         console.log(this.data);
       });
     } else {
-      // Handle the searchHotels method
-      this.searchDataService.searchHotels(this.searchWord).then((response) => {
+      // Handle the searchTrips method
+      this.searchDataService.searchTrips(this.searchWord).then((response) => {
         this.Trips = response;
         this.Trips =this.Trips.data;
-        console.log('Searched Hotels:', this.Trips);
+        console.log('Searched Trips:', this.Trips);
       });
     }
     }
