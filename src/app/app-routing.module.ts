@@ -396,6 +396,11 @@ const routes: Routes = [
         outlet: 'details'
       },
       { 
+          path: 'show-destination/:id',
+          component: ShowDestinationComponent,
+          outlet: 'details'
+        },
+      { 
         path: 'hotels',
         component: HotelsComponent,
         outlet: 'details'
@@ -444,8 +449,17 @@ const routes: Routes = [
         path: 'show-order/:id',
         component: ShowOrderComponent,
         outlet: 'details'
-      }
-
+      },
+      {
+        path:'transactions',
+        component:TransactionsComponent,
+        outlet: 'details'
+      },
+        { 
+          path: 'offers',
+          component: OffersComponent,
+          outlet: 'details'
+        },
     ]
     },
    

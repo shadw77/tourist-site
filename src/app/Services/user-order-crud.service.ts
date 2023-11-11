@@ -20,6 +20,12 @@ export class UserOrderCrudService {
 
   constructor(private httpClient: HttpClient) { }
 
+  getServices() {
+    return this.httpClient.get<any[]>('http://localhost:8000/api/service-user',this.httpOptions);
+  }
+  serviceOrders(){
+    return this.httpClient.get<any[]>('http://localhost:8000/api/vendor-orders',this.httpOptions);
+  }
   addUserOrder(data:FormData): Observable<any>{
     let API_URL = this.REST_API;
     return this.httpClient.post(API_URL, data,this.httpOptions).pipe(catchError(this.handleError));

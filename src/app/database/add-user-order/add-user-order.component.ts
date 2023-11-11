@@ -4,7 +4,10 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { UserOrderCrudService } from 'src/app/Services/user-order-crud.service';
 import { UserCrudService } from 'src/app/Services/user-crud.service';
 import{ HotelCrudService } from 'src/app/Services/hotel-crud.service';
+import { TripCrudService } from 'src/app/Services/trip-crud.service';
+import { RestaurantCrudService } from 'src/app/Services/restaurant-crud.service';
 import { forkJoin } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-add-user-order',
@@ -14,15 +17,21 @@ import { forkJoin } from 'rxjs';
 export class AddUserOrderComponent {
 
   userOrderForm: FormGroup;
-  users:any=[];
+  users: any[] = [];
   Hotels:any=[];
+  trips:any=[];
+  restaurants:any=[];
+  services:any=[];
+  filterServices:any=[];
   constructor(
     public formBuilder:FormBuilder,
     private router:Router,
     private ngZone:NgZone,
     private orderCrudService: UserOrderCrudService,
     private UserCrudService:UserCrudService,
-    private HotelCrudService:HotelCrudService
+    private HotelCrudService:HotelCrudService,
+    private TripCrudService:TripCrudService,
+    private RestaurantCrudService:RestaurantCrudService
   ){
     this.userOrderForm = this.formBuilder.group({
       id:[''],
@@ -33,36 +42,37 @@ export class AddUserOrderComponent {
     
   }
   ngOnInit(){
-    this.UserCrudService.getUsers().subscribe((res)=>{
-      this.users=res;
- });
-  this.HotelCrudService.getHotels().subscribe((res)=>{
-      this.Hotels=res;
- });
-//  const hotels$ =this.HotelCrudService.getHotels().pipe(
-//   map((hotels: any[]) => hotels.map((hotel: any) => ({ ...hotel, type: "Hotel" })))
-// );
+    this.UserCrudService.getUsers().subscribe((res:any)=>{
+        this.users =res.data.filter((user: any) => user.role === "user");
+       });
+   this.orderCrudService.getServices().subscribe((res:any)=>{
+    this.filterServices=res;
+     this.services=this.filterServices;
+   });
 
-// const trips$ = this.getDiscountedTrips().pipe(
-//   map((trips: any[]) => trips.map((trip: any) => ({ ...trip, type: "Trip" })))
-// );
-
-// const restaurants$ = this.getDiscountedRestaurants().pipe(
-//   map((restaurants: any[]) => restaurants.map((restaurant: any) => ({ ...restaurant, type: "Restaurant" })))
-// );
-
-// forkJoin([hotels$, trips$, restaurants$]).subscribe(([hotels, trips, restaurants]) => {
-//   this.discountedItems = [...hotels, ...trips, ...restaurants];
-// });
+  }
+  filterService(value:any){
+      this.services=this.filterServices.filter((item:any)=>{
+        return  item.type == value;
+      });
   }
   onSubmit():any{
     const formData = new FormData();
     formData.append('user_id', this.userOrderForm.value.user_id);
     formData.append('service_id', this.userOrderForm.value.service_id);
     formData.append('service_type', this.userOrderForm.value.service_type);
+    formData.append('amount', "500");
     this.orderCrudService.addUserOrder(formData).subscribe((res)=>{  
       console.log('Data Added Successfully');
-       this.ngZone.run(()=>this.router.navigateByUrl('dashboard/admin/(details:user-orders)')) 
+      const role=localStorage.getItem("role");
+      if(role === "vendor"){
+        console.log("adddddd")
+        this.ngZone.run(()=>this.router.navigateByUrl('dashboard/vendor/(details:user-orders)'));
+      }
+      else{
+        this.ngZone.run(()=>this.router.navigateByUrl('dashboard/admin/(details:user-orders)'));
+         }
+     
     },(err)=>{
       console.log(err);  
     });

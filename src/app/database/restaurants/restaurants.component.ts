@@ -49,4 +49,14 @@ load(){
       this.pageButtons.push(i);
     }
   }
+
+  isAdmin(): boolean {
+    const user =localStorage.getItem('role');
+    return user=== 'admin';
+  }
+
+  isVendor(): boolean {
+    const user = localStorage.getItem('role');
+    return  user === 'vendor';
+  }
 }

@@ -1,8 +1,21 @@
 <button
+  *ngIf="isAdmin()"
   type="button"
   class="btn btn-primary my-3"
   [routerLink]="[
     '/dashboard/admin',
+    { outlets: { details: ['add-restaurant'] } }
+  ]"
+  routerLinkActive="active-link"
+>
+  Add New Restaurant
+</button>
+<button
+  *ngIf="isVendor()"
+  type="button"
+  class="btn btn-primary my-3"
+  [routerLink]="[
+    '/dashboard/vendor',
     { outlets: { details: ['add-restaurant'] } }
   ]"
   routerLinkActive="active-link"
@@ -53,10 +66,23 @@
 
           <td>
             <button
+              *ngIf="isAdmin()"
               type="button"
               class="btn btn-outline-warning btn-sm mx-1"
               [routerLink]="[
                 '/dashboard/admin',
+                { outlets: { details: 'edit-restaurant/' + restaurant.id } }
+              ]"
+              routerLinkActive="active-link"
+            >
+              Edit
+            </button>
+            <button
+              *ngIf="isVendor()"
+              type="button"
+              class="btn btn-outline-warning btn-sm mx-1"
+              [routerLink]="[
+                '/dashboard/vendor',
                 { outlets: { details: 'edit-restaurant/' + restaurant.id } }
               ]"
               routerLinkActive="active-link"
@@ -72,10 +98,23 @@
             </button>
 
             <button
+              *ngIf="isAdmin()"
               type="button"
               class="btn btn-outline-info btn-sm mx-1"
               [routerLink]="[
                 '/dashboard/admin',
+                { outlets: { details: 'show-restaurant/' + restaurant.id } }
+              ]"
+              routerLinkActive="active-link"
+            >
+              Show
+            </button>
+            <button
+              *ngIf="isVendor()"
+              type="button"
+              class="btn btn-outline-info btn-sm mx-1"
+              [routerLink]="[
+                '/dashboard/vendor',
                 { outlets: { details: 'show-restaurant/' + restaurant.id } }
               ]"
               routerLinkActive="active-link"

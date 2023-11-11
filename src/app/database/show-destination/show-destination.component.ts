@@ -24,7 +24,6 @@ export class ShowDestinationComponent {
     this.getId = this.activatedRoute.snapshot.paramMap.get('id');
     this.destinationCrudService.getDestination(this.getId).subscribe((data)=>{
        this.images=data.destination.images;
-      
 
     },
     (error) => {
@@ -87,7 +86,7 @@ onAddImage(){
     (response) => {
       console.log('Data and images saved successfully');
       this.selectedImage = null;
-      // location.reload();
+       location.reload();
       //  this.ngZone.run(()=>this.router.navigateByUrl('dashboard/vendor/(details:hotels)')) 
     },
     (error) => {
