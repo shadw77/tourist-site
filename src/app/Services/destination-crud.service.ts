@@ -34,7 +34,7 @@ export class DestinationCrudService {
 
   getDestinations(){
     if(this.userData.role=='user'){
-      this.REST_API = `${'http://localhost:8000/api/user-destinations'}`;
+      this.REST_API = `${'http://localhost:8000/api/user-destinations'}`;      
     }
     console.log(this.httpClient.get(this.REST_API));
     
@@ -46,8 +46,9 @@ export class DestinationCrudService {
  }
   getDestination(id:any): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;
-    if(this.userData.role=='user'){
+    if(this.userData.role==='user'){
       API_URL = `${'http://localhost:8000/api/user-destinations'}/${id}`;
+      
    }
     return this.httpClient.get(API_URL,this.httpOptions)
     .pipe(map((res: any)=>{return res || {}}),
