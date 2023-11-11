@@ -43,7 +43,13 @@ export class UserOrderDetailsComponent {
     this.userOrderCrudService.updateUserOrder(this.getId,this.updateForm.value)
     .subscribe(()=>{
       console.log('Data Updated Successfully');
-      this.ngZone.run(()=>this.router.navigateByUrl('/users-list')) 
+      const role=localStorage.getItem("role");
+        if(role === "vendor"){
+          this.ngZone.run(()=>this.router.navigateByUrl('dashboard/vendor/(details:user-orders)'));
+        }
+        else{
+          this.ngZone.run(()=>this.router.navigateByUrl('dashboard/admin/(details:user-orders)'));
+        }
     },(err)=>{
       console.log(err);
       

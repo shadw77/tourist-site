@@ -6,12 +6,16 @@ export const groupAdminOrVendorGuard: CanActivateChildFn =
   const router = new Router(); // Instantiate the Router
   const role = localStorage.getItem('role');
   const token = localStorage.getItem('api_token');
-
-  if (token && (role == "admin" || role == "vendor" )) {
+   
+  if (token && role ==="admin") {
+    return true;
+  }
+  else if(token && role ==="vendor"){
+    console.log(token);
     return true;
   }
   else{
-    alert('You Dont Have Permission Here..');
+    alert('You Dont Have Permission vendor..');
     /*this.router.navigate(['/login'],{
       queryParams:{
         return: state.url

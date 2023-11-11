@@ -10,9 +10,13 @@ export class UserOrdersComponent {
   
   constructor(private userOrderCrudService: UserOrderCrudService){}
   ngOnInit():void{
-    this.userOrderCrudService.getUserOrders().subscribe(res=>{        
-        this.Orders= res;
-        // console.log(this.Orders.data);
+    // this.userOrderCrudService.getUserOrders().subscribe(res=>{        
+    //     this.Orders= res;
+    //     // console.log(this.Orders.data);
+    // });
+    this.userOrderCrudService.serviceOrders().subscribe((res)=>{
+      this.Orders= res;
+      console.log(res);
     });
   }
 

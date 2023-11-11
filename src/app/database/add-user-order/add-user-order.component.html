@@ -9,22 +9,8 @@
           formControlName="user_id"
         >
           <option value="">Select a user</option>
-          <option *ngFor="let user of users['data']" [value]="user.id">
+          <option *ngFor="let user of users" [value]="user.id">
             {{ user.name }}
-          </option>
-        </select>
-      </div>
-
-      <div class="mb-3">
-        <label for="service_id" class="form-label">Service ID</label>
-        <select
-          class="form-select"
-          aria-label="Default select example"
-          formControlName="service_id"
-        >
-          <option value="">Select a Service</option>
-          <option *ngFor="let Hotel of Hotels['data']" [value]="Hotel.id">
-            {{ Hotel.name }}
           </option>
         </select>
       </div>
@@ -35,11 +21,26 @@
           class="form-select"
           aria-label="Default select example"
           formControlName="service_type"
+          (change)="filterService(service.value)"
+          #service
         >
           <option value="">Select a Service Type</option>
           <option value="Hotel">Hotel</option>
           <option value="Trip">Trip</option>
           <option value="Restaurant">Restaurant</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="service_id" class="form-label">Service Name</label>
+        <select
+          class="form-select"
+          aria-label="Default select example"
+          formControlName="service_id"
+        >
+          <option value="">Select a Service</option>
+          <option *ngFor="let service of services" [value]="service.id">
+            {{ service.name }}
+          </option>
         </select>
       </div>
 

@@ -62,4 +62,5 @@ export class DestinationsComponent {
       this.pageButtons.push(i);
     }
   }
+  
 }

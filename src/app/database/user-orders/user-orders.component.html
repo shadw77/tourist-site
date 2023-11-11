@@ -7,6 +7,15 @@
 >
   Add New Order
 </button>
+<button
+  *ngIf="isVendor()"
+  type="button"
+  class="btn btn-primary my-3"
+  [routerLink]="['/dashboard/vendor', { outlets: { details: ['add-order'] } }]"
+  routerLinkActive="active-link"
+>
+  Add New Order
+</button>
 
 <div class="row">
   <h3 class="fs-4 mb-3">All Orders</h3>
@@ -22,17 +31,30 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let order of Orders['data']; let i = index">
+        <tr *ngFor="let order of Orders; let i = index">
           <th scope="row">{{ order.id }}</th>
           <td>{{ order.user_id }}</td>
           <td>{{ order.service_id }}</td>
           <td>{{ order.service_type }}</td>
           <td>
             <button
+              *ngIf="isAdmin()"
               type="button"
               class="btn btn-outline-warning btn-sm mx-1"
               [routerLink]="[
                 '/dashboard/admin',
+                { outlets: { details: 'edit-order/' + order.id } }
+              ]"
+              routerLinkActive="active-link"
+            >
+              Edit
+            </button>
+            <button
+              *ngIf="isVendor()"
+              type="button"
+              class="btn btn-outline-warning btn-sm mx-1"
+              [routerLink]="[
+                '/dashboard/vendor',
                 { outlets: { details: 'edit-order/' + order.id } }
               ]"
               routerLinkActive="active-link"
@@ -47,17 +69,29 @@
               Delete
             </button>
             <button
-            type="button"
-            class="btn btn-outline-info btn-sm mx-1"
-            [routerLink]="[
-              '/dashboard/admin',
-              { outlets: { details: 'show-order/' + order.id }}
-            ]"
-            routerLinkActive="active-link"
-          >
-            Show
-          </button>
-          
+              *ngIf="isAdmin()"
+              type="button"
+              class="btn btn-outline-info btn-sm mx-1"
+              [routerLink]="[
+                '/dashboard/admin',
+                { outlets: { details: 'show-order/' + order.id } }
+              ]"
+              routerLinkActive="active-link"
+            >
+              Show
+            </button>
+            <button
+              *ngIf="isVendor()"
+              type="button"
+              class="btn btn-outline-info btn-sm mx-1"
+              [routerLink]="[
+                '/dashboard/vendor',
+                { outlets: { details: 'show-order/' + order.id } }
+              ]"
+              routerLinkActive="active-link"
+            >
+              Show
+            </button>
           </td>
         </tr>
       </tbody>

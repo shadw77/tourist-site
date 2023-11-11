@@ -54,13 +54,15 @@
       ><i class="fas fa-map-marker-alt me-2"></i>Orders</a
     >
     <a
-      [routerLink]="[{ outlets: { details: ['user-orders'] } }]"
+      [routerLink]="[{ outlets: { details: ['transactions'] } }]"
       routerLinkActive="active-link"
       class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
       ><i class="fas fa-map-marker-alt me-2"></i>Payements</a
     >
     <a
-      routerLink="#"
+      [routerLink]="[{ outlets: { details: ['offers'] } }]"
+      routerLinkActive="active-link"
+      [routerLinkActiveOptions]="{ exact: true }"
       class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
       ><i class="fas fa-map-marker-alt me-2"></i>Offers</a
     >

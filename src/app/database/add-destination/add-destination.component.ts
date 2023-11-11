@@ -57,7 +57,14 @@ export class AddDestinationComponent {
         this.destinationForm.reset();
         this.selectedImage = null;
         this.selectedImages = null;
-        this.ngZone.run(()=>this.router.navigateByUrl('dashboard/admin/(details:destinations)')) 
+        const role=localStorage.getItem("role");
+        if(role === "vendor"){
+          this.ngZone.run(()=>this.router.navigateByUrl('dashboard/vendor/(details:destinations)')) 
+        }
+        else{
+          this.ngZone.run(()=>this.router.navigateByUrl('dashboard/admin/(details:destinations)')) 
+        }
+        
       },
       (error) => {
         console.error('Error saving data and images:', error);

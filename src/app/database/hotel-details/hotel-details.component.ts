@@ -86,7 +86,14 @@ export class HotelDetailsComponent {
         this.selectedImage = null;
         this.selectedImages = null;
         console.log(response);
+        const role=localStorage.getItem("role");
+      if(role === "vendor"){
+        this.ngZone.run(()=>this.router.navigateByUrl('dashboard/vendor/(details:hotels)')) 
+      }
+      else{
         this.ngZone.run(()=>this.router.navigateByUrl('dashboard/admin/(details:hotels)')) 
+         }
+       
       },
       (error) => {
         console.error('Error saving data and images:', error);

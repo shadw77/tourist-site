@@ -74,7 +74,14 @@ export class AddTripComponent {
         this.tripForm.reset();
         this.selectedImage = null;
         this.selectedImages = null;
-        this.ngZone.run(()=>this.router.navigateByUrl('dashboard/admin/(details:trips)')) 
+        const role=localStorage.getItem("role");
+        if(role === "vendor"){
+          this.ngZone.run(()=>this.router.navigateByUrl('dashboard/vendor/(details:trips)'));
+        }
+        else{
+          this.ngZone.run(()=>this.router.navigateByUrl('dashboard/admin/(details:trips)'));
+        }
+        
       },
       (error) => {
         console.error('Error saving data and images:', error);

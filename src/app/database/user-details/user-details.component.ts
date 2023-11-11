@@ -60,7 +60,7 @@ export class UserDetailsComponent {
     this.userCrudService.updateUser(this.getId, this.updateForm.value).subscribe(
       () => {
         console.log('Data Updated Successfully');
-        this.ngZone.run(() => this.router.navigateByUrl('dashboard/admin/(details:users)'));
+       
       },
       (err) => {
         console.log(err);

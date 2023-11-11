@@ -34,7 +34,7 @@ export class HotelsComponent {
       this.hotelCrudService.getHotels().subscribe(res=>{        
         this.Hotels= res;
     });
-  })
+  });
   }
 
   onPageChange(pageNumber: number) {

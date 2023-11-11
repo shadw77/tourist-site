@@ -90,7 +90,7 @@ onAddImage(){
     (response) => {
       console.log('Data and images saved successfully');
       this.selectedImage = null;
-      // location.reload();
+        location.reload();
       //  this.ngZone.run(()=>this.router.navigateByUrl('dashboard/vendor/(details:hotels)')) 
     },
     (error) => {

@@ -107,7 +107,13 @@ const formData = new FormData();
       this.selectedImage = null;
       this.selectedImages = null;
       console.log(response);
-      this.ngZone.run(() => this.router.navigateByUrl('dashboard/admin/(details:restaurants)'));
+      const role=localStorage.getItem("role");
+      if(role === "vendor"){
+        this.ngZone.run(() => this.router.navigateByUrl('dashboard/vendor/(details:restaurants)'));
+      }
+      else{
+        this.ngZone.run(() => this.router.navigateByUrl('dashboard/admin/(details:restaurants)'));
+         }
     },
     (error) => {
       console.error('Error saving data and images:', error);

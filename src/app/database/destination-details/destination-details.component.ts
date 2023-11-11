@@ -84,7 +84,14 @@ this.destinationCrudService.updateDestination(this.getId,formData).subscribe(
     this.selectedImage = null;
     this.selectedImages = null;
     console.log(response);
-    this.ngZone.run(()=>this.router.navigateByUrl('dashboard/admin/(details:destinations)')) 
+    const role=localStorage.getItem("role");
+    if(role === "vendor"){
+      this.ngZone.run(()=>this.router.navigateByUrl('dashboard/vendor/(details:destinations)')) ;
+    }
+    else{
+      this.ngZone.run(()=>this.router.navigateByUrl('dashboard/admin/(details:destinations)')) ; 
+       }
+   
   },
   (error) => {
     console.error('Error saving data and images:', error);
