@@ -81,7 +81,10 @@ export class CartComponent {
     removeProductsFromSession(cart:any) {
       this.cartProducts.splice(this.cartProducts.indexOf(cart), 1);
        sessionStorage.setItem('cartProducts', JSON.stringify(this.cartProducts));
-        this.CounterService.set_Counter(this.counter -= cart.quantity)
+        this.CounterService.set_Counter(this.counter -= cart.quantity);
+        if(this.counter<0){
+          this.counter=0;
+        }
         this.totalPrice-=cart.item.cost * cart.quantity;
       // sessionStorage.removeItem('cartProducts');
     }
