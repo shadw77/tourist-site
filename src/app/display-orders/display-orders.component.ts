@@ -49,7 +49,8 @@ export class DisplayOrdersComponent {
     this.userOrderCrudService.getAllUserOrders(this.userData.id).subscribe(res => {        
       this.Orders = res;
       this.latestOrder = Object.values(res);     
-
+      console.log(this.latestOrder);
+      
       this.latestOrder = this.latestOrder[0].sort((a: any, b: any) => {
         const timestampA = new Date(a.created_at).getTime();
         const timestampB = new Date(b.created_at).getTime();      

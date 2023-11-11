@@ -1,0 +1,21 @@
+img .background{
+    height:20% !important;
+    width: 100vw !important;
+    /* background-repeat: no-repeat; */
+    /* object-fit: cover; */
+}
+.position-relative{
+    bottom: 110px;
+    background-color: #0b0b58;
+    border-top-right-radius: 90px;
+    border-top-left-radius: 90px;
+}
+li a{
+        color: orange !important;
+        font-size: 20px;
+
+}
+
+
+
+  

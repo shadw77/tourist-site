@@ -41,11 +41,13 @@ export class CartComponent {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${this.userData.api_token}`,
       });
-            if (this.isTokenExpired(this.userData.api_token)) {
-        console.log('Token is expired.');
-        this.tokenExpired = true;
+        if (this.isTokenExpired(this.userData.api_token)) {
+          console.log('Token is expired.');
+          this.tokenExpired = true;
+          localStorage.clear();
+          this.router.navigate(['/login'])
       } else {
-        console.log('Token is valid.');
+          console.log('Token is valid.');
       }    
 
      this.cartProducts=this.cartItems.retrieveProductsFromSession();
@@ -79,7 +81,10 @@ export class CartComponent {
     removeProductsFromSession(cart:any) {
       this.cartProducts.splice(this.cartProducts.indexOf(cart), 1);
        sessionStorage.setItem('cartProducts', JSON.stringify(this.cartProducts));
-        this.CounterService.set_Counter(this.counter -= cart.quantity)
+        this.CounterService.set_Counter(this.counter -= cart.quantity);
+        if(this.counter<0){
+          this.counter=0;
+        }
         this.totalPrice-=cart.item.cost * cart.quantity;
       // sessionStorage.removeItem('cartProducts');
     }
@@ -105,6 +110,8 @@ export class CartComponent {
         }
       } catch (error) {
         this.tokenExpired = true;
+       
+
         return true; 
       }
     }
