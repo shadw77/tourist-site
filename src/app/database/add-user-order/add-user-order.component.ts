@@ -23,6 +23,7 @@ export class AddUserOrderComponent {
   restaurants:any=[];
   services:any=[];
   filterServices:any=[];
+  time_slot:number=1;
   constructor(
     public formBuilder:FormBuilder,
     private router:Router,
@@ -57,12 +58,14 @@ export class AddUserOrderComponent {
       });
   }
   onSubmit():any{
+    if(sessionStorage.getItem('time_slot')){
+    this.time_slot = Number(sessionStorage.getItem('time_slot'));}
     const formData = new FormData();
     formData.append('user_id', this.userOrderForm.value.user_id);
     formData.append('service_id', this.userOrderForm.value.service_id);
     formData.append('service_type', this.userOrderForm.value.service_type);
     formData.append('amount', "500");
-    this.orderCrudService.addUserOrder(formData).subscribe((res)=>{  
+    this.orderCrudService.addUserOrder(formData,this.time_slot).subscribe((res)=>{  
       console.log('Data Added Successfully');
       const role=localStorage.getItem("role");
       if(role === "vendor"){

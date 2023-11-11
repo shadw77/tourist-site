@@ -53,14 +53,12 @@ export class DisplayHotelsComponent {
       
 
      else if (this.data &&(!regex.test(this.data))) {
-      console.log('567');
       
         this.searchDataService.searchHotels(this.data).then((response) => {
           this.Hotels = response;
           console.log('Searched Hotels:', this.Hotels);
         });
       } else {
-        console.log('2030405');
         
         this.hotelCrudService.getHotels().subscribe((res) => {
           this.Hotels = res;
