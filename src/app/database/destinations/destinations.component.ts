@@ -28,7 +28,6 @@ export class DestinationsComponent {
         console.log(this.totalPages);
          console.log(this.Destinations['destinations']);
     })
-    localStorage.setItem('role', 'admin');
   }
   isAdmin(): boolean {
     const user =localStorage.getItem('role');

@@ -165,152 +165,159 @@ const routes: Routes = [
   
 },
 {
-    path: 'dashboard',
-    redirectTo: 'dashboard/admin',
-    pathMatch: 'full',
-
-  },
-  {
-    path: 'dashboard/admin',
-    component: AdminComponent,
-    canActivateChild: [adminGroupGuard],
-    children: [
-      { 
-        path: 'offers',
-        component: OffersComponent,
-        outlet: 'details'
-      },
-    { 
-      path: 'users',
-      component: UsersComponent,
-      outlet: 'details'
-    },
-    {  
-      path: 'add-user',
-      component: AddUserComponent,
-      outlet: 'details'
-      
-    },
-    { 
-      path: 'edit-user/:id',
-      component: UserDetailsComponent,
-      outlet: 'details'
-    },
-
-    { 
-      path: 'trips',
-      component: TripsComponent,
-      outlet: 'details'
-    },
-    
-   {  
-      path: 'add-trip',
-      component: AddTripComponent,
-      outlet: 'details'
-      
-    },
-    { 
-
-      path: 'restaurants',
-      component: RestaurantsComponent,
-      outlet: 'details'
-    },
-    { 
-      path: 'edit-restaurant/:id',
-      component: RestaurantDetailsComponent,
-      outlet: 'details'
-    },
-    {  
-      path: 'add-restaurant',
-      component: AddRestaurantComponent,
-      outlet: 'details'
-    },
-    { 
-      path: 'show-restaurant/:id',
-      component: ShowRestaurantComponent,
-      outlet: 'details'
-    },
-    { 
-      path: 'destinations',
-      component: DestinationsComponent,
-      outlet: 'details'
-    },
-    { 
-      path: 'edit-destination/:id',
-      component: DestinationDetailsComponent,
-      outlet: 'details'
-    },
-    {  
-      path: 'add-destination',
-      component:AddDestinationComponent,
-      outlet: 'details'
-    },
+  path: 'dashboard',
+  canActivateChild: [adminGroupGuard],
+  children: [
+      {
+        path: '',
+        redirectTo: 'admin',
+        pathMatch: 'full'
   
-    { 
-      path: 'show-destination/:id',
-      component: ShowDestinationComponent,
-      outlet: 'details'
-    },
-    { 
-      path: 'hotels',
-      component: HotelsComponent,
-      outlet: 'details'
-    },
-    {  
-      path: 'add-hotel',
-      component: AddHotelComponent,
-      outlet: 'details'
+      },
+      {
+      path: 'admin',
+      component: AdminComponent,
+      children: [
+        { 
+          path: 'offers',
+          component: OffersComponent,
+          outlet: 'details'
+        },
+        { 
+          path: 'users',
+          component: UsersComponent,
+          outlet: 'details'
+        },
+        {  
+          path: 'add-user',
+          component: AddUserComponent,
+          outlet: 'details'
+          
+        },
+        { 
+          path: 'edit-user/:id',
+          component: UserDetailsComponent,
+          outlet: 'details'
+        },
+    
+        { 
+          path: 'trips',
+          component: TripsComponent,
+          outlet: 'details'
+        },
+        
+      {  
+          path: 'add-trip',
+          component: AddTripComponent,
+          outlet: 'details'
+          
+        },
+        { 
+    
+          path: 'restaurants',
+          component: RestaurantsComponent,
+          outlet: 'details'
+        },
+        { 
+          path: 'edit-restaurant/:id',
+          component: RestaurantDetailsComponent,
+          outlet: 'details'
+        },
+        {  
+          path: 'add-restaurant',
+          component: AddRestaurantComponent,
+          outlet: 'details'
+        },
+        { 
+          path: 'show-restaurant/:id',
+          component: ShowRestaurantComponent,
+          outlet: 'details'
+        },
+        { 
+          path: 'destinations',
+          component: DestinationsComponent,
+          outlet: 'details'
+        },
+        { 
+          path: 'edit-destination/:id',
+          component: DestinationDetailsComponent,
+          outlet: 'details'
+        },
+        {  
+          path: 'add-destination',
+          component:AddDestinationComponent,
+          outlet: 'details'
+        },
       
-    },
-    { 
-      path: 'edit-hotel/:id',
-      component: HotelDetailsComponent,
-      outlet: 'details',
-    },
-    { 
-      path: 'show-hotel/:id',
-      component: ShowHotelComponent,
-      outlet: 'details'
-    },
-    {
+        { 
+          path: 'show-destination/:id',
+          component: ShowDestinationComponent,
+          outlet: 'details'
+        },
+        { 
+          path: 'hotels',
+          component: HotelsComponent,
+          outlet: 'details'
+        },
+        {  
+          path: 'add-hotel',
+          component: AddHotelComponent,
+          outlet: 'details'
+          
+        },
+        { 
+          path: 'edit-hotel/:id',
+          component: HotelDetailsComponent,
+          outlet: 'details',
+        },
+        { 
+          path: 'show-hotel/:id',
+          component: ShowHotelComponent,
+          outlet: 'details'
+        },
+        {
+    
+          path: 'edit-trip/:id',
+          component: TripDetailsComponent,
+          outlet: 'details'
+        },
+        { 
+          path: 'show-trip/:id',
+          component: ShowTripComponent,
+          outlet: 'details'
+        },
+        {
+    
+          path: 'user-orders',
+          component: UserOrdersComponent,
+          outlet: 'details'
+        },
+        {
+    
+          path: 'add-order',
+          component: AddUserOrderComponent,
+          outlet: 'details'
+        },
+        {
+    
+          path: 'edit-order/:id',
+          component: UserOrderDetailsComponent,
+          outlet: 'details'
+        },
+        {
+          path:'transactions',
+          component:TransactionsComponent,
+          outlet: 'details'
+        },
+        { 
+          path: 'show-order/:id',
+          component: ShowOrderComponent,
+          outlet: 'details'
+        }
 
-      path: 'edit-trip/:id',
-      component: TripDetailsComponent,
-      outlet: 'details'
-    },
-    { 
-      path: 'show-trip/:id',
-      component: ShowTripComponent,
-      outlet: 'details'
-    },
-    {
-
-      path: 'user-orders',
-      component: UserOrdersComponent,
-      outlet: 'details'
-    },
-    {
-
-      path: 'add-order',
-      component: AddUserOrderComponent,
-      outlet: 'details'
-    },
-    {
-
-      path: 'edit-order/:id',
-      component: UserOrderDetailsComponent,
-      outlet: 'details'
-    },
-    {
-      path:'transactions',
-      component:TransactionsComponent,
-      outlet: 'details'
-    },
-    { 
-      path: 'show-order/:id',
-      component: ShowOrderComponent,
-      outlet: 'details'
-    }
+      ]
+      },
+     
   ]
   },
 
@@ -318,15 +325,18 @@ const routes: Routes = [
   {
   
     path: 'dashboard',
-    redirectTo: 'dashboard/vendor',
-    pathMatch: 'full',
-  },
-  {
-    path: 'dashboard/vendor',
-    component: VendorComponent,
     canActivateChild: [groupAdminOrVendorGuard],
     children: [
-      { 
+      {
+        path: '',
+        redirectTo: 'vendor',
+        pathMatch: 'full'
+      },
+      {
+        path: 'vendor',
+        component: VendorComponent,
+        children: [
+      {
         path: 'trips',
         component: TripsComponent,
         outlet: 'details'
@@ -435,9 +445,13 @@ const routes: Routes = [
         component: ShowOrderComponent,
         outlet: 'details'
       }
+
     ]
-  },
- 
+    },
+   
+]
+},
+
   
   {
     path: '**',
