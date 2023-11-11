@@ -97,6 +97,33 @@ export class SearchDataService {
       }
 
 
+    searchRestaurantsByTime(keyword: string,endDate:string, timeSlot: string) {
+      const response  = new Promise(resolve => {
+        this.http.get('http://localhost:8000/api' + `/searchRestaurantByTime?search_service=${keyword}&&endDate=${endDate}&&time_slot=${timeSlot}`)
+        .subscribe(data=>{
+          resolve(data);
+        }, err=>{
+          console.log(err);
+          
+        });
+      });      
+      return response; 
+      }
+
+      searchTripsByTime(keyword: string,endDate:string, timeSlot: string) {
+        const response  = new Promise(resolve => {
+          this.http.get('http://localhost:8000/api' + `/searchTripByTime?search_service=${keyword}&&endDate=${endDate}&&time_slot=${timeSlot}`)
+          .subscribe(data=>{
+            resolve(data);
+          }, err=>{
+            console.log(err);
+            
+          });
+        });      
+        return response; 
+        }
+
+
     // searchHotelsByTime(keyword: string, timeSlot: string): Observable<any> {
     //   const apiUrl = 'http://localhost:8000/api';
     //   const params = new HttpParams().set('search_service', keyword).set('time_slot', timeSlot);
