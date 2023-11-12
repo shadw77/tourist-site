@@ -22,9 +22,7 @@ export class EditProfileComponent {
     this.getId = localStorage.getItem("userId");
 
     this.userCrudService.getUser(this.getId).subscribe(res=>{
-      console.log(res.data['street']);
-      
-
+    
       this.updateForm.setValue({
       id:res['data']['id'],
       name:res['data']['name'],
@@ -61,9 +59,7 @@ export class EditProfileComponent {
     }
 
     this.userCrudService.updateUser(this.getId, this.updateForm.value).subscribe(
-      () => {
-        console.log('mmmmmmmm',this.updateForm.value);
-        
+      () => {        
         console.log('Data Updated Successfully');
         this.ngZone.run(() => this.router.navigateByUrl('/login'));
       },
