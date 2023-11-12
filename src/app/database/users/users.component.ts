@@ -14,16 +14,16 @@ export class UsersComponent {
   ngOnInit():void{
     this.userCrudService.getUsers().subscribe(res=>{        
         this.Users= res;
-        console.log(this.Users['data']);
+        //console.log(this.Users['data']);
     })
   }
 
-  delete(id:any, i:any){
-    console.log(id);
+  delete(id:any,i:any){
+    console.log(this.Users);
     this.userCrudService.deleteUser(id).subscribe(res=>{
-      this.Users.splice(i,1);
-  })
-    
-   
+      this.Users['data'].splice(i,1);
+    })
   }
+
+  
 }

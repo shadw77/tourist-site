@@ -30,16 +30,14 @@ export class TripsComponent {
     return user=== 'admin';
   }
 
-  isVendor(): boolean {
+    isVendor(): boolean {
     const user = localStorage.getItem('role');
     return  user === 'vendor';
-  }
+    }
 
-  delete(id:any){
-    this.tripCrudService.deleteTrip(id).subscribe(res=>{
-    this.tripCrudService.getTrips().subscribe(res=>{        
-      this.Trips= res;
-  });
+    delete(id:any,i:any){
+      this.tripCrudService.deleteTrip(id).subscribe(res=>{
+        this.Trips['data'].splice(i,1);
   })
     
    

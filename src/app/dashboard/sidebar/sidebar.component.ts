@@ -26,8 +26,7 @@ export class SidebarComponent {
     this.auth.logout().subscribe(data=>{
       this.data = data;
         console.log(data);
-    }, error => console.error(error)
-      
-      );
+    }, error => console.error(error)  
+   );
   }
 }
