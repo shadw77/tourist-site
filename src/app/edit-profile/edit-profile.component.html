@@ -1,55 +1,56 @@
 <section class="vh-100" style="background-color: #f4f5f7;">
-    <div class="container py-5 h-100">            
-        <form [formGroup]="updateForm" (ngSubmit)="onUpdate()">
+    <div class=" py-5 h-100">            
+        <form [formGroup]="updateForm" (ngSubmit)="onUpdate()"  enctype="multipart/form-data">
 
       <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col col-lg-6 mb-4 mb-lg-0">
-          <div class="card mb-3" style="border-radius: .5rem;">
+        <div class="col col-lg-8 mb-4 mb-lg-0 ">
+          <div class="card mb-3 p-5" style="border-radius: .5rem;">
             <div class="row g-0">
               <div class="col-md-4 gradient-custom text-center text-white"
                 style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                <img src="https://cdn3.iconfinder.com/data/icons/vector-icons-6/96/256-512.png"
                   alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
                 <i class="far fa-edit mb-5"></i>
               </div>
               <div class="col-md-8">
                 <div class="card-body p-4">
-                  <h6>Edit Your Information</h6>
+                  <h2 class="fw-bold">Edit Your Information</h2>
                   <hr class="mt-0 mb-4">
-                  <div class="row pt-1">
+                  <div class="row pt-1 ">
                     <div class="col-6 mb-3">
-                      <h6>Name</h6>
-                      <input type="text" class="form-control" name="name">
+                      <h3>Name</h3>
+                      <input type="text" class="form-control" formControlName="name" name="name">
                     </div>
                     <div class="col-6 mb-3">
-                      <h6>Government</h6>
-                      <input type="text" class="form-control" name="government">
+                      <h3>Government</h3>
+                      <input type="text" class="form-control" formControlName="government" name="government">
                     </div>
                     <div class="col-6 mb-3">
-                      <h6>Email</h6>
-                      <input type="email" disabled class="form-control" name="email">
+                      <h3>Email</h3>
+                      <input type="email"  class="form-control" formControlName="email" name="email">
                     </div>
                     <div class="col-6 mb-3">
-                      <h6>Password</h6>
-                      <input type="password" class="form-control" name="password">
+                      <h3>Password</h3>
+                      <input type="password" class="form-control" formControlName="password" name="password">
                     </div>
                     <div class="col-6 mb-3">
-                      <h6>Street</h6>
-                      <input type="text" class="form-control" name="street">
+                      <h3>Street</h3>
+                      <input type="text" class="form-control" formControlName="street" name="street">
                     </div>
                     <div class="col-6 mb-3">
-                      <h6>Mobile</h6>
-                      <input type="text" class="form-control" name="mpbile">
+                      <h3 >Mobile</h3>
+                      <input type="text" class="form-control" formControlName="mobile" name="mobile">
                     </div>
                 </div>
-                </div>                
-
+                </div>   
+                <div style="float: right;">            
+                  <button type="submit" class="btn btn-warning">Update</button>
+                </div> 
               </div>
             </div>
           </div>
         </div>            
       </div> 
-      <button type="submit" class="btn btn-success">Update</button>
  
     </form>
 

@@ -6,7 +6,7 @@ import { FormGroup,FormBuilder,FormControl,Validators } from '@angular/forms';
   styleUrls: ['./about-us.component.css']
 })
 export class AboutUsComponent {
-  imageUrl: string = 'https://vivaegypttravel.com/wp-content/uploads/2023/08/large_6X0A2306.JPG.webp ';
+  imageUrl: string = '../../src/assets/back.jpg';
   // title: string = 'WHO WE ARE';
   // description: string = 'We proudly serve as the online platform dedicated to spotlighting the richness of Egyptian tourism.';
 
@@ -33,12 +33,7 @@ export class AboutUsComponent {
   };
   headingText = 'Explore the world with confidence';
   paragraphText = [
-    'We are Travel Tourism, a global travel agency specialized in organizing luxury tourist trips for our valued clients.',
-    'We provide our services to individuals and companies alike, as we strive to meet all their tourism needs and desires.',
-    'Our team is qualified and specialized in the field of tourism, and has extensive experience in organizing tourist trips and designing luxury tourism programs.',
-    'We work closely with our industry partners to provide the best services and offers to our customers.',
-    'We strive to provide an unforgettable tourist experience for our customers, as we pay attention to the smallest details and strive to meet all their tourist needs and desires.',
-    'We also ensure that our customers will enjoy a luxurious and comfortable tourist trip and we will help them create unforgettable memories.',
+    'We are Travel Tourism, a global travel agency specialized in organizing luxury tourist trips, restaurents and provide hotels for our valued clients. We provide our services to individuals and companies alike, as we strive to meet all their tourism needs and desires Our team is qualified and specialized in the field of tourism, and has extensive experience in organizing tourist trips and designing luxury tourism programs. We work closely with our industry partners to provide the best services and offers to our customers. We strive to provide an unforgettable tourist experience for our customers, as we pay attention to the smallest details and strive to meet all their tourist needs and desires. We also ensure that our customers will enjoy a luxurious and comfortable tourist trip and we will help them create unforgettable memories.',
   ];
   statisticsData = [
     {

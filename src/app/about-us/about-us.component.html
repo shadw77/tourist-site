@@ -1,7 +1,7 @@
 <!-- Header Section -->
 <header class="header">
     <div class="header-image">
-      <img [src]="imageUrl" alt="Header Image" class="img-fluid">
+      <img src="../../assets/back.jpg" alt="" class="img-fluid">
     </div>
     <!-- <div class="header-content text-center">
       <h1>{{ title }}</h1>
@@ -12,7 +12,7 @@
   <!-- Choosing Section -->
   <div class="choosing container p-5">
     <div class="choosing_title text-center">
-      <h4>{{ content.title }}</h4>
+      <h4 class="fs-3" style="color: #fd7e14;">{{ content.title }}</h4>
       <p>{{ content.description }}</p>
     </div>
     <div class="row">
@@ -30,17 +30,17 @@
   
   <!-- Adventure Section -->
   <section class="adventure container">
-    <div class="row">
+    <div class="row d-flex justify-content-center align-items-center">
       <div class="col-md-4 col-sm-12">
         <div class="card adventure-image-card">
           <img src="https://safer.travel/website_assets/images/homePage/why-us.webp" alt="why us image" class="card-img-top" style="cursor: pointer;">
         </div>
       </div>
       <div class="col-md-8 col-sm-12">
-        <div class="card adventure-info-card">
-          <div class="card-body">
-            <h2>{{ headingText }}</h2>
-            <p *ngFor="let paragraph of paragraphText">{{ paragraph | slice:0:80 }}..</p>
+        <div class="card adventure-info-card  ">
+          <div class="card-body ">
+            <h2 class="fs-3" style="color: #fd7e14;">{{ headingText }}</h2>
+            <p *ngFor="let paragraph of paragraphText">{{ paragraph  }}</p>
           </div>
         </div>
       </div>
@@ -90,12 +90,12 @@
     </div>
   </section>
   <!-- Newsletter Section -->
-  <section class=" bg-primary">
-  <div class="container newsletter p-4 ">
+  <section class=" "  style="background-color: #fd7e14;">
+  <div class="container newsletter p-5 mt-2">
     <div class="row">
       <div class="col">
-        <h3 >Prepare yourself</h3>
-        <h3>to explore the beauty of the world</h3>
+        <h3 class="fs-3 fw-bold" >Prepare yourself</h3>
+        <h3 class="fs-5 fw-bold">to explore the beauty of the world</h3>
   </div>
   <div class="col mt-2">
         <form>

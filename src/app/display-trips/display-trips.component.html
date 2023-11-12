@@ -1,81 +1,87 @@
-<app-main-search></app-main-search>
-<div class="offers">
-    <div class="">
-        <div class="row justify-content-center">
-            <div class="col text-center">
-                <p class="lead fs-3 fw-bold" style="text-transform: capitalize; color: #0b0b58;">The best offers with trips</p>
-            </div> 
-               <div class="row  d-flex rounded  h-25 mt-3 justify-content-center" style="background-color: #fa9e1b !important;">
-               <div class="text-center d-flex  ">
-                <div class="form-container  col-12  d-flex ">
-                  <form class="w-100  ">
-                    <div class="row justify-content-center align-items-center">
-                        <div class="col-md-3 p-2">
-                            <div class="input-group">
-                              <span class="input-group-text" style="background-color: #0b0b58; color: white;">Start Date</span>
-                              <input
-                                type="date"
-                                class="form-control"
-                                placeholder="Select Date"
-                                (input)="getStartDate($event)" 
-                                
-                              />
-                            </div>
-                          </div>
-                          
-                      <div class="col-md-3 p-2">
-                        <div class="input-group">
-                          <span class="input-group-text" id="basic-addon1" style="background-color: #0b0b58; color: white;">
-                            End Date
-                          </span>
-                          <input
-                            type="date"
-                            class="form-control"
-                            placeholder="End Date"
-                            (input)="getEndDate($event)"
-                          />
-                        </div>
-                      </div>
-              
-                      <div class="col-md-3 p-2">
-                        <div class="input-group">
-                            <span class="input-group-text" id="basic-addon1" style="background-color: #0b0b58; color: white;">
-                              Guests
-                            </span>
-                        <input type="text" [(ngModel)]="timeSlot"  class="form-control" name="timeSlot">
-                    </div>  
-                    </div>
-              
-                      <div class="col-md-1 p-2">
-                        <button class="btn btn-success btn-block " style="background-color: #0b0b58; border-color: #0b0b58;" (click)="search()">Search</button>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-                </div>
-              </div>
-              
-        </div>
-        <div class="row offers_items">
-
-            <div class="col-lg-6 offers_col" *ngFor="let item of Trips" >
-                <div class="offers_item">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="offers_image_container ">
-                                <img src="{{ imagePath }}{{ item.thumbnail }}" class="  img-fluid rounded-start" style="height: 18rem;" alt="..."/>
-                                <div class="offer_name"><a href="#">{{item.name}}</a></div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <app-item [item]="item"></app-item> 
-                            <div class="offers_link fs-4">
-                                <a (click)="redirectTo(item, 1,'Trip',timeSlot)" class="text-decoration-underline" style="cursor: pointer;">Reserve Now</a>
-                            </div>
-                        </div>                          
-                    </div>
-                </div>
-            </div>
-        </div>
+<app-main-search ></app-main-search>
+<div class="main-part">
+  <div class="row  d-flex rounded  h-25 justify-content-center" style="background-color: #fd7e14 !important;">
+      <div class="text-center d-flex  ">
+       <div class="form-container  col-12  d-flex " style="padding: 30px;">
+         <form class="w-100  ">
+           <div class="row justify-content-center align-items-center">
+               <div class="col-md-3 ">
+                   <div class="input-group">
+                     <span class="input-group-text" style="background-color: #0b0b58; color: white;">Start Date</span>
+                     <input
+                       type="date"
+                       class="form-control"
+                       placeholder="Select Date"
+                       (input)="getStartDate($event)" 
+                       
+                     />
+                   </div>
+                 </div>
+                 
+             <div class="col-md-3 p-2">
+               <div class="input-group">
+                 <span class="input-group-text" id="basic-addon1" style="background-color: #0b0b58; color: white;">
+                   End Date
+                 </span>
+                 <input
+                   type="date"
+                   class="form-control"
+                   placeholder="End Date"
+                   (input)="getEndDate($event)"
+                 />
+               </div>
+             </div>
+     
+             <div class="col-md-3 p-2">
+               <div class="input-group">
+                   <span class="input-group-text" id="basic-addon1" style="background-color: #0b0b58; color: white;">
+                     Guests
+                   </span>
+               <input type="text" [(ngModel)]="timeSlot"  class="form-control" name="timeSlot">
+           </div>  
+           </div>
+     
+             <div class="col-md-1 p-2">
+               <button class="btn btn-success btn-block " style="background-color: #0b0b58; border-color: #0b0b58;" (click)="search()">Search</button>
+             </div>
+           </div>
+         </form>
+       </div>
+       </div>
+     </div>
+     <div class="row pt-5 ">
+      <div class="col text-center py-4">
+          <p class="lead fs-3 fw-bold " style="text-transform: capitalize; color: #0b0b58;">The best offers with Trips</p>
+      </div>
     </div>
+
+  <section class="unique-feature-area section-gap " style=" margin-left: 0px !important;" id="unique">
+    <div class="container">
+      <div class="row  d-flex justify-content-center">
+        <div class="menu-content pb-60 col-lg-10 mt-4">
+       
+        </div>
+      </div>						
+      <div class="row">
+        <div class="col-lg-3 col-md-6 " *ngFor="let item of Trips">
+          <div class="single-unique-product " style="border:3px solid #fd7e14;">
+            <!-- <app-item [item]="item"></app-item>  -->
+
+            <img class="img-fluid " src="{{ imagePath }}{{ item.thumbnail }}" alt="">
+            <div class="desc my-3">
+              <h4>
+                {{item.name}}
+              </h4>
+              <h6 class="my-2">EGP{{item.cost}}</h6>
+              <a class="text-uppercase primary-btn mb-3" style="background-color: #fd7e14; " (click)="redirectTo(item, 1,'Trip',timeSlot)"
+              >Reserve Now</a>
+            </div>
+          </div>
+        </div>
+    
+ 
+																	
+      </div>
+    </div>	
+  </section>
 </div>

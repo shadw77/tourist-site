@@ -12,6 +12,9 @@ export class CounterService {
     return  this.counter.asObservable();
    }
  set_Counter(newVal : number){
+  if (newVal < 0) {
+    newVal = 0;
+  }
      this.counter.next(newVal)
    }
 }

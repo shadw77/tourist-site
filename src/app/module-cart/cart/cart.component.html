@@ -5,26 +5,140 @@
     </div>
   </div>
 </div>
+<div *ngIf="cartProducts.length != 0; then thenBlock; else elseBlock"></div>
+<ng-template #thenBlock>
+	<main class="page">
+	 	<section class="shopping-cart dark">
+	 		<div class="container">
+		        <div class="block-heading">
+		          <h2>Shopping Cart</h2>
+		          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
+              <h4 (click)="goBack()">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="25"
+                  height="30"
+                  fill="currentColor"
+                  class="bi bi-arrow-left"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
+                  />
+                </svg>
+                <a class="fs-5 link-dark ms-2">See all things to do </a>
+              </h4>
+            </div>
+		        <div class="content">
+	 				<div class="row">
+	 					<div class="col-md-12 col-lg-8">
+	 						<div class="items">
+				 				<div class="product" *ngFor="let cart of cartProducts" >
+				 					<div class="row">
+					 					<div class="col-md-3">
+					 						<img class="img-fluid mx-auto d-block image"                 
+                      src="{{imagePaths[cart.type]}}{{cart.item.thumbnail}}" 
+                      style="height: 300px; object-fit: cover;"
+                       >
+					 					</div>
+					 					<div class="col-md-8">
+					 						<div class="info">
+						 						<div class="row">
+							 						<div class="col-md-5 product-name">
+							 							<div class="product-name">
+								 							<a class="fs-4 text-decoration-none" style="color: #fd7e14;">{{ cart.item.name | slice:0:9 }}..</a>
+								 							<div class="product-info">
+                                <app-rating [rating]="cart.item.rating"></app-rating>
+									 							<div>City: <span class="value"> {{ cart.item.city }}</span></div>
+									 							<div>Street: <span class="value">{{ cart.item.street }}</span></div>
+									 						</div>
+									 					</div>
+							 						</div>
+							 						<div class="col-md-3 quantity">
+							 							<label for="quantity">Quantity:</label>
+                             <select
+                             (change)="onOptionChange($event, cart)"
+                             class="form-select"
+                             aria-label="Default select example"
+                           >
+                             <option>Qyt: {{ cart.quantity }}</option>
+                             <option
+                               value="{{ x }}"
+                               *ngFor="let x of [0, 1, 2, 3, 4, 5, 6, 7, 8]"
+                             >
+                               <span>{{ x }}</span>
+                             </option>
+                           </select>							 						</div>
+							 						<div class="col-md-2 price">
+							 							<span>EGP{{ cart.item.cost }}</span>
+							 						</div>
+                          <div class="col-md-2 price">
+                              <p
+                              (click)="removeProductsFromSession(cart)"
+                              class="text-danger fw-bold fs-6"
+                              style="cursor: pointer;"
+                            >
+                              X
+                            </p>
+                          </div>
+							 					</div>
+							 				</div>
+					 					</div>
+					 				</div>
+				 				</div>		
+				 			</div>
+			 			</div>
+			 			<div class="col-md-12 col-lg-4">
+			 				<div class="summary">
+			 					<h3>Review Order Details</h3>
+                 <div class="summary-item"><span class="text">Booking Fee</span></div>
+			 					<div class="summary-item"><span class="text">Subtotal</span><span class="price">EGP{{ subtotal }} </span></div>
+			 					<div class="summary-item"><span class="text">Discount</span><span class="price">EGP{{ discount }}</span></div>
+			 					<div class="summary-item"><span class="text">Total({{ cartProducts.length }})</span><span class="price">EGP {{ totalPrice }}</span></div>
+                 <button (click)="checkout()" style="background-color: #fd7e14;color: white;" routerLink="/orders" routerLinkActive="active" class="btn btn-warning btn-block rounded-pill">Checkout</button>
+				 			</div>
+			 			</div>
+		 			</div> 
+		 		</div>
+	 		</div>
+		</section>
+	</main>
+</ng-template>
+<ng-template #elseBlock>
+  <div class="text-center">
+<!-- shop empty page -->
+<div class="py-6 py-lg-12">
+    <div class="container">
+        <div class="row">
+            <div class="offset-lg-3 col-lg-6 col-md-12 col-12 text-center">
+              
+                <img  src="../../../assets/images/services.jpg" alt="" class="img-fluid mb-4">
+                <h2>You didn't reserve anything yet</h2>
+                <p class="mb-4">
+                    Return to the services to reserve places and don't forget <span class="fw-bold" style="color: rgb(243, 99, 16);">Take only pictures, leave only footprints</span>. Before proceed to checkout you must reserve some places. You will find a lot of interesting places on our tour page.
+                </p>
+                <a href="#" class="btn btn-primary" (click)="goBack()">Explore Services</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+  </div>
+</ng-template>
+
+
+
+
+
+
+
+<!-- 
 <div class="container mt-4">
   <div *ngIf="cartProducts.length != 0; then thenBlock; else elseBlock"></div>
   <ng-template #thenBlock>
     <h2 class="fw-bold fs-1">Cart</h2>
-    <h4 (click)="goBack()">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="25"
-        height="30"
-        fill="currentColor"
-        class="bi bi-arrow-left"
-        viewBox="0 0 16 16"
-      >
-        <path
-          fill-rule="evenodd"
-          d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
-        />
-      </svg>
-      <a class="fs-5 link-dark ms-2">See all things to do </a>
-    </h4>
+ 
     <div class="row mt-4">
       <div class="col-md-8 mt-2">
         <div
@@ -36,7 +150,7 @@
             <div class="col-md-4 col-6" >
               <img
                 src="{{imagePaths[cart.type]}}{{cart.item.thumbnail}}"
-                class="img-fluid rounded w-50"
+                class="img-fluid mx-auto d-block image rounded w-50"
                 alt="..."
               />
             </div>
@@ -108,27 +222,8 @@
         </div>
       </div>
     </div>
+
   </ng-template>
 
-  <ng-template #elseBlock>
-    <div class="text-center">
-  <!-- shop empty page -->
-  <div class="py-6 py-lg-12">
-      <div class="container">
-          <div class="row">
-              <div class="offset-lg-3 col-lg-6 col-md-12 col-12 text-center">
-                
-                  <img  src="../../../assets/images/services.jpg" alt="" class="img-fluid mb-4">
-                  <h2>You didn't reserve anything yet</h2>
-                  <p class="mb-4">
-                      Return to the services to reserve places and don't forget <span class="fw-bold" style="color: rgb(243, 99, 16);">Take only pictures, leave only footprints</span>. Before proceed to checkout you must reserve some places. You will find a lot of interesting places on our tour page.
-                  </p>
-                  <a href="#" class="btn btn-primary" (click)="goBack()">Explore Services</a>
-              </div>
-          </div>
-      </div>
-  </div>
 
-    </div>
-  </ng-template>
-</div>
+</div> -->
