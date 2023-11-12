@@ -11,6 +11,8 @@ UnreadNotifications:any=[];
   data : any;
   notifications:any=[];
   notificationPanelOpen: boolean = false;
+  vendor:string|null=localStorage.getItem('userData');
+  vendorName:any;
   addToggle()
   {
     this.status = !this.status;       
@@ -29,6 +31,11 @@ updateCustomNotifications(read:any) {
   return this.http.put(`http://localhost:8000/api/notify`,read);
 }
 ngOnInit(){
+  if (this.vendor !== null) {
+    this.vendorName = JSON.parse(this.vendor);
+    // Now you can use vendorName
+  }
+  console.log(this.vendorName.name)
     this.getCustomNotifications().subscribe((res)=>{
          this.notifications=res;
          console.log(this.notifications);

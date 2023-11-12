@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaderResponse, HttpHeaders } from '
 import { Injectable } from '@angular/core';
 import { User } from '../interface/user';
 import { Observable, catchError, map, throwError } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -40,9 +41,12 @@ export class UserCrudService {
   }
 
   deleteUser(id:any): Observable<any>{
+    console.log(id);
     let API_URL = `${this.REST_API}/${id}`;
     return this.httpClient.delete(API_URL,this.httpOptions)
-    .pipe(catchError(this.handleError));
+    tap(response => {
+        //console.log( "ddddd");
+    });
   }
 
   handleError(error: HttpErrorResponse){
