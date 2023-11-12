@@ -24,19 +24,32 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
+    // this.userData = localStorage.getItem('userData');
+    // this.isSigned = !!this.userData;
+
     this.CounterService.get_Counter().subscribe((val)=>this.counter=val);
+    if(this.counter<0){
+      this.counter = 0;
+    }
 
     this.authService.loginSuccessEvent.subscribe(() => {
       this.userData = localStorage.getItem('userData');
       this.isSigned = !!this.userData;
     });
-    if(!this.checkToken(this.userData.api_token)){
-      this.isSigned = !!this.userData;
-
-    }
-
-    
+    this.initIsSigned();
   }
+
+  initIsSigned() {
+    this.userData = localStorage.getItem('userData');
+    this.isSigned = !!this.userData;
+  
+    if (this.userData) {
+      // If user data is available, check the token
+      if (!this.checkToken(this.userData.api_token)) {
+        this.isSigned = false;
+      }
+    }
+    }
 
   
 

@@ -1,190 +1,135 @@
-<section class="h-100 gradient-custom">
-  <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-lg-10 col-xl-8">
-        <div class="card" style="border-radius: 10px; border-color: #fd7e14;border-width:5px ;">
-          <div class="card-header px-4 py-5" style="background-color: #fd7e14;">
-            <h5 class="text-white mb-0 fs-5 ">Thanks for your Order, <span style=" color: #0b0b58;">{{userName}}</span>!</h5>
-          </div>
-          <div class="card-body p-4">
-             
 
-            <div class="card shadow-0 border mb-4" *ngFor="let order of latestOrder ;let i = index">
-              <div class="card-body">         
-                <div class="row">
-                  <div class="col-md-2">     
-                    <img src="{{imagePaths[order.service_type]}}{{order.service_thumbnail}}"
-                      class="img-fluid" alt="">
-                  </div>
-                  <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                    <p class="text-muted mb-0">{{order.service_name}}</p>
-                  </div>
-                  <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                    <p class="text-muted mb-0 small">Qty: {{order.quantity}}</p>
-                  </div>
-                  <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                    <p class="text-muted mb-0 small">{{order.amount}} EGP</p>
-                  </div>
-                  <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                    <p class="text-muted mb-0">{{ order.created_at | date:'medium' }}</p>
-                  </div>
-                  <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                    <a  [routerLink]="['/edit-order/' + order.id ]"
-                  routerLinkActive="active-link" class="text-decoration-none text-decoration-underline text-warning"
-                    >Edit Order</a>               
-                    <a (click)="delete(order.id, i)" class="text-decoration-none text-decoration-underline text-danger" style="cursor: pointer;">
-                      Delete Order</a>
-
-                  </div>
-             
-                </div>
-                <hr class="mb-4" style="background-color: #e0e0e0; opacity: 1;">
-                <div class="row d-flex align-items-center">
-                  <div class="col-md-2">
-                    <p class="text-muted mb-0 small">Track Order</p>
-                  </div>
-                  <div class="col-md-10">
-                    <div class="progress" style="height: 6px; border-radius: 16px;">
-                      <div class="progress-bar" role="progressbar"
-                        style="width: 65%; border-radius: 16px; background-color: #0b0b58;" aria-valuenow="65"
-                        aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <div class="d-flex justify-content-around mb-1">
-                      <p class="text-muted mt-1 mb-0 small ms-xl-5">In Process</p>
-                      <p class="text-muted mt-1 mb-0 small ms-xl-5">Delivered</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          
-
-            <div class="d-flex justify-content-between pt-2">
-              <p class="fw-bold mb-0">Order Details</p>
-              <p class="text-muted mb-0"><span class="fw-bold me-4">Total</span>{{amountForLatestOrder}} EGP</p>
-            </div>
-
-            <div class="d-flex justify-content-between pt-2">
-              <p class="text-muted mb-0">Invoice Number : {{invoiceNumber}}</p>
-              <p class="text-muted mb-0"><span class="fw-bold me-4">Discount</span> {{discountForLatestOrder}} EGP</p>
-            </div>
-
-            <div class="d-flex justify-content-between">
-              <p class="text-muted mb-0">Invoice Date : {{ created_at | date }}</p>
-              <p class="text-muted mb-0"><span class="fw-bold me-4">Delivery Charges</span> Free</p>
-            </div>
-
-         
-          </div>
-          <div class="card-footer border-0 px-4 py-5"
-            style="background-color: #fd7e14; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
-            <h5 class="d-flex align-items-center justify-content-end text-white text-uppercase mb-0">Total
-              paid: <span class="h2 mb-0 ms-2">{{amountForLatestOrder}} EGP</span></h5>
-         
-              <svg style="cursor: pointer;float:right; margin-top:20px"  (click)="callPayment()" xmlns="http://www.w3.org/2000/svg" width="40" height="30" fill="orange" class="bi bi-credit-card" viewBox="0 0 16 16">
-                <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1H2zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7z"/>
-                <path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1z"/>
-              </svg>
-            </div>
-       
-        </div>
-      </div>
+<div class="invoice-container">
+    <div class="invoice-header" style="background-color: #fd7e14;">
+        <h1>Invoice</h1>
     </div>
-  </div>
-</section>
 
-
-
-
-<section class="h-100 gradient-custom">
-    <div class="container py-5 h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-lg-10 col-xl-8">
-          <div class="card" style="border-radius: 10px;">
-            <div class="card-header px-4 py-5">
-              <h5 class="text-muted mb-0 fs-5">Your previous orders</h5>
-            </div>
-            <div class="card-body p-4">
-              <div class="card shadow-0 border mb-4" *ngFor="let order of Orders.data " >
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-md-2">
-                      <img src="{{imagePaths[order.service_type]}}{{order.service_thumbnail}}"
-                        class="img-fluid" alt="">
-                    </div>
-                    <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                      <p class="text-muted mb-0">{{order.service_name}}</p>
-                    </div>
-                    <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                      <p class="text-muted mb-0 small">Qty: {{order.quantity}}</p>
-                    </div>
-                    <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                      <p class="text-muted mb-0 small">{{order.amount}} EGP</p>
-
-                    </div>
-                    <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                      <p class="text-muted mb-0">{{ order.created_at | date:'medium' }}</p>
-                    </div>
-                  </div>
-                  <hr class="mb-4" style="background-color: #e0e0e0; opacity: 1;">
-                  <div class="row d-flex align-items-center">
-                    <div class="col-md-2">
-                      <p class="text-muted mb-0 small">Track Order</p>
-                    </div>
-                    <div class="col-md-10">
-                      <div class="progress" style="height: 6px; border-radius: 16px;">
-                        <div class="progress-bar" role="progressbar"
-                          style="width: 100%; border-radius: 16px; background-color: #a8729a;" 
-                          aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                      <div class="d-flex justify-content-around mb-1">
-                        <p class="text-muted mt-1 mb-0 small ms-xl-5">In Process</p>
-                        <p class="text-muted mt-1 mb-0 small ms-xl-5">Delivered</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                  <li class="page-item">
-                    <button
-                      class="page-link"
-                      aria-label="Previous"
-                      (click)="onPageChange(currentPage - 1)"
-                      [disabled]="currentPage === 1"
-                    >
-                      <span aria-hidden="true">&laquo;</span>
-                    </button>
-                  </li>
-                  <li
-                    class="page-item"
-                    *ngFor="let button of pageButtons"
-                    [class.active]="button === currentPage"
-                  >
-                    <button class="page-link" (click)="onPageChange(button)">
-                      <span aria-hidden="true">{{ button }}</span>
-                    </button>
-                  </li>
-              
-                  <li class="page-item">
-                    <button
-                      class="page-link"
-                      aria-label="Next"
-                      (click)="onPageChange(currentPage + 1)"
-                      [disabled]="currentPage === Orders.last_page"
-                    >
-                      <span aria-hidden="true">&raquo;</span>
-                    </button>
-                  </li>
-                </ul>
-              </nav>
-              
-              
-
-            </div>   
-          </div>
+    <div class="invoice-details">
+        <div>
+            <p><strong>Invoice Number:</strong>  {{invoiceNumber}}</p>
+            <p><strong>Invoice Date:</strong> {{ latestOrder[0].created_at | date:'medium' }}</p>
         </div>
+        <div>
+            <p><strong>Customer Name:</strong> {{userName}}</p>
+            <p><strong>Payment Status:</strong> Un Paid</p>
+        </div>
+    </div>
+
+    <div class="invoice-items d-flex flex-column">
+        <div class="item align-items-center" *ngFor="let order of latestOrder ;let i = index">
+            <img src="{{imagePaths[order.service_type]}}{{order.service_thumbnail}}" width="200" alt="Product Image">
+            <div class="item-details">
+                <h4>{{order.service_name | slice:0:5}}</h4>
+                <p>Quantity:  {{order.quantity}}</p>
+                <p>Discount: EGP{{order.discount}} </p>
+
+            </div>
+            <div> <p>EGP{{order.amount}} </p></div>
+           
+            <div class="col-md-1 text-center d-flex justify-content-center align-items-center  ">
+              <a  [routerLink]="['/edit-order/' + order.id ]"
+            routerLinkActive="active-link" class="text-decoration-none text-decoration-underline  "
+            style="color: #fd7e14;"
+              >
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="m-4 bi bi-pencil-square" viewBox="0 0 16 16">
+                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+              </svg>
+            </a>               
+              <a (click)="delete(order.id, i)" class="text-decoration-none text-decoration-underline text-danger" style="cursor: pointer;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
+                  <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
+                </svg>  
+              </a>
+
+            </div>
+        </div>
+
+        <!-- Add more items as needed -->
+
+    </div>
+
+    <div class="invoice-total">
+        <span><strong>Total:</strong></span>
+        <span>EGP{{amountForLatestOrder}} </span>
+    </div>
+
+    <div class="invoice-footer">
+        <p>Thank you for your purchase!</p>
+        <a href="#" class="btn-pay" style="background-color: #fd7e14;" (click)="callPayment()">Pay Now</a>
+    </div>
+</div>
+
+<div class="container " style="margin: auto ;">
+
+
+
+  <section class="news">
+    <div class="container">
+      <h4>Previous Orders</h4>
+      <div class="news_section row  ">
+        <div class="news_block col-lg-4 col-md-10 mx-2" style="width: 300px;" *ngFor="let order of Orders.data">
+          <figure>     
+            <img src="{{imagePaths[order.service_type]}}{{order.service_thumbnail}}" class="img-fluid" style="height: 200px;object-fit: cover;"> 
+          </figure>
+          <div class="block_top">
+            <div class="top_left">    
+              <p class="date">Delivered</p>
+            </div>
+            <div class="top_right">      
+              <p class="news_title">{{order.service_name}}</p>
+              <div class="news_stats">
+                <div class="autrhor"><i class="fas fa-user"></i> {{order.quantity}}</div>
+                <div class="views"><i class="far fa-eye"></i>EGP{{order.amount}} </div>
+                <div class="comments"><i class="far fa-comment"></i>{{ order.created_at | date:'medium' }}</div>
+              </div>
+            </div>
+          </div>
+          <div class="block_bottom">
+            <p class="news_desc"> {{order.service_description}}</p>
+          </div>
+        </div>   
       </div>
     </div>
   </section>
+  <nav aria-label="Page navigation example d-flex align-items-center justify-content-center ">
+    <ul class="pagination ">
+      <li class="page-item ">
+        <button
+          class="page-link p-2"
+          aria-label="Previous"
+          (click)="onPageChange(currentPage - 1)"
+          [disabled]="currentPage === 1"
+        >
+          <span aria-hidden="true">&laquo;</span>
+        </button>
+      </li>
+      <li
+        class="page-item"
+        *ngFor="let button of pageButtons"
+        [class.active]="button === currentPage"
+      >
+        <button class="page-link" (click)="onPageChange(button)">
+          <span aria-hidden="true">{{ button }}</span>
+        </button>
+      </li>
+  
+      <li class="page-item">
+        <button
+          class="page-link  p-2"
+          aria-label="Next"
+          (click)="onPageChange(currentPage + 1)"
+          [disabled]="currentPage === Orders.last_page"
+        >
+          <span aria-hidden="true">&raquo;</span>
+        </button>
+      </li>
+    </ul>
+  </nav>
+  </div>
+  
+  
+  
+  
+  

@@ -60,7 +60,7 @@
                 </a>
               </div>           
 
-              <button class="btn btn-warning py-2 px-4 d-none d-xl-inline-block rounded-pill" routerLinkActive="active-link" routerLink="login" *ngIf="!isSigned">
+              <button *ngIf="!isSigned" class="btn btn-warning py-2 px-4 d-none d-xl-inline-block rounded-pill" routerLinkActive="active-link" routerLink="login" >
                 Sign In
               </button>
 

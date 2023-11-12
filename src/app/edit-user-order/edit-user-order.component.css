@@ -26,7 +26,7 @@
 	right: 0;
 	bottom: 0;
 	top: 0;
-	background: rgba(47, 103, 177, 0.6);
+	background: rgba(228, 159, 103, 0.6);
 }
 
 .booking-form {
@@ -106,7 +106,7 @@
 .booking-form .submit-btn {
 	display: inline-block;
 	color: #fff;
-	background-color: #1e62d8;
+	background-color: #fd7e14;
 	font-weight: 700;
 	padding: 14px 30px;
 	border-radius: 4px;

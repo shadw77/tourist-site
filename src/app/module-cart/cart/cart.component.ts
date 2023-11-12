@@ -67,7 +67,7 @@ export class CartComponent {
       this.imagePaths=  {
           Hotel: 'http://127.0.0.1:8000/images/Hotel_images/thumbnails/',
           Restaurant: 'http://127.0.0.1:8000/images/Restaurant_images/thumbnails/',
-          Trip: 'http://127.0.0.1:8000/images/trip_images/thumbnails/',
+          Trip: 'http://127.0.0.1:8000/images/trips_images/thumbnails/',
           Destination: 'http://127.0.0.1:8000/images/destination_images/thumbnails/'
         };
       for (let i = 0; i < this.cartProducts.length; i++) {
