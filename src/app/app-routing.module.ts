@@ -53,6 +53,7 @@ import { EditUserOrderComponent } from './edit-user-order/edit-user-order.compon
 import { ShowOrderComponent } from './database/show-order/show-order.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { TransactionsComponent } from './database/transactions/transactions.component';
+import { UserResolver } from './user.resolver';
 
 
 
@@ -60,6 +61,8 @@ const routes: Routes = [
   {
     path: '',
     component: HomeLayoutComponent,
+    resolve: { userData: UserResolver },
+    
     children: [
     { 
       path: '', 
