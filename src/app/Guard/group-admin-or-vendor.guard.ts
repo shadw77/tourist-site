@@ -11,7 +11,7 @@ export const groupAdminOrVendorGuard: CanActivateChildFn =
     return true;
   }
   else if(token && role ==="vendor"){
-    console.log(token);
+    //console.log(token);
     return true;
   }
   else{

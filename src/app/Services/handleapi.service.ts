@@ -122,6 +122,20 @@ export class HandleapiService {
   /*end function that get review by id*/
 
 
+    /*start function that get offers based on admin or vendor*/
+    getDiscount():Observable<any>{
+
+    //console.log(object);
+    return this.httpclient.get<any>(`${this.apiUrl}/get-discount`,this.httpOptions).pipe(
+      tap(response => {
+        if(response){
+          //console.log(response);
+        }
+      }));
+  }
+    /*end function that get offers based on admin or vendor*/
+
+
 
   /*start function that test retrieve data under jwt token*/
   getTestData( review: any, userID: any):Observable<any>{

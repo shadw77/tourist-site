@@ -12,6 +12,8 @@ export class AdminComponent {
   data : any;
   notifications:any=[];
   notificationPanelOpen: boolean = false;
+  admin:string|null=localStorage.getItem('userData');
+  adminName:any;
   addToggle()
   {
     this.status = !this.status;       
@@ -30,6 +32,11 @@ updateCustomNotifications(read:any) {
   return this.http.put(`http://localhost:8000/api/notify`,read);
 }
 ngOnInit(){
+
+  if (this.admin !== null) {
+    this.adminName = JSON.parse(this.admin);
+  }
+
     this.getCustomNotifications().subscribe((res)=>{
          this.notifications=res;
          console.log(this.notifications);
