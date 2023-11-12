@@ -56,7 +56,7 @@
     </div>
 
     <div class="invoice-footer">
-        <p>Thank you for your purchase!</p>
+        <!-- <p>Thank you for your purchase!</p> -->
         <a href="#" class="btn-pay" style="background-color: #fd7e14;" (click)="callPayment()">Pay Now</a>
     </div>
 </div>
@@ -79,10 +79,10 @@
             </div>
             <div class="top_right">      
               <p class="news_title">{{order.service_name}}</p>
-              <div class="news_stats">
-                <div class="autrhor"><i class="fas fa-user"></i> {{order.quantity}}</div>
-                <div class="views"><i class="far fa-eye"></i>EGP{{order.amount}} </div>
-                <div class="comments"><i class="far fa-comment"></i>{{ order.created_at | date:'medium' }}</div>
+              <div class="news_stats" >
+                <div class="autrhor " ><i class="fas fa-user" style="color: #fd7e14;"></i> {{order.quantity}}</div>
+                <div class="views"><i class="far fa-eye " style="color: #fd7e14;"></i>EGP{{order.amount}} </div>
+                <div class="comments"><i class="far fa-comment" style="color: #fd7e14;"></i>{{ order.created_at | date:'medium' }}</div>
               </div>
             </div>
           </div>

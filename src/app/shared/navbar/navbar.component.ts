@@ -34,7 +34,6 @@ export class NavbarComponent implements OnInit {
     } catch (error) {
       this.tokenExpired = true;
     }
-console.log('booooooooooom',this.tokenExpired);
 
     if (this.tokenExpired) {
       this.isSigned = false;      

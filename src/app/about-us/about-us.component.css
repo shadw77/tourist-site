@@ -135,3 +135,6 @@
   .btn-custom:hover {
     background-color: #4682b4; 
   } 
+  *{
+    font-family: fantasy;
+  }
