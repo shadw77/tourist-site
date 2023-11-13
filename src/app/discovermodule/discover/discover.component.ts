@@ -66,7 +66,7 @@ export class DiscoverComponent implements OnInit{
           //console.log(typeof this.government);
           //console.log( this.government);
 
-         // console.log(this.places);
+          console.log(this.places);
         }
       });
       /*end function to get nearby places from services*/
@@ -135,7 +135,7 @@ export class DiscoverComponent implements OnInit{
           console.error('Error fetching places:', error);
         },
         complete:()=>{
-          console.log(this.offers);
+          //console.log(this.offers);
         }
       });
       /*end function to get offers from services*/
@@ -152,7 +152,7 @@ export class DiscoverComponent implements OnInit{
           console.error('Error fetching reviews:', error);
         },
         complete:()=>{
-        console.log(this.commentsofoffers);
+          //console.log(this.commentsofoffers);
         }
       });  
       /*end function to get review of offers from services*/

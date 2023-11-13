@@ -8,8 +8,12 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CaraouselComponent implements OnInit{
   @Input() carouselimages:any[]=[];
 
+  tripsImagePath: string =  'http://127.0.0.1:8000/images/trip_images/thumbnails/';
+  hotelsImagePath: string = 'http://127.0.0.1:8000/images/Hotel_images/thumbnails/';
+  restaurantsImagePath: string = 'http://127.0.0.1:8000/images/Restaurant_images/thumbnails/';
+  
 
   ngOnInit(){
-    //console.log(this.carouselimages);
+    console.log(this.carouselimages);
   }
 }

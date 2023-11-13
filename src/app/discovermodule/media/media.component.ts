@@ -11,8 +11,10 @@ export class MediaComponent {
   @Input() city:any[]=[];
   lineofdescription:number=50;
   buttonstatus:boolean=true;
-
-
+  tripsImagePath: string =  'http://127.0.0.1:8000/images/trip_images/thumbnails/';
+  hotelsImagePath: string = 'http://127.0.0.1:8000/images/Hotel_images/thumbnails/';
+  restaurantsImagePath: string = 'http://127.0.0.1:8000/images/Restaurant_images/thumbnails/';
+  
   constructor(private router: Router) { }
 
   ngOnInit(){
