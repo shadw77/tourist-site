@@ -13,7 +13,7 @@ export class AddHotelComponent {
   hotelForm: FormGroup;
   selectedImage: File | any = null; 
   selectedImages: File[] | any = null;
-  
+  creator:any;
   constructor(
     public formBuilder:FormBuilder,
     private router:Router,
@@ -51,13 +51,13 @@ export class AddHotelComponent {
     const creator_id = creator_idControl ? creator_idControl.value : '';
     const cost = cost_Control ? cost_Control.value : '';
     const discount = discount_Control ? discount_Control.value : '';
-
+     this.creator=localStorage.getItem('userId');
     const formData = new FormData();
     formData.append('name', name);
     formData.append('street', street);
     formData.append('government', government);
     formData.append('description', description);
-    formData.append('creator_id', creator_id);
+    formData.append('creator_id', this.creator);
     formData.append('cost', cost);
     formData.append('discount', discount);
     
