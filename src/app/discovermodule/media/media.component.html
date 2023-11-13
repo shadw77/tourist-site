@@ -2,7 +2,10 @@
 
       <ng-container *ngFor="let near of city ;let i=index">
           <div class="media d-flex">
-              <img src="{{near.thumbnail}}"  width="40%" class="img-thumbnail img-fluid" alt="...">
+            <img *ngIf="near.type=='Trip'" src="{{tripsImagePath}}{{near.thumbnail}}" width="40%" class="img-thumbnail img-fluid" alt="...">
+            <img *ngIf="near.type=='Hotel'" src="{{hotelsImagePath}}{{near.thumbnail}}" width="40%" class="img-thumbnail img-fluid" alt="...">
+            <img *ngIf="near.type=='Restaurant'" src="{{restaurantsImagePath}}{{near.thumbnail}}" width="40%" class="img-thumbnail img-fluid" alt="...">
+
               <div class="media-body mt-5 ms-5">
                 <h5 class="mt-0 mb-1">{{near.name}}</h5>
                 <p [attr.data-content]="near.description" #description >

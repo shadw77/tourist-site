@@ -16,7 +16,10 @@
 
           <ng-container *ngFor="let near of carouselimages;let i=index">
             <div class="carousel-item active">
-              <img src="{{near.thumbnail}}" class="d-block w-100" alt="...">
+              <img *ngIf="near.type=='Trip'" src="{{tripsImagePath}}{{near.thumbnail}}" class="d-block w-100" alt="...">
+              <img *ngIf="near.type=='Hotel'" src="{{hotelsImagePath}}{{near.thumbnail}}" class="d-block w-100" alt="...">
+              <img *ngIf="near.type=='Restaurant'" src="{{restaurantsImagePath}}{{near.thumbnail}}" class="d-block w-100" alt="...">
+
               <div class="carousel-caption d-none d-md-block">
                 <h5>{{near.name}}</h5>
                 <p>{{near.description}}.</p>

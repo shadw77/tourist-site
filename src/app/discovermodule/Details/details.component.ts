@@ -14,8 +14,14 @@ export class DetailsComponent implements OnInit{
   detailsdata:any;
   postedComment:any;
   comment:any;
-
-
+  tripsImagePath: string =  'http://127.0.0.1:8000/images/trip_images/thumbnails/';
+  hotelsImagePath: string = 'http://127.0.0.1:8000/images/Hotel_images/thumbnails/';
+  restaurantsImagePath: string = 'http://127.0.0.1:8000/images/Restaurant_images/thumbnails/';
+  
+  tripsPath: string =  'http://127.0.0.1:8000/images/trip_images/images/';
+  hotelsPath: string = 'http://127.0.0.1:8000/images/Hotel_images/images/';
+  restaurantsPath: string = 'http://127.0.0.1:8000/images/Restaurant_images/images/';
+  
   userId=localStorage.getItem("userId");
 
   /*
@@ -73,10 +79,13 @@ export class DetailsComponent implements OnInit{
     if(this.comment != '' &&  this.comment != undefined){
       this.handle.storeReview(this.detailsdata,this.comment,this.userId).subscribe({
         next:(next)=>{
-          //console.log(next);
+          console.log(next);
           if(next.status == 200){
             this.comment="";
             this.postedComment.push(next.reviews);
+          }
+          else if(next.status == 401){
+            alert("You Must Sign In First")
           }
         },
         error:(error) => {
