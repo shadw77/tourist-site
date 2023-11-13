@@ -40,9 +40,7 @@ export class DisplayTripsComponent {
         console.log('1234',this.searchWord,this.timeSlot);
         if(this.timeSlot)
         this.searchDataService.searchTripsByTime(this.searchWord,this.endDate, this.timeSlot).then((response) => {             console.log(this.searchWord);
-         console.log(this.timeSlot);
-         
-         
+         console.log(this.timeSlot);   
           this.data = response;   
 
       console.log(this.data);

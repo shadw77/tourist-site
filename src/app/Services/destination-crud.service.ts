@@ -33,7 +33,7 @@ export class DestinationCrudService {
   }
 
   getDestinations(){
-    if(this.userData.role=='user'){
+    if(this.userData == undefined || this.userData.role == 'user'){
       this.REST_API = `${'http://localhost:8000/api/user-destinations'}`;      
     }
     console.log(this.httpClient.get(this.REST_API));
@@ -41,12 +41,18 @@ export class DestinationCrudService {
     return this.httpClient.get(this.REST_API,this.httpOptions);
   }
   Destinations(page:any){
-    let API_URL = `http://localhost:8000/api/destinations?page=${page}`;
+    let API_URL='';
+    if (this.userData == undefined || this.userData.role == 'user') {
+      API_URL = `http://localhost:8000/api/user-destinations?page=${page}`;
+    }
+    else{
+     API_URL = `http://localhost:8000/api/destinations?page=${page}`;
+    }
    return this.httpClient.get( API_URL,this.httpOptions);
  }
   getDestination(id:any): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;
-    if(this.userData.role==='user'){
+    if(this.userData == undefined || this.userData.role == 'user'){
       API_URL = `${'http://localhost:8000/api/user-destinations'}/${id}`;
       
    }

@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { UserOrderCrudService } from '../Services/user-order-crud.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '../Services/auth.service';
+
 
 @Component({
   selector: 'app-display-orders',
@@ -25,13 +28,31 @@ export class DisplayOrdersComponent {
   totalItems: number=0;
   pageButtons: number[] = [];
 
+  PayementMessage:any='Pending';
+  PayementStatus:any='Pending';
   constructor(private userOrderCrudService: UserOrderCrudService,  private http: HttpClient,
+    private route: ActivatedRoute,
+            protected auth:AuthService
     ){   
           //  this.totalItems =this.Orders.meta.total;
       console.log(this.Orders);
-      this.generatePageButtons();}
+      // this.generatePageButtons();
+    }
   
   ngOnInit():void{
+
+
+    this.route.queryParams.subscribe(params => {
+      const responseParam = params['response'];
+      if (responseParam) {
+        const response = JSON.parse(decodeURIComponent(responseParam));
+  
+        this.PayementMessage = response['original']['mssg'];        
+        this.PayementStatus = response['original']['status'];
+        const userdata = response['original']['userdata'];
+      }
+    });  
+
 
     const randomInvoiceNumber = Math.floor(100000 + Math.random() * 900000);
     this.invoiceNumber = Math.floor(100000 + Math.random() * 900000);
@@ -48,6 +69,10 @@ export class DisplayOrdersComponent {
 
     this.userOrderCrudService.getAllUserOrders(this.userData.id).subscribe(res => {        
       this.Orders = res;
+      this.totalPages=this.Orders.meta.last_page;
+      this.totalItems =this.Orders.meta.total;
+      console.log(this.Orders);
+      this.generatePageButtons();
       this.latestOrder = Object.values(res);     
       console.log(this.latestOrder);
       
@@ -91,10 +116,9 @@ export class DisplayOrdersComponent {
       });}
     });      
     console.log(this.latestOrder);
+    console.log(this.Orders.data);
 
-      console.log(this.Orders.data);
-
-        this.imagePaths=  {
+    this.imagePaths=  {
       Hotel: 'http://127.0.0.1:8000/images/Hotel_images/thumbnails/',
       Restaurant: 'http://127.0.0.1:8000/images/Restaurant_images/thumbnails/',
       Trip: 'http://127.0.0.1:8000/images/trip_images/thumbnails/',
@@ -133,17 +157,6 @@ export class DisplayOrdersComponent {
   callPayment(){
     this.userOrderCrudService.callPayment();
 
-   /* this.userOrderCrudService.callPayment().subscribe({
-      next:(next)=>{
-        //console.log(next);
-
-      },
-      error:(error) => {
-        console.error('Error fetching reviews:', error);
-      },
-      complete:()=>{
-      }
-    });  */
   }
   /*end function that call payment services*/
 

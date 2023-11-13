@@ -56,13 +56,13 @@
 									 					</div>
 							 						</div>
 							 						<div class="col-md-3 quantity">
-							 							<label for="quantity">Quantity:</label>
+							 							<!-- <label for="quantity"></label> -->
                              <select
                              (change)="onOptionChange($event, cart)"
                              class="form-select"
                              aria-label="Default select example"
                            >
-                             <option>Qyt: {{ cart.quantity }}</option>
+                             <option> {{ cart.quantity }}</option>
                              <option
                                value="{{ x }}"
                                *ngFor="let x of [0, 1, 2, 3, 4, 5, 6, 7, 8]"

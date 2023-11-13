@@ -16,6 +16,11 @@ export class DisplayDestinationsComponent {
   data : any;
   imagePath: string = 'http://127.0.0.1:8000/images/destination_images/thumbnails/';
 
+  currentPage: number = 1;
+  totalPages:any;
+  totalItems: number=0;
+  pageButtons: number[] = [];
+
   constructor(private router:Router, private cartItems:CartItemService,private CounterService:CounterService,
     private activatedRoute: ActivatedRoute,private route: ActivatedRoute,private destinationCrudService: DestinationCrudService, private searchDataService: SearchDataService){}
   ngOnInit():void{
@@ -39,4 +44,16 @@ export class DisplayDestinationsComponent {
       }
       
     });  }
+    onPageChange(pageNumber: number) {
+      this.currentPage = pageNumber;
+      this.destinationCrudService.Destinations(this.currentPage).subscribe(res=>{        
+        this.Destinations= res;
+    })
+    }
+    generatePageButtons(): void {
+      this.pageButtons = [];
+      for (let i = 1; i <= this.totalPages; i++) {
+        this.pageButtons.push(i);
+      }
+    }
 }

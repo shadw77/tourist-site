@@ -22,6 +22,10 @@ export class DisplayRestaurantComponent {
   endDate:any;
   faSearch = faSearch;
   time_slot=sessionStorage.getItem('time_slot');
+  currentPage: number = 1;
+  totalPages:any;
+  totalItems: number=0;
+  pageButtons: number[] = [];
 
 
   constructor(    private router:Router, private cartItems:CartItemService,private CounterService:CounterService,
@@ -56,7 +60,11 @@ export class DisplayRestaurantComponent {
         
         this.restaurantCrudService.getRestaurants().subscribe((res) => {
           this.Restaurents = res;
-          this.Restaurents = this.Restaurents['data'];
+          this.Restaurents= res;
+          this.totalPages=this.Restaurents.meta.last_page;
+          this.totalItems =this.Restaurents.meta.total;
+          console.log(this.Restaurents);
+          this.generatePageButtons();
           
           console.log( this.Restaurents);
         });
@@ -127,6 +135,18 @@ search() {
     this.endDate = event.target.value;
     console.log(this.endDate);
     
+  }
+  onPageChange(pageNumber: number) {
+    this.currentPage = pageNumber;
+    this.restaurantCrudService.Restaurants(this.currentPage).subscribe(res=>{        
+      this.Restaurents= res;
+  })
+  }
+  generatePageButtons(): void {
+    this.pageButtons = [];
+    for (let i = 1; i <= this.totalPages; i++) {
+      this.pageButtons.push(i);
+    }
   }
   
 }

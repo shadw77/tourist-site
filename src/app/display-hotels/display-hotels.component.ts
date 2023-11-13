@@ -27,11 +27,18 @@ export class DisplayHotelsComponent {
   products:any;
   counter:number=0;
   time_slot=sessionStorage.getItem('time_slot');
+  currentPage: number = 1;
+  totalPages:any;
+  totalItems: number=0;
+  pageButtons: number[] = [];
+
   constructor(private CounterService:CounterService,
     private router:Router,private cartItems:CartItemService,
 
     private activatedRoute: ActivatedRoute,private route: ActivatedRoute,private hotelCrudService: HotelCrudService, private searchDataService: SearchDataService){}
   ngOnInit():void{
+    
+
     const regex = /^\d{4}-\d{2}-\d{2}$/;
     this.route.paramMap.subscribe((params) => {
       this.data = params.get('data');
@@ -40,8 +47,6 @@ export class DisplayHotelsComponent {
         
         this.searchDataService.searchHotelsByTime(this.searchWord,this.endDate, this.timeSlot).then((response) => {             console.log(this.searchWord);
          console.log(this.timeSlot);
-         
-         
           this.data = response;   
 
       console.log(this.data);
@@ -62,7 +67,11 @@ export class DisplayHotelsComponent {
         
         this.hotelCrudService.getHotels().subscribe((res) => {
           this.Hotels = res;
-          this.Hotels = this.Hotels['data'];
+          // this.Hotels = this.Hotels['data'];
+          this.totalPages=this.Hotels.meta.last_page;
+          this.totalItems =this.Hotels.meta.total;
+          console.log(this.Hotels);
+          this.generatePageButtons();
           
           console.log( this.Hotels);
         });
@@ -118,6 +127,17 @@ getEndDate(event: any){
   console.log(this.endDate);
   
 }
-
+onPageChange(pageNumber: number) {
+  this.currentPage = pageNumber;
+  this.hotelCrudService.hotels(this.currentPage).subscribe(res=>{        
+    this.Hotels= res;
+})
+}
+generatePageButtons(): void {
+  this.pageButtons = [];
+  for (let i = 1; i <= this.totalPages; i++) {
+    this.pageButtons.push(i);
+  }
+}
  
 }

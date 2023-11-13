@@ -34,11 +34,17 @@ export class TripCrudService {
 
 
   Trips(page:any){
-     let API_URL = `http://localhost:8000/api/user-trips?page=${page}`;
+    let API_URL='';
+    if (this.userData == undefined || this.userData.role == 'user') {
+      API_URL = `http://localhost:8000/api/user-trips?page=${page}`;
+    }
+    else{
+      API_URL = `http://localhost:8000/api/user-trips?page=${page}`;
+    }
     return this.httpClient.get( API_URL,this.httpOptions);
   }
   getTrips(){
-    if(this.userData.role=='user'){
+    if(this.userData == undefined || this.userData.role == 'user'){
       this.REST_API = `${'http://localhost:8000/api/user-trips'}`;
     }
     return this.httpClient.get(this.REST_API,this.httpOptions);
@@ -46,7 +52,7 @@ export class TripCrudService {
 
   getTrip(id:any): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;
-    if(this.userData.role=='user'){
+    if(this.userData == undefined || this.userData.role == 'user'){
       API_URL = `${'http://localhost:8000/api/user-trips'}/${id}`;
    }
     return this.httpClient.get(API_URL,this.httpOptions)

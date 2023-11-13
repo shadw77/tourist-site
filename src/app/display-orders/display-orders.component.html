@@ -11,7 +11,7 @@
         </div>
         <div>
             <p><strong>Customer Name:</strong> {{userName}}</p>
-            <p><strong>Payment Status:</strong> Un Paid</p>
+            <p><strong>Payment Status:</strong> {{PayementMessage}}</p>
         </div>
     </div>
 
@@ -19,7 +19,7 @@
         <div class="item align-items-center" *ngFor="let order of latestOrder ;let i = index">
             <img src="{{imagePaths[order.service_type]}}{{order.service_thumbnail}}" width="200" alt="Product Image">
             <div class="item-details">
-                <h4>{{order.service_name | slice:0:5}}</h4>
+                <h4>{{order.service_name | slice:0:30}}..</h4>
                 <p>Quantity:  {{order.quantity}}</p>
                 <p>Discount: EGP{{order.discount}} </p>
 
@@ -57,7 +57,7 @@
 
     <div class="invoice-footer">
         <!-- <p>Thank you for your purchase!</p> -->
-        <a href="#" class="btn-pay" style="background-color: #fd7e14;" (click)="callPayment()">Pay Now</a>
+        <a class="btn-pay" style="background-color: #fd7e14;cursor: pointer;" (click)="callPayment()">Pay Now</a>
     </div>
 </div>
 
@@ -65,7 +65,7 @@
 
 
 
-  <section class="news">
+  <section class="news" style="height: 700px;">
     <div class="container">
       <h4>Previous Orders</h4>
       <div class="news_section row  ">
@@ -74,8 +74,8 @@
             <img src="{{imagePaths[order.service_type]}}{{order.service_thumbnail}}" class="img-fluid" style="height: 200px;object-fit: cover;"> 
           </figure>
           <div class="block_top">
-            <div class="top_left">    
-              <p class="date">Delivered</p>
+            <div class="top_left" style="background-color: #fd7e14;">    
+              <p class="date"></p>
             </div>
             <div class="top_right">      
               <p class="news_title">{{order.service_name}}</p>
@@ -87,14 +87,14 @@
             </div>
           </div>
           <div class="block_bottom">
-            <p class="news_desc"> {{order.service_description}}</p>
+            <p class="news_desc"> {{order.service_description | slice:0:200}}</p>
           </div>
         </div>   
       </div>
     </div>
   </section>
-  <nav aria-label="Page navigation example d-flex align-items-center justify-content-center ">
-    <ul class="pagination ">
+  <nav aria-label="Page navigation example d-flex align-items-center justify-content-center  ">
+    <ul class="pagination "style="margin: auto;justify-content: center;">
       <li class="page-item ">
         <button
           class="page-link p-2"
@@ -110,7 +110,7 @@
         *ngFor="let button of pageButtons"
         [class.active]="button === currentPage"
       >
-        <button class="page-link" (click)="onPageChange(button)">
+        <button class="page-link p-2" (click)="onPageChange(button)">
           <span aria-hidden="true">{{ button }}</span>
         </button>
       </li>

@@ -56,7 +56,6 @@ import { TransactionsComponent } from './database/transactions/transactions.comp
 import { UserResolver } from './user.resolver';
 
 
-
 const routes: Routes = [
   {
     path: '',
@@ -71,7 +70,7 @@ const routes: Routes = [
    
   {
     path:'login', 
-    component:SignComponent
+    component:SignComponent,
   },  
   {
     path:'register', 

@@ -24,6 +24,11 @@ export class DisplayServicesComponent {
   imagePath:any;
 
   data : any;
+  currentPage: number = 1;
+  totalPages:any;
+  totalItems: number=0;
+  pageButtons: number[] = [];
+
   constructor(private activatedRoute: ActivatedRoute,private route: ActivatedRoute,
     private destinationCrudService: DestinationCrudService,
     private restaurantCrudService:RestaurantCrudService,
@@ -127,4 +132,16 @@ export class DisplayServicesComponent {
 
 
    }
+   onPageChange(pageNumber: number) {
+    this.currentPage = pageNumber;
+    this.tripCrudService.Trips(this.currentPage).subscribe(res=>{        
+      this.Trips= res;
+  })
+  }
+  generatePageButtons(): void {
+    this.pageButtons = [];
+    for (let i = 1; i <= this.totalPages; i++) {
+      this.pageButtons.push(i);
+    }
+  }
 }
