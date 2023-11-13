@@ -2185,3 +2185,45 @@ img{
 .forPad{
 	padding: 90px 0px;
 }
+
+/* 
+ */
+
+.single-unique-product {
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+	border: 1px solid #fd7e14 !important;
+	border-radius: 10px;
+	overflow: hidden;
+	transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .single-unique-product:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .single-unique-product img {
+	border-bottom: 1px solid #ddd; 
+  }
+  
+
+.pagination .page-link {
+	background-color: transparent;
+	border: none;
+	color: #fd7e14; 
+  }
+  
+  .pagination .page-item.active .page-link {
+	background-color: #fd7e14; 
+	border-color: #fd7e14;
+	color: #fff; 
+  }
+  
+  .pagination .page-link:hover {
+	background-color: #fd7e14;
+	border-color: #fd7e14; 
+	color: #fff; 
+  }
+  
+
+  

@@ -49,4 +49,10 @@ input, span{
 }
 
 
-  
+.active{
+    background-color: #fd7e14 !important;
+}
+.nav-link.active {
+        color: white !important;
+
+}

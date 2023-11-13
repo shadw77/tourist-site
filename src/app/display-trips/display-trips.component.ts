@@ -22,14 +22,17 @@ export class DisplayTripsComponent {
   endDate:any;
   faSearch = faSearch;
 
+  currentPage: number = 1;
+  totalPages:any;
+  totalItems: number=0;
+  pageButtons: number[] = [];
 
-  imagePath: string = 'http://127.0.0.1:8000/images/trips_images/thumbnails/';
+  imagePath: string = 'http://127.0.0.1:8000/images/trip_images/thumbnails/';
 
   constructor(private CounterService:CounterService,
     private router:Router,private cartItems:CartItemService,
     private activatedRoute: ActivatedRoute,private route: ActivatedRoute,private tripCrudService: TripCrudService, private searchDataService: SearchDataService){}
   ngOnInit():void{
-
     const regex = /^\d{4}-\d{2}-\d{2}$/;
     this.route.paramMap.subscribe((params) => {
       this.data = params.get('data');
@@ -53,17 +56,19 @@ export class DisplayTripsComponent {
      else if (this.data &&(!regex.test(this.data))) {
       
         this.searchDataService.searchTrips(this.data).then((response) => {
-          this.Trips = response;
+          this.Trips = response;  
           console.log('Searched Trips:', this.Trips);
         });
       } else {
         
-        this.tripCrudService.getTrips().subscribe((res) => {
-          this.Trips = res;
-          this.Trips = this.Trips['data'];
-          
-          console.log( this.Trips);
-        });
+        this.tripCrudService.getTrips().subscribe(res=>{        
+          this.Trips= res;
+          this.totalPages=this.Trips.meta.last_page;
+          this.totalItems =this.Trips.meta.total;
+          console.log(this.Trips);
+          this.generatePageButtons();
+      });
+         
       }
     });
 
@@ -131,5 +136,17 @@ export class DisplayTripsComponent {
     this.endDate = event.target.value;
     console.log(this.endDate);
     
+  }
+  onPageChange(pageNumber: number) {
+    this.currentPage = pageNumber;
+    this.tripCrudService.Trips(this.currentPage).subscribe(res=>{        
+      this.Trips= res;
+  })
+  }
+  generatePageButtons(): void {
+    this.pageButtons = [];
+    for (let i = 1; i <= this.totalPages; i++) {
+      this.pageButtons.push(i);
+    }
   }
 }
