@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../Services/auth.service';
 import { CounterService } from 'src/app/Services/counter.service';
@@ -19,29 +19,30 @@ export class NavbarComponent implements OnInit {
     private CounterService: CounterService,
     private router: Router,
     private route: ActivatedRoute,
-    protected authService: AuthService
+    protected authService: AuthService,
+    private cdRef:ChangeDetectorRef,
   ) {
-    this.tokenExpired=false;
-    this.userData = localStorage.getItem('userData');
-    this.isSigned = !!this.userData;
+    // this.tokenExpired=false;
+    // this.userData = localStorage.getItem('userData');
+    // this.isSigned = !!this.userData;
 
-    try {
-      const decodedToken = jwtDecode(this.userData.api_token);
-      const currentTime = Date.now() / 1000;
-      if (decodedToken.exp !== undefined) {
-          console.log('');  
-      } 
-    } catch (error) {
-      this.tokenExpired = true;
-    }
+    // try {
+    //   const decodedToken = jwtDecode(this.userData.api_token);
+    //   const currentTime = Date.now() / 1000;
+    //   if (decodedToken.exp !== undefined) {
+    //       console.log('');  
+    //   } 
+    // } catch (error) {
+    //   this.tokenExpired = true;
+    // }
 
-    if (this.tokenExpired) {
-      this.isSigned = false;      
-      this.tokenExpired=false;
+    // if (this.tokenExpired) {
+    //   this.isSigned = false;      
+    //   this.tokenExpired=false;
 
-      // this.router.navigate(['/login']);
+    //   // this.router.navigate(['/login']);
 
-    }
+    // }
   }
 
   ngOnInit() {
@@ -51,16 +52,21 @@ export class NavbarComponent implements OnInit {
     }
 
     this.authService.loginSuccessEvent.subscribe(() => {
-      this.userData = localStorage.getItem('userData');
-      this.isSigned = !!this.userData;
+      // this.userData = localStorage.getItem('userData');
+      // this.isSigned = !!this.userData;
+      this.isSigned= true;
+      this.cdRef.detectChanges();
+
     });
 
-    this.route.data.subscribe((data) => {
-      const userDataFromResolver = data['userData'];
-      console.log('Resolved data:', userDataFromResolver);
-    });
+    // this.route.data.subscribe((data) => {
+    //   const userDataFromResolver = data['userData'];
+    //   console.log('Resolved data:', userDataFromResolver);
+    // });
 
     this.initIsSigned();
+    // this.isSigned = localStorage.getItem('userData') ? true : false;
+
   }
 
   initIsSigned() {
@@ -79,8 +85,10 @@ export class NavbarComponent implements OnInit {
 
   logOut() {
     this.authService.logout().subscribe(() => {
-      localStorage.clear();
       this.isSigned = false;
+      // this.authService.logout();   
+      localStorage.clear();
+
       console.log('Logged out');
       this.router.navigate(['/login']);
     });
