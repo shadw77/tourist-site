@@ -31,7 +31,7 @@ export class DisplayHotelsComponent {
   totalPages:any;
   totalItems: number=0;
   pageButtons: number[] = [];
-
+  service:any;
   constructor(private CounterService:CounterService,
     private router:Router,private cartItems:CartItemService,
 
@@ -67,12 +67,11 @@ export class DisplayHotelsComponent {
         
         this.hotelCrudService.getHotels().subscribe((res) => {
           this.Hotels = res;
-          // this.Hotels = this.Hotels['data'];
           this.totalPages=this.Hotels.meta.last_page;
           this.totalItems =this.Hotels.meta.total;
           console.log(this.Hotels);
           this.generatePageButtons();
-          
+          this.Hotels = this.Hotels['data'];
           console.log( this.Hotels);
         });
       }
@@ -97,11 +96,11 @@ if (this.timeSlot) {
 
   // Handle the searchHotelsByTime method
   this.searchDataService.searchHotelsByTime(this.searchWord,this.endDate, this.timeSlot).then((response) => {
-    this.data = response;
-    this.Hotels = this.data;
-    this.Hotels =this.Hotels;
+    // this.data = response;
+    this.Hotels = response;
+    this.Hotels =this.Hotels['data'];
 
-    console.log(this.data);
+    console.log(this.Hotels);
   });
 } else {
   // Handle the searchHotels method
@@ -130,7 +129,9 @@ getEndDate(event: any){
 onPageChange(pageNumber: number) {
   this.currentPage = pageNumber;
   this.hotelCrudService.hotels(this.currentPage).subscribe(res=>{        
-    this.Hotels= res;
+    // this.Hotels= res;
+    this.service= res;
+    this.Hotels = [...this.service.data];
 })
 }
 generatePageButtons(): void {

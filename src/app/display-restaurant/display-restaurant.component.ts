@@ -26,7 +26,7 @@ export class DisplayRestaurantComponent {
   totalPages:any;
   totalItems: number=0;
   pageButtons: number[] = [];
-
+  service:any;
 
   constructor(    private router:Router, private cartItems:CartItemService,private CounterService:CounterService,
 
@@ -64,6 +64,7 @@ export class DisplayRestaurantComponent {
           this.totalPages=this.Restaurents.meta.last_page;
           this.totalItems =this.Restaurents.meta.total;
           console.log(this.Restaurents);
+          this.Restaurents = this.Restaurents['data'];
           this.generatePageButtons();
           
           console.log( this.Restaurents);
@@ -111,8 +112,8 @@ search() {
     // Handle the searchRestaurentsByTime method
     this.searchDataService.searchRestaurantsByTime(this.searchWord,this.endDate, this.timeSlot).then((response) => {
       this.data = response;
-      this.Restaurents = this.data;
-      this.Restaurents =this.Restaurents.data;
+      this.Restaurents = response;
+      this.Restaurents =this.Restaurents['data'];
   
       console.log(this.data);
     });
@@ -120,7 +121,7 @@ search() {
     // Handle the searchRestaurents method
     this.searchDataService.searchRestaurants(this.searchWord).then((response) => {
       this.Restaurents = response;
-      this.Restaurents =this.Restaurents.data;
+      this.Restaurents =this.Restaurents;
       console.log('Searched Restaurents:', this.Restaurents);
     });
   }
@@ -139,7 +140,10 @@ search() {
   onPageChange(pageNumber: number) {
     this.currentPage = pageNumber;
     this.restaurantCrudService.Restaurants(this.currentPage).subscribe(res=>{        
-      this.Restaurents= res;
+      // this.Restaurents= res;
+      this.service= res;
+      this.Restaurents = [...this.service.data];
+
   })
   }
   generatePageButtons(): void {

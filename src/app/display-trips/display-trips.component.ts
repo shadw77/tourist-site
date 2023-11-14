@@ -22,6 +22,7 @@ export class DisplayTripsComponent {
   endDate:any;
   faSearch = faSearch;
 
+  service:any;
   currentPage: number = 1;
   totalPages:any;
   totalItems: number=0;
@@ -64,6 +65,8 @@ export class DisplayTripsComponent {
           this.totalPages=this.Trips.meta.last_page;
           this.totalItems =this.Trips.meta.total;
           console.log(this.Trips);
+          this.service = this.Trips;
+          this.Trips= this.Trips['data'];
           this.generatePageButtons();
       });
          
@@ -104,7 +107,8 @@ export class DisplayTripsComponent {
       this.searchDataService.searchTripsByTime(this.searchWord,this.endDate, this.timeSlot).then((response) => {
         this.data = response;
         this.Trips = this.data;
-        this.Trips =this.Trips;
+        this.service = this.Trips;
+        this.Trips =this.Trips['data'];
     
         console.log(this.data);
       });
@@ -138,7 +142,10 @@ export class DisplayTripsComponent {
   onPageChange(pageNumber: number) {
     this.currentPage = pageNumber;
     this.tripCrudService.Trips(this.currentPage).subscribe(res=>{        
-      this.Trips= res;
+      this.service= res;
+      this.Trips = [...this.service.data];
+      console.log(this.Trips.data);
+      
   })
   }
   generatePageButtons(): void {
