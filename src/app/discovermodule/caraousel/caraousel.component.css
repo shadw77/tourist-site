@@ -1,0 +1,8 @@
+.custom-carousel-item {
+    height: 400px; /* Set a fixed height as per your design */
+  }
+
+  .custom-carousel-item img {
+    object-fit: cover; /* Ensure the image covers the entire container */
+    height: 100%; /* Make the image take the full height of the container */
+  }

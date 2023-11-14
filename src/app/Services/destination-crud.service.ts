@@ -36,7 +36,7 @@ export class DestinationCrudService {
     if(this.userData == undefined || this.userData.role == 'user'){
       this.REST_API = `${'http://localhost:8000/api/user-destinations'}`;      
     }
-    console.log(this.httpClient.get(this.REST_API));
+    // console.log(this.httpClient.get(this.REST_API));
     
     return this.httpClient.get(this.REST_API,this.httpOptions);
   }

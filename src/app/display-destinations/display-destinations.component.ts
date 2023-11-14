@@ -36,24 +36,27 @@ export class DisplayDestinationsComponent {
       } else {
         
         this.destinationCrudService.getDestinations().subscribe((res) => {
+          console.log('resss', res);
+          
           this.Destinations = res;
-          this.Destinations = this.Destinations['destinations']['data'];
-          this.totalPages=this.Destinations.meta.last_page;
-          this.totalItems =this.Destinations.meta.total;
+          this.Destinations = this.Destinations;
+          // this.totalPages=this.Destinations.meta.last_page;
+          // this.totalItems =this.Destinations.meta.total;
+          this.totalPages=this.Destinations['destinations'].last_page;
+          this.totalItems =this.Destinations['destinations'].total; 
           this.generatePageButtons();
           console.log('All Destinations:', this.Destinations);
         });
       }
       
     });  }
+
     onPageChange(pageNumber: number) {
       this.currentPage = pageNumber;
       this.destinationCrudService.Destinations(this.currentPage).subscribe(res=>{        
-        this.service= res;
-        this.Destinations = [...this.service.destinations.data];
-        
+        this.Destinations= res;
     })
-    }
+    } 
     generatePageButtons(): void {
       this.pageButtons = [];
       for (let i = 1; i <= this.totalPages; i++) {

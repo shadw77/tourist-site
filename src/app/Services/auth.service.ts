@@ -137,7 +137,8 @@ export class AuthService {
 
   /*start function call api to send email*/
   sendPasswordResetLink(data:any){
-    //console.log(data);
+    console.log('mmmmm',data);
+    
     return this.httpClient.post<passwordResponse>(`${this.apiuUrl}/sendPasswordResetLink`,data);
   }
   /*end function call api to send email*/

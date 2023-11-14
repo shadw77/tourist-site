@@ -1,4 +1,4 @@
-<section class="carousel" >
+<!-- <section class="carousel" >
 
 
     
@@ -38,4 +38,35 @@
         </button>
       </div>   
 
+</section> -->
+
+<section class="carousel">
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button *ngFor="let near of carouselimages; let i = index" type="button" data-bs-target="#carouselExampleCaptions" [attr.data-bs-slide-to]="i" [class.active]="i === 0" ></button>
+    </div>
+    <div class="carousel-inner">
+      <ng-container *ngFor="let near of carouselimages; let i = index">
+        <div class="carousel-item custom-carousel-item" [class.active]="i === 0">
+          <img *ngIf="near.type=='Trip'" src="{{tripsImagePath}}{{near.thumbnail}}" class="d-block w-100" alt="...">
+          <img *ngIf="near.type=='Hotel'" src="{{hotelsImagePath}}{{near.thumbnail}}" class="d-block w-100" alt="...">
+          <img *ngIf="near.type=='Restaurant'" src="{{restaurantsImagePath}}{{near.thumbnail}}" class="d-block w-100" alt="...">
+
+          <div class="carousel-caption d-none d-md-block">
+            <h5>{{near.name}}</h5>
+            <p>{{near.description}}.</p>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
 </section>
+
