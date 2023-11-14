@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HandleapiService } from '../Services/handleapi.service';
 @Component({
   selector: 'app-contact-us',
   templateUrl: './contact-us.component.html',
@@ -33,21 +34,36 @@ export class ContactUsComponent {
   };
   contactForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder , private handleapi:HandleapiService) {
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phone: ['', Validators.required],
       message: ['', Validators.required],
-      captcha: ['', Validators.required]
     });
   }
 
-  submitForm() {
-    if (this.contactForm.valid) {
-      console.log(this.contactForm.value);
-    }
+  /*start function that call sendmessage from handleapi service*/
+  submitForm(form:any) {
+    console.log(form.value);
+    this.handleapi.sendMessage(form.value).subscribe({
+      next:(next)=>{
+      //console.log(next);
+      },
+      error:(error) => {
+        console.error('Error fetching reviews:', error);
+      },
+      complete:()=>{
+
+      }
+    });
   }
+  /*end function that call sendmessage from handleapi service*/
+
+
+
+
+
 
   reloadCaptcha() {
     console.log('Reloading captcha...');

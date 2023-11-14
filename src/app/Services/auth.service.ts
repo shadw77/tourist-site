@@ -120,6 +120,14 @@ export class AuthService {
   }
   /*end function that get user role*/
 
+
+  /*start function that get user Government*/
+  getUserGovernment():string {
+    const role = localStorage.getItem('government') as string ;
+    return role ;
+  }
+  /*end function that get user Government*/
+
   /*start logout function*/
   logout():Observable<any>{
     console.log(this.httpClient);

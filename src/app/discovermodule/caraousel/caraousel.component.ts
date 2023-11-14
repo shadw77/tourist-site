@@ -14,6 +14,6 @@ export class CaraouselComponent implements OnInit{
   
 
   ngOnInit(){
-    console.log(this.carouselimages);
+    //console.log(this.carouselimages);
   }
 }
