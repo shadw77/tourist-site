@@ -1,8 +1,9 @@
-import { Component,Renderer2, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component,Renderer2, ElementRef, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
 import {NgbModal, ModalDismissReasons}  from '@ng-bootstrap/ng-bootstrap'; 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { passwordidentical } from "src/app/customsvalidations/passwordidentical";
 import { AuthService } from '../Services/auth.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -27,7 +28,10 @@ export class SignComponent implements OnInit{
   errorLoginReference:string="";
 
   constructor(private modalService: NgbModal,
-              private Fb:FormBuilder,
+    private router: Router,
+    private changeDetectorRef: ChangeDetectorRef,
+         
+    private Fb:FormBuilder,
               protected authservice:AuthService,
 
               ) {} 
@@ -77,6 +81,7 @@ export class SignComponent implements OnInit{
         }
         else{
           this.successsLoginReference=next.mssg;
+          this.authservice.loginSuccessEvent.emit();
         }
         //console.log(next);
       },

@@ -34,7 +34,7 @@ export class HotelCrudService {
 
 
   getHotels(){
-    if(this.userData.role=='user'){
+    if(this.userData == undefined || this.userData.role =='user'){
       this.REST_API = `${'http://localhost:8000/api/user-hotels'}`;
     }
     return this.httpClient.get(this.REST_API,this.httpOptions);
@@ -42,7 +42,8 @@ export class HotelCrudService {
 
   getHotel(id:any): Observable<any>{
     let API_URL = `${this.REST_API}/${id}`;
-    if(this.userData.role=='user'){
+    
+    if(this.userData == undefined ||  this.userData.role =='user'){
       API_URL = `${'http://localhost:8000/api/user-hotels'}/${id}`;
    }
     return this.httpClient.get(API_URL,this.httpOptions)
@@ -50,7 +51,13 @@ export class HotelCrudService {
       catchError(this.handleError));
   }
   hotels(page:any){
+    let API_URL='';
+    if (this.userData == undefined || this.userData.role == 'user') {
+      API_URL = `http://localhost:8000/api/user-hotels?page=${page}`;
+    }
+    else{
     let API_URL = `http://localhost:8000/api/hotels?page=${page}`;
+    }
    return this.httpClient.get( API_URL,this.httpOptions);
  }
   updateHotel(id:any, data: FormData): Observable<any>{

@@ -22,7 +22,11 @@ export class DisplayRestaurantComponent {
   endDate:any;
   faSearch = faSearch;
   time_slot=sessionStorage.getItem('time_slot');
-
+  currentPage: number = 1;
+  totalPages:any;
+  totalItems: number=0;
+  pageButtons: number[] = [];
+  service:any;
 
   constructor(    private router:Router, private cartItems:CartItemService,private CounterService:CounterService,
 
@@ -56,7 +60,12 @@ export class DisplayRestaurantComponent {
         
         this.restaurantCrudService.getRestaurants().subscribe((res) => {
           this.Restaurents = res;
+          this.Restaurents= res;
+          this.totalPages=this.Restaurents.meta.last_page;
+          this.totalItems =this.Restaurents.meta.total;
+          console.log(this.Restaurents);
           this.Restaurents = this.Restaurents['data'];
+          this.generatePageButtons();
           
           console.log( this.Restaurents);
         });
@@ -103,8 +112,8 @@ search() {
     // Handle the searchRestaurentsByTime method
     this.searchDataService.searchRestaurantsByTime(this.searchWord,this.endDate, this.timeSlot).then((response) => {
       this.data = response;
-      this.Restaurents = this.data;
-      this.Restaurents =this.Restaurents.data;
+      this.Restaurents = response;
+      this.Restaurents =this.Restaurents['data'];
   
       console.log(this.data);
     });
@@ -112,7 +121,7 @@ search() {
     // Handle the searchRestaurents method
     this.searchDataService.searchRestaurants(this.searchWord).then((response) => {
       this.Restaurents = response;
-      this.Restaurents =this.Restaurents.data;
+      this.Restaurents =this.Restaurents;
       console.log('Searched Restaurents:', this.Restaurents);
     });
   }
@@ -127,6 +136,21 @@ search() {
     this.endDate = event.target.value;
     console.log(this.endDate);
     
+  }
+  onPageChange(pageNumber: number) {
+    this.currentPage = pageNumber;
+    this.restaurantCrudService.Restaurants(this.currentPage).subscribe(res=>{        
+      // this.Restaurents= res;
+      this.service= res;
+      this.Restaurents = [...this.service.data];
+
+  })
+  }
+  generatePageButtons(): void {
+    this.pageButtons = [];
+    for (let i = 1; i <= this.totalPages; i++) {
+      this.pageButtons.push(i);
+    }
   }
   
 }

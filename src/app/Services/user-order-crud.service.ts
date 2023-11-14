@@ -86,7 +86,6 @@ export class UserOrderCrudService {
   /*start function that call payment api*/
   callPayment(){
     const id=this.userId;
-    console.log('vvvvvvvvvvvvvvv',id);
     
     //console.log(object);
     window.location.href=  'http://localhost:8000/api/orders/payment';

@@ -84,7 +84,42 @@
       </div>
     </div>	
   </section>
-  
+  <div class="text-center" >
+    <nav aria-label="Page navigation example d-flex align-items-center justify-content-center  ">
+      <ul class="pagination "style="margin: auto;justify-content: center;">
+        <li class="page-item ">
+          <button
+            class="page-link p-2"
+            aria-label="Previous"
+            (click)="onPageChange(currentPage - 1)"
+            [disabled]="currentPage === 1"
+          >
+            <span aria-hidden="true">&laquo;</span>
+          </button>
+        </li>
+        <li
+          class="page-item"
+          *ngFor="let button of pageButtons"
+          [class.active]="button === currentPage"
+        >
+          <button class="page-link" (click)="onPageChange(button)">
+            <span aria-hidden="true">{{ button }}</span>
+          </button>
+        </li>
+    
+        <li class="page-item">
+          <button
+            class="page-link  p-2"
+            aria-label="Next"
+            (click)="onPageChange(currentPage + 1)"
+            [disabled]="currentPage === Hotels.last_page"
+          >
+            <span aria-hidden="true">&raquo;</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </div>
 
 

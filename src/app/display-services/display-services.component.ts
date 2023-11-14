@@ -24,6 +24,12 @@ export class DisplayServicesComponent {
   imagePath:any;
 
   data : any;
+  currentPage: number = 1;
+  totalPages:any;
+  totalItems: number=0;
+  pageButtons: number[] = [];
+  service:any;
+
   constructor(private activatedRoute: ActivatedRoute,private route: ActivatedRoute,
     private destinationCrudService: DestinationCrudService,
     private restaurantCrudService:RestaurantCrudService,
@@ -35,7 +41,7 @@ export class DisplayServicesComponent {
     this.imagePaths=  {
       Hotel: 'http://127.0.0.1:8000/images/Hotel_images/thumbnails/',
       Restaurant: 'http://127.0.0.1:8000/images/Restaurant_images/thumbnails/',
-      Trip: 'http://127.0.0.1:8000/images/trips_images/thumbnails/',
+      Trip: 'http://127.0.0.1:8000/images/trip_images/thumbnails/',
       Destination: 'http://127.0.0.1:8000/images/destination_images/thumbnails/'
     };
 
@@ -89,7 +95,7 @@ export class DisplayServicesComponent {
 
         ]).then(([destinations, trips, restaurants, hotels]) => {
           this.Destinations = destinations;
-          this.Destinations = this.Destinations['destinations']
+          this.Destinations = this.Destinations['destinations']['data'];
           this.Trips = trips; 
           this.Trips = this.Trips['data'];
 
@@ -97,7 +103,19 @@ export class DisplayServicesComponent {
           this.Restaurents = this.Restaurents['data'];          
           this.Hotels = hotels; 
           this.Hotels = this.Hotels['data'];
+
+          
+
+
           this.Services = [...this.Destinations, ...this.Trips, ...this.Restaurents, ...this.Hotels ];
+          
+          // this.totalPages=this.Restaurents.meta.last_page;
+          // this.totalItems =this.Restaurents.meta.total;
+          // console.log(this.Restaurents);
+          // this.Restaurents = this.Restaurents['data'];
+          this.generatePageButtons();
+
+          
           if (this.Destinations.length > 0) {
             this.types.push(...Array(this.Destinations.length).fill('Destination'));
           }
@@ -127,4 +145,16 @@ export class DisplayServicesComponent {
 
 
    }
+   onPageChange(pageNumber: number) {
+    this.currentPage = pageNumber;
+    this.tripCrudService.Trips(this.currentPage).subscribe(res=>{        
+      this.Trips= res;
+  })
+  }
+  generatePageButtons(): void {
+    this.pageButtons = [];
+    for (let i = 1; i <= this.totalPages; i++) {
+      this.pageButtons.push(i);
+    }
+  }
 }

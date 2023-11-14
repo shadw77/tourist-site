@@ -15,6 +15,11 @@ export class DisplayDestinationsComponent {
   Destinations: any = [];
   data : any;
   imagePath: string = 'http://127.0.0.1:8000/images/destination_images/thumbnails/';
+  service:any;
+  currentPage: number = 1;
+  totalPages:any;
+  totalItems: number=0;
+  pageButtons: number[] = [];
 
   constructor(private router:Router, private cartItems:CartItemService,private CounterService:CounterService,
     private activatedRoute: ActivatedRoute,private route: ActivatedRoute,private destinationCrudService: DestinationCrudService, private searchDataService: SearchDataService){}
@@ -32,11 +37,30 @@ export class DisplayDestinationsComponent {
         
         this.destinationCrudService.getDestinations().subscribe((res) => {
           this.Destinations = res;
-          this.Destinations = this.Destinations['destinations'];
-          
+          this.Destinations = this.Destinations['destinations']['data'];
+          this.totalPages=this.Destinations.meta.last_page;
+          this.totalItems =this.Destinations.meta.total;
+          this.generatePageButtons();
           console.log('All Destinations:', this.Destinations);
         });
       }
       
     });  }
+    onPageChange(pageNumber: number) {
+      this.currentPage = pageNumber;
+      this.destinationCrudService.Destinations(this.currentPage).subscribe(res=>{        
+        this.service= res;
+        this.Destinations = [...this.service.destinations.data];
+        
+    })
+    }
+    generatePageButtons(): void {
+      this.pageButtons = [];
+      for (let i = 1; i <= this.totalPages; i++) {
+        this.pageButtons.push(i);
+      }
+    }
+    viewDetails(data: any,name:string ) {
+      this.router.navigate(['discover', `${name}-details`], { state: {  data } });
+    }
 }

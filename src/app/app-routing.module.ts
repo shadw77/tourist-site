@@ -54,7 +54,7 @@ import { ShowOrderComponent } from './database/show-order/show-order.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { TransactionsComponent } from './database/transactions/transactions.component';
 import { UserResolver } from './user.resolver';
-
+import { checkLoginGuard } from './Guard/check-login.guard';
 
 
 const routes: Routes = [
@@ -71,8 +71,11 @@ const routes: Routes = [
    
   {
     path:'login', 
-    component:SignComponent
-  },  
+    component:SignComponent,
+    canActivate: [checkLoginGuard]
+  }, 
+
+ 
   {
     path:'register', 
     component:SignupComponent
@@ -479,6 +482,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [checkLoginGuard],
 })
 export class AppRoutingModule { }

@@ -27,11 +27,18 @@ export class DisplayHotelsComponent {
   products:any;
   counter:number=0;
   time_slot=sessionStorage.getItem('time_slot');
+  currentPage: number = 1;
+  totalPages:any;
+  totalItems: number=0;
+  pageButtons: number[] = [];
+  service:any;
   constructor(private CounterService:CounterService,
     private router:Router,private cartItems:CartItemService,
 
     private activatedRoute: ActivatedRoute,private route: ActivatedRoute,private hotelCrudService: HotelCrudService, private searchDataService: SearchDataService){}
   ngOnInit():void{
+    
+
     const regex = /^\d{4}-\d{2}-\d{2}$/;
     this.route.paramMap.subscribe((params) => {
       this.data = params.get('data');
@@ -40,8 +47,6 @@ export class DisplayHotelsComponent {
         
         this.searchDataService.searchHotelsByTime(this.searchWord,this.endDate, this.timeSlot).then((response) => {             console.log(this.searchWord);
          console.log(this.timeSlot);
-         
-         
           this.data = response;   
 
       console.log(this.data);
@@ -62,8 +67,11 @@ export class DisplayHotelsComponent {
         
         this.hotelCrudService.getHotels().subscribe((res) => {
           this.Hotels = res;
+          this.totalPages=this.Hotels.meta.last_page;
+          this.totalItems =this.Hotels.meta.total;
+          console.log(this.Hotels);
+          this.generatePageButtons();
           this.Hotels = this.Hotels['data'];
-          
           console.log( this.Hotels);
         });
       }
@@ -88,17 +96,17 @@ if (this.timeSlot) {
 
   // Handle the searchHotelsByTime method
   this.searchDataService.searchHotelsByTime(this.searchWord,this.endDate, this.timeSlot).then((response) => {
-    this.data = response;
-    this.Hotels = this.data;
-    this.Hotels =this.Hotels.data;
+    // this.data = response;
+    this.Hotels = response;
+    this.Hotels =this.Hotels['data'];
 
-    console.log(this.data);
+    console.log(this.Hotels);
   });
 } else {
   // Handle the searchHotels method
   this.searchDataService.searchHotels(this.searchWord).then((response) => {
     this.Hotels = response;
-    this.Hotels =this.Hotels.data;
+    this.Hotels =this.Hotels;
     console.log('Searched Hotels:', this.Hotels);
   });
 }
@@ -118,6 +126,19 @@ getEndDate(event: any){
   console.log(this.endDate);
   
 }
-
+onPageChange(pageNumber: number) {
+  this.currentPage = pageNumber;
+  this.hotelCrudService.hotels(this.currentPage).subscribe(res=>{        
+    // this.Hotels= res;
+    this.service= res;
+    this.Hotels = [...this.service.data];
+})
+}
+generatePageButtons(): void {
+  this.pageButtons = [];
+  for (let i = 1; i <= this.totalPages; i++) {
+    this.pageButtons.push(i);
+  }
+}
  
 }
