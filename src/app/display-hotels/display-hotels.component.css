@@ -2168,6 +2168,8 @@ code {
 	transition-duration: 0.3s;
 	transition-property: all;
 	transition-timing-function: ease;
+	height: 450px;
+
 }
 
 .img-fluid{

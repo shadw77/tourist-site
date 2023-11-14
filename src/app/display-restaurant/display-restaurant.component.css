@@ -2192,6 +2192,8 @@ img{
 	border: 1px solid #fd7e14 !important;
 	border-radius: 10px;
 	overflow: hidden;
+	height: 450px;
+
 	transition: transform 0.3s, box-shadow 0.3s;
   }
   

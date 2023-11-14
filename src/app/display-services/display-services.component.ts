@@ -29,6 +29,7 @@ export class DisplayServicesComponent {
   totalItems: number=0;
   pageButtons: number[] = [];
   service:any;
+  itemsPerPage: number = 10;
 
   constructor(private activatedRoute: ActivatedRoute,private route: ActivatedRoute,
     private destinationCrudService: DestinationCrudService,
@@ -143,18 +144,46 @@ export class DisplayServicesComponent {
     });
 
 
-
+this.loadData();
    }
-   onPageChange(pageNumber: number) {
+   onPageChange(pageNumber: number): void {
     this.currentPage = pageNumber;
-    this.tripCrudService.Trips(this.currentPage).subscribe(res=>{        
-      this.Trips= res;
-  })
+    this.loadData();
   }
+
+  private loadData(): void {
+    // ... existing data loading logic
+    Promise.all([
+      this.destinationCrudService.Destinations(this.currentPage).toPromise(),
+      this.tripCrudService.Trips(this.currentPage).toPromise(),
+      this.restaurantCrudService.Restaurants(this.currentPage).toPromise(),
+      this.hotelCrudService.hotels(this.currentPage).toPromise()
+    ]).then(([destinations, trips, restaurants, hotels]) => {
+      // Concatenate the data from different services
+      this.Destinations = destinations;
+      this.Destinations = this.Destinations.data;
+      this.Trips = trips;
+      this.Trips = this.Trips.data;
+      this.Restaurents = restaurants;
+      this.Restaurents= this.Restaurents.data;
+      this.Hotels = hotels;
+      this.Hotels = this.Hotels.data;
+
+      // Calculate total items from any one of the services
+      this.totalItems = this.Destinations.total;
+
+      // Generate pagination buttons
+      this.generatePageButtons();
+    });
+  }
+
   generatePageButtons(): void {
     this.pageButtons = [];
-    for (let i = 1; i <= this.totalPages; i++) {
+    const totalPages = Math.ceil(this.totalItems / this.itemsPerPage);
+    for (let i = 1; i <= totalPages; i++) {
       this.pageButtons.push(i);
     }
   }
 }
+
+
