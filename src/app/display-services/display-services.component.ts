@@ -28,6 +28,7 @@ export class DisplayServicesComponent {
   totalPages:any;
   totalItems: number=0;
   pageButtons: number[] = [];
+  service:any;
 
   constructor(private activatedRoute: ActivatedRoute,private route: ActivatedRoute,
     private destinationCrudService: DestinationCrudService,
@@ -94,7 +95,7 @@ export class DisplayServicesComponent {
 
         ]).then(([destinations, trips, restaurants, hotels]) => {
           this.Destinations = destinations;
-          this.Destinations = this.Destinations['destinations']
+          this.Destinations = this.Destinations['destinations']['data'];
           this.Trips = trips; 
           this.Trips = this.Trips['data'];
 
@@ -102,7 +103,19 @@ export class DisplayServicesComponent {
           this.Restaurents = this.Restaurents['data'];          
           this.Hotels = hotels; 
           this.Hotels = this.Hotels['data'];
+
+          
+
+
           this.Services = [...this.Destinations, ...this.Trips, ...this.Restaurents, ...this.Hotels ];
+          
+          // this.totalPages=this.Restaurents.meta.last_page;
+          // this.totalItems =this.Restaurents.meta.total;
+          // console.log(this.Restaurents);
+          // this.Restaurents = this.Restaurents['data'];
+          this.generatePageButtons();
+
+          
           if (this.Destinations.length > 0) {
             this.types.push(...Array(this.Destinations.length).fill('Destination'));
           }

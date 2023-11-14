@@ -15,7 +15,7 @@ export class DisplayDestinationsComponent {
   Destinations: any = [];
   data : any;
   imagePath: string = 'http://127.0.0.1:8000/images/destination_images/thumbnails/';
-
+  service:any;
   currentPage: number = 1;
   totalPages:any;
   totalItems: number=0;
@@ -37,8 +37,10 @@ export class DisplayDestinationsComponent {
         
         this.destinationCrudService.getDestinations().subscribe((res) => {
           this.Destinations = res;
-          this.Destinations = this.Destinations['destinations'];
-          
+          this.Destinations = this.Destinations['destinations']['data'];
+          this.totalPages=this.Destinations.meta.last_page;
+          this.totalItems =this.Destinations.meta.total;
+          this.generatePageButtons();
           console.log('All Destinations:', this.Destinations);
         });
       }
@@ -47,7 +49,9 @@ export class DisplayDestinationsComponent {
     onPageChange(pageNumber: number) {
       this.currentPage = pageNumber;
       this.destinationCrudService.Destinations(this.currentPage).subscribe(res=>{        
-        this.Destinations= res;
+        this.service= res;
+        this.Destinations = [...this.service.destinations.data];
+        
     })
     }
     generatePageButtons(): void {
