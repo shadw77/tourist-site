@@ -34,7 +34,7 @@ export class TripCrudService {
 
 
   Trips(page:any){
-     let API_URL = `http://localhost:8000/api/trips?page=${page}`;
+     let API_URL = `http://localhost:8000/api/user-trips?page=${page}`;
     return this.httpClient.get( API_URL,this.httpOptions);
   }
   getTrips(){
