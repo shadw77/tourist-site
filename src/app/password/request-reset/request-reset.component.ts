@@ -36,7 +36,6 @@ export class RequestResetComponent {
     /*end login inputs*/
 
   onSubmit(requestresetform:any){
-    //console.log(userform);
       this.auth.sendPasswordResetLink(requestresetform.value).subscribe({
         next:(next)=>{
           if(next.status == 400){
