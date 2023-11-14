@@ -11,6 +11,7 @@ import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 import { ReviewStarsComponent } from './media/review-stars/review-stars.component';
 import { DetailsComponent } from './Details/details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 const routes: Routes = [
   
@@ -31,6 +32,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(routes),
     NgxSpinnerModule.forRoot(),
+    FontAwesomeModule
   ]
 })
 export class DiscovermoduleModule { }

@@ -56,4 +56,7 @@ export class DisplayDestinationsComponent {
         this.pageButtons.push(i);
       }
     }
+    viewDetails(data: any,name:string ) {
+      this.router.navigate(['discover', `${name}-details`], { state: {  data } });
+    }
 }

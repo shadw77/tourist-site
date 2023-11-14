@@ -104,7 +104,7 @@ export class DisplayTripsComponent {
       this.searchDataService.searchTripsByTime(this.searchWord,this.endDate, this.timeSlot).then((response) => {
         this.data = response;
         this.Trips = this.data;
-        this.Trips =this.Trips.data;
+        this.Trips =this.Trips;
     
         console.log(this.data);
       });
@@ -112,7 +112,7 @@ export class DisplayTripsComponent {
       // Handle the searchTrips method
       this.searchDataService.searchTrips(this.searchWord).then((response) => {
         this.Trips = response;
-        this.Trips =this.Trips.data;
+        this.Trips =this.Trips;
         console.log('Searched Trips:', this.Trips);
       });
     }

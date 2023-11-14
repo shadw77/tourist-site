@@ -17,11 +17,14 @@ export class DetailsComponent implements OnInit{
   tripsImagePath: string =  'http://127.0.0.1:8000/images/trip_images/thumbnails/';
   hotelsImagePath: string = 'http://127.0.0.1:8000/images/Hotel_images/thumbnails/';
   restaurantsImagePath: string = 'http://127.0.0.1:8000/images/Restaurant_images/thumbnails/';
-  
+  destinationsImagePath: string = 'http://127.0.0.1:8000/images/destination_images/thumbnails/';
+
   tripsPath: string =  'http://127.0.0.1:8000/images/trip_images/images/';
   hotelsPath: string = 'http://127.0.0.1:8000/images/Hotel_images/images/';
   restaurantsPath: string = 'http://127.0.0.1:8000/images/Restaurant_images/images/';
-  
+  destinationsPath: string = 'http://127.0.0.1:8000/images/destination_images/images/';
+
+  isDestination:boolean= false;
   userId=localStorage.getItem("userId");
 
   /*
@@ -42,6 +45,10 @@ export class DetailsComponent implements OnInit{
     //console.log(state);
     if (history.state) {
       this.detailsdata = history.state.data; 
+      if(this.detailsdata.images[0].imageable_type == 'Destination'){
+        this.isDestination = true;
+      }
+      
       //console.log(this.detailsdata);
     }
 

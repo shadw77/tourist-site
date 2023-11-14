@@ -2,6 +2,10 @@ import { Component, Input ,ViewChild, ElementRef } from '@angular/core';
 import { CuttextPipe } from '../../Pipes/cuttext.pipe';
 import { Router } from '@angular/router';
 
+import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
+// import { faSearch } from '@fortawesome/free-solid-svg-icons';
+
 @Component({
   selector: 'app-media',
   templateUrl: './media.component.html',
@@ -14,7 +18,8 @@ export class MediaComponent {
   tripsImagePath: string =  'http://127.0.0.1:8000/images/trip_images/thumbnails/';
   hotelsImagePath: string = 'http://127.0.0.1:8000/images/Hotel_images/thumbnails/';
   restaurantsImagePath: string = 'http://127.0.0.1:8000/images/Restaurant_images/thumbnails/';
-  
+  faArrowDown = faArrowDown;
+  faArrowUp = faArrowUp;
   constructor(private router: Router) { }
 
   ngOnInit(){

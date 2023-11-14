@@ -11,8 +11,8 @@
                 <p [attr.data-content]="near.description" #description >
                   {{near.description | cuttext:near.displayLength || lineofdescription}}.
                 </p>
-                <span *ngIf="!near.buttonstatus" (click)="change(description,near,$event)" class="text-decoration-underline">Read More <i class="fa-solid fa-arrow-down"></i></span>
-                <span *ngIf="near.buttonstatus" (click)="change(description,near,$event)" class="text-decoration-underline">Read Less <i class="fa-solid fa-arrow-up"></i></span>
+                <span *ngIf="!near.buttonstatus" (click)="change(description,near,$event)" class="text-decoration-underline">Read More  <fa-icon [icon]="faArrowDown"></fa-icon> </span>
+                <span *ngIf="near.buttonstatus" (click)="change(description,near,$event)" class="text-decoration-underline">Read Less <fa-icon [icon]="faArrowUp"></fa-icon></span>
                 <br>
                 <br>
                 <div>

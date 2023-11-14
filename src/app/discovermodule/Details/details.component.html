@@ -1,11 +1,14 @@
-
 <main role="main" class="container mt-5">
 
   <div class="row">
     <div class="col-md-6">
-      <img *ngIf="detailsdata.type=='Trip'" src="{{tripsImagePath}}{{detailsdata.thumbnail}}"  class="img-fluid" alt="...">
-      <img *ngIf="detailsdata.type=='Hotel'" src="{{hotelsImagePath}}{{detailsdata.thumbnail}}"  class="img-fluid" alt="...">
-      <img *ngIf="detailsdata.type=='Restaurant'" src="{{restaurantsImagePath}}{{detailsdata.thumbnail}}"  class="img-fluid" alt="...">
+      <img *ngIf="detailsdata.type=='Trip'" src="{{tripsImagePath}}{{detailsdata.thumbnail}}" class="img-fluid"
+        alt="...">
+      <img *ngIf="detailsdata.type=='Hotel'" src="{{hotelsImagePath}}{{detailsdata.thumbnail}}" class="img-fluid"
+        alt="...">
+      <img *ngIf="detailsdata.type=='Restaurant'" src="{{restaurantsImagePath}}{{detailsdata.thumbnail}}"
+        class="img-fluid" alt="...">
+      <img src="{{destinationsImagePath}}{{detailsdata.thumbnail}}" class="img-fluid" alt="...">
 
     </div>
     <div class="col-md-6">
@@ -16,22 +19,40 @@
       <h3>Location: {{detailsdata.street}} {{detailsdata.government}}</h3>
 
       <h3>Contact</h3>
-      <span>Email: info.com</span> || 
+      <span>Email: info.com</span> ||
       <span>phone: 123-456-7890</span>
     </div>
   </div>
   <br>
   <br>
-  <div class="row"> 
-    <div class="col-md-3" *ngFor="let imageUrl of detailsdata.images">
+  <div class="row">
+    <div class="col-md-3" *ngFor="let imageUrl of detailsdata.images; ">
       <div class="card mb-4 box-shadow">
-        <img *ngIf="detailsdata.type=='Trip'" src="{{tripsPath}}{{imageUrl.image}}"  style="height: 100%;" class="iimg-fluid" alt="...">
-        <img *ngIf="detailsdata.type=='Hotel'" src="{{hotelsPath}}{{imageUrl.image}}" style="height: 100%;" class="iimg-fluid" alt="...">
-        <img *ngIf="detailsdata.type=='Restaurant'" src="{{restaurantsPath}}{{imageUrl.image}}" style="height: 100%;" class="iimg-fluid" alt="...">
-  
+        <img *ngIf="detailsdata.type=='Trip'" src="{{tripsPath}}{{imageUrl.image}}" style="height: 100%;"
+          class="img-fluid" alt="...">
+        <img *ngIf="detailsdata.type=='Hotel'" src="{{hotelsPath}}{{imageUrl.image}}" style="height: 100%;"
+          class="img-fluid" alt="...">
+        <img *ngIf="detailsdata.type=='Restaurant'" src="{{restaurantsPath}}{{imageUrl.image}}" style="height: 100%;"
+          class="img-fluid" alt="...">
+
       </div>
     </div>
   </div>
+  <!--  *ngIf="detailsdata.type=='Destination'"  [hidden]="!isDestination" -->
+  <div class="row" >
+    <div class="col-md-3 card mb-4 box-shadow">
+      <img src="{{destinationsPath}}{{detailsdata.images[0].image}}" style="height: 100%;" class="img-fluid" alt="...">
+    </div>
+    <div class="col-md-3 card mb-4 box-shadow ">
+      <img src="{{destinationsPath}}{{detailsdata.images[1].image}}" style="height: 100%;" class="img-fluid" alt="...">
+    </div>
+    <div class="col-md-3 card mb-4 box-shadow">
+      <img src="{{destinationsPath}}{{detailsdata.images[2].image}}" style="height: 100%;" class="img-fluid" alt="...">
+    </div>
+  </div>
+
+
+  
 </main>
 
 <!--
@@ -50,48 +71,46 @@
 
         </div>
 
-      <ng-container *ngFor="let review of postedComment">
-        <div class="card mb-3">
-          <div class="card-body">
-            <div class="d-flex flex-start">
-              <img class="rounded-circle shadow-1-strong me-3"
-                src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="avatar" width="40"
-                height="40" />
-              <div class="w-100">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                  <h6 class="text-primary fw-bold mb-0">
-                    {{review.user.name}}
-                    <span class="text-dark ms-2">{{review.review}}</span>
-                  </h6>
-                  <p class="mb-0">{{review.created_at  | date: 'medium'}}</p>
+        <ng-container *ngFor="let review of postedComment">
+          <div class="card mb-3">
+            <div class="card-body">
+              <div class="d-flex flex-start">
+                <img class="rounded-circle shadow-1-strong me-3"
+                  src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="avatar" width="40" height="40" />
+                <div class="w-100">
+                  <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h6 class="text-primary fw-bold mb-0">
+                      {{review.user.name}}
+                      <span class="text-dark ms-2">{{review.review}}</span>
+                    </h6>
+                    <p class="mb-0">{{review.created_at | date: 'medium'}}</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </ng-container>
+        </ng-container>
 
 
-      <div class="card py-3 border-0" style="background-color: #f8f9fa;">
-        <div class="d-flex flex-start w-100">
-          <img class="rounded-circle shadow-1-strong me-3"
-            src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="avatar" width="40"
-            height="40" />
-          <div class="form-outline w-100">
-            <textarea class="form-control" id="textAreaExample" rows="4"
-              style="background: #fff;" [(ngModel)]="comment"></textarea>
-            <label class="form-label" for="textAreaExample">Message</label>
+        <div class="card py-3 border-0" style="background-color: #f8f9fa;">
+          <div class="d-flex flex-start w-100">
+            <img class="rounded-circle shadow-1-strong me-3" src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+              alt="avatar" width="40" height="40" />
+            <div class="form-outline w-100">
+              <textarea class="form-control" id="textAreaExample" rows="4" style="background: #fff;"
+                [(ngModel)]="comment"></textarea>
+              <label class="form-label" for="textAreaExample">Message</label>
+            </div>
+          </div>
+          <div class="float-end mt-2 pt-1">
+            <button type="button" class="btn btn-primary btn-sm" (click)="sendReview()">Post comment</button>
+            <button id="myButton">Click</button>
+            <button (click)="calltestapi()">test api token</button>
+
           </div>
         </div>
-        <div class="float-end mt-2 pt-1">
-          <button type="button" class="btn btn-primary btn-sm" (click)="sendReview()">Post comment</button>
-          <button id="myButton">Click</button>
-          <button (click)="calltestapi()">test api token</button>
 
-        </div>
       </div>
-
     </div>
   </div>
-</div>
 </section>

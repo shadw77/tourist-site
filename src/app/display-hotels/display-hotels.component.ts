@@ -99,7 +99,7 @@ if (this.timeSlot) {
   this.searchDataService.searchHotelsByTime(this.searchWord,this.endDate, this.timeSlot).then((response) => {
     this.data = response;
     this.Hotels = this.data;
-    this.Hotels =this.Hotels.data;
+    this.Hotels =this.Hotels;
 
     console.log(this.data);
   });
@@ -107,7 +107,7 @@ if (this.timeSlot) {
   // Handle the searchHotels method
   this.searchDataService.searchHotels(this.searchWord).then((response) => {
     this.Hotels = response;
-    this.Hotels =this.Hotels.data;
+    this.Hotels =this.Hotels;
     console.log('Searched Hotels:', this.Hotels);
   });
 }
