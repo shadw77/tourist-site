@@ -17,6 +17,7 @@ export class DiscoverComponent implements OnInit{
   places:any=[];
 
   reviewsplaces=[];
+  storedComments:any=[];
   comments:any=[];
 
   gettopattractions=[];
@@ -50,13 +51,19 @@ export class DiscoverComponent implements OnInit{
 
 
       /*start function to get nearby places from services*/
-      this.data.getNearbyPlaces(this.government!).subscribe({
+      this.data.getNearbyPlaces().subscribe({
         next:(next)=>{
           this.getnearbyplaces=next.nearbyplaces;
           //console.log(this.getnearbyplaces);
           this.storedPlaces=[].concat(...Object.values(this.getnearbyplaces));
           this.storedPlaces= Array.from(this.storedPlaces);
           this.places=this.storedPlaces;
+          //console.log(this.storedPlaces);
+
+          if(this.auth.isAuthenticated()){
+            this.places = this.storedPlaces.filter((place:any )=> place.government === this.auth.getUserGovernment());
+          }
+          //console.log(this.places);
 
         },
         error:(error) => {
@@ -66,18 +73,31 @@ export class DiscoverComponent implements OnInit{
           //console.log(typeof this.government);
           //console.log( this.government);
 
-          console.log(this.places);
+          //console.log(this.places);
         }
       });
       /*end function to get nearby places from services*/
 
       /*start function to get review of nearby places from services*/
-      this.data.getReviewNearByPlaces(this.government!).subscribe({
+      this.data.getReviewNearByPlaces().subscribe({
         next:(next)=>{
           this.reviewsplaces=next.reviews;
           //console.log(this.reviewsplaces);
-          this.comments=[].concat(...Object.values(this.reviewsplaces));
-          this.comments = Array.from(this.comments);
+          this.storedComments=[].concat(...Object.values(this.reviewsplaces));
+          this.storedComments = Array.from(this.storedComments);
+          this.comments=this.storedComments;
+          /*start filter to get comment of places*/
+          if(this.auth.isAuthenticated()){
+            this.comments = this.storedComments.filter((comment:any )=>{
+              return this.places.some((place:any) => {
+                if(place.id == comment.reviewable_id && place.type == comment.reviewable_type){
+                  return comment;
+                }
+              });
+            });
+          }
+          /*end filter to get comment of places*/
+
         },
         error:(error) => {
           console.error('Error fetching reviews:', error);
@@ -101,7 +121,7 @@ export class DiscoverComponent implements OnInit{
           console.error('Error fetching places:', error);
         },
         complete:()=>{
-          //console.log(this.topplaces);
+          console.log(this.topplaces);
         }
       });
       /*end function to get top attractions from services*/
@@ -118,7 +138,7 @@ export class DiscoverComponent implements OnInit{
           console.error('Error fetching reviews:', error);
         },
         complete:()=>{
-          //console.log(this.commentsoftopplaces);
+          console.log(this.commentsoftopplaces);
         }
       });  
       /*end function to get review of top attractions from services*/
@@ -170,22 +190,15 @@ export class DiscoverComponent implements OnInit{
 
       //filter places by government 
       this.places = this.storedPlaces.filter((place:any )=> place.government === selectedGovernment.target.value);
-        /*start function to get review of nearby places from services*/
-        this.data.getReviewNearByPlaces(selectedGovernment.target.value).subscribe({
-          next:(next)=>{
-            this.reviewsplaces=next.reviews;
-            //console.log(this.reviewsplaces);
-            this.comments=[].concat(...Object.values(this.reviewsplaces));
-            this.comments = Array.from(this.comments);
-          },
-          error:(error) => {
-            console.error('Error fetching reviews:', error);
-          },
-          complete:()=>{
-           // console.log(this.comments);
-          }
+      /*start filter to get comment of places*/
+        this.comments = this.storedComments.filter((comment:any )=>{
+          return this.places.some((place:any) => {
+            if(place.id == comment.reviewable_id && place.type == comment.reviewable_type){
+              return comment;
+            }
+          });
         });
-        /*end function to get review of nearby places from services*/
+      /*end filter to get comment of places*/
     }
    /*end function that filter bygovernment*/
 

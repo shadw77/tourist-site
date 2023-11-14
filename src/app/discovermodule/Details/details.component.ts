@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ElementRef, ViewChild, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router, NavigationEnd } from '@angular/router';
+import { AuthService } from 'src/app/Services/auth.service';
 import { HandleapiService } from 'src/app/Services/handleapi.service';
 
 //import { google } from 'googlemaps';
@@ -35,6 +36,7 @@ export class DetailsComponent implements OnInit{
 
   userRating:any;
   constructor(private router: Router,
+    private auth:AuthService,
     private route: ActivatedRoute,
     private handle:HandleapiService) {}
 
@@ -81,6 +83,10 @@ export class DetailsComponent implements OnInit{
 
   /*start function that send comment to service*/
   sendReview(){
+    if(!this.auth.isAuthenticated()){
+      alert("First,You Should Login");
+    }
+    else{
     //console.log(this.userId);
     //console.log(this.comment);
     if(this.comment != '' &&  this.comment != undefined){
@@ -102,6 +108,8 @@ export class DetailsComponent implements OnInit{
         }
       }); 
     }
+    }
+
  
   }//end sendreview
   /*end function that send comment to service*/

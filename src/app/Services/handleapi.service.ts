@@ -46,14 +46,14 @@ export class HandleapiService {
 
 
   /*start function to get nearby places from api*/
-  getNearbyPlaces(city:string|null) :Observable<any>{
-    return this.httpclient.get(`${this.apiUrl}/get-nearbyplaces/${city}`);
+  getNearbyPlaces() :Observable<any>{
+    return this.httpclient.get(`${this.apiUrl}/get-nearbyplaces`);
   }
   /*end function to get nearby places from api*/
 
   /*start function that retrieve review that belong to nearbyplaces*/
-  getReviewNearByPlaces(city:string|null) :Observable<any>{
-    return this.httpclient.get(`${this.apiUrl}/get-review-nearbyplaces/${city}`);
+  getReviewNearByPlaces() :Observable<any>{
+    return this.httpclient.get(`${this.apiUrl}/get-review-nearbyplaces`);
   }
   /*end function that retrieve review that belong to nearbyplaces*/
 
@@ -97,6 +97,7 @@ export class HandleapiService {
       review: review,
       userID:userID
     };
+    console.log(this.httpOptions);
     //console.log(data);
     return this.httpclient.post<Response>(`${this.apiUrl}/review`,data,this.httpOptions).pipe(
       tap(response => {
@@ -122,18 +123,30 @@ export class HandleapiService {
   /*end function that get review by id*/
 
 
-    /*start function that get offers based on admin or vendor*/
-    getDiscount():Observable<any>{
-
+  /*start function that get offers based on admin or vendor*/
+  getDiscount():Observable<any>{
     //console.log(object);
     return this.httpclient.get<any>(`${this.apiUrl}/get-discount`,this.httpOptions).pipe(
       tap(response => {
         if(response){
           //console.log(response);
         }
-      }));
+    }));
   }
-    /*end function that get offers based on admin or vendor*/
+  /*end function that get offers based on admin or vendor*/
+
+
+  /*start function that that call api to send message to admin*/
+  sendMessage(form:{name:string,email: string, phone: string,message:string}):Observable<any>{
+    console.log(form);
+    return this.httpclient.post<any>(`${this.apiUrl}/send-message`,form).pipe(
+      tap(response => {
+        if(response){
+          console.log(response);
+        }
+    }));
+  }
+  /*end function that that call api to send message to admin*/
 
 
 
@@ -154,5 +167,8 @@ export class HandleapiService {
   /*end function that test retrieve data under jwt token*/
   
   
+
+
+
 
 }
