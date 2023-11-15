@@ -15,9 +15,10 @@
 #navbarNav{
    border-radius: 5%;
    background-color: #fff;
-   right: 16%;
+   right: 6% !important;
    width: 380px;
    max-height: 340px;
    max-width: 1325px;
+   margin-right: 20px;
    overflow-y: scroll;
 }
