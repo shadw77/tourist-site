@@ -9,11 +9,13 @@ import { UserCrudService } from 'src/app/Services/user-crud.service';
 export class UsersComponent {
 
   Users: any = [];
-
+  searchTerm: string = '';
+  selectedItem: any;
+  flag:boolean=true;
   constructor(private userCrudService: UserCrudService){}
   ngOnInit():void{
-    this.userCrudService.getUsers().subscribe(res=>{        
-        this.Users= res;
+    this.userCrudService.getUsers().subscribe((res:any)=>{        
+        this.Users=res.data;
         //console.log(this.Users['data']);
     })
   }
@@ -25,5 +27,27 @@ export class UsersComponent {
     })
   }
 
+  searchHotelById() {
+    const searchId = parseInt(this.searchTerm, 10);
+   
+      if (searchId) {
+        this.userCrudService.searchHotelById(searchId).subscribe(
+          (user:any) => {
+          //  this.Trips = hotel.data; // Display the found hotel
+         
+           this.Users = [user.data];
+            console.log(this.Users)
+          },
+          (error) => {
+            console.error('Error searching hotel:', error);
+          }
+        );
+      } 
+      else {
+        this.userCrudService.getUsers().subscribe((res:any)=>{        
+          this.Users= res.data;
+      });
+      }
+    }
   
 }

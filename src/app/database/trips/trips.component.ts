@@ -9,16 +9,21 @@ import { TripCrudService } from 'src/app/Services/trip-crud.service';
 export class TripsComponent {
   imagePath: string = 'http://127.0.0.1:8000/images/trip_images/thumbnails/';
   Trips: any = [];
+  trips: any = [];
   currentPage: number = 1;
   totalPages:any;
   totalItems: number=0;
   pageButtons: number[] = [];
+  searchTerm: string = '';
+  selectedItem: any;
+  flag:boolean=true;
   constructor(private tripCrudService: TripCrudService){}
   ngOnInit():void{
-    this.tripCrudService.getTrips().subscribe(res=>{        
-        this.Trips= res;
-        this.totalPages=this.Trips.meta.last_page;
-        this.totalItems =this.Trips.meta.total;
+    this.tripCrudService.getTrips().subscribe((res:any)=>{        
+        this.Trips= res.data;
+        this.trips=res;
+        this.totalPages=res.meta.last_page;
+        this.totalItems =res.meta.total;
         console.log(this.Trips);
         this.generatePageButtons();
     });
@@ -49,8 +54,8 @@ export class TripsComponent {
   }
   onPageChange(pageNumber: number) {
     this.currentPage = pageNumber;
-    this.tripCrudService.Trips(this.currentPage).subscribe(res=>{        
-      this.Trips= res;
+    this.tripCrudService.Trips(this.currentPage).subscribe((res:any)=>{        
+      this.Trips= res.data;
   })
   }
   generatePageButtons(): void {
@@ -59,4 +64,28 @@ export class TripsComponent {
       this.pageButtons.push(i);
     }
   }
+  searchHotelById() {
+    const searchId = parseInt(this.searchTerm, 10);
+   
+      if (searchId) {
+        this.tripCrudService.searchHotelById(searchId).subscribe(
+          (trip:any) => {
+          //  this.Trips = hotel.data; // Display the found hotel
+         
+           this.Trips = [trip.data];
+            console.log(this.Trips)
+          },
+          (error) => {
+            console.error('Error searching hotel:', error);
+          }
+        );
+      } 
+      else {
+        this.tripCrudService.getTrips().subscribe((res:any)=>{        
+          this.Trips= res.data;
+          this.totalPages=res.meta.last_page;
+          this.totalItems =res.meta.total;
+      });
+      }
+    }
 }

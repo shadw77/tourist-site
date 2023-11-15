@@ -24,6 +24,21 @@
 </button>
 <div class="row">
   <h3 class="fs-4 mb-3">All Restaurants</h3>
+  <div class="row g-2 align-items-center mb-2">
+    <div class="col-auto">
+      <label for="searchTerm" class="col-form-label">Enter Restaurant ID</label>
+    </div>
+    <div class="col-auto">
+      <input
+        placeholder="Search ......"
+        type="text"
+        id="searchTerm"
+        class="form-control"
+        [(ngModel)]="searchTerm"
+        (ngModelChange)="searchHotelById()"
+      />
+    </div>
+  </div>
   <div class="table-responsive">
     <table class="table bg-white rounded shadow-sm table-hover">
       <thead>
@@ -44,7 +59,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let restaurant of Restaurants['data']; let i = index">
+        <tr *ngFor="let restaurant of Restaurants; let i = index">
           <th scope="row">{{ restaurant.id }}</th>
           <td>{{ restaurant.name }}</td>
           <td>{{ restaurant.email }}</td>
@@ -155,7 +170,7 @@
         class="page-link"
         aria-label="Next"
         (click)="onPageChange(currentPage + 1)"
-        [disabled]="currentPage === Restaurants.last_page"
+        [disabled]="currentPage === restaurants.last_page"
       >
         <span aria-hidden="true">&raquo;</span>
       </button>

@@ -27,6 +27,7 @@ import { OffersComponent } from './offers/offers.component';
 import { ShowOrderComponent } from './show-order/show-order.component';
 import { NotificationOrderComponent } from './notification-order/notification-order.component';
 import { TransactionsComponent } from './transactions/transactions.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -64,7 +65,9 @@ import { TransactionsComponent } from './transactions/transactions.component';
   imports: [
     CommonModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
+  
   ],
   exports : [
     // UsersComponent,

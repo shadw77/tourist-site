@@ -50,13 +50,17 @@ export class HotelCrudService {
     .pipe(map((res: any)=>{return res || {}}),
       catchError(this.handleError));
   }
+  searchHotelById(id: number): Observable<any> {
+    const url = `http://localhost:8000/api/hotels/search/${id}`;
+    return this.httpClient.get(url,this.httpOptions);
+  }
   hotels(page:any){
     let API_URL='';
     if (this.userData == undefined || this.userData.role == 'user') {
       API_URL = `http://localhost:8000/api/user-hotels?page=${page}`;
     }
     else{
-    let API_URL = `http://localhost:8000/api/hotels?page=${page}`;
+      API_URL = `http://localhost:8000/api/hotels?page=${page}`;
     }
    return this.httpClient.get( API_URL,this.httpOptions);
  }
