@@ -57,7 +57,7 @@ export class AddHotelComponent {
     formData.append('street', street);
     formData.append('government', government);
     formData.append('description', description);
-    formData.append('creator_id', this.creator);
+    formData.append('creator_id', creator_id);
     formData.append('cost', cost);
     formData.append('discount', discount);
     

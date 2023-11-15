@@ -19,7 +19,22 @@
   </button>
 
   <div class="row">
-    <!-- <h3 class="fs-4 mb-3">All Trips</h3> -->
+    <h3 class="fs-4 mb-3">All Trips</h3>
+    <div class="row g-2 align-items-center mb-2">
+      <div class="col-auto">
+        <label for="searchTerm" class="col-form-label">Enter Trip ID</label>
+      </div>
+      <div class="col-auto">
+        <input
+          placeholder="Search ......"
+          type="text"
+          id="searchTerm"
+          class="form-control"
+          [(ngModel)]="searchTerm"
+          (ngModelChange)="searchHotelById()"
+        />
+      </div>
+    </div>
     <div class="">
       <div class="table-responsive">
         <table class="table table-striped">
@@ -38,7 +53,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let trip of Trips['data']; let i = index">
+            <tr *ngFor="let trip of Trips; let i = index">
               <th scope="row">{{ trip.id }}</th>
               <td>{{ trip.name }}</td>
               <td>{{ trip.government }}</td>
@@ -80,7 +95,7 @@
                 </button>
                 <button
                   class="btn btn-outline-danger btn-sm mx-1"
-                  (click)="delete(trip.id,i)"
+                  (click)="delete(trip.id, i)"
                 >
                   Delete
                 </button>
@@ -116,7 +131,6 @@
     </div>
   </div>
 </div>
-
 <nav aria-label="Page navigation example">
   <ul class="pagination">
     <li class="page-item">
@@ -144,7 +158,7 @@
         class="page-link"
         aria-label="Next"
         (click)="onPageChange(currentPage + 1)"
-        [disabled]="currentPage === Trips.last_page"
+        [disabled]="currentPage === trips.last_page"
       >
         <span aria-hidden="true">&raquo;</span>
       </button>

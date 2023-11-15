@@ -18,15 +18,14 @@ export class DestinationsComponent {
 
   constructor(private destinationCrudService: DestinationCrudService){}
   ngOnInit():void{
-    this.destinationCrudService.getDestinations().subscribe(res=>{        
-        this.Destinations= res;
-        this.totalPages=this.Destinations.meta.last_page;
-        this.totalItems =this.Destinations.meta.total;
-        this.generatePageButtons();
-        console.log(res);
-        console.log(this.totalItems);
-        console.log(this.totalPages);
-         console.log(this.Destinations['destinations']);
+    this.destinationCrudService.getDestinations().subscribe((res:any)=>{  
+      this.Destinations=res; 
+       this.totalPages=this.Destinations['destinations'].last_page;
+       this.totalItems =this.Destinations['destinations'].total;     
+      //  this.Destinations = this.Destinations;
+      this.generatePageButtons();
+         console.log(res);
+         console.log(this.totalItems);
     })
   }
   isAdmin(): boolean {

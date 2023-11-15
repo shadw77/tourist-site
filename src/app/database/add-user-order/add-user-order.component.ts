@@ -24,6 +24,7 @@ export class AddUserOrderComponent {
   services:any=[];
   filterServices:any=[];
   time_slot:number=1;
+  service:any='';
   constructor(
     public formBuilder:FormBuilder,
     private router:Router,
@@ -39,6 +40,7 @@ export class AddUserOrderComponent {
       user_id:[''],
       service_id:[''],
       service_type:[''],
+      quantity:['']
     })
     
   }
@@ -49,6 +51,7 @@ export class AddUserOrderComponent {
    this.orderCrudService.getServices().subscribe((res:any)=>{
     this.filterServices=res;
      this.services=this.filterServices;
+      console.log(this.services.length)
    });
 
   }
@@ -57,29 +60,35 @@ export class AddUserOrderComponent {
         return  item.type == value;
       });
   }
-  onSubmit():any{
-    if(sessionStorage.getItem('time_slot')){
-    this.time_slot = Number(sessionStorage.getItem('time_slot'));}
+  onSubmit(): any {
+    if (sessionStorage.getItem('time_slot')) {
+      this.time_slot = Number(sessionStorage.getItem('time_slot'));
+    }
+  
     const formData = new FormData();
     formData.append('user_id', this.userOrderForm.value.user_id);
     formData.append('service_id', this.userOrderForm.value.service_id);
     formData.append('service_type', this.userOrderForm.value.service_type);
-    formData.append('amount', "500");
-    this.orderCrudService.addUserOrder(formData,this.time_slot).subscribe((res)=>{  
-      console.log('Data Added Successfully');
-      const role=localStorage.getItem("role");
-      if(role === "vendor"){
-        console.log("adddddd")
-        this.ngZone.run(()=>this.router.navigateByUrl('dashboard/vendor/(details:user-orders)'));
-      }
-      else{
-        this.ngZone.run(()=>this.router.navigateByUrl('dashboard/admin/(details:user-orders)'));
-         }
-     
-    },(err)=>{
-      console.log(err);  
-    });
+    formData.append('quantity', this.userOrderForm.value.quantity);
+    this.service =this.services[this.userOrderForm.value.service_id].cost * this.userOrderForm.value.quantity
+    formData.append('amount', this.service);
+    if (this.service) {
+      // formData.append('amount', service.cost);
+      this.orderCrudService.addUserOrder(formData, this.time_slot).subscribe((res) => {
+        console.log('Data Added Successfully');
+        const role = localStorage.getItem('role');
+        if (role === 'vendor') {
+          this.ngZone.run(() => this.router.navigateByUrl('dashboard/vendor/(details:user-orders)'));
+        } else {
+          this.ngZone.run(() => this.router.navigateByUrl('dashboard/admin/(details:user-orders)'));
+        }
+      }, (err) => {
+        console.log(err);
+      });
+    } else {
+      console.log('Service not found');
+    }
   }
-
+  
 
 }

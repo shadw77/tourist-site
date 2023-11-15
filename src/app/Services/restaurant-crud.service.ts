@@ -54,7 +54,10 @@ export class RestaurantCrudService {
       catchError(this.handleError)
     );
   }
-
+  searchRestaurantById(id: number): Observable<any> {
+    const url = `http://localhost:8000/api/restaurants/search/${id}`;
+    return this.httpClient.get(url,this.httpOptions);
+  }
   updateRestaurant(id: any, data: FormData): Observable<any> {
     let API_URL = `${this.REST_API}/${id}`;
     return this.httpClient

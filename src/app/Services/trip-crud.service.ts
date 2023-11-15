@@ -31,7 +31,11 @@ export class TripCrudService {
     let API_URL = this.REST_API;
     return this.httpClient.post(API_URL,data,this.httpOptions).pipe(catchError(this.handleError));
   }
-
+  
+  searchHotelById(id: number): Observable<any> {
+    const url = `http://localhost:8000/api/trips/search/${id}`;
+    return this.httpClient.get(url,this.httpOptions);
+  }
 
   Trips(page:any){
     let API_URL='';
@@ -39,7 +43,7 @@ export class TripCrudService {
       API_URL = `http://localhost:8000/api/user-trips?page=${page}`;
     }
     else{
-      API_URL = `http://localhost:8000/api/user-trips?page=${page}`;
+      API_URL = `http://localhost:8000/api/trips?page=${page}`;
     }
     return this.httpClient.get( API_URL,this.httpOptions);
   }

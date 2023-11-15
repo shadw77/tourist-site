@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-
+import { UserOrderCrudService } from 'src/app/Services/user-order-crud.service';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -14,11 +14,13 @@ export class AdminComponent {
   notificationPanelOpen: boolean = false;
   admin:string|null=localStorage.getItem('userData');
   adminName:any;
+  services:any=[];
+  orders:any=[];
   addToggle()
   {
     this.status = !this.status;       
   }
-  constructor(private http: HttpClient){
+  constructor(private http: HttpClient,private orderCrudService: UserOrderCrudService,){
   //get request from web api
     this.http.get('https://therichpost.com/testjsonapi/users/').subscribe(data => {
       this.data = data;
@@ -41,6 +43,15 @@ ngOnInit(){
          this.notifications=res;
          console.log(this.notifications);
          this.UnreadNotifications= this.notifications.filter((notification: any) => notification.read === 0);
+    });
+    this.orderCrudService.getServices().subscribe((res:any)=>{
+      // this.filterServices=res;
+       this.services=res;
+        console.log(this.services)
+     });
+     this.orderCrudService.serviceOrders().subscribe((res)=>{
+      this.orders= res;
+      console.log(res);
     });
   }
   toggleNotifications() {

@@ -19,6 +19,22 @@
 <div class="">
   <div class="row">
     <h3 class="fs-4 mb-3">All Hotels</h3>
+
+    <div class="row g-2 align-items-center mb-2">
+      <div class="col-auto">
+        <label for="searchTerm" class="col-form-label">Enter Hotel ID</label>
+      </div>
+      <div class="col-auto">
+        <input
+          placeholder="Search ......"
+          type="text"
+          id="searchTerm"
+          class="form-control"
+          [(ngModel)]="searchTerm"
+          (ngModelChange)="searchHotelById()"
+        />
+      </div>
+    </div>
     <div class="table-responsive">
       <table class="table bg-white rounded shadow-sm table-hover">
         <thead>
@@ -35,7 +51,7 @@
             <th scope="col">Action</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody *ngIf="!selectedItem; else itemDetails">
           <tr *ngFor="let hotel of Hotels['data']; let i = index">
             <th scope="row">{{ hotel.id }}</th>
             <td>{{ hotel.name }}</td>
@@ -111,11 +127,89 @@
             </td>
           </tr>
         </tbody>
+        <ng-template #itemDetails>
+          <tbody>
+            <tr>
+              <th scope="row">{{ selectedItem.id }}</th>
+              <td>{{ selectedItem.name }}</td>
+              <td>{{ selectedItem.street }}</td>
+              <td>{{ selectedItem.government }}</td>
+              <td>{{ selectedItem.description }}</td>
+              <td>{{ selectedItem.cost }}</td>
+              <td>{{ selectedItem.discount }}</td>
+              <td>
+                <img
+                  src="{{ imagePath }}{{ selectedItem.thumbnail }}"
+                  alt="{{ selectedItem.thumbnail }}"
+                />
+              </td>
+              <td>{{ selectedItem.creator_id }}</td>
+              <td>
+                <button
+                  *ngIf="isAdmin()"
+                  type="button"
+                  class="btn btn-outline-warning btn-sm mx-1"
+                  [routerLink]="[
+                    '/dashboard/admin',
+                    { outlets: { details: 'edit-hotel/' + selectedItem.id } }
+                  ]"
+                  routerLinkActive="active-link"
+                >
+                  Edit
+                </button>
+                <button
+                  *ngIf="isVendor()"
+                  type="button"
+                  class="btn btn-outline-warning btn-sm mx-1"
+                  [routerLink]="[
+                    '/dashboard/vendor',
+                    { outlets: { details: 'edit-hotel/' + selectedItem.id } }
+                  ]"
+                  routerLinkActive="active-link"
+                >
+                  Edit
+                </button>
+
+                <button
+                  class="btn btn-outline-danger btn-sm mx-1"
+                  (click)="delete(selectedItem.id)"
+                >
+                  Delete
+                </button>
+
+                <button
+                  *ngIf="isAdmin()"
+                  type="button"
+                  class="btn btn-outline-info btn-sm mx-1"
+                  [routerLink]="[
+                    '/dashboard/admin',
+                    { outlets: { details: 'show-hotel/' + selectedItem.id } }
+                  ]"
+                  routerLinkActive="active-link"
+                >
+                  Show
+                </button>
+                <button
+                  *ngIf="isVendor()"
+                  type="button"
+                  class="btn btn-outline-info btn-sm mx-1"
+                  [routerLink]="[
+                    '/dashboard/vendor',
+                    { outlets: { details: 'show-hotel/' + selectedItem.id } }
+                  ]"
+                  routerLinkActive="active-link"
+                >
+                  Show
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </ng-template>
       </table>
     </div>
   </div>
 </div>
-<nav aria-label="Page navigation example">
+<nav aria-label="Page navigation example" *ngIf="!this.selectedItem">
   <ul class="pagination">
     <li class="page-item">
       <button

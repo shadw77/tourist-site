@@ -1,11 +1,40 @@
+<!-- <div class="card" style="width: 18rem">
+  <img
+    [src]="imagePath + serviceDetails.thumbnail"
+    alt="{{ serviceDetails.name }}"
+  />
+  <div class="card-body">
+    <h5 class="card-title"><span>Name:</span>{{ serviceDetails.name }}</h5>
+    <p class="card-text">
+      <span>Description:</span>{{ serviceDetails.description }}
+    </p>
+    <p class="card-text"><span>Cost:</span>{{ serviceDetails.cost }}</p>
+     <p class="card-text"><span>Discount:</span>{{ serviceDetails.discount }}</p> 
+  </div>
+</div> -->
 
-  <div class="card" style="width: 18rem;">
-    <img [src]="imagePath + serviceDetails.thumbnail" alt="{{ serviceDetails.name }}" />
-    <div class="card-body">
-      <h5 class="card-title"><span>Name:</span>{{ serviceDetails.name }}</h5>
-      <p class="card-text"><span>Description:</span>{{ serviceDetails.description }}</p>
-      <p class="card-text"><span>Cost:</span>{{ serviceDetails.cost }}</p>
-      <p class="card-text"><span>Discount:</span>{{ serviceDetails.discount }}</p>
+<div class="container">
+  <div class="card mb-3">
+    <div class="row g-0">
+      <div class="col-md-6">
+        <img
+          [src]="imagePath + serviceDetails.thumbnail"
+          alt="{{ serviceDetails.name }}"
+          class="img-fluid"
+          style="height: 100%"
+        />
+      </div>
+      <div class="col-md-6">
+        <div class="card-body">
+          <h2 class="card-title fw-bold">
+            {{ serviceDetails.name }}
+          </h2>
+          <p class="card-text text-muted">
+            {{ serviceDetails.description }}
+          </p>
+          <p class="card-text fw-bold">{{ serviceDetails.cost }} EGP</p>
+        </div>
+      </div>
     </div>
   </div>
-
+</div>

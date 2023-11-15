@@ -18,6 +18,11 @@ export class UserCrudService {
 
   constructor(private httpClient: HttpClient) { }
 
+  searchHotelById(id: number): Observable<any> {
+    const url = `http://localhost:8000/api/users/search/${id}`;
+    return this.httpClient.get(url,this.httpOptions);
+  }
+
   addUser(data:User): Observable<any>{
     let API_URL = this.REST_API;
     return this.httpClient.post(API_URL, data,this.httpOptions).pipe(catchError(this.handleError));
