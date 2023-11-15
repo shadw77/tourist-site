@@ -57,7 +57,7 @@
 
     <div class="invoice-footer">
         <!-- <p>Thank you for your purchase!</p> -->
-        <a class="btn-pay" style="background-color: #fd7e14;cursor: pointer;" (click)="callPayment()">Pay Now</a>
+        <a *ngIf="PayementMessage=='Pending'" class="btn-pay" style="background-color: #fd7e14;cursor: pointer;" (click)="callPayment()">Pay Now</a>
     </div>
 </div>
 
