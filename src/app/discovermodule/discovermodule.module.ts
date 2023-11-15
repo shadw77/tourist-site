@@ -20,7 +20,7 @@ const routes: Routes = [
   {path:'home',component:DiscoverComponent},
 
   {path:':name-details',component:DetailsComponent},
-  {path:':name-detailsD',component:MyDestDetailsComponent},
+  // {path:':name-detailsD',component:MyDestDetailsComponent},
 
 ];
 
