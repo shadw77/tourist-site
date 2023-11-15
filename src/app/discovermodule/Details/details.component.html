@@ -1,14 +1,14 @@
 <main role="main" class="container mt-5">
-
   <div class="row">
+    
     <div class="col-md-6">
-      <img *ngIf="detailsdata.type=='Trip'" src="{{tripsImagePath}}{{detailsdata.thumbnail}}" class="img-fluid"
+      <img *ngIf="detailsdata.type=='Trip' || detailsdata.images[0].imageable_type=='Trip' " src="{{tripsImagePath}}{{detailsdata.thumbnail}}" class="img-fluid"
         alt="...">
-      <img *ngIf="detailsdata.type=='Hotel'" src="{{hotelsImagePath}}{{detailsdata.thumbnail}}" class="img-fluid"
+      <img *ngIf="detailsdata.type=='Hotel' || detailsdata.images[0].imageable_type=='Hotel' " src="{{hotelsImagePath}}{{detailsdata.thumbnail}}" class="img-fluid"
         alt="...">
-      <img *ngIf="detailsdata.type=='Restaurant'" src="{{restaurantsImagePath}}{{detailsdata.thumbnail}}"
+      <img *ngIf="detailsdata.type=='Restaurant' || detailsdata.images[0].imageable_type=='Restaurant' " src="{{restaurantsImagePath}}{{detailsdata.thumbnail}}"
         class="img-fluid" alt="...">
-      <img  *ngIf="!detailsdata.type" src="{{destinationsImagePath}}{{detailsdata.thumbnail}}" class="img-fluid" alt="...">
+      <img *ngIf="detailsdata.images[0].imageable_type!='Restaurant' &&  detailsdata.images[0].imageable_type!='Hotel' &&  detailsdata.images[0].imageable_type!='Trip' " src="{{destinationsImagePath}}{{detailsdata.thumbnail}}" class="img-fluid" >
 
     </div>
     <div class="col-md-6">
@@ -28,29 +28,28 @@
   <div class="row">
     <div class="col-md-3" *ngFor="let imageUrl of detailsdata.images; ">
       <div class="card mb-4 box-shadow">
-        <img *ngIf="detailsdata.type=='Trip'" src="{{tripsPath}}{{imageUrl.image}}" style="height: 100%;"
+        <img *ngIf="detailsdata.type=='Trip' || detailsdata.images[0].imageable_type=='Trip'" src="{{tripsPath}}{{imageUrl.image}}" style="height: 100%;"
           class="img-fluid" alt="...">
-        <img *ngIf="detailsdata.type=='Hotel'" src="{{hotelsPath}}{{imageUrl.image}}" style="height: 100%;"
+        <img *ngIf="detailsdata.type=='Hotel' || detailsdata.images[0].imageable_type=='Hotel'" src="{{hotelsPath}}{{imageUrl.image}}" style="height: 100%;"
           class="img-fluid" alt="...">
-        <img *ngIf="detailsdata.type=='Restaurant'" src="{{restaurantsPath}}{{imageUrl.image}}" style="height: 100%;"
+        <img *ngIf="detailsdata.type=='Restaurant' || detailsdata.images[0].imageable_type=='Restaurant'" src="{{restaurantsPath}}{{imageUrl.image}}" style="height: 100%;"
           class="img-fluid" alt="...">
-
       </div>
     </div>
+
   </div>
   <!--  *ngIf="detailsdata.type=='Destination'"  [hidden]="!isDestination" -->
   <!-- <div class="" > -->
-
   
-  <div class="row" *ngIf="!detailsdata.type">
+  <div class="row" *ngIf="isDestination " >
     <div class="col-md-3 card mb-4 box-shadow">
-      <img  src="{{destinationsPath}}{{detailsdata.images[0].image}}" style="height: 100%;" class="img-fluid" alt="...">
+      <img  src="{{destinationsPath}}{{detailsdata.images[0].image}}" style="height: 100%;" class="img-fluid" >
     </div>
     <div class="col-md-3 card mb-4 box-shadow ">
-      <img src="{{destinationsPath}}{{detailsdata.images[1].image}}" style="height: 100%;" class="img-fluid" alt="...">
+      <img src="{{destinationsPath}}{{detailsdata.images[1].image}}" style="height: 100%;" class="img-fluid" >
     </div>
     <div class="col-md-3 card mb-4 box-shadow">
-      <img src="{{destinationsPath}}{{detailsdata.images[2].image}}" style="height: 100%;" class="img-fluid" alt="...">
+      <img src="{{destinationsPath}}{{detailsdata.images[2].image}}" style="height: 100%;" class="img-fluid" >
     </div>
   </div>
 
