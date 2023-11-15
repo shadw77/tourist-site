@@ -8,19 +8,19 @@
         alt="...">
       <img *ngIf="detailsdata.type=='Restaurant'" src="{{restaurantsImagePath}}{{detailsdata.thumbnail}}"
         class="img-fluid" alt="...">
-      <img src="{{destinationsImagePath}}{{detailsdata.thumbnail}}" class="img-fluid" alt="...">
+      <img  *ngIf="!detailsdata.type" src="{{destinationsImagePath}}{{detailsdata.thumbnail}}" class="img-fluid" alt="...">
 
     </div>
     <div class="col-md-6">
       <h2>{{detailsdata.name}}</h2>
       <p>{{detailsdata.description}} </p>
 
-      <p>Price: {{detailsdata.cosst ?? '-'}}</p>
-      <h3>Location: {{detailsdata.street}} {{detailsdata.government}}</h3>
+      <p class="fw-bold"  *ngIf=" detailsdata.type!='Destination'">Price: EGP{{detailsdata.cost ?? '-'}}</p>
+      <h3 class="fw-bold" *ngIf=" detailsdata.type!='Destination'">Location: {{detailsdata.street}} {{detailsdata.government}}</h3>
 
-      <h3>Contact</h3>
-      <span>Email: info.com</span> ||
-      <span>phone: 123-456-7890</span>
+      <h3 class="fw-bold">Contact</h3>
+      <span class="fw-bold">Email: info.com</span> ||
+      <span class="fw-bold">phone: 123-456-7890</span>
     </div>
   </div>
   <br>
@@ -39,9 +39,12 @@
     </div>
   </div>
   <!--  *ngIf="detailsdata.type=='Destination'"  [hidden]="!isDestination" -->
-  <div class="row" >
+  <!-- <div class="" > -->
+
+  
+  <div class="row" *ngIf="!detailsdata.type">
     <div class="col-md-3 card mb-4 box-shadow">
-      <img src="{{destinationsPath}}{{detailsdata.images[0].image}}" style="height: 100%;" class="img-fluid" alt="...">
+      <img  src="{{destinationsPath}}{{detailsdata.images[0].image}}" style="height: 100%;" class="img-fluid" alt="...">
     </div>
     <div class="col-md-3 card mb-4 box-shadow ">
       <img src="{{destinationsPath}}{{detailsdata.images[1].image}}" style="height: 100%;" class="img-fluid" alt="...">
@@ -51,7 +54,7 @@
     </div>
   </div>
 
-
+<!-- </div> -->
   
 </main>
 

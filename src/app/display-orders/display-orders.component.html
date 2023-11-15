@@ -20,8 +20,8 @@
             <img src="{{imagePaths[order.service_type]}}{{order.service_thumbnail}}" width="200" alt="Product Image">
             <div class="item-details">
                 <h4>{{order.service_name | slice:0:30}}..</h4>
-                <p>Quantity:  {{order.quantity}}</p>
-                <p>Discount: EGP{{order.discount}} </p>
+                <p>People:  {{order.quantity}}</p>
+                <p>Discount: %{{order.discount}} </p>
 
             </div>
             <div> <p>EGP{{order.amount}} </p></div>

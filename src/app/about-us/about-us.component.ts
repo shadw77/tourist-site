@@ -17,7 +17,7 @@ export class AboutUsComponent {
       {
         image: 'https://safer.travel/uploads/whyUs/safe.webp',
         title: 'Best Price Guarantee',
-        details: 'At Safir Tourism Company, we intend to provide leading and reliable travel services to our valued customers, and we believe that we offer the best prices for hotel reservations, airline tickets, and other travel trips.',
+        details: 'We intend to provide leading and reliable travel services to our valued customers, and we believe that we offer the best prices for hotel reservations, airline tickets, and other travel trips.',
       },
       {
         image: 'https://safer.travel/uploads/whyUs/timer.webp',
@@ -27,7 +27,7 @@ export class AboutUsComponent {
       {
         image: 'https://safer.travel/uploads/whyUs/service.webp',
         title: 'Customer Service 24/7',
-        details: 'We at Safir Tourism Company guarantee you 24/7 customer service. Our qualified technical support team is always available to help you solve any problem you may encounter and to answer all your questions regarding our services, offers, and reservations.',
+        details: 'We guarantee you 24/7 customer service. Our qualified technical support team is always available to help you solve any problem you may encounter and to answer all your questions regarding our services, offers, and reservations.',
       },
     ],
   };
@@ -59,13 +59,13 @@ export class AboutUsComponent {
   ];
   mission = {
     title: 'Our mission',
-    description: 'Our mission at Safir Tourism is to provide our customers with exceptional travel experiences that exceed their expectations. We strive to provide personalized services tailored to each individual\'s needs and preferences, while maintaining the highest standards of professionalism and integrity. At Safar Tourism, our mission is to turn our customers\' travel dreams into reality, an unforgettable trip every time.',
+    description: 'Our mission is to provide our customers with exceptional travel experiences that exceed their expectations. We strive to provide personalized services tailored to each individual\'s needs and preferences, while maintaining the highest standards of professionalism and integrity. ',
     image: 'https://safer.travel/website_assets/images/about/objectives/capaign.webp'
   };
 
   vision = {
     title: 'Our vision',
-    description: 'Our vision at Safir Tourism is to become the leading provider of unique and tailored travel experiences that exceed your expectations. We strive to be a trusted advisor to our clients, creating memorable journeys to also reflect their individual preferences and interests. Our goal is to inspire a sense of wonder and discovery in everyone who travels with us, creating lifelong memories that they will cherish forever.',
+    description: 'Our vision is to become the leading provider of unique and tailored travel experiences that exceed your expectations. We strive to be a trusted advisor to our clients, creating memorable journeys to also reflect their individual preferences and interests. ',
     image: 'https://safer.travel/website_assets/images/about/objectives/target.webp'
   };
   newsletterForm: FormGroup;
