@@ -64,6 +64,6 @@ export class DisplayDestinationsComponent {
       }
     }
     viewDetails(data: any,name:string ) {
-      this.router.navigate(['discover', `${name}-details`], { state: {  data } });
+      this.router.navigate(['discover', `${name}-detailsD`], { state: {  data } });
     }
 }

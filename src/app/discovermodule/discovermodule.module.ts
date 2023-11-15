@@ -12,6 +12,7 @@ import { ReviewStarsComponent } from './media/review-stars/review-stars.componen
 import { DetailsComponent } from './Details/details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MyDestDetailsComponent } from './my-dest-details/my-dest-details.component';
 
 const routes: Routes = [
   
@@ -19,11 +20,13 @@ const routes: Routes = [
   {path:'home',component:DiscoverComponent},
 
   {path:':name-details',component:DetailsComponent},
+  {path:':name-detailsD',component:MyDestDetailsComponent},
+
 ];
 
 @NgModule({
   declarations: [  
-    DiscoverComponent, CaraouselComponent, MediaComponent,CuttextPipe, NgbcommentComponent, ReviewStarsComponent, DetailsComponent
+    DiscoverComponent, CaraouselComponent, MediaComponent,CuttextPipe, NgbcommentComponent, ReviewStarsComponent, DetailsComponent, MyDestDetailsComponent
   ],
   imports: [
   CommonModule,

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DestinationCrudService } from '../Services/destination-crud.service';
 import { HotelCrudService } from '../Services/hotel-crud.service';
 import { TripCrudService } from '../Services/trip-crud.service';
@@ -32,6 +32,7 @@ export class DisplayServicesComponent {
   itemsPerPage: number = 5;
 
   constructor(
+    private router:Router,
     private activatedRoute: ActivatedRoute,
     private route: ActivatedRoute,
     private destinationCrudService: DestinationCrudService,
@@ -172,5 +173,8 @@ export class DisplayServicesComponent {
         this.imagePath = currentImagePath;
       }
     });
+  }
+  viewDetails(data: any,name:string ) {
+    this.router.navigate(['discover', `${name}-detailsD`], { state: {  data } });
   }
 }

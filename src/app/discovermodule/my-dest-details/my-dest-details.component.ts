@@ -4,14 +4,12 @@ import { Router, NavigationEnd } from '@angular/router';
 import { AuthService } from 'src/app/Services/auth.service';
 import { HandleapiService } from 'src/app/Services/handleapi.service';
 
-//import { google } from 'googlemaps';
-
 @Component({
-  selector: 'app-details',
-  templateUrl: './details.component.html',
-  styleUrls: ['./details.component.css']
+  selector: 'app-my-dest-details',
+  templateUrl: './my-dest-details.component.html',
+  styleUrls: ['./my-dest-details.component.css']
 })
-export class DetailsComponent implements OnInit{
+export class MyDestDetailsComponent {
   detailsdata:any;
   postedComment:any;
   comment:any;
