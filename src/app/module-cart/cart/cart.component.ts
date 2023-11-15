@@ -58,7 +58,7 @@ export class CartComponent {
           
           this.discount += Number(this.cartProducts[i].item.discount);
           }          
-          this.totalPrice+=(this.subtotal- Number(this.discount));
+          this.totalPrice = this.subtotal - (this.subtotal* (Number(this.discount)/100));
 
       this.CounterService.get_Counter().subscribe((val)=>{
         this.counter=val;

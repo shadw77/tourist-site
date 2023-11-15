@@ -8,6 +8,7 @@ import { HandleapiService } from '../Services/handleapi.service';
 })
 export class ContactUsComponent {
 
+  message:any;
 
   imageUrl: string = 'https://cdn.pixabay.com/photo/2015/03/22/23/07/bora-bora-685303_640.jpg';
   title: string = 'CONNECT WITH US';
@@ -48,7 +49,8 @@ export class ContactUsComponent {
     console.log(form.value);
     this.handleapi.sendMessage(form.value).subscribe({
       next:(next)=>{
-      //console.log(next);
+      console.log(next.mssg);
+      this.message = next.mssg;
       },
       error:(error) => {
         console.error('Error fetching reviews:', error);
@@ -71,13 +73,13 @@ export class ContactUsComponent {
 
   mission = {
     title: 'Our mission',
-    description: 'Our mission at Safir Tourism is to provide our customers with exceptional travel experiences that exceed their expectations. We strive to provide personalized services tailored to each individual\'s needs and preferences, while maintaining the highest standards of professionalism and integrity. At Safar Tourism, our mission is to turn our customers\' travel dreams into reality, an unforgettable trip every time.',
+    description: 'Our mission is to provide our customers with exceptional travel experiences that exceed their expectations. We strive to provide personalized services tailored to each individual\'s needs and preferences, while maintaining the highest standards of professionalism and integrity. At Safar Tourism, our mission is to turn our customers\' travel dreams into reality, an unforgettable trip every time.',
     image: 'https://safer.travel/website_assets/images/about/objectives/capaign.webp'
   };
 
   vision = {
     title: 'Our vision',
-    description: 'Our vision at Safir Tourism is to become the leading provider of unique and tailored travel experiences that exceed your expectations. We strive to be a trusted advisor to our clients, creating memorable journeys to also reflect their individual preferences and interests. Our goal is to inspire a sense of wonder and discovery in everyone who travels with us, creating lifelong memories that they will cherish forever.',
+    description: 'Our vision is to become the leading provider of unique and tailored travel experiences that exceed your expectations. We strive to be a trusted advisor to our clients, creating memorable journeys to also reflect their individual preferences and interests. Our goal is to inspire a sense of wonder and discovery in everyone who travels with us, creating lifelong memories that they will cherish forever.',
     image: 'https://safer.travel/website_assets/images/about/objectives/target.webp'
   };
 
