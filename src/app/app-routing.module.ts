@@ -78,7 +78,9 @@ const routes: Routes = [
  
   {
     path:'register', 
-    component:SignupComponent
+    component:SignupComponent,
+    canActivate: [checkLoginGuard]
+
   },
 
   {
